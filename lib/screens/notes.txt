@@ -3,3 +3,21 @@ if they choose to skip buddy go straight to the buddy
 no choice to skip the name
 
 skipped everything, just hello i'm milo.
+
+ if (index == 0) {
+            return Expanded(
+              child: Column(children: <Widget>[
+                Row(
+                  children: [
+                    Container(
+                      margin: const EdgeInsets.fromLTRB(20, 48, 20, 20),
+                      child: Image(image: AssetImage("panda.png"), height: 120),
+                    ),
+                    pickActivityBubble(
+                        ChatBubbleClipper2(type: BubbleType.receiverBubble),
+                        context),
+                  ],
+                ),
+              ]),
+            );
+          } else

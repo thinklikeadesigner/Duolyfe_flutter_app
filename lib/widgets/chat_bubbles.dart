@@ -149,7 +149,7 @@ pickActivityBubble(CustomClipper clipper, BuildContext context) => ChatBubble(
           maxWidth: MediaQuery.of(context).size.width * 0.4,
         ),
         child: Text(
-          " I’m your Buddy, and I’ll share your journey to enjoy life more and worry about work less. ",
+          " Your interests will help me decide what fun suggestions I should give every week!  ",
           style: TextStyle(color: Colors.black),
         ),
       ),
