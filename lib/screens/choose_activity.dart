@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_bubble/bubble_type.dart';
+import 'package:flutter_chat_bubble/clippers/chat_bubble_clipper_2.dart';
 import 'package:navigationapp/models/check.dart';
+import 'package:navigationapp/widgets/chat_bubbles.dart';
 // import 'package:flutter_chat_bubble/clippers/chat_bubble_clipper_2.dart';
 // import 'package:navigationapp/widgets/buttons.dart';
 // import 'package:navigationapp/widgets/chat_bubbles.dart';
@@ -14,15 +16,30 @@ class ChooseActivity extends StatefulWidget {
 }
 
 class _ChooseActivityState extends State<ChooseActivity> {
-  var _checked = false;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('hello'),
+      // appBar: AppBar(
+      //   title: Text('hello'),
+      // ),
+      body: Column(
+        children: <Widget>[
+          Card(
+            child: Row(
+              children: [
+                Container(
+                  margin: const EdgeInsets.fromLTRB(20, 48, 20, 20),
+                  child: Image(image: AssetImage("panda.png"), height: 120),
+                ),
+                pickActivityBubble(
+                    ChatBubbleClipper2(type: BubbleType.receiverBubble),
+                    context),
+              ],
+            ),
+          ),
+          Expanded(child: CheckTile()),
+        ],
       ),
-      body: CheckTile(),
       bottomSheet: Container(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
