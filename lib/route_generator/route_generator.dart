@@ -10,6 +10,7 @@ import 'package:navigationapp/screens/onboarding_screens/onboarding_start.dart';
 import 'package:navigationapp/screens/onboarding_screens/sky_name_picked.dart';
 
 import 'package:navigationapp/screens/choose_buddy.dart';
+import 'package:navigationapp/services/database_queries.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -38,6 +39,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => ChooseWorkTime());
       case '/picklunchtime':
         return MaterialPageRoute(builder: (_) => ChooseLunchTime());
+      case '/dummydatatry':
+        return MaterialPageRoute(builder: (_) => DummyDataTry());
       default:
         return MaterialPageRoute(builder: (_) => ErrorRoutePage());
     }

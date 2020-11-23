@@ -25,6 +25,7 @@ class _ChooseActivityState extends State<ChooseActivity> {
       body: Column(
         children: <Widget>[
           Card(
+            // elevation: 5.0,
             child: Row(
               children: [
                 Container(
@@ -40,7 +41,8 @@ class _ChooseActivityState extends State<ChooseActivity> {
           Expanded(child: CheckTile()),
         ],
       ),
-      bottomSheet: Container(
+      bottomSheet: Card(
+        elevation: 10.0,
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child:

@@ -57,10 +57,10 @@ class FirstPage extends StatelessWidget with Previewer {
                 },
               ),
               RaisedButton(
-                  child: Text('pick your lunch time'),
+                  child: Text('data'),
                   splashColor: primaryTeal,
                   onPressed: () {
-                    Navigator.of(context).pushNamed('/picklunchtime');
+                    Navigator.of(context).pushNamed('/dummydatatry');
                   }),
               // OutlineButton(
               //   child: Text('Start Onboarding'),
