@@ -3,10 +3,10 @@ import 'package:flutter_chat_bubble/bubble_type.dart';
 import 'package:flutter_chat_bubble/clippers/chat_bubble_clipper_2.dart';
 import 'package:navigationapp/widgets/buttons.dart';
 import 'package:navigationapp/widgets/chat_bubbles.dart';
-import 'package:preview/preview.dart';
+
 import 'package:uic/widgets.dart';
 
-class ChooseName extends StatelessWidget with Previewer {
+class ChooseName extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

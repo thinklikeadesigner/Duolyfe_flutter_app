@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_chat_bubble/bubble_type.dart';
 import 'package:flutter_chat_bubble/clippers/chat_bubble_clipper_2.dart';
 import 'package:navigationapp/widgets/buttons.dart';
+
 import 'package:navigationapp/widgets/chat_bubbles.dart';
-import 'package:preview/preview.dart';
+
 import 'package:uic/widgets.dart';
 import 'package:navigationapp/app.dart';
 
-class SkyNamePicked extends StatelessWidget with Previewer {
+class SkyNamePicked extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

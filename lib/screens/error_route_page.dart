@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:preview/preview.dart';
 
-class ErrorRoutePage extends StatelessWidget with Previewer {
+class ErrorRoutePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

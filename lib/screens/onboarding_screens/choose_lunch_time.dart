@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:preview/preview.dart';
 
-class ChooseLunchTime extends StatelessWidget with Previewer {
+class ChooseLunchTime extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

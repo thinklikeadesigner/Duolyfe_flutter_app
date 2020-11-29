@@ -6,7 +6,7 @@ import 'package:navigationapp/widgets/chat_bubbles.dart';
 // import 'package:flutter_chat_bubble/clippers/chat_bubble_clipper_2.dart';
 // import 'package:navigationapp/widgets/buttons.dart';
 // import 'package:navigationapp/widgets/chat_bubbles.dart';
-import 'package:preview/preview.dart';
+// import 'package:preview/preview.dart';
 import 'package:navigationapp/app.dart';
 // import 'package:uic/step_indicator.dart';
 
@@ -47,18 +47,7 @@ class _ChooseActivityState extends State<ChooseActivity> {
           padding: const EdgeInsets.all(8.0),
           child:
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-            FlatButton(
-                child: Text(
-                  'Skip',
-                  style: TextStyle(color: Colors.black),
-                ),
-                splashColor: primaryTeal,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(18.0),
-                    side: BorderSide(color: Colors.black)),
-                onPressed: () {
-                  Navigator.of(context).pushNamed('/choosename');
-                }),
+            SizedBox(width: 20),
             FlatButton(
                 child: Text(
                   'Save Activities',
@@ -70,7 +59,7 @@ class _ChooseActivityState extends State<ChooseActivity> {
                   borderRadius: BorderRadius.circular(18.0),
                 ),
                 onPressed: () {
-                  Navigator.of(context).pushNamed('/choosename');
+                  Navigator.of(context).pushNamed('/chooseworktime');
                 }),
           ]),
         ),

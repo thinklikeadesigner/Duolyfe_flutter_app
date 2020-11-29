@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_chat_bubble/chat_bubble.dart';
 import 'package:navigationapp/app.dart';
 
+// ONBOARDING START SCREEN
 firstChatBubble(CustomClipper clipper, BuildContext context) => ChatBubble(
       clipper: clipper,
       backGroundColor: Color(0xffE7E7ED),
@@ -32,21 +33,22 @@ secondChatBubble(CustomClipper clipper, BuildContext context) => ChatBubble(
       ),
     );
 
-// @override
-// Widget build(BuildContext context) {
-//   return Scaffold(
-//     appBar: AppBar(
-//       title: Text(widget.title),
-//     ),
-//     body: Padding(
-//       padding: const EdgeInsets.all(16.0),
-//       child: StepIndicator(
-//         selectedStepIndex: 2,
-//         totalSteps: 5,
-//       ),
-//     ),
-//   );
-// }
+customizeMe(CustomClipper clipper, BuildContext context) => ChatBubble(
+      clipper: clipper,
+      backGroundColor: Color(0xffE7E7ED),
+      margin: EdgeInsets.only(top: 20),
+      child: Container(
+        constraints: BoxConstraints(
+          maxWidth: MediaQuery.of(context).size.width * 0.7,
+        ),
+        child: Text(
+          "On the next screen, please choose your new buddy!",
+          style: TextStyle(color: Colors.black),
+        ),
+      ),
+    );
+
+// CHOOSE NAME SCREEN
 
 pickNameChatBubble(CustomClipper clipper, BuildContext context) => ChatBubble(
       clipper: clipper,
@@ -63,6 +65,36 @@ pickNameChatBubble(CustomClipper clipper, BuildContext context) => ChatBubble(
       ),
     );
 
+sky(CustomClipper clipper, BuildContext context) => ChatBubble(
+      clipper: clipper,
+      alignment: Alignment.topRight,
+      margin: EdgeInsets.only(top: 20),
+      backGroundColor: purpleMessage,
+      child: Container(
+        constraints: BoxConstraints(
+          maxWidth: MediaQuery.of(context).size.width * 0.7,
+        ),
+        child: Text(
+          "Sky.",
+          style: TextStyle(color: Colors.white),
+        ),
+      ),
+    );
+
+imSky(CustomClipper clipper, BuildContext context) => ChatBubble(
+      clipper: clipper,
+      backGroundColor: Color(0xffE7E7ED),
+      margin: EdgeInsets.only(top: 20),
+      child: Container(
+        constraints: BoxConstraints(
+          maxWidth: MediaQuery.of(context).size.width * 0.7,
+        ),
+        child: Text(
+          "Hi! I'm Sky.",
+          style: TextStyle(color: Colors.black),
+        ),
+      ),
+    );
 milo(CustomClipper clipper, BuildContext context) => ChatBubble(
       clipper: clipper,
       alignment: Alignment.topRight,
@@ -109,37 +141,7 @@ nextStep(CustomClipper clipper, BuildContext context) => ChatBubble(
       ),
     );
 
-sky(CustomClipper clipper, BuildContext context) => ChatBubble(
-      clipper: clipper,
-      alignment: Alignment.topRight,
-      margin: EdgeInsets.only(top: 20),
-      backGroundColor: purpleMessage,
-      child: Container(
-        constraints: BoxConstraints(
-          maxWidth: MediaQuery.of(context).size.width * 0.7,
-        ),
-        child: Text(
-          "Sky.",
-          style: TextStyle(color: Colors.white),
-        ),
-      ),
-    );
-
-imSky(CustomClipper clipper, BuildContext context) => ChatBubble(
-      clipper: clipper,
-      backGroundColor: Color(0xffE7E7ED),
-      margin: EdgeInsets.only(top: 20),
-      child: Container(
-        constraints: BoxConstraints(
-          maxWidth: MediaQuery.of(context).size.width * 0.7,
-        ),
-        child: Text(
-          "Hi! I'm Sky.",
-          style: TextStyle(color: Colors.black),
-        ),
-      ),
-    );
-
+// CHOOSE ACTIVITY SCREEN
 pickActivityBubble(CustomClipper clipper, BuildContext context) => ChatBubble(
       clipper: clipper,
       backGroundColor: Color(0xffE7E7ED),
@@ -155,17 +157,35 @@ pickActivityBubble(CustomClipper clipper, BuildContext context) => ChatBubble(
       ),
     );
 
-customizeMe(CustomClipper clipper, BuildContext context) => ChatBubble(
+//CHOOSE WORK TIME SCREEN
+ilovehiking(CustomClipper clipper, BuildContext context) => ChatBubble(
       clipper: clipper,
       backGroundColor: Color(0xffE7E7ED),
-      margin: EdgeInsets.only(top: 20),
+      margin: EdgeInsets.only(top: 5),
       child: Container(
         constraints: BoxConstraints(
-          maxWidth: MediaQuery.of(context).size.width * 0.7,
+          maxWidth: MediaQuery.of(context).size.width * 0.4,
         ),
         child: Text(
-          "On the next screen, please choose your new buddy!",
+          " I also love hiking! We will make a great team! ",
           style: TextStyle(color: Colors.black),
         ),
       ),
     );
+
+picktime(CustomClipper clipper, BuildContext context) => ChatBubble(
+      clipper: clipper,
+      backGroundColor: Color(0xffE7E7ED),
+      margin: EdgeInsets.only(top: 5),
+      child: Container(
+        constraints: BoxConstraints(
+          maxWidth: MediaQuery.of(context).size.width * 0.4,
+        ),
+        child: Text(
+          " Now let’s create your work schedule so we can follow it together. Select the start and end times for your work day below. ",
+          style: TextStyle(color: Colors.black),
+        ),
+      ),
+    );
+
+//CHOOSE LUNCH TIME SCREEN
