@@ -13,21 +13,21 @@ class ChooseBuddy extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Brew Crew'),
-        backgroundColor: Colors.brown[400],
-        elevation: 0.0,
-        actions: <Widget>[
-          FlatButton.icon(
-            icon: Icon(Icons.person),
-            label: Text('logout'),
-            onPressed: () async {
-              print('signing out');
-              await _auth.signOut();
-            },
-          ),
-        ],
-      ),
+      // appBar: AppBar(
+      //   title: Text('Brew Crew'),
+      //   backgroundColor: Colors.brown[400],
+      //   elevation: 0.0,
+      //   actions: <Widget>[
+      //     FlatButton.icon(
+      //       icon: Icon(Icons.person),
+      //       label: Text('logout'),
+      //       onPressed: () async {
+      //         print('signing out');
+      //         await _auth.signOut();
+      //       },
+      //     ),
+      //   ],
+      // ),
       body: Container(
         child: GridView(
           gridDelegate:
