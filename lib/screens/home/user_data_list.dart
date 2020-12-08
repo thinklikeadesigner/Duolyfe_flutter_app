@@ -13,21 +13,26 @@ class UserDataList extends StatefulWidget {
 class _UserDataListState extends State<UserDataList> {
   @override
   Widget build(BuildContext context) {
-    final userData = Provider.of
-        // <List<UserData>>
-        <QuerySnapshot>(context);
+    final userData = Provider.of<List<UserData>>
+            // <QuerySnapshot>
+            (context) ??
+        [];
 
-    for (var doc in userData.docs) {
-      print(doc.data());
-    }
+    // userData.forEach((data) {
+    //   print(data.interests);
+    // });
 
-    return Container();
+    // for (var doc in userData.docs) {
+    //   print(doc.data());
+    // }
 
-    // return ListView.builder(
-    //   itemCount: userData.length,
-    //   itemBuilder: (context, index) {
-    //     return UserDataTile(userData: userData[index]);
-    //   },
-    // );
+    // return Container();
+
+    return ListView.builder(
+      itemCount: userData.length,
+      itemBuilder: (context, index) {
+        return UserDataTile(userData: userData[index]);
+      },
+    );
   }
 }

@@ -9,11 +9,11 @@ class AuthService {
 
   //return user object based on firebase user
   UserClass _userFromFirebaseUser(User user) {
-    print(user);
-    // added creation time to user class
-    print(user.metadata.creationTime.month);
-    // added last sign in time to user class
-    print(user.metadata.lastSignInTime);
+    // print(user);
+    // // added creation time to user class
+    // print(user.metadata.creationTime.month);
+    // // added last sign in time to user class
+    // print(user.metadata.lastSignInTime);
     return user != null
         ? UserClass(uid: user.uid, creationTime: user.metadata.creationTime)
         : null;

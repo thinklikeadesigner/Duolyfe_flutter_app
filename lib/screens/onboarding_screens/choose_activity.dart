@@ -25,18 +25,18 @@ class _ChooseActivityState extends State<ChooseActivity> {
     "responseCode": "1",
     "responseText": "List categories.",
     "responseBody": [
-      {"interest": "0", "category_name": "Cooking"},
-      {"interest": "1", "category_name": "Outdoors"},
-      {"interest": "2", "category_name": "Mindfulness"},
-      {"interest": "3", "category_name": "Sports"},
-      {"interest": "4", "category_name": "Entertainment"},
-      {"interest": "5", "category_name": "Crafts"},
-      {"interest": "6", "category_name": "Nature"},
-      {"interest": "7", "category_name": "Social"},
-      {"interest": "8", "category_name": "Art"},
-      {"interest": "9", "category_name": "Pampering"},
-      {"interest": "10", "category_name": "Learning"},
-      {"interest": "11", "category_name": "Writing"}
+      {"interest_name": "Cooking"},
+      {"interest_name": "Outdoors"},
+      {"interest_name": "Mindfulness"},
+      {"interest_name": "Sports"},
+      {"interest_name": "Entertainment"},
+      {"interest_name": "Crafts"},
+      {"interest_name": "Nature"},
+      {"interest_name": "Social"},
+      {"interest_name": "Art"},
+      {"interest_name": "Pampering"},
+      {"interest_name": "Learning"},
+      {"interest": "11", "interest_name": "Writing"}
     ],
     "responseTotalResult":
         12 // Total result is 3 here becasue we have 3 categories in responseBody.
@@ -89,14 +89,15 @@ class _ChooseActivityState extends State<ChooseActivity> {
                 itemBuilder: (BuildContext context, int index) {
                   return CheckboxListTile(
                     value: _currentInterests.contains(
-                        interests['responseBody'][index]['category_name']),
+                        interests['responseBody'][index]['interest_name']),
                     onChanged: (bool selected) {
                       _onCategorySelected(selected,
-                          interests['responseBody'][index]['category_name']);
+                          interests['responseBody'][index]['interest_name']);
                       print(_currentInterests);
                     },
-                    title:
-                        Text(interests['responseBody'][index]['category_name']),
+                    title: Text(interests['responseBody'][index]
+                            ['interest_name'] ??
+                        'hi'),
                   );
                 }),
           ),

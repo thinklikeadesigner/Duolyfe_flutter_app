@@ -20,25 +20,28 @@ class DatabaseService {
 
 //get user collection, in a stream, using a getter, using "QuerySnapshot" which returns a snapshot of the document at that moment in time
 
-// userData can be named anything
-
-  Stream<QuerySnapshot> get userData {
-    return userDataCollection.snapshots()
-        // .map(_userDataFromSnapshot)
-        ;
-  }
-
 //convert user data snapshot into user objects from user data model
 
-  // List<UserData> _userDataFromSnapshot(QuerySnapshot snapshot) {
-  //   return snapshot.docs.map((doc) {
-  //     return UserData(
-  //         interests: doc.data()['interests'] ?? [],
-  //         time: doc.data()['time'] ?? 0,
-  //         points: doc.data()['points'] ?? 0,
-  //         buddy: doc.data()['buddy'] ?? '');
-  //   }).toList();
-  // }
+  List<UserData> _userDataFromSnapshot(QuerySnapshot snapshot) {
+    return snapshot.docs.map((doc) {
+      return UserData(
+          interests: doc.data()['interests'] ?? [],
+          time: doc.data()['time'] ?? 0,
+          points: doc.data()['points'] ?? 0,
+          buddy: doc.data()['buddy'] ?? '');
+    }).toList();
+  }
+
+  // userData can be named anything
+
+  Stream<List<UserData>> get userData {
+    return userDataCollection.snapshots().map(_userDataFromSnapshot);
+  }
+
+//get user doc stream
+  Stream<DocumentSnapshot> get userOnboardingChoices {
+    return userDataCollection.doc(uid).snapshots();
+  }
 
   // List<UserData> _userDataListFromSnapshot(QuerySnapshot snapshot) {
   //   return snapshot.docs.map((doc) {

@@ -4,6 +4,7 @@ import 'package:navigationapp/models/user_data.dart';
 import 'package:navigationapp/screens/home/user_data_list.dart';
 import 'package:navigationapp/services/auth.dart';
 import 'package:navigationapp/services/database.dart';
+import 'package:navigationapp/shared/settings_form.dart';
 import 'package:provider/provider.dart';
 
 class Home extends StatelessWidget {
@@ -11,7 +12,19 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StreamProvider<QuerySnapshot>.value(
+    void _showSettingsPanel() {
+      showModalBottomSheet(
+          context: context,
+          builder: (context) {
+            return Container(
+                padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 60.0),
+                child: Text('Bottom sheet')
+                // SettingsForm()
+                );
+          });
+    }
+
+    return StreamProvider<List<UserData>>.value(
       value: DatabaseService().userData,
       child: Scaffold(
         backgroundColor: Colors.brown[100],
@@ -28,6 +41,11 @@ class Home extends StatelessWidget {
                 await _auth.signOut();
               },
             ),
+            FlatButton.icon(
+              icon: Icon(Icons.settings),
+              label: Text('Settings'),
+              onPressed: () => _showSettingsPanel(),
+            )
           ],
         ),
         body: UserDataList(),
