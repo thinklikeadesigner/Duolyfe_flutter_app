@@ -5,15 +5,15 @@ import 'package:navigationapp/models/user_data.dart';
 import 'user_data_tile.dart';
 import 'package:provider/provider.dart';
 
-class UserDataList extends StatefulWidget {
+class UserOnboardingDataList extends StatefulWidget {
   @override
-  _UserDataListState createState() => _UserDataListState();
+  _UserOnboardingDataListState createState() => _UserOnboardingDataListState();
 }
 
-class _UserDataListState extends State<UserDataList> {
+class _UserOnboardingDataListState extends State<UserOnboardingDataList> {
   @override
   Widget build(BuildContext context) {
-    final userData = Provider.of<List<UserData>>
+    final userOnboardingData = Provider.of<List<UserOnboardingData>>
             // <QuerySnapshot>
             (context) ??
         [];
@@ -29,9 +29,10 @@ class _UserDataListState extends State<UserDataList> {
     // return Container();
 
     return ListView.builder(
-      itemCount: userData.length,
+      itemCount: userOnboardingData.length,
       itemBuilder: (context, index) {
-        return UserDataTile(userData: userData[index]);
+        return UserOnboardingDataTile(
+            userOnboardingData: userOnboardingData[index]);
       },
     );
   }

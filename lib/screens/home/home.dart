@@ -24,8 +24,8 @@ class Home extends StatelessWidget {
           });
     }
 
-    return StreamProvider<List<UserData>>.value(
-      value: DatabaseService().userData,
+    return StreamProvider<List<UserOnboardingData>>.value(
+      value: DatabaseService().userOnboardingData,
       child: Scaffold(
         backgroundColor: Colors.brown[100],
         appBar: AppBar(
@@ -48,7 +48,7 @@ class Home extends StatelessWidget {
             )
           ],
         ),
-        body: UserDataList(),
+        body: UserOnboardingDataList(),
       ),
     );
   }

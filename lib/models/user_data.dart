@@ -1,8 +1,8 @@
 // brew
-class UserData {
+class UserOnboardingData {
   final List<dynamic> interests;
   final int time;
   final String buddy;
 
-  UserData({this.interests, this.time, this.buddy});
+  UserOnboardingData({this.interests, this.time, this.buddy});
 }

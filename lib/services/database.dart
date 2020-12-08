@@ -5,43 +5,44 @@ class DatabaseService {
   final String uid;
 
   DatabaseService({this.uid});
-  final CollectionReference userDataCollection =
-      FirebaseFirestore.instance.collection('userData');
+  final CollectionReference userOnboardingDataCollection =
+      FirebaseFirestore.instance.collection('userOnboardingData');
 
-  Future updateUserData(
-      List<dynamic> interests, int time, int points, String buddy) async {
-    return await userDataCollection.doc(uid).set({
-      'interests': interests,
-      'time': time,
-      'points': points,
-      'buddy': buddy
-    });
+  Future updateUserOnboardingData(
+      List<dynamic> interests, int time, String buddy) async {
+    return await userOnboardingDataCollection
+        .doc(uid)
+        .set({'interests': interests, 'time': time, 'buddy': buddy});
   }
 
 //get user collection, in a stream, using a getter, using "QuerySnapshot" which returns a snapshot of the document at that moment in time
 
 //convert user data snapshot into user objects from user data model
 
-  List<UserData> _userDataFromSnapshot(QuerySnapshot snapshot) {
+  List<UserOnboardingData> _userOnboardingDataFromSnapshot(
+      QuerySnapshot snapshot) {
     return snapshot.docs.map((doc) {
-      return UserData(
+      return UserOnboardingData(
           interests: doc.data()['interests'] ?? [],
           time: doc.data()['time'] ?? 0,
-          points: doc.data()['points'] ?? 0,
           buddy: doc.data()['buddy'] ?? '');
     }).toList();
   }
 
   // userData can be named anything
 
-  Stream<List<UserData>> get userData {
-    return userDataCollection.snapshots().map(_userDataFromSnapshot);
+  Stream<List<UserOnboardingData>> get userOnboardingData {
+    return userOnboardingDataCollection
+        .snapshots()
+        .map(_userOnboardingDataFromSnapshot);
   }
 
 //get user doc stream
-  Stream<DocumentSnapshot> get userOnboardingChoices {
-    return userDataCollection.doc(uid).snapshots();
+  Stream<DocumentSnapshot> get userData {
+    return userOnboardingDataCollection.doc(uid).snapshots();
   }
+
+  //get userdata from snapshot
 
   // List<UserData> _userDataListFromSnapshot(QuerySnapshot snapshot) {
   //   return snapshot.docs.map((doc) {
