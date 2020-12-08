@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_bubble/bubble_type.dart';
 import 'package:flutter_chat_bubble/clippers/chat_bubble_clipper_2.dart';
-import 'package:navigationapp/models/check.dart';
+
+import 'package:navigationapp/services/database.dart';
+import 'package:navigationapp/shared/loading.dart';
+import 'package:navigationapp/widgets/check.dart';
 import 'package:navigationapp/widgets/chat_bubbles.dart';
 // import 'package:flutter_chat_bubble/clippers/chat_bubble_clipper_2.dart';
 // import 'package:navigationapp/widgets/buttons.dart';
@@ -9,6 +12,7 @@ import 'package:navigationapp/widgets/chat_bubbles.dart';
 // import 'package:preview/preview.dart';
 import 'package:navigationapp/app.dart';
 // import 'package:uic/step_indicator.dart';
+import 'package:provider/provider.dart';
 
 class ChooseActivity extends StatefulWidget {
   @override
@@ -16,8 +20,49 @@ class ChooseActivity extends StatefulWidget {
 }
 
 class _ChooseActivityState extends State<ChooseActivity> {
+  List _currentInterests = List();
+  final Map<String, dynamic> interests = {
+    "responseCode": "1",
+    "responseText": "List categories.",
+    "responseBody": [
+      {"interest": "0", "category_name": "Cooking"},
+      {"interest": "1", "category_name": "Outdoors"},
+      {"interest": "2", "category_name": "Mindfulness"},
+      {"interest": "3", "category_name": "Sports"},
+      {"interest": "4", "category_name": "Entertainment"},
+      {"interest": "5", "category_name": "Crafts"},
+      {"interest": "6", "category_name": "Nature"},
+      {"interest": "7", "category_name": "Social"},
+      {"interest": "8", "category_name": "Art"},
+      {"interest": "9", "category_name": "Pampering"},
+      {"interest": "10", "category_name": "Learning"},
+      {"interest": "11", "category_name": "Writing"}
+    ],
+    "responseTotalResult":
+        12 // Total result is 3 here becasue we have 3 categories in responseBody.
+  };
+
+  void _onCategorySelected(bool selected, interest) {
+    if (selected == true) {
+      setState(() {
+        _currentInterests.add(interest);
+      });
+    } else {
+      setState(() {
+        _currentInterests.remove(interest);
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    // final user = Provider.of<UserClass>(context);
+    // return StreamBuilder<UserData>(
+    //     stream: DatabaseService(uid: user.uid).userData,
+    //     builder: (context, snapshot) {
+    //       if (snapshot.hasData) {
+    //         UserData userData = snapshot.data;
+
     return Scaffold(
       // appBar: AppBar(
       //   title: Text('hello'),
@@ -38,7 +83,23 @@ class _ChooseActivityState extends State<ChooseActivity> {
               ],
             ),
           ),
-          Expanded(child: CheckTile()),
+          Expanded(
+            child: ListView.builder(
+                itemCount: interests['responseTotalResult'],
+                itemBuilder: (BuildContext context, int index) {
+                  return CheckboxListTile(
+                    value: _currentInterests.contains(
+                        interests['responseBody'][index]['category_name']),
+                    onChanged: (bool selected) {
+                      _onCategorySelected(selected,
+                          interests['responseBody'][index]['category_name']);
+                      print(_currentInterests);
+                    },
+                    title:
+                        Text(interests['responseBody'][index]['category_name']),
+                  );
+                }),
+          ),
         ],
       ),
       bottomSheet: Card(
@@ -58,7 +119,13 @@ class _ChooseActivityState extends State<ChooseActivity> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(18.0),
                 ),
-                onPressed: () {
+                onPressed: () async {
+                  // await DatabaseService(uid: user.uid)
+                  //     .updateUserData(
+                  //         _currentInterests ?? userData.interests,
+                  //         5,
+                  //         50,
+                  //         "panda");
                   Navigator.of(context).pushNamed('/chooseworktime');
                 }),
           ]),
@@ -66,5 +133,10 @@ class _ChooseActivityState extends State<ChooseActivity> {
         color: Colors.white,
       ),
     );
+
+    // } else {
+    //   return Loading();
+    // }
+    // });
   }
 }

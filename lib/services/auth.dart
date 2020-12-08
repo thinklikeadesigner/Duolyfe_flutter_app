@@ -9,25 +9,19 @@ class AuthService {
 
   //return user object based on firebase user
   UserClass _userFromFirebaseUser(User user) {
-    return user != null ? UserClass(uid: user.uid) : null;
+    print(user);
+    // added creation time to user class
+    print(user.metadata.creationTime.month);
+    // added last sign in time to user class
+    print(user.metadata.lastSignInTime);
+    return user != null
+        ? UserClass(uid: user.uid, creationTime: user.metadata.creationTime)
+        : null;
   }
 
   //auth change user stream
   Stream<UserClass> get user {
     return _auth.authStateChanges().map(_userFromFirebaseUser);
-  }
-
-//sign in anon
-
-  Future signInAnon() async {
-    try {
-      UserCredential result = await _auth.signInAnonymously();
-      User user = result.user;
-      return _userFromFirebaseUser(user);
-    } on FirebaseAuthException catch (error) {
-      print(error.toString());
-      return null;
-    }
   }
 
 //sign in with email and password
@@ -36,7 +30,9 @@ class AuthService {
     try {
       UserCredential result = await _auth.signInWithEmailAndPassword(
           email: email, password: password);
+
       User user = result.user;
+
       return user;
     } on FirebaseAuthException catch (error) {
       print(error.toString());
@@ -53,7 +49,9 @@ class AuthService {
 
 //create a new document for the user with the uid
 
-      await DatabaseService(uid: user.uid).updateUserData([], 5, 50);
+// Database service takes the result.user which is set to user, extracts the uid, and sets the property uid to user.uid
+      await DatabaseService(uid: user.uid)
+          .updateUserData(['Crafts', 'Social'], 5, 100, 'panda');
 
       return _userFromFirebaseUser(user);
     } on FirebaseAuthException catch (error) {

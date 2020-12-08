@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:navigationapp/models/config.dart';
-import 'package:navigationapp/screens/home/config_list.dart';
+import 'package:navigationapp/models/user_data.dart';
+import 'package:navigationapp/screens/home/user_data_list.dart';
 import 'package:navigationapp/services/auth.dart';
 import 'package:navigationapp/services/database.dart';
 import 'package:provider/provider.dart';
@@ -11,8 +11,8 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StreamProvider<List<Config>>.value(
-      value: DatabaseService().configs,
+    return StreamProvider<QuerySnapshot>.value(
+      value: DatabaseService().userData,
       child: Scaffold(
         backgroundColor: Colors.brown[100],
         appBar: AppBar(
@@ -30,7 +30,7 @@ class Home extends StatelessWidget {
             ),
           ],
         ),
-        body: ConfigList(),
+        body: UserDataList(),
       ),
     );
   }

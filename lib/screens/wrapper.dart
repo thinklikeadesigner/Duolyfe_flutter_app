@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:navigationapp/models/user_class.dart';
 import 'package:navigationapp/screens/authenticate/authenticate.dart';
+import 'package:navigationapp/screens/onboarding_screens/onboarding_start.dart';
 import 'package:provider/provider.dart';
 
 import 'home/home.dart';
@@ -33,7 +34,7 @@ class Wrapper extends StatelessWidget {
     if (user == null) {
       return Authenticate();
     } else {
-      return Home();
+      return OnboardingStart();
     }
   }
 }

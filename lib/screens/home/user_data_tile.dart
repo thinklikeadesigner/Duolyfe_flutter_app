@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:navigationapp/models/config.dart';
+import 'package:navigationapp/models/user_data.dart';
 
-class ConfigTile extends StatelessWidget {
-  final Config config;
-  ConfigTile({this.config});
+class UserDataTile extends StatelessWidget {
+  final UserData userData;
+  UserDataTile({this.userData});
 
   @override
   Widget build(BuildContext context) {
