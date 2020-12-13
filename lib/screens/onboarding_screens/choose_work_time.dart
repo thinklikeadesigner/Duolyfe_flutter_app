@@ -9,6 +9,8 @@ import 'package:uic/step_indicator.dart';
 import '../../app.dart';
 import 'package:provider/provider.dart';
 
+//TODO https://github.com/flutter/flutter/issues/24278 for ios alarm manager implementation
+
 class ChooseWorkTime extends StatefulWidget {
   @override
   _ChooseWorkTimeState createState() => _ChooseWorkTimeState();
