@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:navigationapp/models/user_data.dart';
 
-class UserOnboardingDataTile extends StatelessWidget {
-  final UserOnboardingData userOnboardingData;
-  UserOnboardingDataTile({this.userOnboardingData});
+class OnboardingTile extends StatelessWidget {
+  final Onboarding onboarding;
+  OnboardingTile({this.onboarding});
 
   @override
   Widget build(BuildContext context) {

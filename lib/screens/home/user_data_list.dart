@@ -1,19 +1,18 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:navigationapp/services/database.dart';
+
 import 'package:navigationapp/models/user_data.dart';
 import 'user_data_tile.dart';
 import 'package:provider/provider.dart';
 
-class UserOnboardingDataList extends StatefulWidget {
+class OnboardingList extends StatefulWidget {
   @override
-  _UserOnboardingDataListState createState() => _UserOnboardingDataListState();
+  _OnboardingListState createState() => _OnboardingListState();
 }
 
-class _UserOnboardingDataListState extends State<UserOnboardingDataList> {
+class _OnboardingListState extends State<OnboardingList> {
   @override
   Widget build(BuildContext context) {
-    final userOnboardingData = Provider.of<List<UserOnboardingData>>
+    final onboarding = Provider.of<List<Onboarding>>
             // <QuerySnapshot>
             (context) ??
         [];
@@ -29,10 +28,9 @@ class _UserOnboardingDataListState extends State<UserOnboardingDataList> {
     // return Container();
 
     return ListView.builder(
-      itemCount: userOnboardingData.length,
+      itemCount: onboarding.length,
       itemBuilder: (context, index) {
-        return UserOnboardingDataTile(
-            userOnboardingData: userOnboardingData[index]);
+        return OnboardingTile(onboarding: onboarding[index]);
       },
     );
   }

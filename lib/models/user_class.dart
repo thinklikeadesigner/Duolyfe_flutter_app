@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class UserClass {
   final String uid;
   final DateTime creationTime;
@@ -6,11 +8,12 @@ class UserClass {
   UserClass({this.uid, this.creationTime, this.lastSignInTime});
 }
 
+//TODO change int to timeofday after db figured out
 class UserData {
+  final String uid;
   final List<dynamic> interests;
   final int time;
   final String buddy;
-  final String uid;
 
-  UserData({this.interests, this.uid, this.time, this.buddy});
+  UserData({this.uid, this.interests, this.time, this.buddy});
 }

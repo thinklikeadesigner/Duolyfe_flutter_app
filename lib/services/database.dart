@@ -1,16 +1,19 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:navigationapp/models/user_class.dart';
 import 'package:navigationapp/models/user_data.dart';
+
+//TODO convert TimeOfDay to firebase's time type
 
 class DatabaseService {
   final String uid;
 
   DatabaseService({this.uid});
-  final CollectionReference userOnboardingDataCollection =
-      FirebaseFirestore.instance.collection('userOnboardingData');
+  final CollectionReference onboardingCollection =
+      FirebaseFirestore.instance.collection('onboarding');
 
-  Future updateUserOnboardingData(
+  Future updateOnboarding(
       List<dynamic> interests, int time, String buddy) async {
-    return await userOnboardingDataCollection
+    return await onboardingCollection
         .doc(uid)
         .set({'interests': interests, 'time': time, 'buddy': buddy});
   }
@@ -19,10 +22,9 @@ class DatabaseService {
 
 //convert user data snapshot into user objects from user data model
 
-  List<UserOnboardingData> _userOnboardingDataFromSnapshot(
-      QuerySnapshot snapshot) {
+  List<Onboarding> _onboardingFromSnapshot(QuerySnapshot snapshot) {
     return snapshot.docs.map((doc) {
-      return UserOnboardingData(
+      return Onboarding(
           interests: doc.data()['interests'] ?? [],
           time: doc.data()['time'] ?? 0,
           buddy: doc.data()['buddy'] ?? '');
@@ -31,18 +33,24 @@ class DatabaseService {
 
   // userData can be named anything
 
-  Stream<List<UserOnboardingData>> get userOnboardingData {
-    return userOnboardingDataCollection
-        .snapshots()
-        .map(_userOnboardingDataFromSnapshot);
+  Stream<List<Onboarding>> get onboarding {
+    return onboardingCollection.snapshots().map(_onboardingFromSnapshot);
   }
 
 //get user doc stream
-  Stream<DocumentSnapshot> get userData {
-    return userOnboardingDataCollection.doc(uid).snapshots();
+  Stream<UserData> get userData {
+    return onboardingCollection.doc(uid).snapshots().map(_userDataFromSnapshot);
   }
 
   //get userdata from snapshot
+
+  UserData _userDataFromSnapshot(DocumentSnapshot snapshot) {
+    return UserData(
+        uid: uid,
+        interests: snapshot.data()['interests'] ?? [],
+        time: snapshot.data()['time'] ?? 0,
+        buddy: snapshot.data()['buddy'] ?? '');
+  }
 
   // List<UserData> _userDataListFromSnapshot(QuerySnapshot snapshot) {
   //   return snapshot.docs.map((doc) {
