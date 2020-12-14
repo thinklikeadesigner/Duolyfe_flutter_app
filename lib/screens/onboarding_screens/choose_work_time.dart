@@ -32,8 +32,7 @@ class _ChooseWorkTimeState extends State<ChooseWorkTime> {
 //TODO update chosen time to database
 //TODO change int to timeofday after db figured out
 //TODO local and alarm video https://www.youtube.com/watch?v=950jZeaqbdU
-//TODO try a branch with local notification implementation
-//TODO try a branch with alarm manager implementation
+// isolates tutorial
 
     if (picked != null && picked != _time) {
       setState(() {});
