@@ -10,7 +10,11 @@ import '../../app.dart';
 import 'package:provider/provider.dart';
 
 //TODO https://github.com/flutter/flutter/issues/24278 for ios alarm manager implementation
-
+//TODO update chosen time to database
+//TODO change int to timeofday after db figured out
+//TODO local and alarm video https://www.youtube.com/watch?v=950jZeaqbdU
+// isolates tutorial
+// flutter background tasks https://www.youtube.com/watch?v=cV0pByqNV6A
 class ChooseWorkTime extends StatefulWidget {
   @override
   _ChooseWorkTimeState createState() => _ChooseWorkTimeState();
@@ -28,12 +32,6 @@ class _ChooseWorkTimeState extends State<ChooseWorkTime> {
       context: context,
       initialTime: _time,
     );
-
-//TODO update chosen time to database
-//TODO change int to timeofday after db figured out
-//TODO local and alarm video https://www.youtube.com/watch?v=950jZeaqbdU
-// isolates tutorial
-// flutter background tasks https://www.youtube.com/watch?v=cV0pByqNV6A
 
     if (picked != null && picked != _time) {
       setState(() {});
@@ -183,6 +181,3 @@ class _ChooseWorkTimeState extends State<ChooseWorkTime> {
 //           print(_time);
 //         },
 //       ),
-
-// make some changes in develop
-// more changes
