@@ -4,20 +4,25 @@ no choice to skip the name
 
 skipped everything, just hello i'm milo.
 
- if (index == 0) {
-            return Expanded(
-              child: Column(children: <Widget>[
-                Row(
-                  children: [
-                    Container(
-                      margin: const EdgeInsets.fromLTRB(20, 48, 20, 20),
-                      child: Image(image: AssetImage("panda.png"), height: 120),
-                    ),
-                    pickActivityBubble(
-                        ChatBubbleClipper2(type: BubbleType.receiverBubble),
-                        context),
-                  ],
-                ),
-              ]),
-            );
-          } else
+
+
+
+
+
+Pick at least 3 interests, or button is disabled.
+
+Skip and surprise me goes to error page
+
+
+
+
+ping tobi about database structure high priority
+fix the screens and all the buttons
+find all the bugs
+
+forgot password
+collected interests in to the database
+
+forgot password tobi question testing
+
+question about setting up activities and interests vs the ui

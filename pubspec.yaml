@@ -23,6 +23,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  android_alarm_manager: ^0.4.5+17
   cloud_firestore: ^0.14.3+1
   cupertino_icons: ^1.0.0
   drag_select_grid_view: ^0.3.1
@@ -32,6 +33,7 @@ dependencies:
   flutter_chat_bubble: ^1.0.2
   flutter_spinkit: ^4.1.2+1
   http: ^0.12.2
+  intervalprogressbar: ^2.0.1
   shared_preferences: ^0.5.12+4
   smart_grid_view: ^0.2.1
   uic: ^0.6.5

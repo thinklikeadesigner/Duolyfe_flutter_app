@@ -3,7 +3,7 @@ import 'package:navigationapp/screens/authenticate/authenticate.dart';
 import 'package:navigationapp/screens/home/home.dart';
 import 'package:navigationapp/screens/onboarding_screens/choose_name.dart';
 import 'package:navigationapp/screens/error_route_page.dart';
-import 'package:navigationapp/screens/onboarding_screens/choose_lunch_time.dart';
+
 import 'package:navigationapp/screens/onboarding_screens/choose_work_time.dart';
 import 'package:navigationapp/screens/onboarding_screens/choose_activity.dart';
 import 'package:navigationapp/screens/onboarding_screens/milo_name_picked.dart';
@@ -34,8 +34,7 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => ChooseActivity());
       case '/chooseworktime':
         return MaterialPageRoute(builder: (_) => ChooseWorkTime());
-      case '/picklunchtime':
-        return MaterialPageRoute(builder: (_) => ChooseLunchTime());
+
       case '/home':
         return MaterialPageRoute(builder: (_) => Home());
       case '/':
