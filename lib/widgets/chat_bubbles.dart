@@ -187,5 +187,19 @@ picktime(CustomClipper clipper, BuildContext context) => ChatBubble(
         ),
       ),
     );
+picksomethingtodo(CustomClipper clipper, BuildContext context) => ChatBubble(
+      clipper: clipper,
+      backGroundColor: Color(0xffE7E7ED),
+      margin: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
+      child: Container(
+        constraints: BoxConstraints(
+          maxWidth: MediaQuery.of(context).size.width * 0.7,
+        ),
+        child: Text(
+          "Woof! It’s been a few days without outdoor fun. Here are some fun things to do today!",
+          style: TextStyle(color: Colors.black),
+        ),
+      ),
+    );
 
 //CHOOSE LUNCH TIME SCREEN

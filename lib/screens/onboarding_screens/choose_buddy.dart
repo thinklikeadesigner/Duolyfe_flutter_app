@@ -346,7 +346,8 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                                   borderRadius: BorderRadius.circular(18.0),
                                   side: BorderSide(color: Colors.black)),
                               onPressed: () {
-                                Navigator.of(context).pushNamed('/choosename');
+                                Navigator.of(context)
+                                    .pushNamed('/milonamepicked');
                               }),
                           FlatButton(
                               child: Text(
