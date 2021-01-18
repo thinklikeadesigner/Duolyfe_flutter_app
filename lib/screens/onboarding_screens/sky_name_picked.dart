@@ -18,8 +18,8 @@ class SkyNamePicked extends StatelessWidget {
               child: Image(image: AssetImage("panda.png"), height: 150),
             ),
             StepIndicator(
-              selectedStepIndex: 1,
-              totalSteps: 4,
+              selectedStepIndex: 3,
+              totalSteps: 6,
               selectedStep: Icon(
                 Icons.radio_button_checked,
                 color: Theme.of(context).accentColor,
@@ -28,10 +28,10 @@ class SkyNamePicked extends StatelessWidget {
                 Icons.check_circle,
                 color: Theme.of(context).primaryColor,
               ),
-              incompleteStep: Icon(
-                Icons.radio_button_unchecked,
-                color: Theme.of(context).primaryColor,
-              ),
+              // incompleteStep: Icon(
+              //   Icons.radio_button_unchecked,
+              //   color: Theme.of(context).primaryColor,
+              // ),
             ),
             pickNameChatBubble(
                 ChatBubbleClipper2(type: BubbleType.receiverBubble), context),

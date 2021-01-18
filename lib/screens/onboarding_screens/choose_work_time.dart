@@ -72,7 +72,7 @@ class _ChooseWorkTimeState extends State<ChooseWorkTime> {
           ),
           actions: <Widget>[
             TextButton(
-              child: Text('Approve'),
+              child: Text('Approve', style: TextStyle(color: primaryTeal)),
               onPressed: () {
                 Navigator.of(context).pushNamed('/home');
               },
@@ -102,8 +102,8 @@ class _ChooseWorkTimeState extends State<ChooseWorkTime> {
                       child: Image(image: AssetImage("panda.png"), height: 150),
                     ),
                     StepIndicator(
-                      selectedStepIndex: 1,
-                      totalSteps: 4,
+                      selectedStepIndex: 5,
+                      totalSteps: 6,
                       selectedStep: Icon(
                         Icons.radio_button_checked,
                         color: Theme.of(context).accentColor,
@@ -112,10 +112,10 @@ class _ChooseWorkTimeState extends State<ChooseWorkTime> {
                         Icons.check_circle,
                         color: Theme.of(context).primaryColor,
                       ),
-                      incompleteStep: Icon(
-                        Icons.radio_button_unchecked,
-                        color: Theme.of(context).primaryColor,
-                      ),
+                      // incompleteStep: Icon(
+                      //   Icons.radio_button_unchecked,
+                      //   color: Theme.of(context).primaryColor,
+                      // ),
                     ),
 
                     ilovehiking(
