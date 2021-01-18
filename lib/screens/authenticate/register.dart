@@ -112,7 +112,7 @@ class _RegisterState extends State<Register> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
-                              Text('Already have and account?'),
+                              Text('Already have an account?'),
                               FlatButton.icon(
                                 icon: Icon(Icons.person),
                                 label: Text('Log in'),

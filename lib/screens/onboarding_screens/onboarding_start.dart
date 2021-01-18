@@ -21,7 +21,7 @@ class OnboardingStart extends StatelessWidget {
             ),
             StepIndicator(
               selectedStepIndex: 1,
-              totalSteps: 4,
+              totalSteps: 6,
               selectedStep: Icon(
                 Icons.radio_button_checked,
                 color: Theme.of(context).accentColor,
@@ -30,10 +30,10 @@ class OnboardingStart extends StatelessWidget {
                 Icons.check_circle,
                 color: Theme.of(context).primaryColor,
               ),
-              incompleteStep: Icon(
-                Icons.radio_button_unchecked,
-                color: Theme.of(context).primaryColor,
-              ),
+              // incompleteStep: Icon(
+              //   Icons.radio_button_unchecked,
+              //   color: Theme.of(context).primaryColor,
+              // ),
             ),
             firstChatBubble(
                 ChatBubbleClipper2(type: BubbleType.receiverBubble), context),

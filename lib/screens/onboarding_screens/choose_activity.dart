@@ -82,8 +82,8 @@ class _ChooseActivityState extends State<ChooseActivity> {
                           ],
                         ),
                         StepIndicator(
-                          selectedStepIndex: 1,
-                          totalSteps: 4,
+                          selectedStepIndex: 4,
+                          totalSteps: 6,
                           selectedStep: Icon(
                             Icons.radio_button_checked,
                             color: Theme.of(context).accentColor,
@@ -92,10 +92,10 @@ class _ChooseActivityState extends State<ChooseActivity> {
                             Icons.check_circle,
                             color: Theme.of(context).primaryColor,
                           ),
-                          incompleteStep: Icon(
-                            Icons.radio_button_unchecked,
-                            color: Theme.of(context).primaryColor,
-                          ),
+                          // incompleteStep: Icon(
+                          //   Icons.radio_button_unchecked,
+                          //   color: Theme.of(context).primaryColor,
+                          // ),
                         ),
                         SizedBox(
                           height: 15,
@@ -169,3 +169,5 @@ class _ChooseActivityState extends State<ChooseActivity> {
     // });
   }
 }
+
+// https://mightytechno.com/flutter-disable-enable-button/
