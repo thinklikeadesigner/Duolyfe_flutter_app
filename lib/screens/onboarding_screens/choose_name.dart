@@ -1,21 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_bubble/bubble_type.dart';
 import 'package:flutter_chat_bubble/clippers/chat_bubble_clipper_2.dart';
-import 'package:navigationapp/widgets/buttons.dart';
+
 import 'package:navigationapp/widgets/chat_bubbles.dart';
 
 import 'package:uic/widgets.dart';
+
+import '../../app.dart';
 
 class ChooseName extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text('hello'),
-      // ),
       body: Center(
         child: Column(
-          // mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             Container(
@@ -23,8 +21,8 @@ class ChooseName extends StatelessWidget {
               child: Image(image: AssetImage("panda.png"), height: 150),
             ),
             StepIndicator(
-              selectedStepIndex: 1,
-              totalSteps: 4,
+              selectedStepIndex: 2,
+              totalSteps: 6,
               selectedStep: Icon(
                 Icons.radio_button_checked,
                 color: Theme.of(context).accentColor,
@@ -33,10 +31,10 @@ class ChooseName extends StatelessWidget {
                 Icons.check_circle,
                 color: Theme.of(context).primaryColor,
               ),
-              incompleteStep: Icon(
-                Icons.radio_button_unchecked,
-                color: Theme.of(context).primaryColor,
-              ),
+              // incompleteStep: Icon(
+              //   Icons.radio_button_unchecked,
+              //   color: Theme.of(context).primaryColor,
+              // ),
             ),
             pickNameChatBubble(
                 ChatBubbleClipper2(type: BubbleType.receiverBubble), context),
@@ -47,8 +45,32 @@ class ChooseName extends StatelessWidget {
               padding: EdgeInsets.fromLTRB(16, 10, 16, 28),
               child: Column(
                 children: [
-                  MiloNameButton(),
-                  SkyNameButton(),
+                  FlatButton(
+                      child: Text(
+                        'Milo!',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      color: primaryTeal,
+                      splashColor: primaryTeal,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(18.0),
+                      ),
+                      onPressed: () {
+                        Navigator.of(context).pushNamed('/milonamepicked');
+                      }),
+                  FlatButton(
+                      child: Text(
+                        'Sky!',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      color: primaryTeal,
+                      splashColor: primaryTeal,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(18.0),
+                      ),
+                      onPressed: () {
+                        Navigator.of(context).pushNamed('/skynamepicked');
+                      }),
                 ],
               ),
             ),
@@ -60,7 +82,15 @@ class ChooseName extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    SkipChooseName(),
+                    FlatButton(
+                        child: Text('Skip'),
+                        splashColor: primaryTeal,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(18.0),
+                            side: BorderSide(color: Colors.black)),
+                        onPressed: () {
+                          Navigator.of(context).pushNamed('/skynamepicked');
+                        }),
                   ],
                 ))
           ],

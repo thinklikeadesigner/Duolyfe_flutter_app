@@ -7,6 +7,7 @@ import 'package:navigationapp/shared/loading.dart';
 import 'package:navigationapp/widgets/chat_bubbles.dart';
 import 'package:navigationapp/app.dart';
 import 'package:provider/provider.dart';
+import 'package:uic/step_indicator.dart';
 
 //TODO change int to timeofday after db figured out
 class ChooseActivity extends StatefulWidget {
@@ -65,16 +66,40 @@ class _ChooseActivityState extends State<ChooseActivity> {
               body: Column(
                 children: <Widget>[
                   Card(
-                    child: Row(
+                    child: Column(
                       children: [
-                        Container(
-                          margin: const EdgeInsets.fromLTRB(20, 48, 20, 20),
-                          child: Image(
-                              image: AssetImage("panda.png"), height: 120),
+                        Row(
+                          children: [
+                            Container(
+                              margin: const EdgeInsets.fromLTRB(20, 48, 20, 20),
+                              child: Image(
+                                  image: AssetImage("panda.png"), height: 120),
+                            ),
+                            pickActivityBubble(
+                                ChatBubbleClipper2(
+                                    type: BubbleType.receiverBubble),
+                                context),
+                          ],
                         ),
-                        pickActivityBubble(
-                            ChatBubbleClipper2(type: BubbleType.receiverBubble),
-                            context),
+                        StepIndicator(
+                          selectedStepIndex: 4,
+                          totalSteps: 6,
+                          selectedStep: Icon(
+                            Icons.radio_button_checked,
+                            color: Theme.of(context).accentColor,
+                          ),
+                          completedStep: Icon(
+                            Icons.check_circle,
+                            color: Theme.of(context).primaryColor,
+                          ),
+                          // incompleteStep: Icon(
+                          //   Icons.radio_button_unchecked,
+                          //   color: Theme.of(context).primaryColor,
+                          // ),
+                        ),
+                        SizedBox(
+                          height: 15,
+                        )
                       ],
                     ),
                   ),
@@ -144,3 +169,5 @@ class _ChooseActivityState extends State<ChooseActivity> {
     // });
   }
 }
+
+// https://mightytechno.com/flutter-disable-enable-button/

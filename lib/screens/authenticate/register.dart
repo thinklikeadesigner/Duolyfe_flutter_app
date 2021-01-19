@@ -28,23 +28,8 @@ class _RegisterState extends State<Register> {
     return loading
         ? Loading()
         : Scaffold(
+            resizeToAvoidBottomInset: false,
             backgroundColor: Colors.white,
-            // backgroundColor: Colors.white38,
-            // appBar: AppBar(
-            //   backgroundColor: Colors.white,
-            //   elevation: 0.0,
-            //   title: Text(('Sign Up to Brew Crew')),
-            //   actions: <Widget>[
-            //     FlatButton.icon(
-            //       icon: Icon(Icons.person),
-            //       label: Text('Sign in '),
-            //       onPressed: () {
-            //         widget.toggleView();
-            //       },
-            //     )
-            //   ],
-            // ),
-
             body: SafeArea(
               child: Container(
                 decoration: BoxDecoration(
@@ -70,17 +55,6 @@ class _RegisterState extends State<Register> {
                       image: AssetImage("panda.png"),
                       height: MediaQuery.of(context).size.height * 0.2,
                     ),
-                    // SizedBox(height: 15),
-                    // Text(
-                    //   'Sign up',
-                    //   style: TextStyle(
-                    //     fontSize: 36,
-                    //   ),
-                    // ),
-                    // SizedBox(height: 25),
-                    // Text(' Disconnect from the mental load of work',
-                    //     style: TextStyle(fontSize: 12, height: 0.66)),
-                    // SizedBox(height: 0),                  // ),
                     Form(
                       key: _formKey,
                       child: Column(
@@ -114,7 +88,7 @@ class _RegisterState extends State<Register> {
                           FlatButton(
                             color: primaryTeal,
                             child: Text(
-                              'Sign Up',
+                              'Sign up',
                               style: TextStyle(color: Colors.black),
                             ),
                             shape: RoundedRectangleBorder(
@@ -138,10 +112,10 @@ class _RegisterState extends State<Register> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
-                              Text('Already have and account?'),
+                              Text('Already have an account?'),
                               FlatButton.icon(
                                 icon: Icon(Icons.person),
-                                label: Text('Sign in '),
+                                label: Text('Log in'),
                                 onPressed: () {
                                   widget.toggleView();
                                 },

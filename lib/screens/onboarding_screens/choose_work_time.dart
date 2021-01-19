@@ -15,6 +15,7 @@ import 'package:provider/provider.dart';
 //TODO local and alarm video https://www.youtube.com/watch?v=950jZeaqbdU
 // isolates tutorial
 // flutter background tasks https://www.youtube.com/watch?v=cV0pByqNV6A
+
 class ChooseWorkTime extends StatefulWidget {
   @override
   _ChooseWorkTimeState createState() => _ChooseWorkTimeState();
@@ -24,14 +25,31 @@ class _ChooseWorkTimeState extends State<ChooseWorkTime> {
   String _currentBuddy;
   dynamic _currentInterests;
   int _currentTime;
-  TimeOfDay _time = TimeOfDay(hour: 17, minute: 0);
+  TimeOfDay _time;
   TimeOfDay picked;
 
   Future<Null> selectTime(BuildContext context) async {
     _time = await showTimePicker(
-      context: context,
-      initialTime: _time,
-    );
+        context: context,
+        initialTime: TimeOfDay(hour: 17, minute: 0),
+        builder: (BuildContext context, Widget child) {
+          return Theme(
+            data: ThemeData.light().copyWith(
+              colorScheme: ColorScheme.light(
+                // change the border color
+                primary: primaryTeal,
+                // change the text color
+              ),
+              // button colors
+              buttonTheme: ButtonThemeData(
+                colorScheme: ColorScheme.light(
+                  primary: Colors.green,
+                ),
+              ),
+            ),
+            child: child,
+          );
+        });
 
     if (picked != null && picked != _time) {
       setState(() {});
@@ -44,18 +62,17 @@ class _ChooseWorkTimeState extends State<ChooseWorkTime> {
       barrierDismissible: false, // user must tap button!
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('AlertDialog Title'),
+          title: Text('Onboarding complete!'),
           content: SingleChildScrollView(
             child: ListBody(
               children: <Widget>[
-                Text('This is a demo alert dialog.'),
-                Text('Would you like to approve of this message?'),
+                // Text('Onboarding complete!'),
               ],
             ),
           ),
           actions: <Widget>[
             TextButton(
-              child: Text('Approve'),
+              child: Text('Approve', style: TextStyle(color: primaryTeal)),
               onPressed: () {
                 Navigator.of(context).pushNamed('/home');
               },
@@ -85,8 +102,8 @@ class _ChooseWorkTimeState extends State<ChooseWorkTime> {
                       child: Image(image: AssetImage("panda.png"), height: 150),
                     ),
                     StepIndicator(
-                      selectedStepIndex: 1,
-                      totalSteps: 4,
+                      selectedStepIndex: 5,
+                      totalSteps: 6,
                       selectedStep: Icon(
                         Icons.radio_button_checked,
                         color: Theme.of(context).accentColor,
@@ -95,10 +112,10 @@ class _ChooseWorkTimeState extends State<ChooseWorkTime> {
                         Icons.check_circle,
                         color: Theme.of(context).primaryColor,
                       ),
-                      incompleteStep: Icon(
-                        Icons.radio_button_unchecked,
-                        color: Theme.of(context).primaryColor,
-                      ),
+                      // incompleteStep: Icon(
+                      //   Icons.radio_button_unchecked,
+                      //   color: Theme.of(context).primaryColor,
+                      // ),
                     ),
 
                     ilovehiking(

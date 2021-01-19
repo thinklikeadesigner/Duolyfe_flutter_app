@@ -32,20 +32,6 @@ class _SignInState extends State<SignIn> {
         : Scaffold(
             resizeToAvoidBottomInset: false,
             backgroundColor: Colors.white,
-            // appBar: AppBar(
-            //   backgroundColor: Colors.brown[400],
-            //   elevation: 0.0,
-            //   title: Text('Sign in to Brew Crew'),
-            //   actions: <Widget>[
-            //     FlatButton.icon(
-            //       icon: Icon(Icons.person),
-            //       label: Text('Register'),
-            //       onPressed: () {
-            //         widget.toggleView();
-            //       },
-            //     )
-            //   ],
-            // ),
             body: SafeArea(
               child: Container(
                 decoration: BoxDecoration(
@@ -59,13 +45,11 @@ class _SignInState extends State<SignIn> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
                       SizedBox(height: 24),
-
                       Text(
                         'Duolyfe',
                         style:
                             TextStyle(fontSize: 24, color: Color(0xff464646)),
                       ),
-
                       SizedBox(height: 25),
                       Text(' Disconnect from the mental load of work',
                           style: TextStyle(fontSize: 12, height: 0.66)),
@@ -75,17 +59,6 @@ class _SignInState extends State<SignIn> {
                         image: AssetImage("panda.png"),
                         height: MediaQuery.of(context).size.height * 0.2,
                       ),
-                      // SizedBox(height: 15),
-                      // Text(
-                      //   'Log In',
-                      //   style: TextStyle(
-                      //     fontSize: 36,
-                      //   ),
-                      // ),
-                      // SizedBox(height: 25),
-                      // Text(' Disconnect from the mental load of work',
-                      //     style: TextStyle(fontSize: 12, height: 0.66)),
-                      // SizedBox(height: 0),
                       Form(
                         key: _formKey,
                         child: Column(
@@ -146,7 +119,7 @@ class _SignInState extends State<SignIn> {
                                 Text('Don\'t have an account?'),
                                 FlatButton.icon(
                                   icon: Icon(Icons.person),
-                                  label: Text('Register'),
+                                  label: Text('Sign up'),
                                   onPressed: () {
                                     widget.toggleView();
                                   },

@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:navigationapp/models/user_class.dart';
-import 'package:navigationapp/models/user_data.dart';
+import 'package:navigationapp/models/onboarding_data.dart';
 
 //TODO convert TimeOfDay to firebase's time type
 
@@ -51,34 +51,4 @@ class DatabaseService {
         time: snapshot.data()['time'] ?? 0,
         buddy: snapshot.data()['buddy'] ?? '');
   }
-
-  // List<UserData> _userDataListFromSnapshot(QuerySnapshot snapshot) {
-  //   return snapshot.docs.map((doc) {
-  //     return UserData(
-  //         interests: doc.data()['interests'] ?? [],
-  //         time: doc.data()['time'] ?? 5,
-  //         points: doc.data()['points'] ?? 100,
-  //         buddy: doc.data()['buddy'] ?? 'panda');
-  //   }).toList();
-  // }
-
-  // UserData _userDataFromSnapshot(DocumentSnapshot snapshot) {
-  //   return UserData(
-  //       uid: uid,
-  //       interests: snapshot.data()['interests'],
-  //       time: snapshot.data()['time'],
-  //       points: snapshot.data()['points'],
-  //       buddy: snapshot.data()['buddy']);
-  // }
-
-//get data stream
-  // Stream<List<UserData>> get userData {
-  //   return userDataCollection.snapshots().map(_userDataListFromSnapshot);
-  // }
-
-//interests collection
-//   Stream<UserData> get userData {
-//     return userDataCollection.doc(uid).snapshots().map(_userDataFromSnapshot);
-//   }
-// }
 }

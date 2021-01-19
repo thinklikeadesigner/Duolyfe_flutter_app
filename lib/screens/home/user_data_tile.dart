@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:navigationapp/models/user_data.dart';
+import 'package:navigationapp/models/onboarding_data.dart';
 
 class OnboardingTile extends StatelessWidget {
   final Onboarding onboarding;
