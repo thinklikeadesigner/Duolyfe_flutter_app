@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_bubble/bubble_type.dart';
 import 'package:flutter_chat_bubble/clippers/chat_bubble_clipper_2.dart';
+import 'package:navigationapp/screens/onboarding_screens/choose_buddy.dart';
 
 import 'package:navigationapp/widgets/chat_bubbles.dart';
 
@@ -9,6 +10,8 @@ import 'package:uic/widgets.dart';
 import '../../app.dart';
 
 class ChooseName extends StatelessWidget {
+  final String imagePath;
+  const ChooseName({Key key, this.imagePath}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +21,7 @@ class ChooseName extends StatelessWidget {
           children: <Widget>[
             Container(
               margin: const EdgeInsets.fromLTRB(20, 60, 20, 20),
-              child: Image(image: AssetImage("panda.png"), height: 150),
+              child: Image(image: AssetImage(imagePath), height: 150),
             ),
             StepIndicator(
               selectedStepIndex: 2,
@@ -56,7 +59,8 @@ class ChooseName extends StatelessWidget {
                         borderRadius: BorderRadius.circular(18.0),
                       ),
                       onPressed: () {
-                        Navigator.of(context).pushNamed('/milonamepicked');
+                        Navigator.of(context)
+                            .pushNamed('/milonamepicked', arguments: imagePath);
                       }),
                   FlatButton(
                       child: Text(
@@ -69,7 +73,8 @@ class ChooseName extends StatelessWidget {
                         borderRadius: BorderRadius.circular(18.0),
                       ),
                       onPressed: () {
-                        Navigator.of(context).pushNamed('/skynamepicked');
+                        Navigator.of(context)
+                            .pushNamed('/skynamepicked', arguments: imagePath);
                       }),
                 ],
               ),
@@ -89,7 +94,8 @@ class ChooseName extends StatelessWidget {
                             borderRadius: BorderRadius.circular(18.0),
                             side: BorderSide(color: Colors.black)),
                         onPressed: () {
-                          Navigator.of(context).pushNamed('/skynamepicked');
+                          Navigator.of(context).pushNamed('/skynamepicked',
+                              arguments: imagePath);
                         }),
                   ],
                 ))

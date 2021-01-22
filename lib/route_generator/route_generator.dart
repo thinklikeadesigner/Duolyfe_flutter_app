@@ -18,25 +18,31 @@ class RouteGenerator {
     //https://flutter.dev/docs/cookbook/navigation/navigate-with-arguments
     //https://flutter.dev/docs/cookbook/navigation/returning-data
     //https://flutter.dev/docs/cookbook/navigation/passing-data
-
+    var loginArgument = settings.arguments;
     switch (settings.name) {
       case '/onboardingstart':
         return MaterialPageRoute(builder: (_) => OnboardingStart());
       case '/choosebuddy':
         return MaterialPageRoute(builder: (_) => ChooseBuddy());
       case '/choosename':
-        return MaterialPageRoute(builder: (_) => ChooseName());
+        return MaterialPageRoute(
+            builder: (context) => ChooseName(imagePath: loginArgument));
       case '/milonamepicked':
-        return MaterialPageRoute(builder: (_) => MiloNamePicked());
+        return MaterialPageRoute(
+            builder: (context) => MiloNamePicked(imagePath: loginArgument));
       case '/skynamepicked':
-        return MaterialPageRoute(builder: (_) => SkyNamePicked());
+        return MaterialPageRoute(
+            builder: (context) => SkyNamePicked(imagePath: loginArgument));
       case '/chooseactivity':
-        return MaterialPageRoute(builder: (_) => ChooseActivity());
+        return MaterialPageRoute(
+            builder: (context) => ChooseActivity(loginArgument));
       case '/chooseworktime':
-        return MaterialPageRoute(builder: (_) => ChooseWorkTime());
+        return MaterialPageRoute(
+            builder: (context) => ChooseWorkTime(loginArgument));
 
       case '/home':
-        return MaterialPageRoute(builder: (_) => Home());
+        return MaterialPageRoute(
+            builder: (context) => Home(imagePath: loginArgument));
       case '/':
         return MaterialPageRoute(builder: (_) => Authenticate());
       default:

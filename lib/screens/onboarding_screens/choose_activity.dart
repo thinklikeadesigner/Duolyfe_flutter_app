@@ -11,6 +11,10 @@ import 'package:uic/step_indicator.dart';
 
 //TODO change int to timeofday after db figured out
 class ChooseActivity extends StatefulWidget {
+  String imagePath;
+  ChooseActivity(this.imagePath) {
+    this.imagePath = imagePath;
+  }
   @override
   _ChooseActivityState createState() => _ChooseActivityState();
 }
@@ -18,7 +22,7 @@ class ChooseActivity extends StatefulWidget {
 class _ChooseActivityState extends State<ChooseActivity> {
   String _currentBuddy;
   int _currentTime;
-
+  List<String> _nextWidgetArguments = List<String>(2);
   List _currentInterests = List();
   final Map<String, dynamic> interests = {
     "responseCode": "1",
@@ -56,7 +60,7 @@ class _ChooseActivityState extends State<ChooseActivity> {
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<UserClass>(context);
-
+    final ScrollController _scrollController = ScrollController();
     return StreamBuilder<UserData>(
         stream: DatabaseService(uid: user.uid).userData,
         builder: (context, snapshot) {
@@ -73,7 +77,8 @@ class _ChooseActivityState extends State<ChooseActivity> {
                             Container(
                               margin: const EdgeInsets.fromLTRB(20, 48, 20, 20),
                               child: Image(
-                                  image: AssetImage("panda.png"), height: 120),
+                                  image: AssetImage(widget.imagePath),
+                                  height: 120),
                             ),
                             pickActivityBubble(
                                 ChatBubbleClipper2(
@@ -104,26 +109,29 @@ class _ChooseActivityState extends State<ChooseActivity> {
                     ),
                   ),
                   Expanded(
-                    child: ListView.builder(
-                        itemCount: interests['responseTotalResult'],
-                        itemBuilder: (BuildContext context, int index) {
-                          return CheckboxListTile(
-                            value: _currentInterests.contains(
-                                interests['responseBody'][index]
-                                    ['interest_name']),
-                            onChanged: (bool selected) {
-                              _onCategorySelected(
-                                  selected,
-                                  interests['responseBody'][index]
-                                      ['interest_name']);
-                              print(_currentInterests);
-                            },
-                            title: Text(interests['responseBody'][index]
-                                    ['interest_name'] ??
-                                'hi'),
-                          );
-                        }),
-                  ),
+                      child: Scrollbar(
+                          isAlwaysShown: true,
+                          controller: _scrollController,
+                          child: ListView.builder(
+                              controller: _scrollController,
+                              itemCount: interests['responseTotalResult'],
+                              itemBuilder: (BuildContext context, int index) {
+                                return CheckboxListTile(
+                                  value: _currentInterests.contains(
+                                      interests['responseBody'][index]
+                                          ['interest_name']),
+                                  onChanged: (bool selected) {
+                                    _onCategorySelected(
+                                        selected,
+                                        interests['responseBody'][index]
+                                            ['interest_name']);
+                                    print(_currentInterests);
+                                  },
+                                  title: Text(interests['responseBody'][index]
+                                          ['interest_name'] ??
+                                      'hi'),
+                                );
+                              }))),
                 ],
               ),
               bottomSheet: Card(
@@ -136,7 +144,7 @@ class _ChooseActivityState extends State<ChooseActivity> {
                         SizedBox(width: 20),
                         FlatButton(
                             child: Text(
-                              'Save Activities',
+                              'Save Interests',
                               style: TextStyle(color: Colors.white),
                             ),
                             color: primaryTeal,
@@ -144,15 +152,24 @@ class _ChooseActivityState extends State<ChooseActivity> {
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(18.0),
                             ),
-                            onPressed: () async {
-                              await DatabaseService(uid: user.uid)
-                                  .updateOnboarding(
-                                      _currentInterests ?? userData.interests,
-                                      _currentTime ?? userData.time,
-                                      _currentBuddy ?? userData.buddy);
-                              Navigator.of(context)
-                                  .pushNamed('/chooseworktime');
-                            }),
+                            onPressed: _currentInterests.length < 3
+                                ? null
+                                : () async {
+                                    print(_currentInterests);
+                                    print(widget.imagePath);
+                                    _nextWidgetArguments[0] = widget.imagePath;
+                                    await DatabaseService(uid: user.uid)
+                                        .updateOnboarding(
+                                            _currentInterests ??
+                                                userData.interests,
+                                            _currentTime ?? userData.time,
+                                            _currentBuddy ?? userData.buddy);
+                                    _nextWidgetArguments[1] =
+                                        _currentInterests[1];
+                                    Navigator.of(context).pushNamed(
+                                        '/chooseworktime',
+                                        arguments: _nextWidgetArguments);
+                                  }),
                       ]),
                 ),
                 color: Colors.white,

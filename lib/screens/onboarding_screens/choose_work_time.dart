@@ -17,6 +17,11 @@ import 'package:provider/provider.dart';
 // flutter background tasks https://www.youtube.com/watch?v=cV0pByqNV6A
 
 class ChooseWorkTime extends StatefulWidget {
+  List<String> arguments;
+  ChooseWorkTime(this.arguments) {
+    this.arguments = arguments;
+  }
+
   @override
   _ChooseWorkTimeState createState() => _ChooseWorkTimeState();
 }
@@ -74,7 +79,8 @@ class _ChooseWorkTimeState extends State<ChooseWorkTime> {
             TextButton(
               child: Text('Approve', style: TextStyle(color: primaryTeal)),
               onPressed: () {
-                Navigator.of(context).pushNamed('/home');
+                Navigator.of(context).pushNamed('/home',
+                    arguments: widget.arguments.elementAt(0));
               },
             ),
           ],
@@ -99,7 +105,9 @@ class _ChooseWorkTimeState extends State<ChooseWorkTime> {
                   children: <Widget>[
                     Container(
                       margin: const EdgeInsets.fromLTRB(20, 60, 20, 20),
-                      child: Image(image: AssetImage("panda.png"), height: 150),
+                      child: Image(
+                          image: AssetImage(widget.arguments.elementAt(0)),
+                          height: 150),
                     ),
                     StepIndicator(
                       selectedStepIndex: 5,
@@ -120,7 +128,8 @@ class _ChooseWorkTimeState extends State<ChooseWorkTime> {
 
                     ilovehiking(
                         ChatBubbleClipper2(type: BubbleType.receiverBubble),
-                        context),
+                        context,
+                        widget.arguments.elementAt(1)),
                     picktime(
                         ChatBubbleClipper2(type: BubbleType.receiverBubble),
                         context),

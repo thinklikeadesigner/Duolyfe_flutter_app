@@ -151,14 +151,15 @@ pickActivityBubble(CustomClipper clipper, BuildContext context) => ChatBubble(
           maxWidth: MediaQuery.of(context).size.width * 0.4,
         ),
         child: Text(
-          " Your interests will help me decide what fun suggestions I should give every week!  ",
+          " Your interests will help me decide what fun suggestions I should give every week! Pick at least 3 ",
           style: TextStyle(color: Colors.black),
         ),
       ),
     );
 
 //CHOOSE WORK TIME SCREEN
-ilovehiking(CustomClipper clipper, BuildContext context) => ChatBubble(
+ilovehiking(CustomClipper clipper, BuildContext context, String interest) =>
+    ChatBubble(
       clipper: clipper,
       backGroundColor: Color(0xffE7E7ED),
       margin: EdgeInsets.only(top: 5),
@@ -167,7 +168,7 @@ ilovehiking(CustomClipper clipper, BuildContext context) => ChatBubble(
           maxWidth: MediaQuery.of(context).size.width * 0.4,
         ),
         child: Text(
-          " I also love hiking! We will make a great team! ",
+          " I also love $interest! We will make a great team! ",
           style: TextStyle(color: Colors.black),
         ),
       ),

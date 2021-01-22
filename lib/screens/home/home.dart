@@ -13,18 +13,24 @@ import 'package:provider/provider.dart';
 import '../../app.dart';
 
 class Home extends StatefulWidget {
-  Home({Key key}) : super(key: key);
-
+  final String imagePath;
+  Home({Key key, @required this.imagePath}) : super(key: key);
   @override
   _HomeState createState() => _HomeState();
 }
 
 /// This is the private State class that goes with Home.
 class _HomeState extends State<Home> {
+  String thisImage;
   int _selectedIndex = 0;
+  void initState() {
+    super.initState();
+    thisImage = widget.imagePath;
+  }
+
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
+  static List<Widget> _widgetOptions = <Widget>[
     Image(image: AssetImage("giraffe.png"), height: 130),
     Text(
       'This is where the tasks feed will be',

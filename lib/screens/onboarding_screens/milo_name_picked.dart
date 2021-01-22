@@ -8,6 +8,8 @@ import 'package:uic/widgets.dart';
 import '../../app.dart';
 
 class MiloNamePicked extends StatelessWidget {
+  final String imagePath;
+  const MiloNamePicked({Key key, this.imagePath}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +23,7 @@ class MiloNamePicked extends StatelessWidget {
           children: <Widget>[
             Container(
               margin: const EdgeInsets.fromLTRB(20, 60, 20, 20),
-              child: Image(image: AssetImage("panda.png"), height: 150),
+              child: Image(image: AssetImage(imagePath), height: 150),
             ),
             StepIndicator(
               selectedStepIndex: 3,
@@ -73,7 +75,8 @@ class MiloNamePicked extends StatelessWidget {
                         borderRadius: BorderRadius.circular(18.0),
                       ),
                       onPressed: () {
-                        Navigator.of(context).pushNamed('/chooseactivity');
+                        Navigator.of(context)
+                            .pushNamed('/chooseactivity', arguments: imagePath);
                       }),
                 ],
               ),
