@@ -1,0 +1,24 @@
+User(
+  displayName: null, 
+  email: one@two.co, 
+  emailVerified: false, 
+  isAnonymous: false, 
+  metadata: 
+  UserMetadata(
+    creationTime: 2020-12-01 16:24:46.436,
+     lastSignInTime: 2020-12-01 16:28:39.924),
+      phoneNumber: null,
+      photoURL: null, 
+      providerData, [
+        UserInfo(
+          displayName: null, 
+          email: one@two.co, 
+          phoneNumber: null, 
+          photoURL: null, 
+          providerId: password, 
+          uid: one@two.co
+          )], 
+          refreshToken: , 
+          tenantId: null, 
+          uid: mFs7a1VJsBfThF1NNufg7M1RJnz2
+          )

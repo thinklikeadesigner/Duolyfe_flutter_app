@@ -1,0 +1,28 @@
+if they choose to skip buddy go straight to the buddy
+
+no choice to skip the name
+
+skipped everything, just hello i'm milo.
+
+
+
+
+
+
+Pick at least 3 interests, or button is disabled.
+
+Skip and surprise me goes to error page
+
+
+
+
+ping tobi about database structure high priority
+fix the screens and all the buttons
+find all the bugs
+
+forgot password
+collected interests in to the database
+
+forgot password tobi question testing
+
+question about setting up activities and interests vs the ui
