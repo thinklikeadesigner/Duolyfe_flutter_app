@@ -51,7 +51,7 @@ class AuthService {
 
 // Database service takes the result.user which is set to user, extracts the uid, and sets the property uid to user.uid
       await DatabaseService(uid: user.uid)
-          .updateOnboarding(['Crafts', 'Social'], 5, 'panda');
+          .updateOnboarding(['Crafts', 'Social'], false, 'panda');
 
       return _userFromFirebaseUser(user);
     } on FirebaseAuthException catch (error) {

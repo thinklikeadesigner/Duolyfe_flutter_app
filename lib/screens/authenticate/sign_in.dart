@@ -1,9 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:navigationapp/app.dart';
+import 'package:navigationapp/screens/wrapper.dart';
 import 'package:navigationapp/services/auth.dart';
 import 'package:navigationapp/shared/constants.dart';
 import 'package:navigationapp/shared/loading.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'gmailsignin/gmail_signin.dart';
+
+_launchURL() async {
+  const url =
+      'https://accounts.google.com/signup/v2/webcreateaccount?hl=en&flowName=GlifWebSignIn&flowEntry=SignUp';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
 
 class SignIn extends StatefulWidget {
   final Function toggleView;
@@ -46,98 +58,58 @@ class _SignInState extends State<SignIn> {
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
-                      SizedBox(height: 24),
+                      SizedBox(height: 10.0),
+                      SizedBox(height: 5.0),
+                      SizedBox(height: 20.0),
                       Text(
                         'Duolyfe',
                         style:
-                            TextStyle(fontSize: 24, color: Color(0xff464646)),
+                            TextStyle(fontSize: 32, color: Color(0xff464646)),
                       ),
-                      SizedBox(height: 25),
+                      SizedBox(height: 16.0),
                       Text(' Disconnect from the mental load of work',
-                          style: TextStyle(fontSize: 12, height: 0.66)),
+                          style: TextStyle(fontSize: 16, height: 0.66)),
                       SizedBox(height: 0),
                       SizedBox(height: 25),
+                      SizedBox(height: 20.0),
+                      SizedBox(height: 10.0),
+                      SizedBox(height: 10.0),
+                      SizedBox(height: 10.0),
                       Image(
                         image: AssetImage("panda.png"),
-                        height: MediaQuery.of(context).size.height * 0.2,
+                        height: MediaQuery.of(context).size.height * 0.3,
                       ),
-                      Form(
-                        key: _formKey,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            SizedBox(height: 20.0),
-                            TextFormField(
-                              style: TextStyle(fontSize: 14),
-                              decoration: TextInputDecoration.copyWith(
-                                  hintText: 'Email'),
-                              validator: (value) =>
-                                  value.isEmpty ? 'Enter an Email' : null,
-                              onChanged: (value) {
-                                setState(() => email = value);
-                              },
-                            ),
-                            SizedBox(height: 20.0),
-                            TextFormField(
-                              style: TextStyle(fontSize: 14),
-                              decoration: TextInputDecoration.copyWith(
-                                  hintText: 'Password'),
-                              validator: (value) => value.length < 6
-                                  ? 'Enter a password 6+ chars long'
-                                  : null,
-                              obscureText: true,
-                              onChanged: (value) {
-                                setState(() => password = value);
-                              },
-                            ),
-                            SizedBox(height: 10.0),
-                            FlatButton(
-                              color: primaryTeal,
-                              child: Text(
-                                'Log in',
-                                style: TextStyle(color: Colors.black),
-                              ),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(18.0),
-                              ),
-                              onPressed: () async {
-                                if (_formKey.currentState.validate()) {
-                                  setState(() => loading = true);
-                                  dynamic result =
-                                      await _auth.signInWithEmailAndPassword(
-                                          email, password);
-                                  if (result == null) {
-                                    setState(() =>
-                                        error = 'please supply a valid email');
-                                    loading = false;
-                                  }
-                                }
-                              },
-                            ),
-                            // _signInButton(),
-                            SizedBox(height: 10.0),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Text('Don\'t have an account?'),
-                                FlatButton.icon(
-                                  icon: Icon(Icons.person),
-                                  label: Text('Sign up'),
-                                  onPressed: () {
-                                    widget.toggleView();
-                                  },
-                                ),
-                              ],
-                            ),
-                            SizedBox(height: 10.0),
-                            Text(
-                              error,
-                              style:
-                                  TextStyle(color: Colors.red, fontSize: 14.0),
-                            ),
-                            _signInButton(),
-                          ],
-                        ),
+                      // Container(
+                      //   child: Column(
+                      //     mainAxisAlignment: MainAxisAlignment.center,
+                      //     children: <Widget>[
+                      //       SizedBox(height: 20.0),
+                      //       SizedBox(height: 10.0),
+                      //       SizedBox(height: 10.0),
+                      //     ],
+                      //   ),
+                      // ),
+                      SizedBox(height: 10.0),
+                      SizedBox(height: 10.0),
+                      SizedBox(height: 10.0),
+                      SizedBox(height: 10.0),
+                      SizedBox(height: 10.0),
+                      SizedBox(height: 10.0),
+                      _signInButton(),
+                      SizedBox(height: 10.0),
+                      SizedBox(height: 10.0),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text('Don\'t have an account?'),
+                          FlatButton.icon(
+                            icon: Icon(Icons.person),
+                            label: Text('Sign up'),
+                            onPressed: () {
+                              _launchURL();
+                            },
+                          ),
+                        ],
                       ),
                     ]),
               ),
@@ -153,7 +125,7 @@ class _SignInState extends State<SignIn> {
           print('signed in with google');
 
           if (result != null) {
-            Navigator.of(context).pushNamed('/onboardingstart');
+            return Wrapper();
           }
         });
       },

@@ -12,10 +12,12 @@ class DatabaseService {
       FirebaseFirestore.instance.collection('onboarding');
 
   Future updateOnboarding(
-      List<dynamic> interests, int time, String buddy) async {
-    return await onboardingCollection
-        .doc(uid)
-        .set({'interests': interests, 'time': time, 'buddy': buddy});
+      List<dynamic> interests, bool completedOnboarding, String buddy) async {
+    return await onboardingCollection.doc(uid).set({
+      'interests': interests ?? ['Crafts', 'Social'],
+      'completedOnboarding': completedOnboarding ?? false,
+      'buddy': buddy ?? 'panda'
+    });
   }
 
 //get user collection, in a stream, using a getter, using "QuerySnapshot" which returns a snapshot of the document at that moment in time
@@ -26,7 +28,7 @@ class DatabaseService {
     return snapshot.docs.map((doc) {
       return Onboarding(
           interests: doc.data()['interests'] ?? [],
-          time: doc.data()['time'] ?? 0,
+          completedOnboarding: doc.data()['completedOnboarding'] ?? false,
           buddy: doc.data()['buddy'] ?? '');
     }).toList();
   }
@@ -48,7 +50,7 @@ class DatabaseService {
     return UserData(
         uid: uid,
         interests: snapshot.data()['interests'] ?? [],
-        time: snapshot.data()['time'] ?? 0,
+        completedOnboarding: snapshot.data()['completedOnboarding'] ?? false,
         buddy: snapshot.data()['buddy'] ?? '');
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:navigationapp/screens/authenticate/authenticate.dart';
+import 'package:navigationapp/screens/authenticate/sign_in.dart';
 import 'package:navigationapp/screens/home/home.dart';
 import 'package:navigationapp/screens/onboarding_screens/choose_name.dart';
 import 'package:navigationapp/screens/error_route_page.dart';
@@ -24,6 +25,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => OnboardingStart());
       case '/choosebuddy':
         return MaterialPageRoute(builder: (_) => ChooseBuddy());
+      case '/signin':
+        return MaterialPageRoute(builder: (_) => SignIn());
       case '/choosename':
         return MaterialPageRoute(
             builder: (context) => ChooseName(imagePath: loginArgument));
@@ -43,8 +46,8 @@ class RouteGenerator {
       case '/home':
         return MaterialPageRoute(
             builder: (context) => Home(imagePath: loginArgument));
-      case '/':
-        return MaterialPageRoute(builder: (_) => Authenticate());
+      // case '/':
+      //   return MaterialPageRoute(builder: (_) => Authenticate());
       default:
         return MaterialPageRoute(builder: (_) => ErrorRoutePage());
     }

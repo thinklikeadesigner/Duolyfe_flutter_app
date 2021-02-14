@@ -3,6 +3,7 @@ import 'package:flutter_chat_bubble/bubble_type.dart';
 import 'package:flutter_chat_bubble/clippers/chat_bubble_clipper_2.dart';
 import 'package:intervalprogressbar/intervalprogressbar.dart';
 import 'package:navigationapp/models/onboarding_data.dart';
+import 'package:navigationapp/screens/authenticate/gmailsignin/gmail_signin.dart';
 
 import 'package:navigationapp/services/auth.dart';
 import 'package:navigationapp/services/database.dart';
@@ -19,6 +20,7 @@ class Health extends StatefulWidget {
 
 class _HealthState extends State<Health> {
   final AuthService _auth = AuthService();
+  final GmailAuthService _authGmail = GmailAuthService();
   int _selectedIndex = 0;
   // static const TextStyle optionStyle =
   //     TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
@@ -236,6 +238,7 @@ class _HealthState extends State<Health> {
                   onPressed: () async {
                     print('signing out');
                     await _auth.signOut();
+                    await _authGmail.signOutGoogle();
                   },
                 ),
               ],
@@ -265,6 +268,8 @@ class _HealthState extends State<Health> {
     );
   }
 }
+
+// class GmailAuthService {}
 
 // GridView(
 // padding: EdgeInsets.fromLTRB(10, 10, 10, 70),

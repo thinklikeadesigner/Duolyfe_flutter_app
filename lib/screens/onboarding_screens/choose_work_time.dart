@@ -29,7 +29,7 @@ class ChooseWorkTime extends StatefulWidget {
 class _ChooseWorkTimeState extends State<ChooseWorkTime> {
   String _currentBuddy;
   dynamic _currentInterests;
-  int _currentTime;
+  bool _completedOnboarding;
   TimeOfDay _time;
   TimeOfDay picked;
 
@@ -79,6 +79,7 @@ class _ChooseWorkTimeState extends State<ChooseWorkTime> {
             TextButton(
               child: Text('Approve', style: TextStyle(color: primaryTeal)),
               onPressed: () {
+                print(_completedOnboarding);
                 Navigator.of(context).pushNamed('/home',
                     arguments: widget.arguments.elementAt(0));
               },
@@ -120,12 +121,7 @@ class _ChooseWorkTimeState extends State<ChooseWorkTime> {
                         Icons.check_circle,
                         color: Theme.of(context).primaryColor,
                       ),
-                      // incompleteStep: Icon(
-                      //   Icons.radio_button_unchecked,
-                      //   color: Theme.of(context).primaryColor,
-                      // ),
                     ),
-
                     ilovehiking(
                         ChatBubbleClipper2(type: BubbleType.receiverBubble),
                         context,
@@ -133,20 +129,6 @@ class _ChooseWorkTimeState extends State<ChooseWorkTime> {
                     picktime(
                         ChatBubbleClipper2(type: BubbleType.receiverBubble),
                         context),
-
-                    // SizedBox(
-                    //   height: 30,
-                    // ),
-                    Container(
-                      padding: EdgeInsets.fromLTRB(16, 10, 16, 0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          // OnboardingLetsDoItButton(),
-                          // OnboardingLetsDoItButton(),
-                        ],
-                      ),
-                    ),
                     Container(
                         padding: EdgeInsets.fromLTRB(16, 10, 16, 28),
                         child: Column(
@@ -177,11 +159,13 @@ class _ChooseWorkTimeState extends State<ChooseWorkTime> {
                                   borderRadius: BorderRadius.circular(18.0),
                                 ),
                                 onPressed: () async {
+                                  _completedOnboarding = true;
                                   await DatabaseService(uid: user.uid)
                                       .updateOnboarding(
                                           _currentInterests ??
                                               userData.interests,
-                                          _currentTime ?? userData.time,
+                                          _completedOnboarding ??
+                                              userData.completedOnboarding,
                                           _currentBuddy ?? userData.buddy);
                                   _showMyDialog();
 

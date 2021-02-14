@@ -2,17 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_chat_bubble/clippers/chat_bubble_clipper_2.dart';
 import 'package:flutter_chat_bubble/bubble_type.dart';
 import 'package:flutter/painting.dart';
+import 'package:navigationapp/models/user_class.dart';
+import 'package:navigationapp/screens/authenticate/gmailsignin/gmail_signin.dart';
+import 'package:navigationapp/services/database.dart';
 import 'package:navigationapp/widgets/chat_bubbles.dart';
 import 'package:uic/widgets.dart';
 import 'package:navigationapp/services/auth.dart';
-
+import 'package:provider/provider.dart';
 import '../../app.dart';
 
 class OnboardingStart extends StatelessWidget {
   final AuthService _auth = AuthService();
+  final GmailAuthService _authGmail = GmailAuthService();
 
   @override
   Widget build(BuildContext context) {
+    final user = Provider.of<UserClass>(context);
     return Scaffold(
       body: Center(
         child: Column(
@@ -33,10 +38,6 @@ class OnboardingStart extends StatelessWidget {
                 Icons.check_circle,
                 color: Theme.of(context).primaryColor,
               ),
-              // incompleteStep: Icon(
-              //   Icons.radio_button_unchecked,
-              //   color: Theme.of(context).primaryColor,
-              // ),
             ),
             firstChatBubble(
                 ChatBubbleClipper2(type: BubbleType.receiverBubble), context),
@@ -69,9 +70,37 @@ class OnboardingStart extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(18.0),
                       ),
-                      onPressed: () {
+                      onPressed: () async {
+                        await DatabaseService(uid: user.uid).updateOnboarding(
+                            ['Crafts', 'Social'], false, 'panda');
                         Navigator.of(context).pushNamed('/choosebuddy');
-                        // _auth.signOut();
+                      }),
+                  FlatButton(
+                      child: Text(
+                        'sign out',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      color: primaryTeal,
+                      splashColor: primaryTeal,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(18.0),
+                      ),
+                      onPressed: () {
+                        _auth.signOut();
+                      }),
+                  FlatButton(
+                      child: Text(
+                        'log out',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      color: primaryTeal,
+                      splashColor: primaryTeal,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(18.0),
+                      ),
+                      onPressed: () {
+                        _auth.signOut();
+                        _authGmail.signOutGoogle();
                       }),
                 ],
               ),

@@ -12,8 +12,8 @@ class UserClass {
 class UserData {
   final String uid;
   final List<dynamic> interests;
-  final int time;
+  final bool completedOnboarding;
   final String buddy;
 
-  UserData({this.uid, this.interests, this.time, this.buddy});
+  UserData({this.uid, this.interests, this.completedOnboarding, this.buddy});
 }

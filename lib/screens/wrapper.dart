@@ -1,33 +1,51 @@
 import 'package:flutter/material.dart';
 import 'package:navigationapp/models/user_class.dart';
-import 'package:navigationapp/models/onboarding_data.dart';
-import 'package:navigationapp/screens/authenticate/authenticate.dart';
+
+import 'package:navigationapp/screens/authenticate/sign_in.dart';
 import 'package:navigationapp/screens/home/health.dart';
 import 'package:navigationapp/screens/onboarding_screens/onboarding_start.dart';
+import 'package:navigationapp/services/database.dart';
+import 'package:navigationapp/shared/loading.dart';
+import 'package:navigationapp/shared/settings_form.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'home/home.dart';
 
-class Wrapper extends StatelessWidget {
+class Wrapper extends StatefulWidget {
+  @override
+  _WrapperState createState() => _WrapperState();
+}
+
+class _WrapperState extends State<Wrapper> {
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<UserClass>(context);
-    print(user);
-
-    //return either home or authenticate widget
 
     if (user == null) {
-      print('im signed in');
-      return Authenticate();
+      return SignIn();
     } else {
-      return OnboardingStart();
+      print(user.uid);
 
-//       if (has logged in berfore) {
-// Home()
-//       }
-
-// // else
-// else
-//         {  OnboardingStart();}
+      return StreamBuilder<UserData>(
+          stream: DatabaseService(uid: user.uid).userData,
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              UserData userData = snapshot.data;
+              print(userData);
+              if (userData.completedOnboarding) {
+                print(userData.completedOnboarding);
+                print('onboarding');
+                return Home(imagePath: null);
+              } else {
+                print('no onboarding');
+                return OnboardingStart();
+              }
+            } else {
+              print('where is data');
+              return Loading();
+            }
+          });
+      // }
     }
   }
 }

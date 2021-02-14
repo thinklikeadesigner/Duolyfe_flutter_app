@@ -1,16 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_chat_bubble/bubble_type.dart';
-import 'package:flutter_chat_bubble/clippers/chat_bubble_clipper_2.dart';
-import 'package:intervalprogressbar/intervalprogressbar.dart';
-import 'package:navigationapp/models/onboarding_data.dart';
-import 'package:navigationapp/screens/home/user_data_list.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:navigationapp/screens/authenticate/gmailsignin/gmail_signin.dart';
 import 'package:navigationapp/services/auth.dart';
-import 'package:navigationapp/services/database.dart';
-import 'package:navigationapp/widgets/chat_bubbles.dart';
-
-import 'package:provider/provider.dart';
-
+import 'package:timezone/data/latest.dart' as tz;
+import 'package:timezone/timezone.dart' as tz;
 import '../../app.dart';
+import '../../main.dart';
 
 class Home extends StatefulWidget {
   final String imagePath;
@@ -51,13 +46,50 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+    final AuthService _auth = AuthService();
+    final GmailAuthService _authGmail = GmailAuthService();
+
     return Scaffold(
       // appBar: AppBar(
       //   title: const Text('BottomNavigationBar Sample'),
       // ),
       body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
-      ),
+          child: Column(
+        children: [
+          _widgetOptions.elementAt(_selectedIndex),
+          FlatButton(
+              child: Text(
+                'Milo!',
+                style: TextStyle(color: Colors.white),
+              ),
+              color: primaryTeal,
+              splashColor: primaryTeal,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(18.0),
+              ),
+              onPressed: () {
+                _auth.signOut();
+                _authGmail.signOutGoogle();
+                // Navigator.of(context).pushNamed('/signin');
+              }),
+          FlatButton(
+              child: Text(
+                'notify!',
+                style: TextStyle(color: Colors.white),
+              ),
+              color: primaryTeal,
+              splashColor: primaryTeal,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(18.0),
+              ),
+              onPressed: () {
+                print('notify pressed');
+                // notify();
+                scheduleAlarm();
+                // Navigator.of(context).pushNamed('/signin');
+              }),
+        ],
+      )),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -79,4 +111,23 @@ class _HomeState extends State<Home> {
       ),
     );
   }
+}
+
+void scheduleAlarm() async {
+  print('was called');
+  var scheduledNotificationDateTime =
+      tz.TZDateTime.now(tz.local).add(Duration(seconds: 10));
+
+  const AndroidNotificationDetails androidPlatformChannelSpecifics =
+      AndroidNotificationDetails(
+          'your channel id', 'your channel name', 'your channel description',
+          icon: '@mipmap/ic_launcher');
+
+  const NotificationDetails platformChannelSpecifics =
+      NotificationDetails(android: androidPlatformChannelSpecifics);
+  await flutterLocalNotificationsPlugin.zonedSchedule(0, 'plain title',
+      'plain body', scheduledNotificationDateTime, platformChannelSpecifics,
+      androidAllowWhileIdle: true,
+      uiLocalNotificationDateInterpretation:
+          UILocalNotificationDateInterpretation.absoluteTime);
 }

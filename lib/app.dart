@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:navigationapp/models/user_class.dart';
 import 'package:navigationapp/route_generator/route_generator.dart';
 import 'package:navigationapp/screens/wrapper.dart';
@@ -7,8 +8,14 @@ import 'package:provider/provider.dart';
 
 const primaryTeal = const Color((0xff30D4D4));
 const purpleMessage = const Color(0xff79227B);
+// FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin;
 
 class App extends StatelessWidget {
+  // var initializationSettingsAndroid =
+  //     AndroidInitializationSettings('duolyfe_icon');
+
+  // var initializationSettings = InitializationSettings();
+
   @override
   Widget build(BuildContext context) {
     return StreamProvider<UserClass>.value(

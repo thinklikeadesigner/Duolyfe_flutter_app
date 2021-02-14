@@ -21,7 +21,7 @@ class ChooseActivity extends StatefulWidget {
 
 class _ChooseActivityState extends State<ChooseActivity> {
   String _currentBuddy;
-  int _currentTime;
+  bool _completedOnboarding;
   List<String> _nextWidgetArguments = List<String>(2);
   List _currentInterests = List();
   final Map<String, dynamic> interests = {
@@ -97,10 +97,6 @@ class _ChooseActivityState extends State<ChooseActivity> {
                             Icons.check_circle,
                             color: Theme.of(context).primaryColor,
                           ),
-                          // incompleteStep: Icon(
-                          //   Icons.radio_button_unchecked,
-                          //   color: Theme.of(context).primaryColor,
-                          // ),
                         ),
                         SizedBox(
                           height: 15,
@@ -162,7 +158,8 @@ class _ChooseActivityState extends State<ChooseActivity> {
                                         .updateOnboarding(
                                             _currentInterests ??
                                                 userData.interests,
-                                            _currentTime ?? userData.time,
+                                            _completedOnboarding ??
+                                                userData.completedOnboarding,
                                             _currentBuddy ?? userData.buddy);
                                     _nextWidgetArguments[1] =
                                         _currentInterests[1];
@@ -179,11 +176,6 @@ class _ChooseActivityState extends State<ChooseActivity> {
             return Loading();
           }
         });
-
-    // } else {
-    //   return Loading();
-    // }
-    // });
   }
 }
 

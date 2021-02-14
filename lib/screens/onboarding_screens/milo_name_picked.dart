@@ -13,12 +13,8 @@ class MiloNamePicked extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text('hello'),
-      // ),
       body: Center(
         child: Column(
-          // mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             Container(
@@ -36,29 +32,11 @@ class MiloNamePicked extends StatelessWidget {
                 Icons.check_circle,
                 color: Theme.of(context).primaryColor,
               ),
-              // incompleteStep: Icon(
-              //   Icons.radio_button_unchecked,
-              //   color: Theme.of(context).primaryColor,
-              // ),
             ),
-
             imMilo(
                 ChatBubbleClipper2(type: BubbleType.receiverBubble), context),
             nextStep(
                 ChatBubbleClipper2(type: BubbleType.receiverBubble), context),
-            // SizedBox(
-            //   height: 30,
-            // ),
-            Container(
-              padding: EdgeInsets.fromLTRB(16, 10, 16, 0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  // OnboardingLetsDoItButton(),
-                  // OnboardingLetsDoItButton(),
-                ],
-              ),
-            ),
             Container(
               padding: EdgeInsets.fromLTRB(16, 10, 16, 0),
               child: Column(

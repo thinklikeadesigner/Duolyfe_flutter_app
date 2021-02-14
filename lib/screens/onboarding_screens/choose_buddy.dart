@@ -15,7 +15,7 @@ class ChooseBuddy extends StatefulWidget {
 class _ChooseBuddyState extends State<ChooseBuddy> {
   String _currentBuddy;
   dynamic _currentInterests;
-  int _currentTime;
+  int _completedOnboarding;
 
   @override
   Widget build(BuildContext context) {
@@ -376,7 +376,8 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                                 await DatabaseService(uid: user.uid)
                                     .updateOnboarding(
                                         _currentInterests ?? userData.interests,
-                                        _currentTime ?? userData.time,
+                                        _completedOnboarding ??
+                                            userData.completedOnboarding,
                                         _currentBuddy ?? userData.buddy);
                                 Navigator.of(context).pushNamed('/choosename',
                                     arguments: _currentBuddy + '.png');

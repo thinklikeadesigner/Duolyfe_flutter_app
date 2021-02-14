@@ -45,9 +45,6 @@ class GmailAuthService {
           await _auth.signInWithCredential(credential);
       final User user = authResult.user;
 
-      await DatabaseService(uid: user.uid)
-          .updateOnboarding(['Crafts', 'Social'], 5, 'panda');
-
       return _userFromFirebaseUser(user);
     } on FirebaseAuthException catch (error) {
       print(error.toString());
@@ -55,36 +52,39 @@ class GmailAuthService {
     return null;
   }
 
-  // if (user != null) {
-  //   assert(!user.isAnonymous);
-  //   assert(await user.getIdToken() != null);
-
-  //   assert(user.email != null);
-  //   assert(user.displayName != null);
-  //   assert(user.photoURL != null);
-
-  //   name = user.displayName;
-  //   email = user.email;
-  //   imageUrl = user.photoURL;
-
-  //   final User currentUser = _auth.currentUser;
-  //   assert(user.uid == currentUser.uid);
-
-  //   if (name.contains(" ")) {
-  //     name = name.substring(0, name.indexOf(" "));
-  //   }
-
-  //   print('signInWithGoogle succeeded: $user');
-
-  //   return '$user';
-
-  // }]
-
-  // return null;
-
   Future<void> signOutGoogle() async {
     await googleSignIn.signOut();
 
     print("User Signed Out");
   }
 }
+
+// auth service sign out signs user out, but they donn't need to choose their account.
+// gmail auth service signs user out but they do need to choose an account whne signing in
+
+// if (user != null) {
+//   assert(!user.isAnonymous);
+//   assert(await user.getIdToken() != null);
+
+//   assert(user.email != null);
+//   assert(user.displayName != null);
+//   assert(user.photoURL != null);
+
+//   name = user.displayName;
+//   email = user.email;
+//   imageUrl = user.photoURL;
+
+//   final User currentUser = _auth.currentUser;
+//   assert(user.uid == currentUser.uid);
+
+//   if (name.contains(" ")) {
+//     name = name.substring(0, name.indexOf(" "));
+//   }
+
+//   print('signInWithGoogle succeeded: $user');
+
+//   return '$user';
+
+// }]
+
+// return null;

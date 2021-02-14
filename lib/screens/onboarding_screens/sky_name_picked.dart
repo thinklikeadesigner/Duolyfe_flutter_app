@@ -30,10 +30,6 @@ class SkyNamePicked extends StatelessWidget {
                 Icons.check_circle,
                 color: Theme.of(context).primaryColor,
               ),
-              // incompleteStep: Icon(
-              //   Icons.radio_button_unchecked,
-              //   color: Theme.of(context).primaryColor,
-              // ),
             ),
             pickNameChatBubble(
                 ChatBubbleClipper2(type: BubbleType.receiverBubble), context),
