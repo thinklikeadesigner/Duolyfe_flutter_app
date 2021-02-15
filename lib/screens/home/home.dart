@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:navigationapp/screens/authenticate/gmailsignin/gmail_signin.dart';
 import 'package:navigationapp/services/auth.dart';
+import 'package:navigationapp/services/local_notifications.dart';
 import 'package:timezone/data/latest.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
 import '../../app.dart';
@@ -16,11 +17,54 @@ class Home extends StatefulWidget {
 
 /// This is the private State class that goes with Home.
 class _HomeState extends State<Home> {
+  FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+      FlutterLocalNotificationsPlugin();
+  AndroidInitializationSettings androidInitializationSettings;
+  InitializationSettings initializationSettings;
+
   String thisImage;
   int _selectedIndex = 0;
+
   void initState() {
     super.initState();
+    initializing();
     thisImage = widget.imagePath;
+  }
+
+  void initializing() async {
+    androidInitializationSettings =
+        AndroidInitializationSettings('@mipmap/ic_launcher');
+    initializationSettings =
+        InitializationSettings(android: androidInitializationSettings);
+    await flutterLocalNotificationsPlugin.initialize(initializationSettings,
+        onSelectNotification: onSelectNotification);
+  }
+
+  void _showNotifications() async {
+    print('run run');
+    await notification();
+  }
+
+  Future<void> notification() async {
+    print('run');
+    AndroidNotificationDetails androidNotificationDetails =
+        AndroidNotificationDetails(
+            'Channel _ID', 'Channel Title', 'channel body',
+            priority: Priority.high,
+            importance: Importance.max,
+            ticker: 'test');
+    NotificationDetails notificationDetails =
+        NotificationDetails(android: androidNotificationDetails);
+    await flutterLocalNotificationsPlugin.show(
+        0, 'hello there', 'how are you?', notificationDetails);
+  }
+
+  Future onSelectNotification(String payLoad) {
+    if (payLoad != null) {
+      print(payLoad);
+    }
+
+//we can set the navigator to navigate a different screen
   }
 
   static const TextStyle optionStyle =
@@ -82,10 +126,12 @@ class _HomeState extends State<Home> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(18.0),
               ),
-              onPressed: () {
+              onPressed: () async {
                 print('notify pressed');
+                _showNotifications();
+
                 // notify();
-                scheduleAlarm();
+
                 // Navigator.of(context).pushNamed('/signin');
               }),
         ],
@@ -113,21 +159,21 @@ class _HomeState extends State<Home> {
   }
 }
 
-void scheduleAlarm() async {
-  print('was called');
-  var scheduledNotificationDateTime =
-      tz.TZDateTime.now(tz.local).add(Duration(seconds: 10));
+// void scheduleAlarm() async {
+//   print('was called');
+//   var scheduledNotificationDateTime =
+//       tz.TZDateTime.now(tz.local).add(Duration(seconds: 10));
 
-  const AndroidNotificationDetails androidPlatformChannelSpecifics =
-      AndroidNotificationDetails(
-          'your channel id', 'your channel name', 'your channel description',
-          icon: '@mipmap/ic_launcher');
+//   const AndroidNotificationDetails androidPlatformChannelSpecifics =
+//       AndroidNotificationDetails(
+//           'your channel id', 'your channel name', 'your channel description',
+//           icon: '@mipmap/ic_launcher');
 
-  const NotificationDetails platformChannelSpecifics =
-      NotificationDetails(android: androidPlatformChannelSpecifics);
-  await flutterLocalNotificationsPlugin.zonedSchedule(0, 'plain title',
-      'plain body', scheduledNotificationDateTime, platformChannelSpecifics,
-      androidAllowWhileIdle: true,
-      uiLocalNotificationDateInterpretation:
-          UILocalNotificationDateInterpretation.absoluteTime);
-}
+//   const NotificationDetails platformChannelSpecifics =
+//       NotificationDetails(android: androidPlatformChannelSpecifics);
+//   await flutterLocalNotificationsPlugin.zonedSchedule(0, 'plain title',
+//       'plain body', scheduledNotificationDateTime, platformChannelSpecifics,
+//       androidAllowWhileIdle: true,
+//       uiLocalNotificationDateInterpretation:
+//           UILocalNotificationDateInterpretation.absoluteTime);
+// }

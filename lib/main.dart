@@ -27,25 +27,25 @@ import 'package:timezone/timezone.dart' as tz;
 //   print("[$now] Hello, world! isolate=${isolateId} function='$printHello'");
 // }
 
-FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
-    new FlutterLocalNotificationsPlugin();
+// FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+//     new FlutterLocalNotificationsPlugin();
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  tz.initializeTimeZones();
+  // tz.initializeTimeZones();
 
-  AndroidInitializationSettings initializationSettingsAndroid =
-      new AndroidInitializationSettings('@mipmap/ic_launcher');
+  // AndroidInitializationSettings initializationSettingsAndroid =
+  //     new AndroidInitializationSettings('@mipmap/ic_launcher');
 
-  final InitializationSettings initializationSettings =
-      InitializationSettings(android: initializationSettingsAndroid);
+  // final InitializationSettings initializationSettings =
+  //     InitializationSettings(android: initializationSettingsAndroid);
 
-  await flutterLocalNotificationsPlugin.initialize(initializationSettings,
-      onSelectNotification: (String payload) async {
-    if (payload != null) {
-      debugPrint('notification payload: ' + payload);
-    }
-  });
+  // await flutterLocalNotificationsPlugin.initialize(initializationSettings,
+  //     onSelectNotification: (String payload) async {
+  //   if (payload != null) {
+  //     debugPrint('notification payload: ' + payload);
+  //   }
+  // });
 
   // final int helloAlarmID = 0;
   // await AndroidAlarmManager.initialize();
