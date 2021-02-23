@@ -33,7 +33,7 @@ class _HomeState extends State<Home> {
 
   void initializing() async {
     androidInitializationSettings =
-        AndroidInitializationSettings('@mipmap/ic_launcher');
+        AndroidInitializationSettings('ic_launcher');
     initializationSettings =
         InitializationSettings(android: androidInitializationSettings);
     await flutterLocalNotificationsPlugin.initialize(initializationSettings,
@@ -45,6 +45,11 @@ class _HomeState extends State<Home> {
     await notification();
   }
 
+  void _showNotificationsAfterSecond() async {
+    print('run run again');
+    await notificationAfterSec();
+  }
+
   Future<void> notification() async {
     print('run');
     AndroidNotificationDetails androidNotificationDetails =
@@ -52,11 +57,37 @@ class _HomeState extends State<Home> {
             'Channel _ID', 'Channel Title', 'channel body',
             priority: Priority.high,
             importance: Importance.max,
-            ticker: 'test');
+            ticker: 'test',
+            largeIcon: DrawableResourceAndroidBitmap('ic_launcher'));
     NotificationDetails notificationDetails =
         NotificationDetails(android: androidNotificationDetails);
     await flutterLocalNotificationsPlugin.show(
         0, 'hello there', 'how are you?', notificationDetails);
+  }
+
+  Future<void> notificationAfterSec() async {
+    var timeDelayed =
+        tz.TZDateTime.now(tz.local).add(const Duration(seconds: 5));
+    print('run');
+    AndroidNotificationDetails androidNotificationDetails =
+        AndroidNotificationDetails(
+            'Second Channel _ID', 'Second Channel Title', 'Second channel body',
+            priority: Priority.high,
+            importance: Importance.max,
+            ticker: 'test',
+            icon: '',
+            largeIcon: DrawableResourceAndroidBitmap('ic_launcher')
+            // playSound: true,
+            // sound: RawResourceAndroidNotificationSound('notification_sound')
+            );
+    NotificationDetails notificationDetails =
+        NotificationDetails(android: androidNotificationDetails);
+
+    await flutterLocalNotificationsPlugin.zonedSchedule(1, 'hello there too',
+        'how are you as well?', timeDelayed, notificationDetails,
+        androidAllowWhileIdle: true,
+        uiLocalNotificationDateInterpretation:
+            UILocalNotificationDateInterpretation.absoluteTime);
   }
 
   Future onSelectNotification(String payLoad) {
@@ -129,6 +160,24 @@ class _HomeState extends State<Home> {
               onPressed: () async {
                 print('notify pressed');
                 _showNotifications();
+
+                // notify();
+
+                // Navigator.of(context).pushNamed('/signin');
+              }),
+          FlatButton(
+              child: Text(
+                'notify!',
+                style: TextStyle(color: Colors.white),
+              ),
+              color: primaryTeal,
+              splashColor: primaryTeal,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(18.0),
+              ),
+              onPressed: () async {
+                print('notify pressed');
+                _showNotificationsAfterSecond();
 
                 // notify();
 
