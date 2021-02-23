@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_bubble/bubble_type.dart';
 import 'package:flutter_chat_bubble/clippers/chat_bubble_clipper_2.dart';
-import 'package:navigationapp/screens/onboarding_screens/choose_buddy.dart';
-
 import 'package:navigationapp/widgets/chat_bubbles.dart';
 
 import 'package:uic/widgets.dart';

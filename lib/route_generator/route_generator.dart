@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:navigationapp/screens/authenticate/authenticate.dart';
-import 'package:navigationapp/screens/authenticate/sign_in.dart';
-import 'package:navigationapp/screens/home/home.dart';
-import 'package:navigationapp/screens/onboarding_screens/choose_name.dart';
-import 'package:navigationapp/screens/error_route_page.dart';
-
-import 'package:navigationapp/screens/onboarding_screens/choose_work_time.dart';
-import 'package:navigationapp/screens/onboarding_screens/choose_activity.dart';
-import 'package:navigationapp/screens/onboarding_screens/milo_name_picked.dart';
-import 'package:navigationapp/screens/onboarding_screens/onboarding_start.dart';
-import 'package:navigationapp/screens/onboarding_screens/sky_name_picked.dart';
-import 'package:navigationapp/screens/onboarding_screens/choose_buddy.dart';
+import '../screens/authenticate/sign_in.dart';
+import '../screens/error_route_page.dart';
+import '../screens/home/home.dart';
+import '../screens/onboarding_screens/choose_activity.dart';
+import '../screens/onboarding_screens/choose_buddy.dart';
+import '../screens/onboarding_screens/choose_name.dart';
+import '../screens/onboarding_screens/choose_work_time.dart';
+import '../screens/onboarding_screens/milo_name_picked.dart';
+import '../screens/onboarding_screens/onboarding_start.dart';
+import '../screens/onboarding_screens/sky_name_picked.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {

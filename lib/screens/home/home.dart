@@ -207,22 +207,3 @@ class _HomeState extends State<Home> {
     );
   }
 }
-
-// void scheduleAlarm() async {
-//   print('was called');
-//   var scheduledNotificationDateTime =
-//       tz.TZDateTime.now(tz.local).add(Duration(seconds: 10));
-
-//   const AndroidNotificationDetails androidPlatformChannelSpecifics =
-//       AndroidNotificationDetails(
-//           'your channel id', 'your channel name', 'your channel description',
-//           icon: '@mipmap/ic_launcher');
-
-//   const NotificationDetails platformChannelSpecifics =
-//       NotificationDetails(android: androidPlatformChannelSpecifics);
-//   await flutterLocalNotificationsPlugin.zonedSchedule(0, 'plain title',
-//       'plain body', scheduledNotificationDateTime, platformChannelSpecifics,
-//       androidAllowWhileIdle: true,
-//       uiLocalNotificationDateInterpretation:
-//           UILocalNotificationDateInterpretation.absoluteTime);
-// }

@@ -1,9 +1,7 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:navigationapp/models/user_class.dart';
-import 'package:navigationapp/models/user_class.dart';
-import 'package:navigationapp/services/database.dart';
+
+import '../../../models/user_class.dart';
 
 class GmailAuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
