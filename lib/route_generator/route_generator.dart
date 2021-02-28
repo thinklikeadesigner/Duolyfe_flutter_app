@@ -9,6 +9,7 @@ import '../screens/onboarding_screens/choose_work_time.dart';
 import '../screens/onboarding_screens/milo_name_picked.dart';
 import '../screens/onboarding_screens/onboarding_start.dart';
 import '../screens/onboarding_screens/sky_name_picked.dart';
+import '../shared/settings_form.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -44,6 +45,7 @@ class RouteGenerator {
       case '/home':
         return MaterialPageRoute(
             builder: (context) => Home(imagePath: loginArgument));
+
       // case '/':
       //   return MaterialPageRoute(builder: (_) => Authenticate());
       default:

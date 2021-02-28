@@ -1,6 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:navigationapp/models/user_class.dart';
 import 'package:navigationapp/models/onboarding_data.dart';
+import 'package:navigationapp/models/user_interests.dart';
+
+import '../models/user_class.dart';
 
 //TODO convert TimeOfDay to firebase's time type
 
@@ -54,3 +57,9 @@ class DatabaseService {
         buddy: snapshot.data()['buddy'] ?? '');
   }
 }
+
+// final Future<void> onboarding = FirebaseFirestore.instance
+//   .collection('onboarding')
+//   .doc('faiUa9JLDSXJABtt3Ao9kFws1tc2')
+//   .get()
+//   .then((value) => print('${value.data()['interests']}'));

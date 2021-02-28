@@ -66,6 +66,7 @@ class _ChooseActivityState extends State<ChooseActivity> {
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             UserData userData = snapshot.data;
+            // print(snapshot.data);
             return Scaffold(
               body: Column(
                 children: <Widget>[
@@ -121,7 +122,7 @@ class _ChooseActivityState extends State<ChooseActivity> {
                                         selected,
                                         interests['responseBody'][index]
                                             ['interest_name']);
-                                    print(_currentInterests);
+                                    // print(_currentInterests);
                                   },
                                   title: Text(interests['responseBody'][index]
                                           ['interest_name'] ??
@@ -151,8 +152,8 @@ class _ChooseActivityState extends State<ChooseActivity> {
                             onPressed: _currentInterests.length < 3
                                 ? null
                                 : () async {
-                                    print(_currentInterests);
-                                    print(widget.imagePath);
+                                    // print(_currentInterests);
+                                    // print(widget.imagePath);
                                     _nextWidgetArguments[0] = widget.imagePath;
                                     await DatabaseService(uid: user.uid)
                                         .updateOnboarding(

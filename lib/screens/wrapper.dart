@@ -24,20 +24,20 @@ class _WrapperState extends State<Wrapper> {
     if (user == null) {
       return SignIn();
     } else {
-      print(user.uid);
+      // print(user.uid);
 
       return StreamBuilder<UserData>(
           stream: DatabaseService(uid: user.uid).userData,
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               UserData userData = snapshot.data;
-              print(userData);
+              // print(userData);
               if (userData.completedOnboarding) {
-                print(userData.completedOnboarding);
-                print('onboarding');
-                return Home(imagePath: null);
+                // print(userData.completedOnboarding);
+                // print('onboarding');
+                return Health();
               } else {
-                print('no onboarding');
+                // print('no onboarding');
                 return OnboardingStart();
               }
             } else {

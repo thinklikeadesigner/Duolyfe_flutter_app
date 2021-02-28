@@ -122,7 +122,7 @@ class _SignInState extends State<SignIn> {
       splashColor: Colors.grey,
       onPressed: () async {
         _gmailAuth.signInWithGoogle().then((result) {
-          print('signed in with google');
+          // print('signed in with google');
 
           if (result != null) {
             return Wrapper();

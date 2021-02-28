@@ -19,7 +19,7 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
 
   @override
   Widget build(BuildContext context) {
-    print('does auth work?');
+    // print('does auth work?');
     final user = Provider.of<UserClass>(context);
     final ScrollController _scrollController = ScrollController();
     return StreamBuilder<UserData>(

@@ -7,6 +7,7 @@ import 'package:navigationapp/screens/authenticate/gmailsignin/gmail_signin.dart
 
 import 'package:navigationapp/services/auth.dart';
 import 'package:navigationapp/services/database.dart';
+import 'package:navigationapp/services/listview.dart';
 import 'package:navigationapp/widgets/chat_bubbles.dart';
 
 import 'package:provider/provider.dart';
@@ -19,6 +20,10 @@ class Health extends StatefulWidget {
 }
 
 class _HealthState extends State<Health> {
+  String textHolder1 = '';
+  String textHolder2 = '';
+  String textHolder3 = '';
+
   final AuthService _auth = AuthService();
   final GmailAuthService _authGmail = GmailAuthService();
   int _selectedIndex = 0;
@@ -124,7 +129,13 @@ class _HealthState extends State<Health> {
                               borderRadius: BorderRadius.circular(20)),
                           child: InkWell(
                             splashColor: Colors.blue.withAlpha(30),
-                            onTap: () {},
+                            onTap: () {
+                              setState(() {
+                                textHolder1 = '${Cooking()}';
+                                textHolder2 = '${Mind()}';
+                                textHolder3 = '${Fun()}';
+                              });
+                            },
                             child: Container(
                               margin: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0),
                               child: Center(
@@ -195,9 +206,9 @@ class _HealthState extends State<Health> {
                   picksomethingtodo(
                       ChatBubbleClipper2(type: BubbleType.receiverBubble),
                       context),
-                  SizedBox(
-                    height: 50,
-                  ),
+                  // SizedBox(
+                  //   height: 50,
+                  // ),
                 ],
               ),
             ),
@@ -207,7 +218,7 @@ class _HealthState extends State<Health> {
                 FlatButton(
                     minWidth: 200,
                     child: Text(
-                      'Go for a walk',
+                      textHolder1,
                       style: TextStyle(color: Colors.black),
                     ),
                     color: primaryTeal,
@@ -215,13 +226,11 @@ class _HealthState extends State<Health> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(18.0),
                     ),
-                    onPressed: () {
-                      Navigator.of(context).pushNamed('/choosebuddy');
-                    }),
+                    onPressed: () {}),
                 FlatButton(
                     minWidth: 200,
                     child: Text(
-                      'Read a book',
+                      textHolder2,
                       style: TextStyle(color: Colors.black),
                     ),
                     color: Colors.white,
@@ -230,7 +239,21 @@ class _HealthState extends State<Health> {
                         borderRadius: BorderRadius.circular(18.0),
                         side: BorderSide(color: Colors.black)),
                     onPressed: () {
-                      Navigator.of(context).pushNamed('/choosebuddy');
+                      // Navigator.of(context).pushNamed('/choosebuddy');
+                    }),
+                FlatButton(
+                    minWidth: 200,
+                    child: Text(
+                      textHolder3,
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    color: Colors.white,
+                    splashColor: primaryTeal,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(18.0),
+                        side: BorderSide(color: Colors.black)),
+                    onPressed: () {
+                      // Navigator.of(context).pushNamed('/choosebuddy');
                     }),
                 FlatButton.icon(
                   icon: Icon(Icons.person),
@@ -268,8 +291,6 @@ class _HealthState extends State<Health> {
     );
   }
 }
-
-// class GmailAuthService {}
 
 // GridView(
 // padding: EdgeInsets.fromLTRB(10, 10, 10, 70),

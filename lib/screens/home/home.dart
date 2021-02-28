@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:navigationapp/screens/authenticate/gmailsignin/gmail_signin.dart';
 import 'package:navigationapp/services/auth.dart';
+import 'package:navigationapp/services/listview.dart';
 import 'package:navigationapp/services/local_notifications.dart';
 import 'package:timezone/data/latest.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
 import '../../app.dart';
-import '../../main.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Home extends StatefulWidget {
   final String imagePath;
@@ -41,17 +42,17 @@ class _HomeState extends State<Home> {
   }
 
   void _showNotifications() async {
-    print('run run');
+    // print('run run');
     await notification();
   }
 
   void _showNotificationsAfterSecond() async {
-    print('run run again');
+    // print('run run again');
     await notificationAfterSec();
   }
 
   Future<void> notification() async {
-    print('run');
+    // print('run');
     AndroidNotificationDetails androidNotificationDetails =
         AndroidNotificationDetails(
             'Channel _ID', 'Channel Title', 'channel body',
@@ -68,7 +69,7 @@ class _HomeState extends State<Home> {
   Future<void> notificationAfterSec() async {
     var timeDelayed =
         tz.TZDateTime.now(tz.local).add(const Duration(seconds: 5));
-    print('run');
+    // print('run');
     AndroidNotificationDetails androidNotificationDetails =
         AndroidNotificationDetails(
             'Second Channel _ID', 'Second Channel Title', 'Second channel body',
@@ -92,7 +93,7 @@ class _HomeState extends State<Home> {
 
   Future onSelectNotification(String payLoad) {
     if (payLoad != null) {
-      print(payLoad);
+      // print(payLoad);
     }
 
 //we can set the navigator to navigate a different screen
@@ -158,7 +159,7 @@ class _HomeState extends State<Home> {
                 borderRadius: BorderRadius.circular(18.0),
               ),
               onPressed: () async {
-                print('notify pressed');
+                // print('notify pressed');
                 _showNotifications();
 
                 // notify();
@@ -178,6 +179,23 @@ class _HomeState extends State<Home> {
               onPressed: () async {
                 print('notify pressed');
                 _showNotificationsAfterSecond();
+
+                // notify();
+
+                // Navigator.of(context).pushNamed('/signin');
+              }),
+          FlatButton(
+              child: Text(
+                'cooking!',
+                style: TextStyle(color: Colors.white),
+              ),
+              color: primaryTeal,
+              splashColor: primaryTeal,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(18.0),
+              ),
+              onPressed: () async {
+                Cooking();
 
                 // notify();
 
