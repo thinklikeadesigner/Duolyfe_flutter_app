@@ -1,0 +1,118 @@
+
+
+users
+  tommy123@testing.org
+      name:             "Tommy Highlander"
+      email:            "tommy123@testing.org"
+      interest_group_1: "outdoor_solo_water_sports"
+      sport_group_1:    ["swimming", "diving", "snorkeling"]
+      interest_group_2: "outdoor_group_walking_sports"
+      sport_group_2:    ["hiking", "climing", "skipping"]
+      interest_group_3: "indoor_group_gym_sports"
+      sport_group_3:    ["pushups", "jumping jacks", "squats"]
+  eb8383walker@testing.org
+      name: "Elizabeth Walker"
+      email: "eb8383walker@testing.org"
+      interest_group_1: "outdoor_solo_water_sports"
+      sport_group_1:    []
+      interest_group_2: "outdoor_group_walking_sports"
+      sport_group_1:    []
+      interest_group_3: "indoor_group_gym_sports"
+      sport_group_1:    []
+  catsathome@testing.org
+      name: "Kitty Tiger"
+      email: "catsathome@testing.org"
+      interest_group_1: "outdoor_solo_water_sports"
+      sport_group_1:    []
+      interest_group_2: "outdoor_group_walking_sports"
+      sport_group_2:    []
+      interest_group_3: "indoor_group_gym_sports"
+      sport_group_3:    []
+
+// interests_groups                           collection - group of interests types
+//   outdoor_solo_water_sports                collection - group of sports for the intrest type
+//     outdoor_solo_water_sport_1             doc        - the sport doc
+//       name: a_sport_name                   field      - the sport field
+//       description: a_sport_description     field      - the sport field
+
+interests_groups
+  outdoor_solo_water_sports doc
+      field: outdoor_solo_water_sport_1
+      name: a_sport_name
+      description: a_sport_description
+    outdoor_solo_water_sport_2
+      name: a_sport_name
+      description: a_sport_description
+    outdoor_solo_water_sport_3
+      name: a_sport_name
+      description: a_sport_description
+  outdoor_group_walking_sports
+    outdoor_group_walking_sports_1
+      name: a_sport_name
+      description: a_sport_description
+    outdoor_group_walking_sports_2
+      name: a_sport_name
+      description: a_sport_description
+    outdoor_group_walking_sports_2
+      name: a_sport_name
+      description: a_sport_description
+    outdoor_group_walking_sports_3
+      name: a_sport_name
+      description: a_sport_description
+
+
+
+//example user, 
+const userRef = db.collection('users').doc('tommy123@testing.org')
+
+// interest_group_1
+const userInterestGroup = userRef.interest_group_1
+const userInterestGroupRef = db.collection('interests_groups').doc(userInterestGroup)
+
+while not empty {
+   sportList[] = userInterestGroupRef.doc(i).name
+}
+RandomSource(sportList)
+userSportGroup[] = topThree(sportList)
+
+// interest_group_2
+const userInterestGroup = userDocRef.interest_group_2
+const userInterestGroupRef = db.collection('interests_groups').collection(userInterestGroup)
+
+while not empty {
+   sportList[] = userInterestGroupRef.doc(i).name
+}
+RandomSource(sportList)
+userSportGroup[] = topThree(sportList)
+
+// interest_group_3
+const userInterestGroup = userDocRef.interest_group_3
+const userInterestGroupRef = db.collection('interests_groups').collection(userInterestGroup)
+
+while not empty {
+   sportList[] = userInterestGroupRef.doc(i).name
+}
+RandomSource(sportList)
+userSportGroup[] = topThree(sportList)
+
+
+
+Intersects coll
+    Cooking doc
+      cooking_interests coll
+        a name
+        b discription
+        c other info
+    Fun
+      a
+      b
+      c
+    Health
+      a
+      b
+      c
+.
+.
+.
+firestoredb.txt
+Displaying firestoredb.txt.

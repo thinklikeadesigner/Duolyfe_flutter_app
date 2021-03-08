@@ -8,6 +8,7 @@ import 'package:navigationapp/screens/authenticate/gmailsignin/gmail_signin.dart
 import 'package:navigationapp/services/auth.dart';
 import 'package:navigationapp/services/database.dart';
 import 'package:navigationapp/services/listview.dart';
+import 'package:navigationapp/services/rando_list.dart';
 import 'package:navigationapp/widgets/chat_bubbles.dart';
 
 import 'package:provider/provider.dart';
@@ -48,6 +49,24 @@ class _HealthState extends State<Health> {
 
   @override
   Widget build(BuildContext context) {
+    var items = [
+      'rock climb',
+      'drink tea',
+      'bake a cake',
+      'walk your dog',
+      'meditate',
+      'write in your journal',
+      'read a book',
+      'sing a song',
+      'take a picture of a pretty landscape',
+      'paint a picture',
+      'go for a hike',
+      'call an old friend',
+      'get coffee with a relative'
+    ];
+
+    var shuffledItems = shuffle(items).sublist(0, 3);
+
     return Scaffold(
       // backgroundColor: Colors.brown[100],
       // appBar: AppBar(
@@ -131,9 +150,9 @@ class _HealthState extends State<Health> {
                             splashColor: Colors.blue.withAlpha(30),
                             onTap: () {
                               setState(() {
-                                textHolder1 = '${Cooking()}';
-                                textHolder2 = '${Mind()}';
-                                textHolder3 = '${Fun()}';
+                                textHolder1 = shuffledItems[0];
+                                textHolder2 = shuffledItems[1];
+                                textHolder3 = shuffledItems[2];
                               });
                             },
                             child: Container(

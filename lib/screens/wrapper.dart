@@ -4,6 +4,7 @@ import 'package:navigationapp/models/user_class.dart';
 import 'package:navigationapp/screens/authenticate/sign_in.dart';
 import 'package:navigationapp/screens/home/health.dart';
 import 'package:navigationapp/screens/onboarding_screens/onboarding_start.dart';
+import 'package:navigationapp/screens/onboarding_screens/test_screen.dart';
 import 'package:navigationapp/services/database.dart';
 import 'package:navigationapp/shared/loading.dart';
 import 'package:navigationapp/shared/settings_form.dart';
@@ -35,6 +36,9 @@ class _WrapperState extends State<Wrapper> {
               if (userData.completedOnboarding) {
                 // print(userData.completedOnboarding);
                 // print('onboarding');
+                // return Home(
+                //   imagePath: null,
+                // );
                 return Health();
               } else {
                 // print('no onboarding');
