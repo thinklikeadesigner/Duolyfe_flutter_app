@@ -10,6 +10,7 @@ List shuffle(List items) {
     items[i] = items[n];
     items[n] = temp;
   }
+  print(items);
   return items;
 }
 
@@ -34,19 +35,3 @@ List shuffle(List items) {
 //   print(pickThree);
 //   return pickThree;
 // }
-
-var items = [
-  'rock climb',
-  'drink tea',
-  'bake a cake',
-  'walk your dog',
-  'meditate',
-  'write in your journal',
-  'read a book',
-  'sing a song',
-  'take a picture of a pretty landscape',
-  'paint a picture',
-  'go for a hike',
-  'call an old friend',
-  'get coffee with a relative'
-];

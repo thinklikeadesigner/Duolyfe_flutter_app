@@ -1,13 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_chat_bubble/bubble_type.dart';
-import 'package:flutter_chat_bubble/clippers/chat_bubble_clipper_2.dart';
-import 'package:navigationapp/services/interest_service.dart';
-import 'package:navigationapp/widgets/chat_bubbles.dart';
-
-import 'package:uic/widgets.dart';
-
-import '../../app.dart';
+import 'package:navigationapp/services/internet_service.dart';
 
 class TestScreen extends StatefulWidget {
   @override

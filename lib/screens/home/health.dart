@@ -8,7 +8,7 @@ import 'package:navigationapp/screens/authenticate/gmailsignin/gmail_signin.dart
 import 'package:navigationapp/services/auth.dart';
 import 'package:navigationapp/services/database.dart';
 import 'package:navigationapp/services/listview.dart';
-import 'package:navigationapp/services/rando_list.dart';
+import 'package:navigationapp/services/shuffler.dart';
 import 'package:navigationapp/widgets/chat_bubbles.dart';
 
 import 'package:provider/provider.dart';
