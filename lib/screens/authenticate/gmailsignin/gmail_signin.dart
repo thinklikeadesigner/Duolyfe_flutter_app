@@ -14,9 +14,9 @@ class GmailAuthService {
   UserClass _userFromFirebaseUser(User user) {
     // print(user);
     // added creation time to user class
-    print(user.metadata.creationTime.month);
+    // print(user.metadata.creationTime.month);
     // added last sign in time to user class
-    print(user.metadata.lastSignInTime);
+    // print(user.metadata.lastSignInTime);
     return user != null
         ? UserClass(uid: user.uid, creationTime: user.metadata.creationTime)
         : null;

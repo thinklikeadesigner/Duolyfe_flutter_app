@@ -24,6 +24,7 @@ class _HealthState extends State<Health> {
   String textHolder1 = '';
   String textHolder2 = '';
   String textHolder3 = '';
+  bool suggested = false;
 
   final AuthService _auth = AuthService();
   final GmailAuthService _authGmail = GmailAuthService();
@@ -65,7 +66,7 @@ class _HealthState extends State<Health> {
       'get coffee with a relative'
     ];
 
-    var shuffledItems = shuffle(items).sublist(0, 3);
+    var shuffledItems = shuffle(items);
 
     return Scaffold(
       // backgroundColor: Colors.brown[100],
@@ -153,6 +154,7 @@ class _HealthState extends State<Health> {
                                 textHolder1 = shuffledItems[0];
                                 textHolder2 = shuffledItems[1];
                                 textHolder3 = shuffledItems[2];
+                                suggested = true;
                               });
                             },
                             child: Container(
@@ -225,66 +227,68 @@ class _HealthState extends State<Health> {
                   picksomethingtodo(
                       ChatBubbleClipper2(type: BubbleType.receiverBubble),
                       context),
-                  // SizedBox(
-                  //   height: 50,
-                  // ),
+                  SizedBox(
+                    height: 50,
+                  ),
                 ],
               ),
             ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                FlatButton(
-                    minWidth: 200,
-                    child: Text(
-                      textHolder1,
-                      style: TextStyle(color: Colors.black),
-                    ),
-                    color: primaryTeal,
-                    splashColor: primaryTeal,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(18.0),
-                    ),
-                    onPressed: () {}),
-                FlatButton(
-                    minWidth: 200,
-                    child: Text(
-                      textHolder2,
-                      style: TextStyle(color: Colors.black),
-                    ),
-                    color: Colors.white,
-                    splashColor: primaryTeal,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18.0),
-                        side: BorderSide(color: Colors.black)),
-                    onPressed: () {
-                      // Navigator.of(context).pushNamed('/choosebuddy');
-                    }),
-                FlatButton(
-                    minWidth: 200,
-                    child: Text(
-                      textHolder3,
-                      style: TextStyle(color: Colors.black),
-                    ),
-                    color: Colors.white,
-                    splashColor: primaryTeal,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18.0),
-                        side: BorderSide(color: Colors.black)),
-                    onPressed: () {
-                      // Navigator.of(context).pushNamed('/choosebuddy');
-                    }),
-                FlatButton.icon(
-                  icon: Icon(Icons.person),
-                  label: Text('logout'),
-                  onPressed: () async {
-                    print('signing out');
-                    await _auth.signOut();
-                    await _authGmail.signOutGoogle();
-                  },
-                ),
-              ],
-            )
+            !suggested
+                ? SizedBox(height: 0.0)
+                : Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      FlatButton(
+                          minWidth: 200,
+                          child: Text(
+                            textHolder1,
+                            style: TextStyle(color: Colors.black),
+                          ),
+                          color: primaryTeal,
+                          splashColor: primaryTeal,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(18.0),
+                          ),
+                          onPressed: () {}),
+                      FlatButton(
+                          minWidth: 200,
+                          child: Text(
+                            textHolder2,
+                            style: TextStyle(color: Colors.black),
+                          ),
+                          color: Colors.white,
+                          splashColor: primaryTeal,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(18.0),
+                              side: BorderSide(color: Colors.black)),
+                          onPressed: () {
+                            // Navigator.of(context).pushNamed('/choosebuddy');
+                          }),
+                      FlatButton(
+                          minWidth: 200,
+                          child: Text(
+                            textHolder3,
+                            style: TextStyle(color: Colors.black),
+                          ),
+                          color: Colors.white,
+                          splashColor: primaryTeal,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(18.0),
+                              side: BorderSide(color: Colors.black)),
+                          onPressed: () {
+                            // Navigator.of(context).pushNamed('/choosebuddy');
+                          }),
+                    ],
+                  ),
+            // FlatButton.icon(
+            //   icon: Icon(Icons.person),
+            //   label: Text('logout'),
+            //   onPressed: () async {
+            //     print('signing out');
+            //     await _auth.signOut();
+            //     await _authGmail.signOutGoogle();
+            //   },
+            // ),
           ],
         ),
       ),
