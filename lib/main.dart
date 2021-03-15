@@ -11,3 +11,6 @@ void main() async {
 
   runApp(App());
 }
+
+//https://www.youtube.com/watch?v=p5dkB3Mrxdo stateful widgets
+//https://www.youtube.com/watch?v=d5PpeNb-dOY passing data between screens

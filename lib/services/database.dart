@@ -11,9 +11,12 @@ class DatabaseService {
   final String uid;
 
   DatabaseService({this.uid});
+
+  //onboardingCollection reference
   final CollectionReference onboardingCollection =
       FirebaseFirestore.instance.collection('onboarding');
 
+//used when creating user onboarding document, and when updating the data later on
   Future updateOnboarding(
       List<dynamic> interests, bool completedOnboarding, String buddy) async {
     return await onboardingCollection.doc(uid).set({

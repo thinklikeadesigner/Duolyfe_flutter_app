@@ -280,15 +280,15 @@ class _HealthState extends State<Health> {
                           }),
                     ],
                   ),
-            // FlatButton.icon(
-            //   icon: Icon(Icons.person),
-            //   label: Text('logout'),
-            //   onPressed: () async {
-            //     print('signing out');
-            //     await _auth.signOut();
-            //     await _authGmail.signOutGoogle();
-            //   },
-            // ),
+            FlatButton.icon(
+              icon: Icon(Icons.person),
+              label: Text('logout'),
+              onPressed: () async {
+                print('signing out');
+                await _auth.signOut();
+                await _authGmail.signOutGoogle();
+              },
+            ),
           ],
         ),
       ),
