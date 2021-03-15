@@ -5,6 +5,7 @@ import 'package:navigationapp/screens/authenticate/sign_in.dart';
 import 'package:navigationapp/screens/home/health.dart';
 import 'package:navigationapp/screens/onboarding_screens/onboarding_start.dart';
 import 'package:navigationapp/screens/onboarding_screens/test_screen.dart';
+import 'package:navigationapp/services/TestNotifyScreen.dart';
 import 'package:navigationapp/services/database.dart';
 import 'package:navigationapp/shared/loading.dart';
 import 'package:navigationapp/shared/settings_form.dart';
@@ -39,7 +40,7 @@ class _WrapperState extends State<Wrapper> {
                 // return Home(
                 //   imagePath: null,
                 // );
-                return Health();
+                return Home(imagePath: null);
               } else {
                 // print('no onboarding');
                 return OnboardingStart();

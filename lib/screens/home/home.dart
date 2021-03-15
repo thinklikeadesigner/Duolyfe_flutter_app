@@ -68,6 +68,7 @@ class _HomeState extends State<Home> {
   }
 
   Future<void> notificationAfterSec() async {
+    print('wont display');
     var timeDelayed =
         tz.TZDateTime.now(tz.local).add(const Duration(seconds: 5));
     // print('run');
@@ -160,7 +161,7 @@ class _HomeState extends State<Home> {
                 borderRadius: BorderRadius.circular(18.0),
               ),
               onPressed: () async {
-                // print('notify pressed');
+                print('immediat notify pressed');
                 _showNotifications();
 
                 // notify();
@@ -178,7 +179,7 @@ class _HomeState extends State<Home> {
                 borderRadius: BorderRadius.circular(18.0),
               ),
               onPressed: () async {
-                print('notify pressed');
+                print('delayed notify pressed');
                 _showNotificationsAfterSecond();
 
                 // notify();

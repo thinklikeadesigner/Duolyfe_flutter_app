@@ -1,0 +1,13 @@
+js to dart
+
+const is final
+let is var
+array is List
+Object is Map
+
+
+general dart stuff
+It is known that keys of a JSON object are strings, but values can be of many different types. Hence the resulting map is of type <String, dynamic>.
+
+the type for async function in dart is Future,
+example: Future<type of the thing you are returning>
