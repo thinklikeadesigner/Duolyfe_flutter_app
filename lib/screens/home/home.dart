@@ -74,15 +74,16 @@ class _HomeState extends State<Home> {
     // print('run');
     AndroidNotificationDetails androidNotificationDetails =
         AndroidNotificationDetails(
-            'Second Channel _ID', 'Second Channel Title', 'Second channel body',
-            priority: Priority.high,
-            importance: Importance.max,
-            ticker: 'test',
-            icon: '',
-            largeIcon: DrawableResourceAndroidBitmap('ic_launcher')
-            // playSound: true,
-            // sound: RawResourceAndroidNotificationSound('notification_sound')
-            );
+      'Second Channel _ID', 'Second Channel Title', 'Second channel body',
+      priority: Priority.high,
+      importance: Importance.max,
+      ticker: 'test',
+      largeIcon: DrawableResourceAndroidBitmap('ic_launcher'),
+      // icon: '',
+      // largeIcon: DrawableResourceAndroidBitmap('ic_launcher')
+      // playSound: true,
+      // sound: RawResourceAndroidNotificationSound('notification_sound')
+    );
     NotificationDetails notificationDetails =
         NotificationDetails(android: androidNotificationDetails);
 
