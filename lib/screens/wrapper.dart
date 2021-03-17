@@ -1,16 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:navigationapp/models/user_class.dart';
-
 import 'package:navigationapp/screens/authenticate/sign_in.dart';
-import 'package:navigationapp/screens/home/health.dart';
 import 'package:navigationapp/screens/onboarding_screens/onboarding_start.dart';
-import 'package:navigationapp/screens/onboarding_screens/test_screen.dart';
-import 'package:navigationapp/services/TestNotifyScreen.dart';
 import 'package:navigationapp/services/database.dart';
 import 'package:navigationapp/shared/loading.dart';
-import 'package:navigationapp/shared/settings_form.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'home/home.dart';
 
 class Wrapper extends StatefulWidget {

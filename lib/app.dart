@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:navigationapp/models/user_class.dart';
 import 'package:navigationapp/route_generator/route_generator.dart';
 import 'package:navigationapp/screens/wrapper.dart';
