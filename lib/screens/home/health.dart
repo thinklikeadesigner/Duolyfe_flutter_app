@@ -63,22 +63,6 @@ class _HealthState extends State<Health> {
     var shuffledItems = shuffle(items);
 
     return Scaffold(
-      // backgroundColor: Colors.brown[100],
-      // appBar: AppBar(
-      //   title: Text('Brew Crew'),
-      //   backgroundColor: Colors.brown[400],
-      //   elevation: 0.0,
-      //   actions: <Widget>[
-      //     FlatButton.icon(
-      //       icon: Icon(Icons.person),
-      //       label: Text('logout'),
-      //       onPressed: () async {
-      //         print('signing out');
-      //         await _auth.signOut();
-      //       },
-      //     ),
-      //   ],
-      // ),
       body: Center(
         child: Column(
           children: [
