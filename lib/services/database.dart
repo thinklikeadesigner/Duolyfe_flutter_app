@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:navigationapp/models/user_class.dart';
 import 'package:navigationapp/models/onboarding_data.dart';
-import 'package:navigationapp/models/user_interests.dart';
 
 import '../models/user_class.dart';
 

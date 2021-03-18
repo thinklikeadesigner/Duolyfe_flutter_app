@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class UserClass {
   final String uid;
   final DateTime creationTime;

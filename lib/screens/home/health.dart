@@ -2,17 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_chat_bubble/bubble_type.dart';
 import 'package:flutter_chat_bubble/clippers/chat_bubble_clipper_2.dart';
 import 'package:intervalprogressbar/intervalprogressbar.dart';
-import 'package:navigationapp/models/onboarding_data.dart';
 import 'package:navigationapp/screens/authenticate/gmailsignin/gmail_signin.dart';
-
 import 'package:navigationapp/services/auth.dart';
-import 'package:navigationapp/services/database.dart';
-import 'package:navigationapp/services/listview.dart';
 import 'package:navigationapp/services/shuffler.dart';
 import 'package:navigationapp/widgets/chat_bubbles.dart';
-
 import 'package:provider/provider.dart';
-
 import '../../app.dart';
 
 class Health extends StatefulWidget {
@@ -69,25 +63,12 @@ class _HealthState extends State<Health> {
     var shuffledItems = shuffle(items);
 
     return Scaffold(
-      // backgroundColor: Colors.brown[100],
-      // appBar: AppBar(
-      //   title: Text('Brew Crew'),
-      //   backgroundColor: Colors.brown[400],
-      //   elevation: 0.0,
-      //   actions: <Widget>[
-      //     FlatButton.icon(
-      //       icon: Icon(Icons.person),
-      //       label: Text('logout'),
-      //       onPressed: () async {
-      //         print('signing out');
-      //         await _auth.signOut();
-      //       },
-      //     ),
-      //   ],
-      // ),
       body: Center(
         child: Column(
           children: [
+            SizedBox(
+              height: 60,
+            ),
             Image(image: AssetImage("giraffe.png"), height: 130),
             Text(
               'Milo',
@@ -228,7 +209,7 @@ class _HealthState extends State<Health> {
                       ChatBubbleClipper2(type: BubbleType.receiverBubble),
                       context),
                   SizedBox(
-                    height: 50,
+                    height: 20,
                   ),
                 ],
               ),
@@ -278,6 +259,9 @@ class _HealthState extends State<Health> {
                           onPressed: () {
                             // Navigator.of(context).pushNamed('/choosebuddy');
                           }),
+                      SizedBox(
+                        height: 30,
+                      ),
                     ],
                   ),
             FlatButton.icon(

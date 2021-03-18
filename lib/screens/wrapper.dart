@@ -1,16 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:navigationapp/models/user_class.dart';
-
 import 'package:navigationapp/screens/authenticate/sign_in.dart';
-import 'package:navigationapp/screens/home/health.dart';
+import 'package:navigationapp/screens/onboarding_screens/choose_buddy.dart';
 import 'package:navigationapp/screens/onboarding_screens/onboarding_start.dart';
-import 'package:navigationapp/screens/onboarding_screens/test_screen.dart';
-import 'package:navigationapp/services/TestNotifyScreen.dart';
 import 'package:navigationapp/services/database.dart';
 import 'package:navigationapp/shared/loading.dart';
-import 'package:navigationapp/shared/settings_form.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'home/health.dart';
 import 'home/home.dart';
 
 class Wrapper extends StatefulWidget {
@@ -26,8 +22,6 @@ class _WrapperState extends State<Wrapper> {
     if (user == null) {
       return SignIn();
     } else {
-      // print(user.uid);
-
       return StreamBuilder<UserData>(
           stream: DatabaseService(uid: user.uid).userData,
           builder: (context, snapshot) {
@@ -40,9 +34,8 @@ class _WrapperState extends State<Wrapper> {
                 // return Home(
                 //   imagePath: null,
                 // );
-                return Home(imagePath: null);
+                return Health();
               } else {
-                // print('no onboarding');
                 return OnboardingStart();
               }
             } else {
@@ -54,5 +47,3 @@ class _WrapperState extends State<Wrapper> {
     }
   }
 }
-
-//TODO it seems, it only switches to sign up screen when logout is pressed on the same page that is returned on wrapper when user isn't null

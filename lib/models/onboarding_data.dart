@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 //TODO change int to timeofday after db figured out
 
 class Onboarding {

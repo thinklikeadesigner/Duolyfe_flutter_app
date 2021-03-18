@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:navigationapp/app.dart';
 import 'package:navigationapp/screens/wrapper.dart';
 import 'package:navigationapp/services/auth.dart';
-import 'package:navigationapp/shared/constants.dart';
 import 'package:navigationapp/shared/loading.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'gmailsignin/gmail_signin.dart';
