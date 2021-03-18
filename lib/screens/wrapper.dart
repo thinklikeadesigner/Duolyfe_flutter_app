@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:navigationapp/models/user_class.dart';
 import 'package:navigationapp/screens/authenticate/sign_in.dart';
+import 'package:navigationapp/screens/onboarding_screens/choose_buddy.dart';
 import 'package:navigationapp/screens/onboarding_screens/onboarding_start.dart';
 import 'package:navigationapp/services/database.dart';
 import 'package:navigationapp/shared/loading.dart';
@@ -34,7 +35,7 @@ class _WrapperState extends State<Wrapper> {
                 // return Home(
                 //   imagePath: null,
                 // );
-                return Home(imagePath: null);
+                return ChooseBuddy();
               } else {
                 // print('no onboarding');
                 return OnboardingStart();

@@ -4,11 +4,9 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:navigationapp/screens/authenticate/gmailsignin/gmail_signin.dart';
 import 'package:navigationapp/services/auth.dart';
 import 'package:navigationapp/services/listview.dart';
-import 'package:navigationapp/services/local_notifications.dart';
 import 'package:timezone/data/latest.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
 import '../../app.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Home extends StatefulWidget {
   final String imagePath;

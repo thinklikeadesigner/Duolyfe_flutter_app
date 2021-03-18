@@ -2,17 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_chat_bubble/bubble_type.dart';
 import 'package:flutter_chat_bubble/clippers/chat_bubble_clipper_2.dart';
 import 'package:intervalprogressbar/intervalprogressbar.dart';
-import 'package:navigationapp/models/onboarding_data.dart';
 import 'package:navigationapp/screens/authenticate/gmailsignin/gmail_signin.dart';
-
 import 'package:navigationapp/services/auth.dart';
-import 'package:navigationapp/services/database.dart';
-import 'package:navigationapp/services/listview.dart';
 import 'package:navigationapp/services/shuffler.dart';
 import 'package:navigationapp/widgets/chat_bubbles.dart';
-
 import 'package:provider/provider.dart';
-
 import '../../app.dart';
 
 class Health extends StatefulWidget {
