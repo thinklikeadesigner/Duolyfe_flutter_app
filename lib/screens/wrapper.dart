@@ -6,6 +6,7 @@ import 'package:navigationapp/screens/onboarding_screens/onboarding_start.dart';
 import 'package:navigationapp/services/database.dart';
 import 'package:navigationapp/shared/loading.dart';
 import 'package:provider/provider.dart';
+import 'home/health.dart';
 import 'home/home.dart';
 
 class Wrapper extends StatefulWidget {
@@ -33,7 +34,7 @@ class _WrapperState extends State<Wrapper> {
                 // return Home(
                 //   imagePath: null,
                 // );
-                return ChooseBuddy();
+                return Health();
               } else {
                 return OnboardingStart();
               }
