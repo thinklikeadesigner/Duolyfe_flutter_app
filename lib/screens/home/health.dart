@@ -82,6 +82,9 @@ class _HealthState extends State<Health> {
       body: Center(
         child: Column(
           children: [
+            SizedBox(
+              height: 60,
+            ),
             Image(image: AssetImage("giraffe.png"), height: 130),
             Text(
               'Milo',
@@ -222,7 +225,7 @@ class _HealthState extends State<Health> {
                       ChatBubbleClipper2(type: BubbleType.receiverBubble),
                       context),
                   SizedBox(
-                    height: 50,
+                    height: 20,
                   ),
                 ],
               ),
@@ -272,6 +275,9 @@ class _HealthState extends State<Health> {
                           onPressed: () {
                             // Navigator.of(context).pushNamed('/choosebuddy');
                           }),
+                      SizedBox(
+                        height: 30,
+                      ),
                     ],
                   ),
             FlatButton.icon(

@@ -183,7 +183,7 @@ picktime(CustomClipper clipper, BuildContext context) => ChatBubble(
           maxWidth: MediaQuery.of(context).size.width * 0.4,
         ),
         child: Text(
-          " Now let’s create your work schedule so we can follow it together. Select the start and end times for your work day below. ",
+          "Now let’s create your work schedule so we can follow it together. Select the start and end times for your work day below. ",
           style: TextStyle(color: Colors.black),
         ),
       ),
