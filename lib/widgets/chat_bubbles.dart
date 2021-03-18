@@ -59,7 +59,7 @@ pickNameChatBubble(CustomClipper clipper, BuildContext context) => ChatBubble(
           maxWidth: MediaQuery.of(context).size.width * 0.7,
         ),
         child: Text(
-          "Woof! I’m so glad you picked me! Give me a name 😊",
+          "I’m so glad you picked me! Give me a name 😊",
           style: TextStyle(color: Colors.black),
         ),
       ),
@@ -183,7 +183,7 @@ picktime(CustomClipper clipper, BuildContext context) => ChatBubble(
           maxWidth: MediaQuery.of(context).size.width * 0.4,
         ),
         child: Text(
-          " Now let’s create your work schedule so we can follow it together. Select the start and end times for your work day below. ",
+          "Now let’s create your work schedule so we can follow it together. Select the start and end times for your work day below. ",
           style: TextStyle(color: Colors.black),
         ),
       ),
@@ -197,7 +197,7 @@ picksomethingtodo(CustomClipper clipper, BuildContext context) => ChatBubble(
           maxWidth: MediaQuery.of(context).size.width * 0.7,
         ),
         child: Text(
-          "Woof! It’s been a few days without outdoor fun. Here are some fun things to do today!",
+          "It’s been a few days without outdoor fun. Here are some fun things to do today!",
           style: TextStyle(color: Colors.black),
         ),
       ),

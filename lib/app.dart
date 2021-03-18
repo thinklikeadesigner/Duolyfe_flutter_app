@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:navigationapp/models/user_class.dart';
 import 'package:navigationapp/route_generator/route_generator.dart';
@@ -8,31 +9,23 @@ import 'package:provider/provider.dart';
 
 const primaryTeal = const Color((0xff30D4D4));
 const purpleMessage = const Color(0xff79227B);
-// FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin;
 
 class App extends StatelessWidget {
-  // var initializationSettingsAndroid =
-  //     AndroidInitializationSettings('duolyfe_icon');
-
-  // var initializationSettings = InitializationSettings();
-
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
     return StreamProvider<UserClass>.value(
       value: AuthService().user,
       child: MaterialApp(
         title: 'Navigation Demo',
         theme: ThemeData(
-          // Define the default brightness and colors.
           brightness: Brightness.light,
           primaryColor: primaryTeal,
           accentColor: Colors.cyan[600],
-
-          // Define the default font family.
           fontFamily: 'Georgia',
-
-          // Define the default TextTheme. Use this to specify the default
-          // text styling for headlines, titles, bodies of text, and more.
           textTheme: TextTheme(
             headline1: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
             headline6: TextStyle(fontSize: 36.0, fontStyle: FontStyle.italic),
@@ -45,5 +38,3 @@ class App extends StatelessWidget {
     );
   }
 }
-
-//TODO fix so don't have to hot restart after logout

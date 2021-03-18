@@ -26,8 +26,6 @@ class _WrapperState extends State<Wrapper> {
     if (user == null) {
       return SignIn();
     } else {
-      // print(user.uid);
-
       return StreamBuilder<UserData>(
           stream: DatabaseService(uid: user.uid).userData,
           builder: (context, snapshot) {
@@ -35,14 +33,9 @@ class _WrapperState extends State<Wrapper> {
               UserData userData = snapshot.data;
               // print(userData);
               if (userData.completedOnboarding) {
-                // print(userData.completedOnboarding);
-                // print('onboarding');
-                // return Home(
-                //   imagePath: null,
-                // );
-                return Home(imagePath: null);
+                return Health();
+                // return Home(imagePath: null);
               } else {
-                // print('no onboarding');
                 return OnboardingStart();
               }
             } else {
@@ -54,5 +47,3 @@ class _WrapperState extends State<Wrapper> {
     }
   }
 }
-
-//TODO it seems, it only switches to sign up screen when logout is pressed on the same page that is returned on wrapper when user isn't null
