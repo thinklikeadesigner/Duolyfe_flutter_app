@@ -5,6 +5,8 @@ import 'package:navigationapp/screens/onboarding_screens/choose_buddy.dart';
 import 'package:navigationapp/screens/onboarding_screens/onboarding_start.dart';
 import 'package:navigationapp/services/database.dart';
 import 'package:navigationapp/shared/loading.dart';
+import 'package:navigationapp/InterestData/examplefetch.dart';
+import 'package:navigationapp/InterestData/onetimeread.dart';
 import 'package:provider/provider.dart';
 import 'home/health.dart';
 import 'home/home.dart';
@@ -34,13 +36,13 @@ class _WrapperState extends State<Wrapper> {
                 // return Home(
                 //   imagePath: null,
                 // );
-                return Health();
+                return ExampleFetch();
               } else {
-                return OnboardingStart();
+                return ExampleFetch();
               }
             } else {
               print('where is data');
-              return Loading();
+              return ExampleFetch();
             }
           });
       // }
