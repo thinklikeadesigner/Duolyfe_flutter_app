@@ -1,0 +1,177 @@
+
+
+
+
+
+
+   {
+     "suggestions": [
+       { "category": "cooking",
+         "activities": [
+           "Bake Something Sweet!",
+           "Cook a favorite meal or Try a new Recipe",
+           "Try Making Candy"
+         ]
+       },
+       {"category": "fun",
+         "activities": [
+           "Color a picture or coloring book (children or adult version)",
+           "Create a movie or fun motion picture",
+           "Create a scrapbook or photo book",
+           "Create your own candle(s)",
+           "Put together a care package",
+           "Crochet something",
+           "Draw, sketch, or tr ace a picture",
+           "Decorate cookies or a cake that you’ve baked",
+           "Do Needle Point",
+           "Edit photos for keeping or sharing with others",
+           "Knit something fun to stay warm in",
+           "Make a collage of pictures",
+           "Make a snow globe",
+           "Make homemade slime",
+           "Make homemade soap",
+           "Paint something fun",
+           "Record music",
+           "Sew something cool",
+           "Sculpt an interesting piece out of clay",
+           "Take some Pictures",
+           "Write a children’s story",
+           "Write a Novel",
+           "Write a Poem",
+           "Write a letter to yourself in the future"
+         ]
+       },
+       {
+         "category": "health",
+         "activities": [
+           "Make lemonade",
+           "Have a fruit salad",
+           "Read a book before sleeping",
+           "Take vitamins",
+           "Stretch or Do Yoga",
+           "Drink a full glass of water or a cup of tea"
+         ]
+       },
+       {
+         "category": "indoor",
+         "activities": [
+           "Play Chess",
+           "Play a musical instrument",
+           "Read a book",
+           "Write a journal",
+           "Draw some sketches",
+           "Write a blog article",
+           "Draw a painting",
+           "Play a boardgame",
+           "Dance on your favorite song",
+           "Learn your favorite language",
+           "Bake your favorite cake or bread",
+           "Play a Solo Card Game (Like Solitaire)",
+           "Sing your favorite songs",
+           "listen to a new audiobook",
+           "Play a Classic or Retro Video Game",
+           "Start an Indoor Garden",
+           "Clean and sanitize your phone, laptop, or tablet (and their cases!)",
+           "De-clutter your house",
+           "Round up old items to donate",
+           "Learn a Handyman skill",
+           "Learn some computer keyboard shortcuts",
+           "Change up your home décor",
+           "Create and fly a paper airplane"
+         ]
+       },
+       {
+         "category": "mind",
+         "activities": [
+           "Solve a Fun (or Challenging!) Puzzle",
+           "Look at old photos & photo albums (or organize them!)",
+           "Start writing a bucket list",
+           "Read a Book or Magazine",
+           "Listen to music",
+           "Meditate to a video or audio course",
+           "Listen to a podcast or the Radio",
+           "Create a list of books You want to read",
+           "Create a vision board for the year",
+           "Make a budget or financial goal"
+         ]
+       },
+       {
+         "category": "outdoor",
+         "activities": [
+           "Do body stretching",
+           "Go for a walk",
+           "Practice Yoga",
+           "Go for cycling",
+           "Go out for camping",
+           "Gardening",
+           "Play with your Pet",
+           "Teach your pet a new trick",
+           "Spoil your pet with a new treat",
+           "Splurge on yourself & go shopping",
+           "Plan a travel or road trip",
+           "Sign up for a local class",
+           "Photography",
+           "Go Fishing",
+           "Go Noodling",
+           "Go Biking",
+           "Go Boating",
+           "Go Scuba diving and snorkeling",
+           "Go Hot air ballooning, flying, and gliding",
+           "Play Baseball or softball",
+           "Play Volleyball",
+           "Play Tennis",
+           "Play Golf",
+           "Run a marathon"
+         ]
+       },
+       {
+         "category": "personal development",
+         "activities": [
+           "Update your gadgets",
+           "Update your contacts information",
+           "Update your Resume",
+           "Wash your homes windows",
+           "Wash your car",
+           "Work on your Amazon wishlist",
+           "Start a Journal",
+           "Write some online reviews for a recent purchase you made",
+           "Write your will",
+           "Make a Household Product",
+           "Express Gratitude towards someone you appreciate",
+           "set professional goals for yourself",
+           "set Personal goals for yourself",
+           "Organize a yard sale",
+           "Organize the apps on your phone",
+           "Set some personal goals for yourself",
+           "Sign up for a local class"
+         ]
+       },
+       {
+         "category": "social",
+         "activities": [
+           "Call your school friend",
+           "Do a virtual dinner with family or friends",
+           "Watch a movie",
+           "Get your favorite drink",
+           "Organize a Networking Event",
+           "Attend a Networking Event",
+           "Attend a Stand-up comedy show",
+           "Host a small house party for friends or family",
+           "Call someone you care about",
+           "Message or Email someone you admire",
+           "Browse your social media feeds",
+           "Browse for an online learning course",
+           "Read up on current events & news",
+           "Trace down your ancestry & family hist",
+           "Clean up your Facebook, Twitter, Instagram, etc",
+           "Clean out your closet of old or unused clothes",
+           "Secure your online accounts",
+           "Clean up your emails",
+           "Fine-tune your LinkedIn profile",
+           "Go through the photos on your phone",
+           "Organize the apps on your phone"
+         ]
+       }
+     ]
+   }
+ 
