@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:navigationapp/models/user_class.dart';
 import 'package:navigationapp/route_generator/route_generator.dart';
 import 'package:navigationapp/screens/wrapper.dart';
@@ -22,6 +21,7 @@ class App extends StatelessWidget {
       child: MaterialApp(
         title: 'Navigation Demo',
         theme: ThemeData(
+          visualDensity: VisualDensity.adaptivePlatformDensity,
           brightness: Brightness.light,
           primaryColor: primaryTeal,
           accentColor: Colors.cyan[600],
