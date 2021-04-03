@@ -42,29 +42,35 @@ class ChooseName extends StatelessWidget {
               padding: EdgeInsets.fromLTRB(16, 10, 16, 28),
               child: Column(
                 children: [
-                  FlatButton(
+                  TextButton(
                       child: Text(
                         'Milo!',
                         style: TextStyle(color: Colors.white),
                       ),
-                      color: primaryTeal,
-                      splashColor: primaryTeal,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18.0),
+                      style: TextButton.styleFrom(
+                        fixedSize: Size(120, 10),
+                        primary: Colors.black,
+                        backgroundColor: primaryTeal,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18.0),
+                        ),
                       ),
                       onPressed: () {
-                        Navigator.of(context)
-                            .pushNamed('/milonamepicked', arguments: imagePath);
+                        // Navigator.of(context)
+                        //     .pushNamed('/milonamepicked', arguments: imagePath);
                       }),
-                  FlatButton(
+                  TextButton(
                       child: Text(
                         'Sky!',
                         style: TextStyle(color: Colors.white),
                       ),
-                      color: primaryTeal,
-                      splashColor: primaryTeal,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18.0),
+                      style: TextButton.styleFrom(
+                        fixedSize: Size(120, 10),
+                        primary: Colors.black,
+                        backgroundColor: primaryTeal,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18.0),
+                        ),
                       ),
                       onPressed: () {
                         Navigator.of(context)
@@ -81,15 +87,23 @@ class ChooseName extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    FlatButton(
-                        child: Text('Skip'),
-                        splashColor: primaryTeal,
-                        shape: RoundedRectangleBorder(
+                    TextButton(
+                        child: Text(
+                          'Skip',
+                          style: TextStyle(color: Colors.black),
+                        ),
+                        style: TextButton.styleFrom(
+                          fixedSize: Size(120, 10),
+                          primary: Colors.black,
+                          backgroundColor: Colors.white,
+                          shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(18.0),
-                            side: BorderSide(color: Colors.black)),
+                          ),
+                          side: BorderSide(color: Colors.black),
+                        ),
                         onPressed: () {
-                          Navigator.of(context).pushNamed('/milonamepicked',
-                              arguments: imagePath);
+                          // Navigator.of(context).pushNamed('/milonamepicked',
+                          //     arguments: imagePath);
                         }),
                   ],
                 ))

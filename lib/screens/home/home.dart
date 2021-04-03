@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:navigationapp/screens/authenticate/gmailsignin/gmail_signin.dart';
 import 'package:navigationapp/services/auth.dart';
 import 'package:navigationapp/services/listview.dart';
-import 'package:timezone/data/latest.dart' as tz;
+// import 'package:timezone/data/latest.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
 import '../../app.dart';
 
@@ -106,11 +105,11 @@ class _HomeState extends State<Home> {
     Image(image: AssetImage("giraffe.png"), height: 130),
     Text(
       'This is where the tasks feed will be',
-      style: TextStyle(fontWeight: FontWeight.bold),
+      style: optionStyle,
     ),
     Text(
       'This is where the settings screen will be',
-      style: TextStyle(fontWeight: FontWeight.bold),
+      style: optionStyle,
       textAlign: TextAlign.end,
     ),
   ];
