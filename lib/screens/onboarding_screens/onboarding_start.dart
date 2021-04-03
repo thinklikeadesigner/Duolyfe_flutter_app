@@ -51,57 +51,76 @@ class OnboardingStart extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  FlatButton(
-                      child: Text('Skip'),
-                      splashColor: primaryTeal,
+                  TextButton(
+                    child: Text(
+                      'Skip',
+                    ),
+                    style: TextButton.styleFrom(
+                      fixedSize: Size(120, 10),
+                      primary: Colors.black,
+                      backgroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(18.0),
                           side: BorderSide(color: Colors.black)),
-                      onPressed: () {
-                        Navigator.of(context).pushNamed('/milonamepicked');
-                      }),
-                  FlatButton(
+                    ),
+                    onPressed: () {
+                      Navigator.of(context).pushNamed('/milonamepicked');
+                    },
+                  ),
+                  TextButton(
                       child: Text(
                         'Let\'s do it!',
-                        style: TextStyle(color: Colors.white),
                       ),
-                      color: primaryTeal,
-                      splashColor: primaryTeal,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18.0),
+                      style: TextButton.styleFrom(
+                        fixedSize: Size(120, 10),
+                        primary: Colors.white,
+                        backgroundColor: primaryTeal,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18.0),
+                        ),
                       ),
                       onPressed: () async {
                         await DatabaseService(uid: user.uid).updateOnboarding(
                             ['Crafts', 'Social'], false, 'panda');
                         Navigator.of(context).pushNamed('/choosebuddy');
                       }),
-                  FlatButton(
-                      child: Text(
-                        'sign out',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      color: primaryTeal,
-                      splashColor: primaryTeal,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18.0),
-                      ),
-                      onPressed: () {
-                        _auth.signOut();
-                      }),
-                  FlatButton(
-                      child: Text(
-                        'log out',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      color: primaryTeal,
-                      splashColor: primaryTeal,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18.0),
-                      ),
-                      onPressed: () {
-                        _auth.signOut();
-                        _authGmail.signOutGoogle();
-                      }),
+                  Column(
+                    children: [
+                      TextButton(
+                          child: Text(
+                            'sign out',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          style: TextButton.styleFrom(
+                            fixedSize: Size(120, 10),
+                            primary: Colors.black,
+                            backgroundColor: primaryTeal,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(18.0),
+                            ),
+                          ),
+                          onPressed: () {
+                            _auth.signOut();
+                          }),
+                      TextButton(
+                          child: Text(
+                            'log out',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          style: TextButton.styleFrom(
+                            fixedSize: Size(120, 10),
+                            primary: Colors.black,
+                            backgroundColor: primaryTeal,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(18.0),
+                            ),
+                          ),
+                          onPressed: () {
+                            _auth.signOut();
+                            _authGmail.signOutGoogle();
+                          }),
+                    ],
+                  ),
                 ],
               ),
             ),
