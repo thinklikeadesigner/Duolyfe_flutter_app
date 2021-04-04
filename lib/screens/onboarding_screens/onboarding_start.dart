@@ -70,9 +70,9 @@ class OnboardingStart extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(18.0),
                       ),
-                      onPressed: () async {
-                        await DatabaseService(uid: user.uid).updateOnboarding(
-                            ['Crafts', 'Social'], false, 'panda');
+                      onPressed: () {
+                        // await DatabaseService(uid: user.uid).updateOnboarding(
+                        //     ['Crafts', 'Social'], false, 'panda');
                         Navigator.of(context).pushNamed('/choosebuddy');
                       }),
                   FlatButton(

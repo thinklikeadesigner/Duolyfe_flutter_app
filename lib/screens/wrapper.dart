@@ -41,7 +41,9 @@ class _WrapperState extends State<Wrapper> {
                 return Buddy();
               }
             } else {
-              print('where is data');
+              DatabaseService(uid: user.uid)
+                  .updateOnboarding(['Crafts', 'Social'], false, 'panda');
+              Navigator.of(context).pushNamed('/choosebuddy');
               return OnboardingStart();
             }
           });

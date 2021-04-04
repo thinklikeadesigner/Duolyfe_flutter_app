@@ -1,0 +1,139 @@
+app initializes wrapper, so wrapper is the first screen
+
+
+in wrapper: user data can be null, or it can exist
+if user is null, user is not logged in and user is directed to the sign in screen
+
+if user is not null, the next set of checks is to see if user has completed onboarding or not
+if it is a new user, the user does not have any data yet, because the default data is added during the first onboarding screen
+
+an idea is to updateOnboarding if hasData is null, bc it can only be null once
+you cant set the default data on login bc then data is reset every time user logs in, look into isFreshlyInstalled so you can only put data in the database once,
+or find a way to set the data when user is entered into firebase auth for first time
+
+the first check checks if the user has data.
+if the user has data, it means they have at least been to the 2nd page of onboarding
+user has data means A user completed onboarding or B user has started but did not finish onboarding
+
+if the user doesn't have data, they have logged in but they have not been to the second page of onboarding, nor have they completed onboarding
+
+if the user exists, onboarding can be null, false, or true
+
+to summarize, user states in wrapper are:
+A) user is not logged in
+B) user logged in &&
+    a)user doesnt have data
+    b)user has data &&
+        I) user did not finish onboarding
+        II) user finished onboarding
+
+
+The actions are
+A) redirect to sign in
+a) send to onboarding
+I) send to onboarding
+II) send to home screen
+
+signin screen:
+
+3 states
+ - user not logged in
+ - user logged in
+ - user begins automated google authentication flow
+
+onboarding screen: stateless
+2 user actions, skip and let's go
+skip goes to milonamepicked and skips choosing and naming the buddy
+go goes to choosebuddy
+
+choosebuddy screen: currently stateful
+
+- user doesnt have data
+    - loading
+- user has data
+    - _currentbuddy == null
+    - _currentbuddy != null
+    - buddy is saved
+    - buddy is not saved
+        - data is sent
+        - data error
+- currentbuddy image is set as an argument to choosename screen
+    
+
+choosename screen: currently stateless
+- skip goes to milonamepicked
+- milo goes to milonamepicked
+- sky goes to skynamepicked
+- arguement for image is passed to next screen as an argument
+
+
+milo/skynamepicked screen: stateless
+- arguement for image is passed to next screen as an argument
+- only one button, 'save buddy' and goes to chooseactivity
+
+chooseactivity screen: currently stateful
+there's a lot going on here
+there's no button, unless at least 3 activities are choosename
+possible states:
+- button disabled
+- button enabled
+    - data sent to server
+    - data failed
+        - show loading?
+- 0, 1, or 2 activities picked
+- 3 or more activities picked
+image arguments passed to next page
+
+picktime screen: idk??? i really want to ignore this screen in favor of the core features
+anyways
+possible states: 
+    - time picked
+    - no time picked
+    - save button pressed
+        - data sent
+            - complete dialogue pops up
+                - 'approve' button navigates to home
+        - data not sent
+            - loading?
+
+home screen: stateful
+possible events
+- health going up
+- health going down
+- give milo treat
+- show activities
+- chooseactivity
+    - task added to list
+        - data sent
+        - data failed
+            - show loading?
+- change buddy
+
+bottomnavbar:
+- just switches between screens
+
+task screen
+possible events
+- task added to list
+- task completed
+    - task filled in and disabled
+    - points data sent
+        - data sent
+        - data failed
+
+    - should uncompleted tasks be deleteable?
+    - should you be able to add multiple uncompleted tasks?
+
+
+- decide which data should be persisted locally versus cached in the cloud
+
+
+TODO need a better way to check if onboarding is completed, bc the value can be null in between sign in and the first onboarding screen
+TODO need to make the name a data object to persist along with the buddy image and save both in database
+TODO make stateful widgets stateless
+TODO authentication bloc
+TODO activity bloc
+TODO buddy bloc
+TODO name bloc
+TODO refine models for data
+TODO refine database service
