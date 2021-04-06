@@ -38,8 +38,7 @@ class RouteGenerator {
         return MaterialPageRoute(
             builder: (context) => ChooseActivity(loginArgument));
       case '/chooseworktime':
-        return MaterialPageRoute(
-            builder: (context) => ChooseWorkTime(loginArgument));
+        return MaterialPageRoute(builder: (context) => ChooseWorkTime());
 
       case '/home':
         return MaterialPageRoute(

@@ -22,3 +22,23 @@ User(
           tenantId: null, 
           uid: mFs7a1VJsBfThF1NNufg7M1RJnz2
           )
+
+
+var fakeTaskData = {
+  "task1": {
+    "completed": false,
+    "activity": "taking a walk",
+  },
+  "task2": {
+    "completed": true,
+    "activity": "baking a cake",
+  },
+  "task3": {
+    "completed": false,
+    "activity": "meditating",
+  },
+  "task4": {
+    "completed": false,
+    "activity": "reading a book",
+  },
+};
