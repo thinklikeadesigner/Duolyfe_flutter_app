@@ -5,7 +5,7 @@
 <uses-permission android:name="android.permission.VIBRATE" />
    <application
    
-        android:label="vineeladuo"
+        android:label="duolyfe"
         android:icon="@mipmap/ic_launcher">
         <service
     android:name="io.flutter.plugins.androidalarmmanager.AlarmService"

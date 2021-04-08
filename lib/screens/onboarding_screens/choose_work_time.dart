@@ -77,8 +77,7 @@ class _ChooseWorkTimeState extends State<ChooseWorkTime> {
               onPressed: () {
                 print(_completedOnboarding);
                 // return Wrapper();
-                Navigator.of(context).pushNamed('/home',
-                    arguments: widget.arguments.elementAt(0));
+                Navigator.of(context).pushNamed('/home');
               },
             ),
           ],
