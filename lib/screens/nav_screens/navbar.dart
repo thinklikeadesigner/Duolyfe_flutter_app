@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:navigationapp/screens/home/health.dart';
-import 'package:navigationapp/screens/onboarding_screens/onboarding_start.dart';
+import 'package:navigationapp/screens/home/buddy.dart';
+import 'package:navigationapp/screens/onboarding_screens/choose_activity.dart';
+import 'package:navigationapp/screens/onboarding_screens/choose_buddy.dart';
 
 class NavBar extends StatefulWidget {
   @override
@@ -12,9 +13,9 @@ class NavBar extends StatefulWidget {
 class _NavBarState extends State<NavBar> {
   int _currentIndex = 0;
   final List<Widget> _children = [
-    PlaceholderWidget(Colors.white),
-    PlaceholderWidget(Colors.deepOrange),
-    Health()
+    Buddy(),
+    ChooseActivity('panda.png'),
+    ChooseBuddy(),
   ];
 
   void onTabTapped(int index) {
@@ -26,24 +27,24 @@ class _NavBarState extends State<NavBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text('My Flutter App'),
-      // ),
       body: _children[_currentIndex], // new
       bottomNavigationBar: BottomNavigationBar(
         onTap: onTabTapped, // new
-        currentIndex: _currentIndex, // new
+        currentIndex: _currentIndex,
+        selectedItemColor: Colors.black, // new
         items: [
-          new BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            title: Text('Home'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.pets),
+            label: 'Buddy',
           ),
-          new BottomNavigationBarItem(
-            icon: Icon(Icons.mail),
-            title: Text('Messages'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.favorite),
+            label: 'Self-Care',
           ),
-          new BottomNavigationBarItem(
-              icon: Icon(Icons.person), title: Text('Profile'))
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: 'Settings',
+          ),
         ],
       ),
     );

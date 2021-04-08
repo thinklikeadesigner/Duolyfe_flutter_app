@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:navigationapp/models/user_class.dart';
 import 'package:navigationapp/screens/authenticate/sign_in.dart';
-import 'package:navigationapp/screens/onboarding_screens/choose_buddy.dart';
+import 'package:navigationapp/screens/home/buddy.dart';
 import 'package:navigationapp/screens/onboarding_screens/onboarding_start.dart';
 import 'package:navigationapp/services/database.dart';
-import 'package:navigationapp/shared/loading.dart';
-import 'package:navigationapp/InterestData/examplefetch.dart';
-import 'package:navigationapp/InterestData/onetimeread.dart';
 import 'package:provider/provider.dart';
-import 'home/health.dart';
-import 'home/home.dart';
+import 'package:uic/login_uic.dart';
 
 class Wrapper extends StatefulWidget {
   @override
@@ -29,20 +25,24 @@ class _WrapperState extends State<Wrapper> {
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               UserData userData = snapshot.data;
-              // print(userData);
+
+              // userData.interests.forEach((element) {
+              //   print(element);
+              // });
+
               if (userData.completedOnboarding) {
                 // print(userData.completedOnboarding);
                 // print('onboarding');
                 // return Home(
                 //   imagePath: null,
                 // );
-                return ExampleFetch();
+                return OnboardingStart();
               } else {
-                return ExampleFetch();
+                return Buddy();
               }
             } else {
               print('where is data');
-              return ExampleFetch();
+              return OnboardingStart();
             }
           });
       // }

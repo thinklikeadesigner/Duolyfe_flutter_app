@@ -9,7 +9,6 @@ import 'package:navigationapp/app.dart';
 import 'package:provider/provider.dart';
 import 'package:uic/step_indicator.dart';
 
-//TODO change int to timeofday after db figured out
 class ChooseActivity extends StatefulWidget {
   String imagePath;
   ChooseActivity(this.imagePath) {
@@ -139,21 +138,24 @@ class _ChooseActivityState extends State<ChooseActivity> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         SizedBox(width: 20),
-                        FlatButton(
+                        TextButton(
                             child: Text(
                               'Save Interests',
                               style: TextStyle(color: Colors.white),
                             ),
-                            color: primaryTeal,
-                            splashColor: primaryTeal,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(18.0),
+                            style: TextButton.styleFrom(
+                              fixedSize: Size(100, 10),
+                              primary: Colors.black,
+                              backgroundColor: primaryTeal,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(18.0),
+                              ),
                             ),
                             onPressed: _currentInterests.length < 3
                                 ? null
                                 : () async {
                                     // print(_currentInterests);
-                                    // print(widget.imagePath);
+                                    print(widget.imagePath);
                                     _nextWidgetArguments[0] = widget.imagePath;
                                     await DatabaseService(uid: user.uid)
                                         .updateOnboarding(
@@ -181,3 +183,28 @@ class _ChooseActivityState extends State<ChooseActivity> {
 }
 
 // https://mightytechno.com/flutter-disable-enable-button/
+
+// Expanded(
+//     child: Scrollbar(
+//         isAlwaysShown: true,
+//         controller: _scrollController,
+//         child: ListView.builder(
+//             controller: _scrollController,
+//             itemCount: _items.length,
+//             itemBuilder: (context, index) {
+//               return CheckboxListTile(
+//                 value: _items.contains(
+//                     _items[index]["category"]),
+//                 onChanged: (bool selected) {
+//                   _onCategorySelected(
+//                       selected,
+//                    _items[index]["category"]);
+//                   // print(_currentInterests);
+//                 },
+//                 title: Text(_items[index]["category"] ??
+//                     'hi'),
+//               );
+//             }
+//             ),
+//             ),
+//             ),

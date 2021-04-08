@@ -2,20 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_chat_bubble/bubble_type.dart';
 import 'package:flutter_chat_bubble/clippers/chat_bubble_clipper_2.dart';
 import 'package:navigationapp/models/user_class.dart';
-import 'package:navigationapp/screens/wrapper.dart';
 import 'package:navigationapp/services/database.dart';
 import 'package:navigationapp/shared/loading.dart';
 import 'package:navigationapp/widgets/chat_bubbles.dart';
 import 'package:uic/step_indicator.dart';
 import '../../app.dart';
 import 'package:provider/provider.dart';
-
-//TODO https://github.com/flutter/flutter/issues/24278 for ios alarm manager implementation
-//TODO update chosen time to database
-//TODO change int to timeofday after db figured out
-//TODO local and alarm video https://www.youtube.com/watch?v=950jZeaqbdU
-// isolates tutorial
-// flutter background tasks https://www.youtube.com/watch?v=cV0pByqNV6A
 
 class ChooseWorkTime extends StatefulWidget {
   List<String> arguments;

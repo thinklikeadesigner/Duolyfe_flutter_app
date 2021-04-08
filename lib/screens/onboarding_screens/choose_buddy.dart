@@ -5,8 +5,6 @@ import 'package:navigationapp/services/database.dart';
 import 'package:navigationapp/shared/loading.dart';
 import 'package:provider/provider.dart';
 
-//TODO change int to timeofday after db figured out
-
 class ChooseBuddy extends StatefulWidget {
   @override
   _ChooseBuddyState createState() => _ChooseBuddyState();
@@ -32,6 +30,7 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                   child: Scrollbar(
                     isAlwaysShown: true,
                     controller: _scrollController,
+                    //TODO make card grid get data from array
                     child: GridView(
                       controller: _scrollController,
                       padding: EdgeInsets.fromLTRB(10, 10, 10, 70),
@@ -43,7 +42,7 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                             child: InkWell(
                               splashColor: Colors.blue.withAlpha(30),
                               onTap: () {
-                                _currentBuddy = "panda";
+                                _currentBuddy = "panda.png";
                                 print(_currentBuddy);
                               },
                               child: Container(
@@ -61,7 +60,7 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                           child: InkWell(
                             splashColor: Colors.blue.withAlpha(30),
                             onTap: () {
-                              _currentBuddy = "bear";
+                              _currentBuddy = "bear.png";
                               print(_currentBuddy);
                             },
                             child: Container(
@@ -77,7 +76,7 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                           child: InkWell(
                             splashColor: Colors.blue.withAlpha(30),
                             onTap: () {
-                              _currentBuddy = "cat";
+                              _currentBuddy = "cat.png";
                               print(_currentBuddy);
                             },
                             child: Container(
@@ -93,7 +92,7 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                           child: InkWell(
                             splashColor: Colors.blue.withAlpha(30),
                             onTap: () {
-                              _currentBuddy = "chick";
+                              _currentBuddy = "chick.png";
                               print(_currentBuddy);
                             },
                             child: Container(
@@ -110,7 +109,7 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                           child: InkWell(
                             splashColor: Colors.blue.withAlpha(30),
                             onTap: () {
-                              _currentBuddy = "cow";
+                              _currentBuddy = "cow.png";
                               print(_currentBuddy);
                             },
                             child: Container(
@@ -126,7 +125,7 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                           child: InkWell(
                             splashColor: Colors.blue.withAlpha(30),
                             onTap: () {
-                              _currentBuddy = "deer";
+                              _currentBuddy = "deer.png";
                               print(_currentBuddy);
                             },
                             child: Container(
@@ -142,7 +141,7 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                           child: InkWell(
                             splashColor: Colors.blue.withAlpha(30),
                             onTap: () {
-                              _currentBuddy = "yellowDog";
+                              _currentBuddy = "yellowDog.png";
                               print(_currentBuddy);
                             },
                             child: Container(
@@ -159,7 +158,7 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                           child: InkWell(
                             splashColor: Colors.blue.withAlpha(30),
                             onTap: () {
-                              _currentBuddy = "fox";
+                              _currentBuddy = "fox.png";
                               print(_currentBuddy);
                             },
                             child: Container(
@@ -175,7 +174,7 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                           child: InkWell(
                             splashColor: Colors.blue.withAlpha(30),
                             onTap: () {
-                              _currentBuddy = "giraffe";
+                              _currentBuddy = "giraffe.png";
                               print(_currentBuddy);
                             },
                             child: Container(
@@ -192,7 +191,7 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                           child: InkWell(
                             splashColor: Colors.blue.withAlpha(30),
                             onTap: () {
-                              _currentBuddy = "hamster";
+                              _currentBuddy = "hamster.png";
                               print(_currentBuddy);
                             },
                             child: Container(
@@ -209,7 +208,7 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                           child: InkWell(
                             splashColor: Colors.blue.withAlpha(30),
                             onTap: () {
-                              _currentBuddy = "koala";
+                              _currentBuddy = "koala.png";
                               print(_currentBuddy);
                             },
                             child: Container(
@@ -226,7 +225,7 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                           child: InkWell(
                             splashColor: Colors.blue.withAlpha(30),
                             onTap: () {
-                              _currentBuddy = "mouse";
+                              _currentBuddy = "mouse.png";
                               print(_currentBuddy);
                             },
                             child: Container(
@@ -243,7 +242,7 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                           child: InkWell(
                             splashColor: Colors.blue.withAlpha(30),
                             onTap: () {
-                              _currentBuddy = "pig";
+                              _currentBuddy = "pig.png";
                               print(_currentBuddy);
                             },
                             child: Container(
@@ -259,7 +258,7 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                           child: InkWell(
                             splashColor: Colors.blue.withAlpha(30),
                             onTap: () {
-                              _currentBuddy = "brownDog";
+                              _currentBuddy = "brownDog.png";
                               print(_currentBuddy);
                             },
                             child: Container(
@@ -276,7 +275,7 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                           child: InkWell(
                             splashColor: Colors.blue.withAlpha(30),
                             onTap: () {
-                              _currentBuddy = "racoon";
+                              _currentBuddy = "racoon.png";
                               print(_currentBuddy);
                             },
                             child: Container(
@@ -293,7 +292,7 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                           child: InkWell(
                             splashColor: Colors.blue.withAlpha(30),
                             onTap: () {
-                              _currentBuddy = "sheep";
+                              _currentBuddy = "sheep.png";
                               print(_currentBuddy);
                             },
                             child: Container(
@@ -310,7 +309,7 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                           child: InkWell(
                             splashColor: Colors.blue.withAlpha(30),
                             onTap: () {
-                              _currentBuddy = "tiger";
+                              _currentBuddy = "tiger.png";
                               print(_currentBuddy);
                             },
                             child: Container(
@@ -327,7 +326,7 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                           child: InkWell(
                             splashColor: Colors.blue.withAlpha(30),
                             onTap: () {
-                              _currentBuddy = "wolf";
+                              _currentBuddy = "wolf.png";
                             },
                             child: Container(
                               child: Center(
@@ -348,28 +347,36 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                     child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          FlatButton(
+                          TextButton(
                               child: Text(
                                 'Skip',
                                 style: TextStyle(color: Colors.black),
                               ),
-                              splashColor: primaryTeal,
-                              shape: RoundedRectangleBorder(
+                              style: TextButton.styleFrom(
+                                fixedSize: Size(120, 10),
+                                primary: Colors.black,
+                                backgroundColor: Colors.white,
+                                shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(18.0),
-                                  side: BorderSide(color: Colors.black)),
+                                ),
+                                side: BorderSide(color: Colors.black),
+                              ),
                               onPressed: () {
                                 Navigator.of(context)
                                     .pushNamed('/milonamepicked');
                               }),
-                          FlatButton(
+                          TextButton(
                               child: Text(
                                 'Save Buddy',
                                 style: TextStyle(color: Colors.white),
                               ),
-                              color: primaryTeal,
-                              splashColor: primaryTeal,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(18.0),
+                              style: TextButton.styleFrom(
+                                fixedSize: Size(120, 10),
+                                primary: Colors.black,
+                                backgroundColor: primaryTeal,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(18.0),
+                                ),
                               ),
                               onPressed: () async {
                                 await DatabaseService(uid: user.uid)
@@ -378,8 +385,10 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                                         _completedOnboarding ??
                                             userData.completedOnboarding,
                                         _currentBuddy ?? userData.buddy);
+                                //if user presses save but doesn't choose a buddy, arguments: _currentBuddy) will be called on null, so I added a default argument
+                                //TODO darken selected card
                                 Navigator.of(context).pushNamed('/choosename',
-                                    arguments: _currentBuddy + '.png');
+                                    arguments: _currentBuddy ?? 'panda.png');
                               }),
                         ]),
                   ),

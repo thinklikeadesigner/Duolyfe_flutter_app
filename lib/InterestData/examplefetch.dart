@@ -34,6 +34,24 @@ class _ExampleFetchState extends State<ExampleFetch> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  TextButton(
+                    child: Text(
+                      'fetchdata',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    style: TextButton.styleFrom(
+                      // fixedSize: Size(200.0, 100.0),
+                      primary: primaryTeal,
+                      // onSurface: Colors.red,
+                      backgroundColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(18.0),
+                      ),
+                    ),
+                    onPressed: () {
+                      print('Pressed');
+                    },
+                  ),
                   FlatButton(
                     child: Text(
                       'fetch data',

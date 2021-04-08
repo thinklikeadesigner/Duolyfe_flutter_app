@@ -100,7 +100,7 @@ class _SignInState extends State<SignIn> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           Text('Don\'t have an account?'),
-                          FlatButton.icon(
+                          TextButton.icon(
                             icon: Icon(Icons.person),
                             label: Text('Sign up'),
                             onPressed: () {

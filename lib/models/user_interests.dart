@@ -1,5 +1,5 @@
-class Interests {
+class Interest {
   final List<dynamic> interest;
 
-  Interests({this.interest});
+  Interest({this.interest});
 }
