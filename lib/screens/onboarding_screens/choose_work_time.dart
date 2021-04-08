@@ -8,12 +8,13 @@ import 'package:navigationapp/widgets/chat_bubbles.dart';
 import 'package:uic/step_indicator.dart';
 import '../../app.dart';
 import 'package:provider/provider.dart';
+import 'package:timezone/timezone.dart' as tz;
 
 class ChooseWorkTime extends StatefulWidget {
   List<String> arguments;
-  ChooseWorkTime(this.arguments) {
-    this.arguments = arguments;
-  }
+  // ChooseWorkTime(this.arguments) {
+  //   this.arguments = arguments;
+  // }
 
   @override
   _ChooseWorkTimeState createState() => _ChooseWorkTimeState();
@@ -50,7 +51,9 @@ class _ChooseWorkTimeState extends State<ChooseWorkTime> {
         });
 
     if (picked != null && picked != _time) {
-      setState(() {});
+      setState(() {
+        // print(_convertTimeofDaytoDatetime(_time));
+      });
     }
   }
 
@@ -100,9 +103,7 @@ class _ChooseWorkTimeState extends State<ChooseWorkTime> {
                   children: <Widget>[
                     Container(
                       margin: const EdgeInsets.fromLTRB(20, 60, 20, 20),
-                      child: Image(
-                          image: AssetImage(widget.arguments.elementAt(0)),
-                          height: 150),
+                      child: Image(image: AssetImage('panda.png'), height: 150),
                     ),
                     StepIndicator(
                       selectedStepIndex: 5,
@@ -119,7 +120,7 @@ class _ChooseWorkTimeState extends State<ChooseWorkTime> {
                     ilovehiking(
                         ChatBubbleClipper2(type: BubbleType.receiverBubble),
                         context,
-                        widget.arguments.elementAt(1)),
+                        'panda.png'),
                     picktime(
                         ChatBubbleClipper2(type: BubbleType.receiverBubble),
                         context),
@@ -138,8 +139,23 @@ class _ChooseWorkTimeState extends State<ChooseWorkTime> {
                                   borderRadius: BorderRadius.circular(18.0),
                                 ),
                                 onPressed: () {
+                                  // selectTime gives me the variable _time which is the user picked time
+                                  // _time is in the format (hours: hours, minutes: minutes)
                                   selectTime(context);
-                                  print(_time);
+                                  // i need the variable now so i now what day it is
+                                  final now = new tz.TZDateTime.now(tz.local);
+                                  // so i use "now" to get the day, month, and year
+                                  // and _time.hour and _time.minute to get the hours and minutes
+                                  final convert = new tz.TZDateTime(
+                                      tz.local,
+                                      now.year,
+                                      now.month,
+                                      now.day,
+                                      _time.hour,
+                                      _time.minute);
+
+                                  print('hi $convert');
+
                                   // Navigator.of(context).pushNamed('/');
                                 }),
                             FlatButton(

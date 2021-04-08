@@ -1,0 +1,391 @@
+@startuml
+set namespaceSeparator ::
+
+class "navigationapp::shared::loading.dart::Loading" {
+  +Widget* build()
+}
+
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "navigationapp::shared::loading.dart::Loading"
+
+class "navigationapp::models::onboarding_data.dart::Onboarding" {
+  +List<dynamic>* interests
+  +bool* completedOnboarding
+  +String* buddy
+}
+
+class "navigationapp::models::user_interests.dart::Interest" {
+  +List<dynamic>* interest
+}
+
+class "navigationapp::models::user_class.dart::UserClass" {
+  +String* uid
+  +DateTime* creationTime
+  +DateTime* lastSignInTime
+}
+
+class "navigationapp::models::user_class.dart::UserData" {
+  +String* uid
+  +List<dynamic>* interests
+  +bool* completedOnboarding
+  +String* buddy
+}
+
+class "navigationapp::screens::nav_screens::navbar.dart::NavBar" {
+  +State<StatefulWidget*>* createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "navigationapp::screens::nav_screens::navbar.dart::NavBar"
+
+class "navigationapp::screens::nav_screens::navbar.dart::_NavBarState" {
+  -int* _currentIndex
+  -List<Widget*>* _children
+  +void onTabTapped()
+  +Widget* build()
+}
+
+"flutter::src::widgets::framework.dart::State" <|-- "navigationapp::screens::nav_screens::navbar.dart::_NavBarState"
+
+class "navigationapp::screens::nav_screens::navbar.dart::PlaceholderWidget" {
+  +Color* color
+  +Widget* build()
+}
+
+"navigationapp::screens::nav_screens::navbar.dart::PlaceholderWidget" o-- "dart::ui::Color*"
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "navigationapp::screens::nav_screens::navbar.dart::PlaceholderWidget"
+
+class "navigationapp::screens::wrapper.dart::Wrapper" {
+  +_WrapperState* createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "navigationapp::screens::wrapper.dart::Wrapper"
+
+class "navigationapp::screens::wrapper.dart::_WrapperState" {
+  +Widget* build()
+}
+
+"flutter::src::widgets::framework.dart::State" <|-- "navigationapp::screens::wrapper.dart::_WrapperState"
+
+class "navigationapp::screens::home::home.dart::Home" {
+  +String* imagePath
+  +_HomeState* createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "navigationapp::screens::home::home.dart::Home"
+
+class "navigationapp::screens::home::home.dart::_HomeState" {
+  +FlutterLocalNotificationsPlugin* flutterLocalNotificationsPlugin
+  +AndroidInitializationSettings* androidInitializationSettings
+  +InitializationSettings* initializationSettings
+  +String* thisImage
+  -int* _selectedIndex
+  {static} +TextStyle* optionStyle
+  {static} -List<Widget*>* _widgetOptions
+  +void initState()
+  +void initializing()
+  -void _showNotifications()
+  -void _showNotificationsAfterSecond()
+  +Future<void>* notification()
+  +Future<void>* notificationAfterSec()
+  +Future<dynamic>* onSelectNotification()
+  -void _onItemTapped()
+  +Widget* build()
+}
+
+"navigationapp::screens::home::home.dart::_HomeState" o-- "flutter_local_notifications::src::flutter_local_notifications_plugin.dart::FlutterLocalNotificationsPlugin*"
+"navigationapp::screens::home::home.dart::_HomeState" o-- "flutter_local_notifications::src::platform_specifics::android::initialization_settings.dart::AndroidInitializationSettings*"
+"navigationapp::screens::home::home.dart::_HomeState" o-- "flutter_local_notifications::src::initialization_settings.dart::InitializationSettings*"
+"navigationapp::screens::home::home.dart::_HomeState" o-- "flutter::src::painting::text_style.dart::TextStyle*"
+"flutter::src::widgets::framework.dart::State" <|-- "navigationapp::screens::home::home.dart::_HomeState"
+
+class "navigationapp::screens::home::user_data_tile.dart::OnboardingTile" {
+  +Onboarding* onboarding
+  +Widget* build()
+}
+
+"navigationapp::screens::home::user_data_tile.dart::OnboardingTile" o-- "navigationapp::models::onboarding_data.dart::Onboarding*"
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "navigationapp::screens::home::user_data_tile.dart::OnboardingTile"
+
+class "navigationapp::screens::home::buddy.dart::Buddy" {
+  +_BuddyState* createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "navigationapp::screens::home::buddy.dart::Buddy"
+
+class "navigationapp::screens::home::buddy.dart::_BuddyState" {
+  +String* textHolder1
+  +String* textHolder2
+  +String* textHolder3
+  +bool* suggested
+  -AuthService* _auth
+  -GmailAuthService* _authGmail
+  -List<dynamic>* _items
+  +Future<dynamic>* readJson()
+  +Widget* build()
+}
+
+"navigationapp::screens::home::buddy.dart::_BuddyState" o-- "navigationapp::services::auth.dart::AuthService*"
+"navigationapp::screens::home::buddy.dart::_BuddyState" o-- "navigationapp::screens::authenticate::gmailsignin::gmail_signin.dart::GmailAuthService*"
+"flutter::src::widgets::framework.dart::State" <|-- "navigationapp::screens::home::buddy.dart::_BuddyState"
+
+class "navigationapp::screens::authenticate::sign_in.dart::SignIn" {
+  +Function* toggleView
+  +_SignInState* createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "navigationapp::screens::authenticate::sign_in.dart::SignIn"
+
+class "navigationapp::screens::authenticate::sign_in.dart::_SignInState" {
+  -AuthService* _auth
+  -GmailAuthService* _gmailAuth
+  -GlobalKey<FormState*>* _formKey
+  +bool* loading
+  +String* email
+  +String* password
+  +String* error
+  +Widget* build()
+  -Widget* _signInButton()
+}
+
+"navigationapp::screens::authenticate::sign_in.dart::_SignInState" o-- "navigationapp::services::auth.dart::AuthService*"
+"navigationapp::screens::authenticate::sign_in.dart::_SignInState" o-- "navigationapp::screens::authenticate::gmailsignin::gmail_signin.dart::GmailAuthService*"
+"navigationapp::screens::authenticate::sign_in.dart::_SignInState" o-- "flutter::src::widgets::framework.dart::GlobalKey<FormState*>*"
+"flutter::src::widgets::framework.dart::State" <|-- "navigationapp::screens::authenticate::sign_in.dart::_SignInState"
+
+class "navigationapp::screens::authenticate::gmailsignin::gmail_signin.dart::GmailAuthService" {
+  -FirebaseAuth* _auth
+  +GoogleSignIn* googleSignIn
+  +String* name
+  +String* email
+  +String* imageUrl
+  +Stream<UserClass*>* user
+  -UserClass* _userFromFirebaseUser()
+  +Future<dynamic>* signInWithGoogle()
+  +Future<void>* signOutGoogle()
+}
+
+"navigationapp::screens::authenticate::gmailsignin::gmail_signin.dart::GmailAuthService" o-- "firebase_auth::firebase_auth.dart::FirebaseAuth*"
+"navigationapp::screens::authenticate::gmailsignin::gmail_signin.dart::GmailAuthService" o-- "google_sign_in::google_sign_in.dart::GoogleSignIn*"
+"navigationapp::screens::authenticate::gmailsignin::gmail_signin.dart::GmailAuthService" o-- "dart::async::Stream<UserClass*>*"
+
+class "navigationapp::screens::onboarding_screens::choose_buddy.dart::ChooseBuddy" {
+  +_ChooseBuddyState* createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "navigationapp::screens::onboarding_screens::choose_buddy.dart::ChooseBuddy"
+
+class "navigationapp::screens::onboarding_screens::choose_buddy.dart::_ChooseBuddyState" {
+  -String* _currentBuddy
+  -dynamic _currentInterests
+  -int* _completedOnboarding
+  +Widget* build()
+}
+
+"flutter::src::widgets::framework.dart::State" <|-- "navigationapp::screens::onboarding_screens::choose_buddy.dart::_ChooseBuddyState"
+
+class "navigationapp::screens::onboarding_screens::choose_work_time.dart::ChooseWorkTime" {
+  +List<String*>* arguments
+  +_ChooseWorkTimeState* createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "navigationapp::screens::onboarding_screens::choose_work_time.dart::ChooseWorkTime"
+
+class "navigationapp::screens::onboarding_screens::choose_work_time.dart::_ChooseWorkTimeState" {
+  -String* _currentBuddy
+  -dynamic _currentInterests
+  -bool* _completedOnboarding
+  -TimeOfDay* _time
+  +TimeOfDay* picked
+  +Future<Null*>* selectTime()
+  -Future<void>* _showMyDialog()
+  +Widget* build()
+}
+
+"navigationapp::screens::onboarding_screens::choose_work_time.dart::_ChooseWorkTimeState" o-- "flutter::src::material::time.dart::TimeOfDay*"
+"flutter::src::widgets::framework.dart::State" <|-- "navigationapp::screens::onboarding_screens::choose_work_time.dart::_ChooseWorkTimeState"
+
+class "navigationapp::screens::onboarding_screens::sky_name_picked.dart::SkyNamePicked" {
+  +String* imagePath
+  +Widget* build()
+}
+
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "navigationapp::screens::onboarding_screens::sky_name_picked.dart::SkyNamePicked"
+
+class "navigationapp::screens::onboarding_screens::choose_name.dart::ChooseName" {
+  +String* imagePath
+  +Widget* build()
+}
+
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "navigationapp::screens::onboarding_screens::choose_name.dart::ChooseName"
+
+class "navigationapp::screens::onboarding_screens::milo_name_picked.dart::MiloNamePicked" {
+  +String* imagePath
+  +Widget* build()
+}
+
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "navigationapp::screens::onboarding_screens::milo_name_picked.dart::MiloNamePicked"
+
+class "navigationapp::screens::onboarding_screens::choose_activity.dart::ChooseActivity" {
+  +String* imagePath
+  +_ChooseActivityState* createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "navigationapp::screens::onboarding_screens::choose_activity.dart::ChooseActivity"
+
+class "navigationapp::screens::onboarding_screens::choose_activity.dart::_ChooseActivityState" {
+  -String* _currentBuddy
+  -bool* _completedOnboarding
+  -List<String*>* _nextWidgetArguments
+  -List<dynamic>* _currentInterests
+  +Map<String*, dynamic>* interests
+  -void _onCategorySelected()
+  +Widget* build()
+}
+
+"flutter::src::widgets::framework.dart::State" <|-- "navigationapp::screens::onboarding_screens::choose_activity.dart::_ChooseActivityState"
+
+class "navigationapp::screens::onboarding_screens::onboarding_start.dart::OnboardingStart" {
+  -AuthService* _auth
+  -GmailAuthService* _authGmail
+  +Widget* build()
+}
+
+"navigationapp::screens::onboarding_screens::onboarding_start.dart::OnboardingStart" o-- "navigationapp::services::auth.dart::AuthService*"
+"navigationapp::screens::onboarding_screens::onboarding_start.dart::OnboardingStart" o-- "navigationapp::screens::authenticate::gmailsignin::gmail_signin.dart::GmailAuthService*"
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "navigationapp::screens::onboarding_screens::onboarding_start.dart::OnboardingStart"
+
+class "navigationapp::screens::error_route_page.dart::ErrorRoutePage" {
+  +Widget* build()
+}
+
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "navigationapp::screens::error_route_page.dart::ErrorRoutePage"
+
+class "navigationapp::screens::categorydetail.dart::CategoryDetail" {
+  +_CategoryDetailState* createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "navigationapp::screens::categorydetail.dart::CategoryDetail"
+
+class "navigationapp::screens::categorydetail.dart::_CategoryDetailState" {
+  -List<dynamic>* _currentInterests
+  -List<dynamic>* _items
+  -void _onCategorySelected()
+  +Future<void>* readJson()
+  +Widget* build()
+}
+
+"flutter::src::widgets::framework.dart::State" <|-- "navigationapp::screens::categorydetail.dart::_CategoryDetailState"
+
+class "navigationapp::app.dart::App" {
+  +Widget* build()
+}
+
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "navigationapp::app.dart::App"
+
+class "navigationapp::services::auth.dart::AuthService" {
+  -FirebaseAuth* _auth
+  +Stream<UserClass*>* user
+  -UserClass* _userFromFirebaseUser()
+  +Future<dynamic>* signInWithEmailAndPassword()
+  +Future<dynamic>* registerWithEmailAndPassword()
+  +Future<dynamic>* signOut()
+}
+
+"navigationapp::services::auth.dart::AuthService" o-- "firebase_auth::firebase_auth.dart::FirebaseAuth*"
+"navigationapp::services::auth.dart::AuthService" o-- "dart::async::Stream<UserClass*>*"
+
+class "navigationapp::services::listview.dart::Cooking" {
+  +Future<void>* publicDataCollection
+}
+
+class "navigationapp::services::listview.dart::Mind" {
+  +Future<void>* publicDataCollection
+}
+
+class "navigationapp::services::listview.dart::Fun" {
+  +Future<void>* publicDataCollection
+}
+
+class "navigationapp::services::listview.dart::User" {
+  +Future<void>* onboarding
+}
+
+class "navigationapp::services::local_notifications.dart::LocalNotifyManager" {
+  +FlutterLocalNotificationsPlugin* flutterLocalNotificationsPlugin
+  +dynamic initSetting
+  +BehaviorSubject<ReceiveNotification*>* didReceiveLocalNotificationSubject
+  +dynamic requestIOSPermission()
+  +dynamic initializePlatform()
+  +dynamic setOnNotificationReceive()
+  +dynamic setOnNotificationClick()
+  +Future<void>* showNotification()
+}
+
+"navigationapp::services::local_notifications.dart::LocalNotifyManager" o-- "flutter_local_notifications::src::flutter_local_notifications_plugin.dart::FlutterLocalNotificationsPlugin*"
+"navigationapp::services::local_notifications.dart::LocalNotifyManager" o-- "rxdart::src::subjects::behavior_subject.dart::BehaviorSubject<ReceiveNotification*>*"
+
+class "navigationapp::services::local_notifications.dart::ReceiveNotification" {
+  +int* id
+  +String* title
+  +String* body
+  +String* payload
+}
+
+class "navigationapp::services::TestNotifyScreen.dart::TestNotifyScreen" {
+  +_TestNotifyScreenState* createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "navigationapp::services::TestNotifyScreen.dart::TestNotifyScreen"
+
+class "navigationapp::services::TestNotifyScreen.dart::_TestNotifyScreenState" {
+  +void initState()
+  +dynamic onNotificationReceive()
+  +dynamic onNotificationClick()
+  +Widget* build()
+}
+
+"flutter::src::widgets::framework.dart::State" <|-- "navigationapp::services::TestNotifyScreen.dart::_TestNotifyScreenState"
+
+class "navigationapp::services::database.dart::DatabaseService" {
+  +String* uid
+  {static} +FirebaseFirestore* db
+  +CollectionReference* onboardingCollection
+  +Stream<UserData*>* userData
+  +Future<dynamic>* updateOnboarding()
+  -UserData* _userDataFromSnapshot()
+}
+
+"navigationapp::services::database.dart::DatabaseService" o-- "cloud_firestore::cloud_firestore.dart::FirebaseFirestore*"
+"navigationapp::services::database.dart::DatabaseService" o-- "cloud_firestore::cloud_firestore.dart::CollectionReference*"
+"navigationapp::services::database.dart::DatabaseService" o-- "dart::async::Stream<UserData*>*"
+
+class "navigationapp::services::internet_service.dart::InternetService" {
+  +dynamic getFirstInterest()
+}
+
+class "navigationapp::InterestData::onetimeread.dart::OneTimeRead" {
+  +Widget* build()
+}
+
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "navigationapp::InterestData::onetimeread.dart::OneTimeRead"
+
+class "navigationapp::InterestData::examplefetch.dart::ExampleFetch" {
+  +_ExampleFetchState* createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "navigationapp::InterestData::examplefetch.dart::ExampleFetch"
+
+class "navigationapp::InterestData::examplefetch.dart::_ExampleFetchState" {
+  +dynamic data
+  +List<dynamic>* documents
+  +dynamic fetchData()
+  +Widget* build()
+}
+
+"flutter::src::widgets::framework.dart::State" <|-- "navigationapp::InterestData::examplefetch.dart::_ExampleFetchState"
+
+class "navigationapp::route_generator::route_generator.dart::RouteGenerator" {
+  {static} +Route<dynamic>* generateRoute()
+}
+
+
+@enduml

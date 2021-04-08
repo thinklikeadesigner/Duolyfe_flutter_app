@@ -28,6 +28,7 @@ class _HomeState extends State<Home> {
     super.initState();
     initializing();
     thisImage = widget.imagePath;
+    print('h');
   }
 
   void initializing() async {
@@ -40,17 +41,14 @@ class _HomeState extends State<Home> {
   }
 
   void _showNotifications() async {
-    // print('run run');
     await notification();
   }
 
   void _showNotificationsAfterSecond() async {
-    // print('run run again');
     await notificationAfterSec();
   }
 
   Future<void> notification() async {
-    // print('run');
     AndroidNotificationDetails androidNotificationDetails =
         AndroidNotificationDetails(
             'Channel _ID', 'Channel Title', 'channel body',
@@ -66,24 +64,23 @@ class _HomeState extends State<Home> {
 
   Future<void> notificationAfterSec() async {
     print('wont display');
+
     var timeDelayed =
         tz.TZDateTime.now(tz.local).add(const Duration(seconds: 5));
     // print('run');
     AndroidNotificationDetails androidNotificationDetails =
         AndroidNotificationDetails(
-      'Second Channel _ID', 'Second Channel Title', 'Second channel body',
+      'Second Channel _ID',
+      'Second Channel Title',
+      'Second channel body',
       priority: Priority.high,
       importance: Importance.max,
       ticker: 'test',
       largeIcon: DrawableResourceAndroidBitmap('ic_launcher'),
-      // icon: '',
-      // largeIcon: DrawableResourceAndroidBitmap('ic_launcher')
-      // playSound: true,
-      // sound: RawResourceAndroidNotificationSound('notification_sound')
     );
+
     NotificationDetails notificationDetails =
         NotificationDetails(android: androidNotificationDetails);
-
     await flutterLocalNotificationsPlugin.zonedSchedule(1, 'hello there too',
         'how are you as well?', timeDelayed, notificationDetails,
         androidAllowWhileIdle: true,
@@ -91,12 +88,46 @@ class _HomeState extends State<Home> {
             UILocalNotificationDateInterpretation.absoluteTime);
   }
 
+  // tz.TZDateTime _convertTimeofDaytoDatetime(TimeOfDay timeOfDay) {
+  //   TimeOfDay timeOfDay;
+  //   final now = new tz.TZDateTime.now(tz.local);
+  //   return new tz.TZDateTime(tz.local, now.year, now.month, now.day,
+  //       timeOfDay.hour, timeOfDay.minute);
+  // }
+
+  tz.TZDateTime _nextInstanceOfTenAM() {
+    final tz.TZDateTime now = tz.TZDateTime.now(tz.local);
+    tz.TZDateTime scheduledDate =
+        tz.TZDateTime(tz.local, now.year, now.month, now.day, 10, 30);
+    if (scheduledDate.isBefore(now)) {
+      scheduledDate = scheduledDate.add(const Duration(days: 1));
+    }
+    return scheduledDate;
+  }
+
+  Future<void> _scheduleDailyTenAMNotification() async {
+    print('pressed');
+    await flutterLocalNotificationsPlugin.zonedSchedule(
+        0,
+        'daily scheduled notification title',
+        'daily scheduled notification body',
+        _nextInstanceOfTenAM(),
+        const NotificationDetails(
+          android: AndroidNotificationDetails(
+              'daily notification channel id',
+              'daily notification channel name',
+              'daily notification description'),
+        ),
+        androidAllowWhileIdle: true,
+        uiLocalNotificationDateInterpretation:
+            UILocalNotificationDateInterpretation.absoluteTime,
+        matchDateTimeComponents: DateTimeComponents.time);
+  }
+
   Future onSelectNotification(String payLoad) {
     if (payLoad != null) {
-      // print(payLoad);
+      //TODO set the navigator to navigate a different screen
     }
-
-//we can set the navigator to navigate a different screen
   }
 
   static const TextStyle optionStyle =
@@ -126,9 +157,6 @@ class _HomeState extends State<Home> {
     final GmailAuthService _authGmail = GmailAuthService();
 
     return Scaffold(
-      // appBar: AppBar(
-      //   title: const Text('BottomNavigationBar Sample'),
-      // ),
       body: Center(
           child: Column(
         children: [
@@ -168,7 +196,7 @@ class _HomeState extends State<Home> {
               }),
           FlatButton(
               child: Text(
-                'notify!',
+                'notiffy!',
                 style: TextStyle(color: Colors.white),
               ),
               color: primaryTeal,
@@ -178,7 +206,7 @@ class _HomeState extends State<Home> {
               ),
               onPressed: () async {
                 print('delayed notify pressed');
-                _showNotificationsAfterSecond();
+                _scheduleDailyTenAMNotification();
 
                 // notify();
 
@@ -196,6 +224,7 @@ class _HomeState extends State<Home> {
               ),
               onPressed: () async {
                 Cooking();
+                print('j');
 
                 // notify();
 

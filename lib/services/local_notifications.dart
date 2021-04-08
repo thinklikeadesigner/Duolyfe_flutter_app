@@ -1,3 +1,4 @@
+import 'package:timezone/timezone.dart' as tz;
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'dart:io' show Platform;
@@ -78,4 +79,26 @@ class ReceiveNotification {
       @required this.title,
       @required this.body,
       @required this.payload});
+}
+
+//for error that you can't schedule it for the present time, schedule it for the next day
+// dayOffset comes from a for loop.
+tz.TZDateTime _tzDateTimeInstance({int hour, int minutes, int dayOffset}) {
+  tz.TZDateTime now = tz.TZDateTime.now(tz.local);
+
+  tz.TZDateTime scheduleDate =
+      tz.TZDateTime(now.location, now.year, now.month, now.day, hour, minutes);
+
+  // This line converts the time we want to receive the notification to UTC.
+  Duration timeZoneOffset = DateTime.now().timeZoneOffset;
+  scheduleDate = timeZoneOffset.isNegative
+      ? scheduleDate.subtract(timeZoneOffset)
+      : scheduleDate.add(timeZoneOffset);
+
+  // If the UTC time has already happened, we schedule it for the next day.
+  scheduleDate = scheduleDate.add(Duration(
+    days: (now.isBefore(scheduleDate) ? 0 : 1) + dayOffset,
+  ));
+
+  return scheduleDate;
 }

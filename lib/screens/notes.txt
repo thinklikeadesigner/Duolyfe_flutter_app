@@ -26,3 +26,18 @@ collected interests in to the database
 forgot password tobi question testing
 
 question about setting up activities and interests vs the ui
+
+
+how to convert timeofday to datetime
+  // tz.TZDateTime _convertTimeofDaytoDatetime(TimeOfDay timeOfDay) {
+  //   TimeOfDay timeOfDay;
+  //   final now = new tz.TZDateTime.now(tz.local);
+  //   return new tz.TZDateTime(tz.local, now.year, now.month, now.day,
+  //       timeOfDay.hour, timeOfDay.minute);
+  // }
+
+  So I get the selected time from timepicker, which is in time of day, then i 
+  take out the hour and the minute and put it in datetime, and now i have a datetime
+  object that says when to schedule the notifcation
+
+  next steps, IMPLEMENT SEMBAST
