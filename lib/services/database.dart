@@ -11,9 +11,9 @@ class DatabaseService {
 
   DatabaseService({this.uid});
 
+  static FirebaseFirestore db = FirebaseFirestore.instance;
   //onboardingCollection reference
-  final CollectionReference onboardingCollection =
-      FirebaseFirestore.instance.collection('onboarding');
+  final CollectionReference onboardingCollection = db.collection('onboarding');
 
 //used when creating user onboarding document, and when updating the data later on
   Future updateOnboarding(
@@ -29,20 +29,20 @@ class DatabaseService {
 
 //convert user data snapshot into user objects from user data model
 
-  List<Onboarding> _onboardingFromSnapshot(QuerySnapshot snapshot) {
-    return snapshot.docs.map((doc) {
-      return Onboarding(
-          interests: doc.data()['interests'] ?? [],
-          completedOnboarding: doc.data()['completedOnboarding'] ?? false,
-          buddy: doc.data()['buddy'] ?? '');
-    }).toList();
-  }
+  // List<Onboarding> _onboardingFromSnapshot(QuerySnapshot snapshot) {
+  //   return snapshot.docs.map((doc) {
+  //     return Onboarding(
+  //         interests: doc.data()['interests'] ?? [],
+  //         completedOnboarding: doc.data()['completedOnboarding'] ?? false,
+  //         buddy: doc.data()['buddy'] ?? '');
+  //   }).toList();
+  // }
 
   // userData can be named anything
 
-  Stream<List<Onboarding>> get onboarding {
-    return onboardingCollection.snapshots().map(_onboardingFromSnapshot);
-  }
+  // Stream<List<Onboarding>> get onboarding {
+  //   return onboardingCollection.snapshots().map(_onboardingFromSnapshot);
+  // }
 
 //get user doc stream
   Stream<UserData> get userData {
@@ -58,6 +58,12 @@ class DatabaseService {
         completedOnboarding: snapshot.data()['completedOnboarding'] ?? false,
         buddy: snapshot.data()['buddy'] ?? '');
   }
+
+  // const files = await firebase
+  //     .firestore()
+  //     .collection('tickets')
+  //     .where('category', '==', categoryDocRef)
+  //     .get();
 }
 
 // final Future<void> onboarding = FirebaseFirestore.instance
@@ -65,3 +71,11 @@ class DatabaseService {
 //   .doc('faiUa9JLDSXJABtt3Ao9kFws1tc2')
 //   .get()
 //   .then((value) => print('${value.data()['interests']}'));
+
+// can be used to grab all activities that match the interest query
+// Firestore also supports array queries. For example, to filter users who speak English (en) or Italian (it), use the arrayContainsAny filter:
+// FirebaseFirestore.instance
+//   .collection('users')
+//   .where('language', arrayContainsAny: ['en', 'it'])
+//   .get()
+//   .then(...);

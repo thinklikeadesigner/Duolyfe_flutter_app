@@ -1,6 +1,5 @@
-// class UserInterests {
-//   final List<dynamic> interests;
-//   final String uid;
+class Interests {
+  final List<dynamic> interest;
 
-//   UserInterests({this.interests, this.uid});
-// }
+  Interests({this.interest});
+}
