@@ -5,6 +5,8 @@ import 'package:navigationapp/services/database.dart';
 import 'package:navigationapp/shared/loading.dart';
 import 'package:provider/provider.dart';
 
+import '../../theme.dart';
+
 class ChooseBuddy extends StatefulWidget {
   @override
   _ChooseBuddyState createState() => _ChooseBuddyState();

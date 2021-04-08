@@ -6,6 +6,7 @@ import 'package:navigationapp/widgets/chat_bubbles.dart';
 import 'package:uic/widgets.dart';
 
 import '../../app.dart';
+import '../../theme.dart';
 
 class ChooseName extends StatelessWidget {
   final String imagePath;

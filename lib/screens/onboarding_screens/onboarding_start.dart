@@ -10,6 +10,7 @@ import 'package:uic/widgets.dart';
 import 'package:navigationapp/services/auth.dart';
 import 'package:provider/provider.dart';
 import '../../app.dart';
+import '../../theme.dart';
 
 class OnboardingStart extends StatelessWidget {
   final AuthService _auth = AuthService();

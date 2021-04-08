@@ -39,6 +39,8 @@ dependencies:
   flutter_cmoon_icons: ^0.1.0
   flutter_local_notifications: ^4.0.1
   flutter_spinkit: ^4.1.2+1
+  font_awesome_flutter: ^9.0.0
+  formz: ^0.3.2
   google_sign_in: ^4.5.9
   http: ^0.12.2
   intervalprogressbar: ^2.0.1

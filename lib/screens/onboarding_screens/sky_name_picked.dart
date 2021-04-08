@@ -5,6 +5,8 @@ import 'package:navigationapp/widgets/chat_bubbles.dart';
 import 'package:uic/widgets.dart';
 import 'package:navigationapp/app.dart';
 
+import '../../theme.dart';
+
 class SkyNamePicked extends StatelessWidget {
   final String imagePath;
   const SkyNamePicked({Key key, this.imagePath}) : super(key: key);

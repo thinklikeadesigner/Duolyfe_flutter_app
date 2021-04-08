@@ -9,6 +9,8 @@ import 'package:navigationapp/app.dart';
 import 'package:provider/provider.dart';
 import 'package:uic/step_indicator.dart';
 
+import '../../theme.dart';
+
 class ChooseActivity extends StatefulWidget {
   String imagePath;
   ChooseActivity(this.imagePath) {
