@@ -27,25 +27,12 @@ class _WrapperState extends State<Wrapper> {
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               UserData userData = snapshot.data;
-
-              // userData.interests.forEach((element) {
-              //   print(element);
-              // });
-
               if (userData.completedOnboarding) {
-                // print(userData.completedOnboarding);
-                // print('onboarding');
-                // return Home(
-                //   imagePath: null,
-                // );
                 return ChooseWorkTime();
               } else {
                 return ChooseWorkTime();
               }
             } else {
-              // DatabaseService(uid: user.uid)
-              //     .updateOnboarding(['Crafts', 'Social'], false, 'panda');
-              // Navigator.of(context).pushNamed('/choosebuddy');
               return ChooseWorkTime();
             }
           });
