@@ -111,13 +111,13 @@ class SignIn extends StatelessWidget {
                     key: const Key('loginForm_googleLogin_raisedButton'),
                     label: const Text(
                       'SIGN IN WITH GOOGLE',
-                      style: TextStyle(color: Colors.white),
+                      style: TextStyle(color: Colors.green),
                     ),
                     style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30.0),
                       ),
-                      primary: theme.accentColor,
+                      primary: Colors.white,
                     ),
                     icon: const Icon(FontAwesomeIcons.google,
                         color: Colors.white),

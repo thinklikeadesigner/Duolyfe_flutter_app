@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../screens/authenticate/sign_in.dart';
-import '../screens/error_route_page.dart';
+import 'error_route_page.dart';
 import '../screens/home/home.dart';
 import '../screens/onboarding_screens/choose_activity.dart';
 import '../screens/onboarding_screens/choose_buddy.dart';
