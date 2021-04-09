@@ -52,11 +52,15 @@ class _HomePageState extends State<HomePage> {
             itemCount: state.fruits.length,
             itemBuilder: (context, index) {
               final displayedFruit = state.fruits[index];
+              final newTime = DateTime.parse(displayedFruit.timeAssigned);
               Icon check;
+              String completed;
               if (displayedFruit.completed == true) {
                 check = Icon(Icons.radio_button_checked);
+                completed = "Completed!";
               } else {
                 check = Icon(Icons.radio_button_off);
+                completed = "Tap to mark complete!";
               }
 
               return Dismissible(
@@ -84,6 +88,7 @@ class _HomePageState extends State<HomePage> {
                     // print(displayedFruit.completed);
                     // displayedFruit.completed = !displayedFruit.completed;
                     // print(displayedFruit.completed);
+                    _fruitBloc.add(UpdateFruit(displayedFruit));
                   },
                   child: Card(
                       shape: RoundedRectangleBorder(
@@ -98,23 +103,31 @@ class _HomePageState extends State<HomePage> {
                             Container(
                               child: Row(
                                 children: [
-                                  Icon(IconData(displayedFruit.icon,
-                                      fontFamily: 'MaterialIcons')),
+                                  Icon(
+                                      IconData(displayedFruit.icon,
+                                          fontFamily: 'MaterialIcons'),
+                                      size: 40),
                                   // Icon(Icons.spa),
                                   SizedBox(
-                                    width: 20,
+                                    width: 30,
                                   ),
                                   Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      SizedBox(height: 20),
+                                      SizedBox(height: 10),
                                       Text(
                                         displayedFruit.activity,
                                         style: TextStyle(fontSize: 20),
                                       ),
-                                      Text(displayedFruit.interest),
-                                      SizedBox(height: 20),
+                                      SizedBox(height: 10),
+                                      Text(completed),
+                                      SizedBox(height: 10),
+                                      Text(
+                                        '${newTime.month}/${newTime.day}/${newTime.year} at ${newTime.hour}:${newTime.minute} and ${newTime.second} seconds',
+                                        style: TextStyle(fontSize: 10),
+                                      ),
+                                      SizedBox(height: 10),
                                     ],
                                   ),
                                 ],
@@ -142,15 +155,15 @@ class _HomePageState extends State<HomePage> {
         IconButton(
           icon: Icon(Icons.refresh),
           onPressed: () {
-            _fruitBloc.add(UpdateWithRandomFruit(displayedFruit));
+            _fruitBloc.add(UpdateFruit(displayedFruit));
           },
         ),
-        IconButton(
-          icon: Icon(Icons.delete_outline),
-          onPressed: () {
-            _fruitBloc.add(DeleteFruit(displayedFruit));
-          },
-        ),
+        // IconButton(
+        //   icon: Icon(Icons.delete_outline),
+        //   onPressed: () {
+        //     _fruitBloc.add(DeleteFruit(displayedFruit));
+        //   },
+        // ),
       ],
     );
   }

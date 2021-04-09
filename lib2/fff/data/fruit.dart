@@ -7,6 +7,7 @@ class Fruit {
 
   final String activity;
   final String interest;
+  String timeAssigned;
   final int icon;
   bool completed;
 
@@ -14,14 +15,16 @@ class Fruit {
       {@required this.activity,
       @required this.icon,
       @required this.interest,
-      @required this.completed});
+      @required this.completed,
+      @required this.timeAssigned});
 
   Map<String, dynamic> toMap() {
     return {
       'activity': activity,
       'interest': interest,
       'icon': icon,
-      'completed': completed
+      'completed': completed,
+      'timeAssigned': timeAssigned
     };
   }
 
@@ -31,6 +34,7 @@ class Fruit {
       interest: map['interest'],
       icon: map['icon'],
       completed: map['completed'],
+      timeAssigned: map['timeAssigned'],
     );
   }
 }

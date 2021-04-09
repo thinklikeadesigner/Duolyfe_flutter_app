@@ -17,11 +17,18 @@ class AddRandomFruit extends FruitEvent {
   List<Object> get props => [];
 }
 
-class UpdateWithRandomFruit extends FruitEvent {
+// class UpdateWithRandomFruit extends FruitEvent {
+//   List<Object> get props => [updatedFruit];
+//   final Fruit updatedFruit;
+
+//   UpdateWithRandomFruit(this.updatedFruit) : super([updatedFruit]);
+// }
+
+class UpdateFruit extends FruitEvent {
   List<Object> get props => [updatedFruit];
   final Fruit updatedFruit;
 
-  UpdateWithRandomFruit(this.updatedFruit) : super([updatedFruit]);
+  UpdateFruit(this.updatedFruit) : super([updatedFruit]);
 }
 
 class DeleteFruit extends FruitEvent {

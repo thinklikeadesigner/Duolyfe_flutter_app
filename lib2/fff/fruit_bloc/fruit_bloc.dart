@@ -27,16 +27,35 @@ class FruitBloc extends Bloc<FruitEvent, FruitState> {
       print('fruits loading');
       yield* _reloadFruits();
     } else if (event is AddRandomFruit) {
+      final newFruit = RandomFruitGenerator.getRandomFruit();
+      newFruit.timeAssigned = DateTime.now().toString();
+      //   String convertDateTimeToString(DateTime dateTime) {
+//     return dateTime.toString();
+//   }
+
+//   DateTime convertStringToDateTime(String stringTime) {
+//     return DateTime.parse(stringTime);
+//   }
       // Loading indicator shouldn't be displayed while adding/updating/deleting
       // a single Fruit from the database - we aren't yielding FruitsLoading().
-      await _fruitDao.insert(RandomFruitGenerator.getRandomFruit());
+      await _fruitDao.insert(newFruit);
       print('get random fruit');
       yield* _reloadFruits();
-    } else if (event is UpdateWithRandomFruit) {
-      final newFruit = RandomFruitGenerator.getRandomFruit();
+    }
+    // else if (event is UpdateWithRandomFruit) {
+    // final newFruit = RandomFruitGenerator.getRandomFruit();
+    // // Keeping the ID of the Fruit the same
+    // newFruit.id = event.updatedFruit.id;
+    // await _fruitDao.update(newFruit);
+    // yield* _reloadFruits();
+    // }
+    else if (event is UpdateFruit) {
+      // final newFruit = RandomFruitGenerator.getRandomFruit();
       // Keeping the ID of the Fruit the same
-      newFruit.id = event.updatedFruit.id;
-      await _fruitDao.update(newFruit);
+      event.updatedFruit.completed = !event.updatedFruit.completed;
+      // newFruit.id = event.updatedFruit.id;
+      event.updatedFruit.timeAssigned = DateTime.now().toString();
+      await _fruitDao.update(event.updatedFruit);
       yield* _reloadFruits();
     } else if (event is DeleteFruit) {
       await _fruitDao.delete(event.fruit);
@@ -47,12 +66,9 @@ class FruitBloc extends Bloc<FruitEvent, FruitState> {
   Stream<FruitState> _reloadFruits() async* {
     final fruits = await _fruitDao.getAllSortedByName();
     // Yielding a state bundled with the Fruits from the database.
-    print('relosdfgsdfgsdfgad');
     yield FruitsLoaded(fruits);
   }
 }
-
-Icon c = Icon(Icons.palette);
 
 class RandomFruitGenerator {
   static final _fruits = [
@@ -65,8 +81,9 @@ class RandomFruitGenerator {
         activity: 'Bake a cake',
         interest: 'cooking',
         icon: 0xe477,
-        completed: true),
-    Fruit(activity: 'Meditate', interest: 'mind', icon: 59614, completed: true),
+        completed: false),
+    Fruit(
+        activity: 'Meditate', interest: 'mind', icon: 0xe4aa, completed: false),
     Fruit(
         activity: 'Call a friend',
         interest: 'social',
@@ -76,12 +93,12 @@ class RandomFruitGenerator {
         activity: 'Eat something healthy',
         interest: 'health',
         icon: 0xe4f8,
-        completed: true),
+        completed: false),
     Fruit(
         activity: 'Solve a puzzle',
         interest: 'fun',
         icon: 0xe5b1,
-        completed: true),
+        completed: false),
   ];
 
   static Fruit getRandomFruit() {
