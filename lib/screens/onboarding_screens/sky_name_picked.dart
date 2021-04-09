@@ -19,7 +19,7 @@ class SkyNamePicked extends StatelessWidget {
           children: <Widget>[
             Container(
               margin: const EdgeInsets.fromLTRB(20, 60, 20, 20),
-              child: Image(image: AssetImage(imagePath), height: 150),
+              child: Image(image: AssetImage('giraffe.png'), height: 150),
             ),
             StepIndicator(
               selectedStepIndex: 3,

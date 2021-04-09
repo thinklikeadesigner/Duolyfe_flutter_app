@@ -4,9 +4,11 @@
 
 
 
+
    {
      "suggestions": [
        { "category": "cooking",
+        "icon": "0xe477",
          "activities": [
            "Bake Something Sweet!",
            "Cook a favorite meal or Try a new Recipe",
@@ -14,6 +16,7 @@
          ]
        },
        {"category": "fun",
+        "icon": "0xe5b1",
          "activities": [
            "Color a picture or coloring book (children or adult version)",
            "Create a movie or fun motion picture",
@@ -43,6 +46,7 @@
        },
        {
          "category": "health",
+         "icon": "0xe3de 0xe4f8",
          "activities": [
            "Make lemonade",
            "Have a fruit salad",
@@ -54,6 +58,7 @@
        },
        {
          "category": "indoor",
+         "icon": "0xe3ca 0xe5e0 0xe568",
          "activities": [
            "Play Chess",
            "Play a musical instrument",
@@ -82,6 +87,7 @@
        },
        {
          "category": "mind",
+         "icon": "0xe4aa",
          "activities": [
            "Solve a Fun (or Challenging!) Puzzle",
            "Look at old photos & photo albums (or organize them!)",
@@ -97,6 +103,7 @@
        },
        {
          "category": "outdoor",
+         "icon": "0xe487 0xe3d6 0xe55c",
          "activities": [
            "Do body stretching",
            "Go for a walk",
@@ -126,6 +133,7 @@
        },
        {
          "category": "personal development",
+         "icon": "0xe499 0xe2e7",
          "activities": [
            "Update your gadgets",
            "Update your contacts information",
@@ -148,6 +156,7 @@
        },
        {
          "category": "social",
+         "icon": "0xe3e1",
          "activities": [
            "Call your school friend",
            "Do a virtual dinner with family or friends",

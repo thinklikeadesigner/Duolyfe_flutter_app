@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:navigationapp/screens/home/buddy.dart';
 import 'package:navigationapp/screens/onboarding_screens/choose_activity.dart';
 import 'package:navigationapp/screens/onboarding_screens/choose_buddy.dart';
+import 'package:navigationapp/screens/onboarding_screens/milo_name_picked.dart';
+import 'package:navigationapp/screens/onboarding_screens/sky_name_picked.dart';
 
 class NavBar extends StatefulWidget {
   @override
@@ -14,8 +16,8 @@ class _NavBarState extends State<NavBar> {
   int _currentIndex = 0;
   final List<Widget> _children = [
     Buddy(),
-    ChooseActivity('panda.png'),
-    ChooseBuddy(),
+    SkyNamePicked(),
+    MiloNamePicked(),
   ];
 
   void onTabTapped(int index) {
