@@ -2,6 +2,7 @@ import 'package:authentication_repository/authentication_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:navigationapp/login/login.dart';
 import 'package:navigationapp/models/user_class.dart';
 import 'package:navigationapp/route_generator/route_generator.dart';
 import 'package:navigationapp/screens/authenticate/sign_in.dart';
@@ -44,32 +45,32 @@ class _AppViewState extends State<AppView> {
   final _navigatorKey = GlobalKey<NavigatorState>();
 
   NavigatorState get _navigator => _navigatorKey.currentState;
-//   @override
-//   Widget build(BuildContext context) {
-//     SystemChrome.setPreferredOrientations([
-//       DeviceOrientation.portraitUp,
-//       DeviceOrientation.portraitDown,
-//     ]);
-
-// //TODO change stream provider to block provider
-//     return StreamProvider<UserClass>.value(
-//       value: AuthService().user,
-//       child: MaterialApp(
-//         title: 'Navigation Demo',
-//         theme: theme,
-//         home: Wrapper(),
-//         onGenerateRoute: RouteGenerator.generateRoute,
-//       ),
-//     );
-//   }
-// }
-
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
     ]);
+
+//TODO change stream provider to block provider
+    // return StreamProvider<UserClass>.value(
+    //   value: AuthService().user,
+    //   child: MaterialApp(
+    //     title: 'Navigation Demo',
+    //     theme: theme,
+    //     home: Buddy(),
+    //     onGenerateRoute: RouteGenerator.generateRoute,
+    //   ),
+    // );
+//   }
+// }
+
+    // @override
+    // Widget build(BuildContext context) {
+    //   SystemChrome.setPreferredOrientations([
+    //     DeviceOrientation.portraitUp,
+    //     DeviceOrientation.portraitDown,
+    //   ]);
     return MaterialApp(
       theme: theme,
       navigatorKey: _navigatorKey,
@@ -85,7 +86,7 @@ class _AppViewState extends State<AppView> {
                 break;
               case AuthenticationStatus.unauthenticated:
                 _navigator.pushAndRemoveUntil<void>(
-                  SignIn.route(),
+                  LoginPage.route(),
                   (route) => false,
                 );
                 break;
@@ -100,6 +101,7 @@ class _AppViewState extends State<AppView> {
     );
   }
 }
+// }
 
 // return StreamProvider<UserClass>.value(
 //   value: AuthService().user,
