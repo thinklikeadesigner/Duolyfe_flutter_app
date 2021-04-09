@@ -28,3 +28,53 @@
 //     expect(find.text('1'), findsOneWidget);
 //   });
 // }
+
+import 'package:flutter_test/flutter_test.dart';
+
+void main() {
+  test('prints math class', () {
+    expect(
+        SetClass([
+          "bob",
+          "julio",
+          "angel",
+          "kara",
+          "julio",
+          "julio"
+        ], {
+          "john",
+          "maria",
+          "sophie"
+        }, {
+          "john",
+          "maria",
+          "sophie",
+        }).printMember(),
+        equals(" ${{"john", "maria", "sophie"}}"));
+  });
+
+  test('turns arr into set', () {
+    expect(
+        SetClass(
+            ["bob", "julio", "angel", "kara", "julio", "julio"],
+            {"john", "maria", "sophie"},
+            {"john", "maria", "sophie"}).makeaset(),
+        equals({"bob", "julio", "angel", "kara"}));
+  });
+}
+
+class SetClass {
+  List arr;
+  Set math;
+  Set science;
+
+  SetClass(this.arr, this.math, this.science);
+
+  String printMember() {
+    return " $math";
+  }
+
+  Set makeaset() {
+    return Set.from(arr);
+  }
+}
