@@ -10,6 +10,7 @@
 .svn/
 pubspec.lock
 packages/pubspec.lock
+packages/build
 # IntelliJ related
 *.iml
 *.ipr
