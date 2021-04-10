@@ -50,10 +50,7 @@ class FruitBloc extends Bloc<FruitEvent, FruitState> {
     // yield* _reloadFruits();
     // }
     else if (event is UpdateFruit) {
-      // final newFruit = RandomFruitGenerator.getRandomFruit();
-      // Keeping the ID of the Fruit the same
       event.updatedFruit.completed = !event.updatedFruit.completed;
-      // newFruit.id = event.updatedFruit.id;
       event.updatedFruit.timeAssigned = DateTime.now().toString();
       await _fruitDao.update(event.updatedFruit);
       yield* _reloadFruits();
