@@ -90,108 +90,100 @@ class _ChooseWorkTimeState extends State<ChooseWorkTime> {
 
   @override
   Widget build(BuildContext context) {
-    final user = Provider.of<UserClass>(context);
-    return StreamBuilder<UserData>(
-        stream: DatabaseService(uid: user.uid).userData,
-        builder: (context, snapshot) {
-          UserData userData = snapshot.data;
-          if (snapshot.hasData) {
-            return Scaffold(
-              body: Center(
-                child: Column(
-                  // mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Container(
-                      margin: const EdgeInsets.fromLTRB(20, 60, 20, 20),
-                      child: Image(image: AssetImage('panda.png'), height: 150),
-                    ),
-                    StepIndicator(
-                      selectedStepIndex: 5,
-                      totalSteps: 6,
-                      selectedStep: Icon(
-                        Icons.radio_button_checked,
-                        color: Theme.of(context).accentColor,
-                      ),
-                      completedStep: Icon(
-                        Icons.check_circle,
-                        color: Theme.of(context).primaryColor,
-                      ),
-                    ),
-                    ilovehiking(
-                        ChatBubbleClipper2(type: BubbleType.receiverBubble),
-                        context,
-                        'panda.png'),
-                    picktime(
-                        ChatBubbleClipper2(type: BubbleType.receiverBubble),
-                        context),
-                    Container(
-                        padding: EdgeInsets.fromLTRB(16, 10, 16, 28),
-                        child: Column(
-                          children: [
-                            FlatButton(
-                                child: Text(
-                                  'Pick Time',
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                                color: primaryTeal,
-                                splashColor: primaryTeal,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(18.0),
-                                ),
-                                onPressed: () {
-                                  // selectTime gives me the variable _time which is the user picked time
-                                  // _time is in the format (hours: hours, minutes: minutes)
-                                  selectTime(context);
-                                  // i need the variable now so i now what day it is
-                                  final now = new tz.TZDateTime.now(tz.local);
-                                  // so i use "now" to get the day, month, and year
-                                  // and _time.hour and _time.minute to get the hours and minutes
-                                  final convert = new tz.TZDateTime(
-                                      tz.local,
-                                      now.year,
-                                      now.month,
-                                      now.day,
-                                      _time.hour,
-                                      _time.minute);
-
-                                  print('hi $convert');
-
-                                  // Navigator.of(context).pushNamed('/');
-                                }),
-                            FlatButton(
-                                child: Text(
-                                  'Save',
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                                color: primaryTeal,
-                                splashColor: primaryTeal,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(18.0),
-                                ),
-                                onPressed: () async {
-                                  _completedOnboarding = true;
-                                  await DatabaseService(uid: user.uid)
-                                      .updateOnboarding(
-                                          _currentInterests ??
-                                              userData.interests,
-                                          _completedOnboarding ??
-                                              userData.completedOnboarding,
-                                          _currentBuddy ?? userData.buddy);
-                                  _showMyDialog();
-
-                                  // Navigator.of(context).pushNamed('/');
-                                }),
-                          ],
-                        ))
-                  ],
-                ),
+    // final user = Provider.of<UserClass>(context);
+    // return StreamBuilder<UserData>(
+    //     stream: DatabaseService(uid: user.uid).userData,
+    //     builder: (context, snapshot) {
+    //       UserData userData = snapshot.data;
+    //       if (snapshot.hasData) {
+    return Scaffold(
+      body: Center(
+        child: Column(
+          // mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Container(
+              margin: const EdgeInsets.fromLTRB(20, 60, 20, 20),
+              child: Image(image: AssetImage('panda.png'), height: 150),
+            ),
+            StepIndicator(
+              selectedStepIndex: 5,
+              totalSteps: 6,
+              selectedStep: Icon(
+                Icons.radio_button_checked,
+                color: Theme.of(context).accentColor,
               ),
-            );
-          } else {
-            return Loading();
-          }
-        });
+              completedStep: Icon(
+                Icons.check_circle,
+                color: Theme.of(context).primaryColor,
+              ),
+            ),
+            ilovehiking(ChatBubbleClipper2(type: BubbleType.receiverBubble),
+                context, 'panda.png'),
+            picktime(
+                ChatBubbleClipper2(type: BubbleType.receiverBubble), context),
+            Container(
+                padding: EdgeInsets.fromLTRB(16, 10, 16, 28),
+                child: Column(
+                  children: [
+                    FlatButton(
+                        child: Text(
+                          'Pick Time',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        color: primaryTeal,
+                        splashColor: primaryTeal,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18.0),
+                        ),
+                        onPressed: () {
+                          // selectTime gives me the variable _time which is the user picked time
+                          // _time is in the format (hours: hours, minutes: minutes)
+                          selectTime(context);
+                          // i need the variable now so i now what day it is
+                          final now = new tz.TZDateTime.now(tz.local);
+                          // so i use "now" to get the day, month, and year
+                          // and _time.hour and _time.minute to get the hours and minutes
+                          final convert = new tz.TZDateTime(tz.local, now.year,
+                              now.month, now.day, _time.hour, _time.minute);
+
+                          print('hi $convert');
+
+                          // Navigator.of(context).pushNamed('/');
+                        }),
+                    FlatButton(
+                        child: Text(
+                          'Save',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        color: primaryTeal,
+                        splashColor: primaryTeal,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18.0),
+                        ),
+                        onPressed: () async {
+                          _completedOnboarding = true;
+                          // await DatabaseService(uid: user.uid)
+                          //     .updateOnboarding(
+                          //         _currentInterests ??
+                          //             userData.interests,
+                          //         _completedOnboarding ??
+                          //             userData.completedOnboarding,
+                          //         _currentBuddy ?? userData.buddy);
+                          _showMyDialog();
+
+                          // Navigator.of(context).pushNamed('/');
+                        }),
+                  ],
+                ))
+          ],
+        ),
+      ),
+    );
+    //   } else {
+    //     return Loading();
+    //   }
+    // });
   }
 }
 
