@@ -4,32 +4,21 @@ import 'package:flutter/services.dart';
 import 'package:flutter_chat_bubble/bubble_type.dart';
 import 'package:flutter_chat_bubble/clippers/chat_bubble_clipper_2.dart';
 import 'package:intervalprogressbar/intervalprogressbar.dart';
-import 'package:navigationapp/authentication/authentication.dart';
-import 'package:navigationapp/models/user_class.dart';
-import 'package:navigationapp/screens/authenticate/gmailsignin/gmail_signin.dart';
-import 'package:navigationapp/screens/home/home.dart';
-import 'package:navigationapp/screens/onboarding_screens/choose_buddy.dart';
-import 'package:navigationapp/screens/onboarding_screens/onboarding_start.dart';
-
-import 'package:navigationapp/services/auth.dart';
-import 'package:navigationapp/services/database.dart';
+import '../onboarding_screens/onboarding_screens.dart';
 import 'package:navigationapp/services/shuffler.dart';
-import 'package:navigationapp/shared/loading.dart';
 import 'package:navigationapp/widgets/chat_bubbles.dart';
-import 'package:provider/provider.dart';
-import '../../app.dart';
 import '../../theme.dart';
 
-class Buddy extends StatefulWidget {
+class HomePage extends StatefulWidget {
   static Route route() {
-    return MaterialPageRoute<void>(builder: (_) => Buddy());
+    return MaterialPageRoute<void>(builder: (_) => HomePage());
   }
 
   @override
-  _BuddyState createState() => _BuddyState();
+  _HomePageState createState() => _HomePageState();
 }
 
-class _BuddyState extends State<Buddy> {
+class _HomePageState extends State<HomePage> {
   String textHolder1 = '';
   String textHolder2 = '';
   String textHolder3 = '';
@@ -41,7 +30,7 @@ class _BuddyState extends State<Buddy> {
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   final List<Widget> _widgetOptions = <Widget>[
-    Buddy(),
+    HomePage(),
     OnboardingStart(),
     ChooseBuddy(),
   ];
@@ -64,7 +53,6 @@ class _BuddyState extends State<Buddy> {
 
   @override
   Widget build(BuildContext context) {
-    final user = context.select((AuthenticationBloc bloc) => bloc.state.user);
     var items = [
       'rock climb',
       'drink tea',
@@ -266,7 +254,9 @@ class _BuddyState extends State<Buddy> {
                               borderRadius: BorderRadius.circular(18.0),
                             ),
                           ),
-                          onPressed: () {}),
+                          onPressed: () {
+                            Navigator.of(context).pushNamed('/chooseworktime');
+                          }),
                       TextButton(
                           child: Text(
                             textHolder2,
@@ -300,40 +290,11 @@ class _BuddyState extends State<Buddy> {
                       ),
                     ],
                   ),
-            TextButton.icon(
-              icon: Icon(Icons.person),
-              label: Text('logout'),
-              onPressed: () => context
-                  .read<AuthenticationBloc>()
-                  .add(AuthenticationLogoutRequested()),
-            ),
           ],
         ),
       ),
-      // bottomNavigationBar: BottomNavigationBar(
-      //   items: const <BottomNavigationBarItem>[
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.pets),
-      //       label: 'Buddy',
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.favorite),
-      //       label: 'Self-Care',
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.settings),
-      //       label: 'Settings',
-      //     ),
-      //   ],
-      //   currentIndex: _selectedIndex,
-      //   selectedItemColor: Colors.black,
-      //   onTap: _onItemTapped,
-      // ),
     );
   }
   // else {
   //   return Loading();
 }
-// });
-// }
-// }

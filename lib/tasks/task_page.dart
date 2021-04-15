@@ -2,24 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:navigationapp/theme.dart';
 
-import 'data/fruit.dart';
-import 'fruit_bloc/bloc.dart';
+import 'models/task.dart';
+import 'task_bloc/bloc.dart';
 
-class HomePage extends StatefulWidget {
-  _HomePageState createState() => _HomePageState();
+class TaskPage extends StatefulWidget {
+  _TaskPageState createState() => _TaskPageState();
 }
 
-class _HomePageState extends State<HomePage> {
-  FruitBloc _fruitBloc;
+class _TaskPageState extends State<TaskPage> {
+  TaskBloc _taskBloc;
 
   @override
   void initState() {
     super.initState();
-    // Obtaining the FruitBloc instance through BlocProvider which is an InheritedWidget
-    _fruitBloc = BlocProvider.of<FruitBloc>(context);
+    // Obtaining the TaskBloc instance through BlocProvider which is an InheritedWidget
+    _taskBloc = BlocProvider.of<TaskBloc>(context);
     // Events can be passed into the bloc by calling dispatch.
-    // We want to start loading fruits right from the start.
-    _fruitBloc.add(LoadFruits());
+    // We want to start loading tasks right from the start.
+    _taskBloc.add(LoadTasks());
   }
 
   @override
@@ -33,29 +33,29 @@ class _HomePageState extends State<HomePage> {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () {
-          _fruitBloc.add(AddRandomFruit());
+          _taskBloc.add(AddRandomTask());
         },
       ),
     );
   }
 
   Widget _buildBody() {
-    return BlocBuilder<FruitBloc, FruitState>(
+    return BlocBuilder<TaskBloc, TaskState>(
       // Whenever there is a new state emitted from the bloc, builder runs.
-      builder: (BuildContext context, FruitState state) {
-        if (state is FruitsLoading) {
+      builder: (BuildContext context, TaskState state) {
+        if (state is TasksLoading) {
           return Center(
             child: CircularProgressIndicator(),
           );
-        } else if (state is FruitsLoaded) {
+        } else if (state is TasksLoaded) {
           return ListView.builder(
-            itemCount: state.fruits.length,
+            itemCount: state.tasks.length,
             itemBuilder: (context, index) {
-              final displayedFruit = state.fruits[index];
-              final newTime = DateTime.parse(displayedFruit.timeAssigned);
+              final displayedTask = state.tasks[index];
+              final newTime = DateTime.parse(displayedTask.timeAssigned);
               Icon check;
               String completed;
-              if (displayedFruit.completed == true) {
+              if (displayedTask.completed == true) {
                 check = Icon(Icons.radio_button_checked);
                 completed = "Completed!";
               } else {
@@ -65,15 +65,15 @@ class _HomePageState extends State<HomePage> {
 
               return Dismissible(
                 // uniquely identify widgets.
-                key: Key(displayedFruit.id.toString()),
+                key: Key(displayedTask.id.toString()),
                 // Provide a function that tells the app
                 // what to do after an item has been swiped away.
                 onDismissed: (direction) {
                   // Remove the item from the data source.
                   setState(() {
-                    _fruitBloc.add(DeleteFruit(displayedFruit));
+                    _taskBloc.add(DeleteTask(displayedTask));
 
-                    state.fruits.removeAt(index);
+                    state.tasks.removeAt(index);
                   });
 
                   // Then show a snackbar.
@@ -85,10 +85,10 @@ class _HomePageState extends State<HomePage> {
                 child: GestureDetector(
                   onTap: () {
                     //TODO implement changing state of card from incomplete to complete
-                    // print(displayedFruit.completed);
-                    // displayedFruit.completed = !displayedFruit.completed;
-                    // print(displayedFruit.completed);
-                    _fruitBloc.add(UpdateFruit(displayedFruit));
+                    // print(displayedTask.completed);
+                    // displayedTask.completed = !displayedTask.completed;
+                    // print(displayedTask.completed);
+                    _taskBloc.add(UpdateTask(displayedTask));
                   },
                   child: Card(
                       shape: RoundedRectangleBorder(
@@ -104,7 +104,7 @@ class _HomePageState extends State<HomePage> {
                               child: Row(
                                 children: [
                                   Icon(
-                                      IconData(displayedFruit.icon,
+                                      IconData(displayedTask.icon,
                                           fontFamily: 'MaterialIcons'),
                                       size: 40),
                                   // Icon(Icons.spa),
@@ -117,7 +117,7 @@ class _HomePageState extends State<HomePage> {
                                     children: [
                                       SizedBox(height: 10),
                                       Text(
-                                        displayedFruit.activity,
+                                        displayedTask.activity,
                                         style: TextStyle(fontSize: 20),
                                       ),
                                       SizedBox(height: 10),
@@ -133,7 +133,7 @@ class _HomePageState extends State<HomePage> {
                                 ],
                               ),
                             ),
-                            // _buildUpdateDeleteButtons(displayedFruit),
+                            // _buildUpdateDeleteButtons(displayedTask),
                             check,
                           ],
                         ),
@@ -148,20 +148,20 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Row _buildUpdateDeleteButtons(Fruit displayedFruit) {
+  Row _buildUpdateDeleteButtons(Task displayedTask) {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
         IconButton(
           icon: Icon(Icons.refresh),
           onPressed: () {
-            _fruitBloc.add(UpdateFruit(displayedFruit));
+            _taskBloc.add(UpdateTask(displayedTask));
           },
         ),
         // IconButton(
         //   icon: Icon(Icons.delete_outline),
         //   onPressed: () {
-        //     _fruitBloc.add(DeleteFruit(displayedFruit));
+        //     _taskBloc.add(DeleteTask(displayedTask));
         //   },
         // ),
       ],

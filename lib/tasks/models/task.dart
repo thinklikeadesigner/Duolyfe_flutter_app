@@ -1,8 +1,8 @@
 import 'package:meta/meta.dart';
 
-class Fruit {
+class Task {
   // Id will be gotten from the database.
-  // It's automatically generated & unique for every stored Fruit.
+  // It's automatically generated & unique for every stored Task.
   int id;
 
   final String activity;
@@ -11,7 +11,7 @@ class Fruit {
   final int icon;
   bool completed;
 
-  Fruit(
+  Task(
       {@required this.activity,
       @required this.icon,
       @required this.interest,
@@ -28,8 +28,8 @@ class Fruit {
     };
   }
 
-  static Fruit fromMap(Map<String, dynamic> map) {
-    return Fruit(
+  static Task fromMap(Map<String, dynamic> map) {
+    return Task(
       activity: map['activity'],
       interest: map['interest'],
       icon: map['icon'],

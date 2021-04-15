@@ -365,7 +365,7 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                               ),
                               onPressed: () {
                                 Navigator.of(context)
-                                    .pushNamed('/milonamepicked');
+                                    .pushNamed('/chooseworktime');
                               }),
                           TextButton(
                               child: Text(

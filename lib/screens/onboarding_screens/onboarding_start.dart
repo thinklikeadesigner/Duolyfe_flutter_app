@@ -75,36 +75,9 @@ class OnboardingStart extends StatelessWidget {
                       // await
                       // DatabaseService(uid: user.uid).updateOnboarding(
                       //     ['Crafts', 'Social'], false, 'panda');
-                      // Navigator.of(context).pushNamed('/choosebuddy');
+                      Navigator.of(context).pushNamed('/choosebuddy');
                     },
                   ),
-                  FlatButton(
-                      child: Text(
-                        'sign out',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      color: primaryTeal,
-                      splashColor: primaryTeal,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18.0),
-                      ),
-                      onPressed: () {
-                        // _auth.signOut();
-                      }),
-                  FlatButton(
-                      child: Text(
-                        'log out',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      color: primaryTeal,
-                      splashColor: primaryTeal,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18.0),
-                      ),
-                      onPressed: () {
-                        // _auth.signOut();
-                        // _authGmail.signOutGoogle();
-                      }),
                 ],
               ),
             ),

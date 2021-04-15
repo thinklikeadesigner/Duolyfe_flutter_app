@@ -5,7 +5,6 @@ import 'package:navigationapp/models/user_class.dart';
 import 'package:navigationapp/services/database.dart';
 import 'package:navigationapp/shared/loading.dart';
 import 'package:navigationapp/widgets/chat_bubbles.dart';
-import 'package:navigationapp/app.dart';
 import 'package:provider/provider.dart';
 import 'package:uic/step_indicator.dart';
 

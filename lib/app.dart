@@ -4,7 +4,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:navigationapp/login/login.dart';
 import 'package:navigationapp/route_generator/route_generator.dart';
-import 'package:navigationapp/screens/home/buddy.dart';
+import 'package:navigationapp/screens/home/home_page.dart';
+import 'package:navigationapp/screens/nav_screens/navbar.dart';
 import 'package:navigationapp/theme.dart';
 import 'authentication/authentication.dart';
 
@@ -54,7 +55,7 @@ class _AppViewState extends State<AppView> {
             switch (state.status) {
               case AuthenticationStatus.authenticated:
                 _navigator.pushAndRemoveUntil<void>(
-                  Buddy.route(),
+                  NavBar.route(),
                   (route) => false,
                 );
                 break;
