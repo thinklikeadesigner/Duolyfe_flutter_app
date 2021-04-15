@@ -3,15 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:navigationapp/login/login.dart';
-import 'package:navigationapp/models/user_class.dart';
 import 'package:navigationapp/route_generator/route_generator.dart';
-import 'package:navigationapp/screens/authenticate/sign_in.dart';
-import 'package:navigationapp/screens/home/buddy.dart';
-import 'package:navigationapp/screens/wrapper.dart';
-import 'package:navigationapp/services/auth.dart';
+import 'package:navigationapp/screens/home/home_page.dart';
+import 'package:navigationapp/screens/nav_screens/navbar.dart';
 import 'package:navigationapp/theme.dart';
-import 'package:provider/provider.dart';
-
 import 'authentication/authentication.dart';
 
 class App extends StatelessWidget {
@@ -51,26 +46,6 @@ class _AppViewState extends State<AppView> {
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
     ]);
-
-//TODO change stream provider to block provider
-    // return StreamProvider<UserClass>.value(
-    //   value: AuthService().user,
-    //   child: MaterialApp(
-    //     title: 'Navigation Demo',
-    //     theme: theme,
-    //     home: Buddy(),
-    //     onGenerateRoute: RouteGenerator.generateRoute,
-    //   ),
-    // );
-//   }
-// }
-
-    // @override
-    // Widget build(BuildContext context) {
-    //   SystemChrome.setPreferredOrientations([
-    //     DeviceOrientation.portraitUp,
-    //     DeviceOrientation.portraitDown,
-    //   ]);
     return MaterialApp(
       theme: theme,
       navigatorKey: _navigatorKey,
@@ -80,7 +55,7 @@ class _AppViewState extends State<AppView> {
             switch (state.status) {
               case AuthenticationStatus.authenticated:
                 _navigator.pushAndRemoveUntil<void>(
-                  Buddy.route(),
+                  NavBar.route(),
                   (route) => false,
                 );
                 break;
@@ -98,25 +73,7 @@ class _AppViewState extends State<AppView> {
         );
       },
       onGenerateRoute: RouteGenerator.generateRoute,
+      initialRoute: '/',
     );
   }
 }
-// }
-
-// return StreamProvider<UserClass>.value(
-//   value: AuthService().user,
-//   child: MaterialApp(
-//     title: 'Navigation Demo',
-//     theme: ThemeData(
-//       visualDensity: VisualDensity.adaptivePlatformDensity,
-//       brightness: Brightness.light,
-//       primaryColor: primaryTeal,
-//       accentColor: Colors.cyan[600],
-//       fontFamily: 'Georgia',
-//       textTheme: TextTheme(
-//         headline1: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
-//         headline6: TextStyle(fontSize: 36.0, fontStyle: FontStyle.italic),
-//         bodyText2: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
-//       ),
-//     ),
-//     home: Wrapper(),

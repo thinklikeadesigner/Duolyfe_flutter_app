@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:navigationapp/screens/authenticate/gmailsignin/gmail_signin.dart';
 import 'package:navigationapp/services/auth.dart';
-import 'package:navigationapp/services/listview.dart';
+import 'package:navigationapp/dead%20code/interestdead/listview.dart';
 // import 'package:timezone/data/latest.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
 import '../../app.dart';
@@ -154,8 +154,8 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    final AuthService _auth = AuthService();
-    final GmailAuthService _authGmail = GmailAuthService();
+    // final AuthService _auth = AuthService();
+    // final GmailAuthService _authGmail = GmailAuthService();
 
     return Scaffold(
       body: Center(
@@ -173,8 +173,8 @@ class _HomeState extends State<Home> {
                 borderRadius: BorderRadius.circular(18.0),
               ),
               onPressed: () {
-                _auth.signOut();
-                _authGmail.signOutGoogle();
+                // _auth.signOut();
+                // _authGmail.signOutGoogle();
                 // Navigator.of(context).pushNamed('/signin');
               }),
           FlatButton(
@@ -224,7 +224,6 @@ class _HomeState extends State<Home> {
                 borderRadius: BorderRadius.circular(18.0),
               ),
               onPressed: () async {
-                Cooking();
                 print('j');
 
                 // notify();

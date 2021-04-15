@@ -13,12 +13,12 @@ import '../../app.dart';
 import '../../theme.dart';
 
 class OnboardingStart extends StatelessWidget {
-  final AuthService _auth = AuthService();
-  final GmailAuthService _authGmail = GmailAuthService();
+  // final AuthService _auth = AuthService();
+  // final GmailAuthService _authGmail = GmailAuthService();
 
   @override
   Widget build(BuildContext context) {
-    final user = Provider.of<UserClass>(context);
+    // final user = Provider.of<UserClass>(context);
     return Scaffold(
       body: Center(
         child: Column(
@@ -62,47 +62,22 @@ class OnboardingStart extends StatelessWidget {
                         Navigator.of(context).pushNamed('/milonamepicked');
                       }),
                   FlatButton(
-                      child: Text(
-                        'Let\'s do it!',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      color: primaryTeal,
-                      splashColor: primaryTeal,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18.0),
-                      ),
-                      onPressed: () async {
-                        await DatabaseService(uid: user.uid).updateOnboarding(
-                            ['Crafts', 'Social'], false, 'panda');
-                        Navigator.of(context).pushNamed('/choosebuddy');
-                      }),
-                  FlatButton(
-                      child: Text(
-                        'sign out',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      color: primaryTeal,
-                      splashColor: primaryTeal,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18.0),
-                      ),
-                      onPressed: () {
-                        _auth.signOut();
-                      }),
-                  FlatButton(
-                      child: Text(
-                        'log out',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      color: primaryTeal,
-                      splashColor: primaryTeal,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18.0),
-                      ),
-                      onPressed: () {
-                        _auth.signOut();
-                        _authGmail.signOutGoogle();
-                      }),
+                    child: Text(
+                      'Let\'s do it!',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    color: primaryTeal,
+                    splashColor: primaryTeal,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(18.0),
+                    ),
+                    onPressed: () async {
+                      // await
+                      // DatabaseService(uid: user.uid).updateOnboarding(
+                      //     ['Crafts', 'Social'], false, 'panda');
+                      Navigator.of(context).pushNamed('/choosebuddy');
+                    },
+                  ),
                 ],
               ),
             ),

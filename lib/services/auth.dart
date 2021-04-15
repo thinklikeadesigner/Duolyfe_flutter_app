@@ -2,8 +2,6 @@
 // import 'package:navigationapp/models/user_class.dart';
 // import 'package:navigationapp/services/database.dart';
 
-// //TODO not on signout, not switching to sign in screen without hot restart
-
 // class AuthService {
 //   final FirebaseAuth _auth = FirebaseAuth.instance;
 
