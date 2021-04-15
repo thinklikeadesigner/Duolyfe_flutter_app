@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:navigationapp/screens/home/buddy.dart';
+import 'package:navigationapp/screens/home/home_page.dart';
 import 'package:navigationapp/splash/splash.dart';
 import '../screens/authenticate/sign_in.dart';
 import 'error_route_page.dart';
@@ -42,7 +42,7 @@ class RouteGenerator {
       case '/chooseworktime':
         return MaterialPageRoute(builder: (context) => ChooseWorkTime());
       case '/buddy':
-        return MaterialPageRoute(builder: (context) => Buddy());
+        return MaterialPageRoute(builder: (context) => HomePage());
 
       case '/home':
         return MaterialPageRoute(

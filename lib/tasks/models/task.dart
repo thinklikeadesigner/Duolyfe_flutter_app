@@ -1,6 +1,7 @@
+import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 
-class Task {
+class Task extends Equatable {
   // Id will be gotten from the database.
   // It's automatically generated & unique for every stored Task.
   int id;
@@ -37,4 +38,7 @@ class Task {
       timeAssigned: map['timeAssigned'],
     );
   }
+
+  @override
+  List<Object> get props => [activity, interest, icon, completed, timeAssigned];
 }
