@@ -1,16 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:navigationapp/screens/authenticate/gmailsignin/gmail_signin.dart';
-import 'package:navigationapp/services/auth.dart';
-import 'package:navigationapp/dead%20code/interestdead/listview.dart';
 // import 'package:timezone/data/latest.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
-import '../../app.dart';
 import '../../theme.dart';
 
 class Home extends StatefulWidget {
-  final String imagePath;
-  Home({Key key, @required this.imagePath}) : super(key: key);
   @override
   _HomeState createState() => _HomeState();
 }
@@ -22,13 +16,11 @@ class _HomeState extends State<Home> {
   AndroidInitializationSettings androidInitializationSettings;
   InitializationSettings initializationSettings;
 
-  String thisImage;
   int _selectedIndex = 0;
 
   void initState() {
     super.initState();
     initializing();
-    thisImage = widget.imagePath;
     print('h');
   }
 
@@ -134,7 +126,7 @@ class _HomeState extends State<Home> {
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static List<Widget> _widgetOptions = <Widget>[
-    Image(image: AssetImage("giraffe.png"), height: 130),
+    Image(image: AssetImage("hamster.png"), height: 130),
     Text(
       'This is where the tasks feed will be',
       style: optionStyle,

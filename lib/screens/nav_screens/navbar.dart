@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:navigationapp/screens/home/home_page.dart';
+import 'package:navigationapp/screens/nav_screens/task_nav.dart';
 import 'package:navigationapp/screens/onboarding_screens/choose_activity.dart';
 import 'package:navigationapp/screens/onboarding_screens/choose_buddy.dart';
 import 'package:navigationapp/screens/onboarding_screens/milo_name_picked.dart';
@@ -24,11 +25,7 @@ class NavBar extends StatefulWidget {
 
 class _NavBarState extends State<NavBar> {
   int _currentIndex = 0;
-  final List<Widget> _children = [
-    HomePage(),
-    OnboardingStart(),
-    SettingsPage()
-  ];
+  final List<Widget> _children = [HomePage(), TaskPage(), SettingsPage()];
 
   void onTabTapped(int index) {
     setState(() {

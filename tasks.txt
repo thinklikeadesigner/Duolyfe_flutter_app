@@ -1,21 +1,17 @@
 app initializes wrapper, so wrapper is the first screen
 
-
-in wrapper: user data can be null, or it can exist
+appview is the new wrapper
+in appview: user data can be null, or it can exist
 if user is null, user is not logged in and user is directed to the sign in screen
 
-if user is not null, the next set of checks is to see if user has completed onboarding or not
-if it is a new user, the user does not have any data yet, because the default data is added during the first onboarding screen
+need to add a state and event to check for completed onboarding
+TODO decide what the default data for user should be.
 
-an idea is to updateOnboarding if hasData is null, bc it can only be null once
-you cant set the default data on login bc then data is reset every time user logs in, look into isFreshlyInstalled so you can only put data in the database once,
-or find a way to set the data when user is entered into firebase auth for first time
 
 the first check checks if the user has data.
 if the user has data, it means they have at least been to the 2nd page of onboarding
-user has data means A user completed onboarding or B user has started but did not finish onboarding
+(doesnt matter, bc you dont need default data you can save as you go) user has data means A user completed onboarding or B user has started but did not finish onboarding
 
-if the user doesn't have data, they have logged in but they have not been to the second page of onboarding, nor have they completed onboarding
 
 if the user exists, onboarding can be null, false, or true
 
@@ -129,11 +125,10 @@ possible events
 
 
 TODO need a better way to check if onboarding is completed, bc the value can be null in between sign in and the first onboarding screen
+TODO i think i need a user store for local data and not auth
 TODO need to make the name a data object to persist along with the buddy image and save both in database
 TODO make stateful widgets stateless
-TODO authentication bloc
 TODO activity bloc
 TODO buddy bloc
 TODO name bloc
 TODO refine models for data
-TODO refine database service

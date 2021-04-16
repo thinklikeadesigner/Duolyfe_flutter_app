@@ -13,6 +13,9 @@ import '../../app.dart';
 import '../../theme.dart';
 
 class OnboardingStart extends StatelessWidget {
+  static Route route() {
+    return MaterialPageRoute<void>(builder: (_) => OnboardingStart());
+  }
   // final AuthService _auth = AuthService();
   // final GmailAuthService _authGmail = GmailAuthService();
 

@@ -4,8 +4,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:navigationapp/login/login.dart';
 import 'package:navigationapp/route_generator/route_generator.dart';
-import 'package:navigationapp/screens/home/home_page.dart';
 import 'package:navigationapp/screens/nav_screens/navbar.dart';
+import 'package:navigationapp/screens/onboarding_screens/onboarding_screens.dart';
 import 'package:navigationapp/theme.dart';
 import 'authentication/authentication.dart';
 
@@ -38,6 +38,7 @@ class AppView extends StatefulWidget {
 
 class _AppViewState extends State<AppView> {
   final _navigatorKey = GlobalKey<NavigatorState>();
+  RouteGenerator _routeGenerator = RouteGenerator();
 
   NavigatorState get _navigator => _navigatorKey.currentState;
   @override
@@ -55,7 +56,7 @@ class _AppViewState extends State<AppView> {
             switch (state.status) {
               case AuthenticationStatus.authenticated:
                 _navigator.pushAndRemoveUntil<void>(
-                  NavBar.route(),
+                  OnboardingStart.route(),
                   (route) => false,
                 );
                 break;
@@ -72,7 +73,7 @@ class _AppViewState extends State<AppView> {
           child: child,
         );
       },
-      onGenerateRoute: RouteGenerator.generateRoute,
+      onGenerateRoute: _routeGenerator.onGenerateRoute,
       initialRoute: '/',
     );
   }

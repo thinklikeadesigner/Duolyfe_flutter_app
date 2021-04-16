@@ -9,6 +9,16 @@ class TaskPage extends StatefulWidget {
   _TaskPageState createState() => _TaskPageState();
 }
 
+/*TODO 
+find out how to move the button to the homepage
+so we can just have the tasks on the taskpage
+TODO
+only complete a task once, disable completed tasks
+TODO
+need a readonly store for interest, activities, and buddies
+
+
+*/
 class _TaskPageState extends State<TaskPage> {
   TaskBloc _taskBloc;
 
@@ -25,10 +35,6 @@ class _TaskPageState extends State<TaskPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text('Do a thing!'),
-      ),
       body: _buildBody(),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
