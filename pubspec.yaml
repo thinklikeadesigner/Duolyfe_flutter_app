@@ -91,7 +91,7 @@ flutter:
     - tiger.png
     - wolf.png
     - background.png
-    - activities.json
+    - interests.json
     - tasks.json
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
