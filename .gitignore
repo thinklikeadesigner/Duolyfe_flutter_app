@@ -9,7 +9,7 @@
 .history
 .svn/
 pubspec.lock
-
+google-services.json
 # IntelliJ related
 *.iml
 *.ipr
