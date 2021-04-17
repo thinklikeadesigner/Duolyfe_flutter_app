@@ -30,6 +30,7 @@ class _TaskPageState extends State<TaskPage> {
     // Events can be passed into the bloc by calling dispatch.
     // We want to start loading tasks right from the start.
     _taskBloc.add(LoadTasks());
+    // _taskBloc.add(AddRandomTask());
   }
 
   @override
