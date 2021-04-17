@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:navigationapp/buddy/buddy_bloc/buddy_bloc.dart';
+import 'package:navigationapp/buddy/buddy_page.dart';
 import 'package:navigationapp/screens/home/home_page.dart';
 import 'package:navigationapp/screens/nav_screens/task_nav.dart';
 import 'package:navigationapp/screens/onboarding_screens/choose_activity.dart';
@@ -25,7 +27,7 @@ class NavBar extends StatefulWidget {
 
 class _NavBarState extends State<NavBar> {
   int _currentIndex = 0;
-  final List<Widget> _children = [HomePage(), TaskPage(), SettingsPage()];
+  final List<Widget> _children = [HomePage(), ChooseActivity(), SettingsPage()];
 
   void onTabTapped(int index) {
     setState(() {
@@ -35,8 +37,15 @@ class _NavBarState extends State<NavBar> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => TaskBloc(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<BuddyBloc>(
+          create: (BuildContext context) => BuddyBloc(),
+        ),
+        BlocProvider<TaskBloc>(
+          create: (BuildContext context) => TaskBloc(),
+        ),
+      ],
       child: Scaffold(
         body: _children[_currentIndex], // new
         bottomNavigationBar: BottomNavigationBar(
@@ -59,19 +68,6 @@ class _NavBarState extends State<NavBar> {
           ],
         ),
       ),
-    );
-  }
-}
-
-class PlaceholderWidget extends StatelessWidget {
-  final Color color;
-
-  PlaceholderWidget(this.color);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: color,
     );
   }
 }

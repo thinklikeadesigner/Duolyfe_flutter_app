@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:navigationapp/theme.dart';
-
-import 'models/buddy.dart';
 import 'buddy_bloc/bloc.dart';
 
 class BuddyPage extends StatefulWidget {
