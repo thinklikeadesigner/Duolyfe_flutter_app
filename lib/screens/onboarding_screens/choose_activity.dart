@@ -90,7 +90,7 @@ class _ChooseActivityState extends State<ChooseActivity> {
                       Row(
                         children: [
                           Container(
-                            margin: const EdgeInsets.fromLTRB(20, 48, 20, 20),
+                            margin: const EdgeInsets.fromLTRB(0, 40, 0, 0),
                             child: Image(
                                 image: AssetImage(displayBuddy.buddy),
                                 height: 120),
