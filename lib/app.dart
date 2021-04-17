@@ -56,7 +56,7 @@ class _AppViewState extends State<AppView> {
             switch (state.status) {
               case AuthenticationStatus.authenticated:
                 _navigator.pushAndRemoveUntil<void>(
-                  OnboardingStart.route(),
+                  NavBar.route(),
                   (route) => false,
                 );
                 break;
