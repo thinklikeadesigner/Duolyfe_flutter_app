@@ -1,0 +1,734 @@
+{
+  "tasks": [
+    {
+      "activity": "Bake Something Sweet!",
+      "interest": "cooking",
+      "icon": "0xe477",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Cook a favorite meal or Try a new Recipe",
+      "interest": "cooking",
+      "icon": "0xe477",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Try Making Candy",
+      "interest": "cooking",
+      "icon": "0xe477",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Color a picture or coloring book (children or adult version)",
+      "interest": "fun",
+      "icon": "0xe5b1",
+      "completed": false,
+      "timeAssigned": ""
+    },
+
+    {
+      "activity": "Create a movie or fun motion picture",
+      "interest": "fun",
+      "icon": "0xe5b1",
+      "completed": false,
+      "timeAssigned": ""
+    },
+
+    {
+      "activity": "Create a scrapbook or photo book",
+      "interest": "fun",
+      "icon": "0xe5b1",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Create your own candle(s)",
+      "interest": "fun",
+      "icon": "0xe5b1",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Put together a care package",
+      "interest": "fun",
+      "icon": "0xe5b1",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Crochet something",
+      "interest": "fun",
+      "icon": "0xe5b1",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Draw, sketch, or tr ace a picture",
+      "interest": "fun",
+      "icon": "0xe5b1",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Decorate cookies or a cake that you’ve baked",
+      "interest": "fun",
+      "icon": "0xe5b1",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Do Needle Point",
+      "interest": "fun",
+      "icon": "0xe5b1",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Edit photos for keeping or sharing with others",
+      "interest": "fun",
+      "icon": "0xe5b1",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Knit something fun to stay warm in",
+      "interest": "fun",
+      "icon": "0xe5b1",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Make a collage of pictures",
+      "interest": "fun",
+      "icon": "0xe5b1",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Make a snow globe",
+      "interest": "fun",
+      "icon": "0xe5b1",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Make homemade slime",
+      "interest": "fun",
+      "icon": "0xe5b1",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Make homemade soap",
+      "interest": "fun",
+      "icon": "0xe5b1",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Paint something fun",
+      "interest": "fun",
+      "icon": "0xe5b1",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Record music",
+      "interest": "fun",
+      "icon": "0xe5b1",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Sew something cool",
+      "interest": "fun",
+      "icon": "0xe5b1",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Sculpt an interesting piece out of clay",
+      "interest": "fun",
+      "icon": "0xe5b1",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Take some Pictures",
+      "interest": "fun",
+      "icon": "0xe5b1",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Write a children’s story",
+      "interest": "fun",
+      "icon": "0xe5b1",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Write a Novel",
+      "interest": "fun",
+      "icon": "0xe5b1",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Write a Poem",
+      "interest": "fun",
+      "icon": "0xe5b1",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Write a letter to yourself in the future",
+      "interest": "fun",
+      "icon": "0xe5b1",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Make lemonade",
+      "interest": "health",
+      "icon": "0xe3de 0xe4f8",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Have a fruit salad",
+      "interest": "health",
+      "icon": "0xe3de 0xe4f8",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Read a book before sleeping",
+      "interest": "health",
+      "icon": "0xe3de 0xe4f8",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Take vitamins",
+      "interest": "health",
+      "icon": "0xe3de 0xe4f8",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Stretch or Do Yoga",
+      "interest": "health",
+      "icon": "0xe3de 0xe4f8",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Drink a full glass of water or a cup of tea",
+      "interest": "health",
+      "icon": "0xe3de 0xe4f8",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Play Chess",
+      "interest": "indoor",
+      "icon": "0xe3ca 0xe5e0 0xe568",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Play a musical instrument",
+      "interest": "indoor",
+      "icon": "0xe3ca 0xe5e0 0xe568",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Read a book",
+      "interest": "indoor",
+      "icon": "0xe3ca 0xe5e0 0xe568",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Write a journal",
+      "interest": "indoor",
+      "icon": "0xe3ca 0xe5e0 0xe568",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Draw some sketches",
+      "interest": "indoor",
+      "icon": "0xe3ca 0xe5e0 0xe568",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Write a blog article",
+      "interest": "indoor",
+      "icon": "0xe3ca 0xe5e0 0xe568",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Draw a painting",
+      "interest": "indoor",
+      "icon": "0xe3ca 0xe5e0 0xe568",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Play a boardgame",
+      "interest": "indoor",
+      "icon": "0xe3ca 0xe5e0 0xe568",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Dance on your favorite song",
+      "interest": "indoor",
+      "icon": "0xe3ca 0xe5e0 0xe568",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Learn your favorite language",
+      "interest": "indoor",
+      "icon": "0xe3ca 0xe5e0 0xe568",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Bake your favorite cake or bread",
+      "interest": "indoor",
+      "icon": "0xe3ca 0xe5e0 0xe568",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Play a Solo Card Game (Like Solitaire)",
+      "interest": "indoor",
+      "icon": "0xe3ca 0xe5e0 0xe568",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Sing your favorite songs",
+      "interest": "indoor",
+      "icon": "0xe3ca 0xe5e0 0xe568",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "listen to a new audiobook",
+      "interest": "indoor",
+      "icon": "0xe3ca 0xe5e0 0xe568",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Play a Classic or Retro Video Game",
+      "interest": "indoor",
+      "icon": "0xe3ca 0xe5e0 0xe568",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Start an Indoor Garden",
+      "interest": "indoor",
+      "icon": "0xe3ca 0xe5e0 0xe568",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Clean and sanitize your phone, laptop, or tablet (and their cases!)",
+      "interest": "indoor",
+      "icon": "0xe3ca 0xe5e0 0xe568",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "De-clutter your house",
+      "interest": "indoor",
+      "icon": "0xe3ca 0xe5e0 0xe568",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Round up old items to donate",
+      "interest": "indoor",
+      "icon": "0xe3ca 0xe5e0 0xe568",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Learn a Handyman skill",
+      "interest": "indoor",
+      "icon": "0xe3ca 0xe5e0 0xe568",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Learn some computer keyboard shortcuts",
+      "interest": "indoor",
+      "icon": "0xe3ca 0xe5e0 0xe568",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Change up your home décor",
+      "interest": "indoor",
+      "icon": "0xe3ca 0xe5e0 0xe568",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Create and fly a paper airplane",
+      "interest": "indoor",
+      "icon": "0xe4aa",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Solve a Fun (or Challenging!) Puzzle",
+      "interest": "mind",
+      "icon": "0xe3ca 0xe5e0 0xe568",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Look at old photos & photo albums (or organize them!)",
+      "interest": "mind",
+      "icon": "0xe3ca 0xe5e0 0xe568",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Start writing a bucket list",
+      "interest": "mind",
+      "icon": "0xe3ca 0xe5e0 0xe568",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Read a Book or Magazine",
+      "interest": "mind",
+      "icon": "0xe3ca 0xe5e0 0xe568",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Listen to music",
+      "interest": "mind",
+      "icon": "0xe3ca 0xe5e0 0xe568",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Meditate to a video or audio course",
+      "interest": "mind",
+      "icon": "0xe3ca 0xe5e0 0xe568",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Listen to a podcast or the Radio",
+      "interest": "mind",
+      "icon": "0xe3ca 0xe5e0 0xe568",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Create a list of books You want to read",
+      "interest": "mind",
+      "icon": "0xe3ca 0xe5e0 0xe568",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Create a vision board for the year",
+      "interest": "mind",
+      "icon": "0xe3ca 0xe5e0 0xe568",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Make a budget or financial goal",
+      "interest": "mind",
+      "icon": "0xe3ca 0xe5e0 0xe568",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Update your gadgets",
+      "interest": "personal development",
+      "icon": "0xe499 0xe2e7",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Update your contacts information",
+      "interest": "personal development",
+      "icon": "0xe499 0xe2e7",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Update your Resume",
+      "interest": "personal development",
+      "icon": "0xe499 0xe2e7",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Wash your homes windows",
+      "interest": "personal development",
+      "icon": "0xe499 0xe2e7",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Wash your car",
+      "interest": "personal development",
+      "icon": "0xe499 0xe2e7",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Work on your Amazon wishlist",
+      "interest": "personal development",
+      "icon": "0xe499 0xe2e7",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Start a Journal",
+      "interest": "personal development",
+      "icon": "0xe499 0xe2e7",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Write some online reviews for a recent purchase you made",
+      "interest": "personal development",
+      "icon": "0xe499 0xe2e7",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Write your will",
+      "interest": "personal development",
+      "icon": "0xe499 0xe2e7",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Make a Household Product",
+      "interest": "personal development",
+      "icon": "0xe499 0xe2e7",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Express Gratitude towards someone you appreciate",
+      "interest": "personal development",
+      "icon": "0xe499 0xe2e7",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "set professional goals for yourself",
+      "interest": "personal development",
+      "icon": "0xe499 0xe2e7",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "set Personal goals for yourself",
+      "interest": "personal development",
+      "icon": "0xe499 0xe2e7",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Organize a yard sale",
+      "interest": "personal development",
+      "icon": "0xe499 0xe2e7",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Organize the apps on your phone",
+      "interest": "personal development",
+      "icon": "0xe499 0xe2e7",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Set some personal goals for yourself",
+      "interest": "personal development",
+      "icon": "0xe499 0xe2e7",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Sign up for a local class",
+      "interest": "personal development",
+      "icon": "0xe499 0xe2e7",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Call your school friend",
+      "interest": "social",
+      "icon": "0xe3e1",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Do a virtual dinner with family or friends",
+      "interest": "social",
+      "icon": "0xe3e1",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Watch a movie",
+      "interest": "social",
+      "icon": "0xe3e1",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Get your favorite drink",
+      "interest": "social",
+      "icon": "0xe3e1",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Organize a Networking Event",
+      "interest": "social",
+      "icon": "0xe3e1",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Attend a Networking Event",
+      "interest": "social",
+      "icon": "0xe3e1",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Attend a Stand-up comedy show",
+      "interest": "social",
+      "icon": "0xe3e1",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Host a small house party for friends or family",
+      "interest": "social",
+      "icon": "0xe3e1",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Call someone you care about",
+      "interest": "social",
+      "icon": "0xe3e1",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Message or Email someone you admire",
+      "interest": "social",
+      "icon": "0xe3e1",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Browse your social media feeds",
+      "interest": "social",
+      "icon": "0xe3e1",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Browse for an online learning course",
+      "interest": "social",
+      "icon": "0xe3e1",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Read up on current events & news",
+      "interest": "social",
+      "icon": "0xe3e1",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Trace down your ancestry & family hist",
+      "interest": "social",
+      "icon": "0xe3e1",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Clean up your Facebook, Twitter, Instagram, etc",
+      "interest": "social",
+      "icon": "0xe3e1",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Clean out your closet of old or unused clothes",
+      "interest": "social",
+      "icon": "0xe3e1",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Secure your online accounts",
+      "interest": "social",
+      "icon": "0xe3e1",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Clean up your emails",
+      "interest": "social",
+      "icon": "0xe3e1",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Fine-tune your LinkedIn profile",
+      "interest": "social",
+      "icon": "0xe3e1",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Go through the photos on your phone",
+      "interest": "social",
+      "icon": "0xe3e1",
+      "completed": false,
+      "timeAssigned": ""
+    },
+    {
+      "activity": "Organize the apps on your phone",
+      "interest": "social",
+      "icon": "0xe3e1",
+      "completed": false,
+      "timeAssigned": ""
+    }
+  ]
+}

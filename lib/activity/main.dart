@@ -6,7 +6,7 @@ import 'package:navigationapp/screens/nav_screens/navbar.dart';
 // import 'package:navigationapp/activities/activity_bloc/bloc.dart';
 import 'package:navigationapp/theme.dart';
 
-import '../activity_page.dart';
+import 'activity_page.dart';
 
 void main() => runApp(MyApp());
 

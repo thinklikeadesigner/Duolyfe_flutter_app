@@ -4,7 +4,7 @@ import 'package:navigationapp/buddy/buddy_bloc/bloc.dart';
 import 'package:navigationapp/screens/onboarding_screens/onboarding_screens.dart';
 import 'package:navigationapp/theme.dart';
 
-import '../buddy_page.dart';
+import 'buddy_page.dart';
 
 void main() => runApp(MyApp());
 
