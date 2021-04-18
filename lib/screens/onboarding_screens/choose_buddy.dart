@@ -33,13 +33,7 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
 
   @override
   Widget build(BuildContext context) {
-    // final user = Provider.of<UserClass>(context);
     final ScrollController _scrollController = ScrollController();
-    // return StreamBuilder<UserData>(
-    //     stream: DatabaseService(uid: user.uid).userData,
-    //     builder: (context, snapshot) {
-    //       if (snapshot.hasData) {
-    //         UserData userData = snapshot.data;
     return SafeArea(
       child: Scaffold(
         body: Container(
@@ -379,14 +373,6 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                         ),
                       ),
                       onPressed: () async {
-                        // await DatabaseService(uid: user.uid)
-                        //     .updateOnboarding(
-                        //         _currentInterests ?? userData.interests,
-                        //         _completedOnboarding ??
-                        //             userData.completedOnboarding,
-                        //         _currentBuddy ?? userData.buddy);
-                        //if user presses save but doesn't choose a buddy, arguments: _currentBuddy) will be called on null, so I added a default argument
-                        //TODO darken selected card
                         Navigator.of(context).pushNamed('/choosename');
                       }),
                 ]),
@@ -395,9 +381,5 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
         ),
       ),
     );
-    //   } else {
-    //     return Loading();
-    //   }
-    // });
   }
 }
