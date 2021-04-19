@@ -2,14 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_chat_bubble/clippers/chat_bubble_clipper_2.dart';
 import 'package:flutter_chat_bubble/bubble_type.dart';
 import 'package:flutter/painting.dart';
-import 'package:navigationapp/models/user_class.dart';
-import 'package:navigationapp/screens/authenticate/gmailsignin/gmail_signin.dart';
-import 'package:navigationapp/services/database.dart';
 import 'package:navigationapp/widgets/chat_bubbles.dart';
 import 'package:uic/widgets.dart';
-import 'package:navigationapp/services/auth.dart';
-import 'package:provider/provider.dart';
-import '../../app.dart';
 import '../../theme.dart';
 
 class OnboardingStart extends StatelessWidget {
@@ -62,7 +56,7 @@ class OnboardingStart extends StatelessWidget {
                           borderRadius: BorderRadius.circular(18.0),
                           side: BorderSide(color: Colors.black)),
                       onPressed: () {
-                        Navigator.of(context).pushNamed('/milonamepicked');
+                        Navigator.of(context).pushNamed('/navbar');
                       }),
                   FlatButton(
                     child: Text(

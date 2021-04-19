@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:navigationapp/app.dart';
 import 'package:navigationapp/buddy/buddy_bloc/bloc.dart';
-import 'package:navigationapp/models/user_class.dart';
-import 'package:navigationapp/services/database.dart';
-import 'package:navigationapp/shared/loading.dart';
-import 'package:provider/provider.dart';
 
 import '../../theme.dart';
 
@@ -357,6 +352,7 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                         side: BorderSide(color: Colors.black),
                       ),
                       onPressed: () {
+                        print('wat');
                         Navigator.of(context).pushNamed('/chooseworktime');
                       }),
                   TextButton(
