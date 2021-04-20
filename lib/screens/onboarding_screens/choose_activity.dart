@@ -163,15 +163,7 @@ class _ChooseActivityState extends State<ChooseActivity> {
                           onPressed: _currentInterests.length < 3
                               ? null
                               : () async {
-                                  // print(_currentInterests);
                                   print('hamster.png');
-                                  // await DatabaseService(uid: user.uid)
-                                  //     .updateOnboarding(
-                                  //         _currentInterests ??
-                                  //             userData.interests,
-                                  //         _completedOnboarding ??
-                                  //             userData.completedOnboarding,
-                                  //         _currentBuddy ?? userData.buddy);
                                   Navigator.of(context).pushNamed(
                                     '/chooseworktime',
                                   );
@@ -189,28 +181,3 @@ class _ChooseActivityState extends State<ChooseActivity> {
 }
 
 // https://mightytechno.com/flutter-disable-enable-button/
-
-// Expanded(
-//     child: Scrollbar(
-//         isAlwaysShown: true,
-//         controller: _scrollController,
-//         child: ListView.builder(
-//             controller: _scrollController,
-//             itemCount: _items.length,
-//             itemBuilder: (context, index) {
-//               return CheckboxListTile(
-//                 value: _items.contains(
-//                     _items[index]["category"]),
-//                 onChanged: (bool selected) {
-//                   _onCategorySelected(
-//                       selected,
-//                    _items[index]["category"]);
-//                   // print(_currentInterests);
-//                 },
-//                 title: Text(_items[index]["category"] ??
-//                     'hi'),
-//               );
-//             }
-//             ),
-//             ),
-//             ),
