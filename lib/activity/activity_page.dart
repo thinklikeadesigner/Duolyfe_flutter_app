@@ -52,7 +52,8 @@ class _ActivityPageState extends State<ActivityPage> {
             itemCount: state.activities.length,
             itemBuilder: (context, index) {
               final displayedActivity = state.activities[index];
-              final newTime = DateTime.parse(displayedActivity.timeAssigned);
+              // final newTime = DateTime.now();
+              // final newTime = DateTime.parse(displayedActivity.timeAssigned);
               Icon check;
               String completed;
               if (displayedActivity.completed == true) {
@@ -122,17 +123,18 @@ class _ActivityPageState extends State<ActivityPage> {
                                       SizedBox(height: 10),
                                       Text(completed),
                                       SizedBox(height: 10),
-                                      Text(
-                                        '${newTime.month}/${newTime.day}/${newTime.year} at ${newTime.hour}:${newTime.minute} and ${newTime.second} seconds',
-                                        style: TextStyle(fontSize: 10),
-                                      ),
+                                      // Text(
+                                      //   '${newTime.month}/${newTime.day}/${newTime.year} at ${newTime.hour}:${newTime.minute} and ${newTime.second} seconds',
+                                      //   style: TextStyle(fontSize: 10),
+                                      // ),
                                       SizedBox(height: 10),
                                     ],
                                   ),
                                 ],
                               ),
                             ),
-                            // _buildUpdateDeleteButtons(displayedActivity),
+                            _buildUpdateDeleteButtons(
+                                ['cooking', 'outdoor', 'mind']),
                             check,
                           ],
                         ),
@@ -147,14 +149,16 @@ class _ActivityPageState extends State<ActivityPage> {
     );
   }
 
-  Row _buildUpdateDeleteButtons(Activity displayedActivity) {
+  Row _buildUpdateDeleteButtons(List<String> chosenActivities) {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
         IconButton(
           icon: Icon(Icons.refresh),
           onPressed: () {
-            _activityBloc.add(UpdateActivity(displayedActivity));
+            chosenActivities = ['cooking', 'outdoor', 'mind'];
+
+            _activityBloc.add(SubmitActivities(chosenActivities));
           },
         ),
         // IconButton(

@@ -13,12 +13,19 @@ class LoadActivities extends ActivityEvent {
   List<Object> get props => [];
 }
 
+class SubmitActivities extends ActivityEvent {
+  final List chosenActivities;
+  @override
+  List<Object> get props => [chosenActivities];
+  SubmitActivities(this.chosenActivities) : super([chosenActivities]);
+}
+
 class AddRandomActivity extends ActivityEvent {
   List<Object> get props => [];
 }
 
 // class UpdateWithRandomActivity extends ActivityEvent {
-//   List<Object> get props => [updatedActivity];
+//   List<Object> get props => [chosenActivities];
 //   final Activity updatedActivity;
 
 //   UpdateWithRandomActivity(this.updatedActivity) : super([updatedActivity]);

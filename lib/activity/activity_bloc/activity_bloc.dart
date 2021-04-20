@@ -28,22 +28,18 @@ class ActivityBloc extends Bloc<ActivityEvent, ActivityState> {
     } else if (event is AddRandomActivity) {
       final newActivity = RandomActivityGenerator.getRandomActivity();
       newActivity.timeAssigned = DateTime.now().toString();
-      //   String convertDateTimeToString(DateTime dateTime) {
-//     return dateTime.toString();
-//   }
-
-//   DateTime convertStringToDateTime(String stringTime) {
-//     return DateTime.parse(stringTime);
-//   }
-      // Loading indicator shouldn't be displayed while adding/updating/deleting
-      // a single Activity from the database - we aren't yielding ActivitiesLoading().
       await _activityDao.insert(newActivity);
       print('get random activity');
       yield* _reloadActivities();
+    } else if (event is SubmitActivities) {
+      // final newActivity = RandomActivityGenerator.getRandomActivity();
+      print(event.chosenActivities);
+
+      // await _activityDao.insert(newActivity);
+      // print('get random activity');
+      yield* _reloadActivities();
     }
-    // else if (event is UpdateWithRandomActivity) {
-    // final newActivity = RandomActivityGenerator.getRandomActivity();
-    // // Keeping the ID of the Activity the same
+
     // newActivity.id = event.updatedActivity.id;
     // await _activityDao.update(newActivity);
     // yield* _reloadActivities();

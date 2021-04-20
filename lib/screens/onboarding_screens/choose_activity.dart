@@ -17,7 +17,7 @@ class ChooseActivity extends StatefulWidget {
 class _ChooseActivityState extends State<ChooseActivity> {
   BuddyBloc _buddyBloc;
   ReadTasksFile _readTasksFile =
-      ReadTasksFile('assets/activities.json', 'interests');
+      ReadTasksFile('assets/tasks.json', 'interests');
 
   @override
   void initState() {

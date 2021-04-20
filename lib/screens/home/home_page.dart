@@ -58,8 +58,7 @@ class _HomePageState extends State<HomePage> {
 
   // Fetch content from the json file
   Future readJson() async {
-    final String response =
-        await rootBundle.loadString('assets/activities.json');
+    final String response = await rootBundle.loadString('assets/tasks.json');
     final map = await json.decode(response);
 
     return map["suggestions"];
