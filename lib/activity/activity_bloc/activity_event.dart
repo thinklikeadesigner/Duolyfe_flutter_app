@@ -31,6 +31,10 @@ class AddRandomActivity extends ActivityEvent {
 //   UpdateWithRandomActivity(this.updatedActivity) : super([updatedActivity]);
 // }
 
+class AddAllActivities extends ActivityEvent {
+  List<Object> get props => [];
+}
+
 class UpdateActivity extends ActivityEvent {
   List<Object> get props => [updatedActivity];
   final Activity updatedActivity;
@@ -42,4 +46,13 @@ class DeleteActivity extends ActivityEvent {
   final Activity activity;
   List<Object> get props => [activity];
   DeleteActivity(this.activity) : super([activity]);
+}
+
+class ClearActivities extends ActivityEvent {
+  List<Object> get props => [];
+  @override
+  String toString() {
+    print('clear activities');
+    return super.toString();
+  }
 }

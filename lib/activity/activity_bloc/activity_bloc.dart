@@ -52,6 +52,22 @@ class ActivityBloc extends Bloc<ActivityEvent, ActivityState> {
     } else if (event is DeleteActivity) {
       await _activityDao.delete(event.activity);
       yield* _reloadActivities();
+    } else if (event is AddAllActivities) {
+      yield* _preloadTasks();
+      // yield* _reloadTasks();
+    }
+    // else if (event is UpdateWithRandomTask) {
+    // final newTask = RandomTaskGenerator.getRandomTask();
+    // // Keeping the ID of the Task the same
+    // newTask.id = event.updatedTask.id;
+    // await _taskDao.update(newTask);
+    // yield* _reloadTasks();
+    // }
+
+    else if (event is ClearActivities) {
+      print('clearing activities');
+      yield* _clearActivities();
+      _reloadActivities();
     }
   }
 
@@ -59,6 +75,30 @@ class ActivityBloc extends Bloc<ActivityEvent, ActivityState> {
     final activities = await _activityDao.getAllSortedByName();
     // Yielding a state bundled with the Activities from the database.
     yield ActivitiesLoaded(activities);
+  }
+
+  Stream<ActivityState> _clearActivities() async* {
+    final activities = await _activityDao.getAllSortedByName();
+    print(activities);
+    // Yielding a state bundled with the Activities from the database.
+
+    activities.forEach((element) async {
+      print('deleting');
+      await _activityDao.delete(element);
+    });
+    yield ActivitiesDeleted();
+  }
+
+  Stream<ActivityState> _preloadTasks() async* {
+    final initialTasks = RandomActivityGenerator.getActivity();
+    print(initialTasks);
+    // Yielding a state bundled with the Tasks from the database.
+    initialTasks.forEach((element) async {
+      print('hi');
+      element.timeAssigned = DateTime.now().toString();
+      await _activityDao.insert(element);
+    });
+    yield ActivitiesLoaded(initialTasks);
   }
 }
 

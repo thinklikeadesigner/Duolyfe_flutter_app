@@ -33,9 +33,14 @@ class _ActivityPageState extends State<ActivityPage> {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () {
-          _activityBloc.add(AddRandomActivity());
+          _activityBloc.add(AddAllActivities());
         },
       ),
+      bottomSheet: TextButton(
+          onPressed: () {
+            _activityBloc.add(ClearActivities());
+          },
+          child: Text('clear')),
     );
   }
 
@@ -72,7 +77,7 @@ class _ActivityPageState extends State<ActivityPage> {
                 onDismissed: (direction) {
                   // Remove the item from the data source.
                   setState(() {
-                    _activityBloc.add(DeleteActivity(displayedActivity));
+                    // _activityBloc.add(DeleteActivity(displayedActivity));
 
                     state.activities.removeAt(index);
                   });

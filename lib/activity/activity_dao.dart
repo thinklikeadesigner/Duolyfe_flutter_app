@@ -56,3 +56,24 @@ class ActivityDao {
     }).toList();
   }
 }
+
+//   Future<List<Activity>> getCoo(Activity activity) async {
+//     // Finder object can also sort data.
+//     final finder = Finder(filter: Filter.equals('interest', 'cooking'));
+
+//     final recordSnapshots = await _activityStore.find(
+//       await _db,
+//       finder: finder,
+//     );
+
+//     // Making a List<Activity> out of List<RecordSnapshot>
+//     return recordSnapshots.map((snapshot) {
+//       final activity = Activity.fromMap(snapshot.value);
+//       // An ID is a key of a record from the database.
+//       activity.id = snapshot.key;
+//       return activity;
+//     }).toList();
+//   }
+// }
+
+//  final finder = Finder(filter: Filter.equals('interest', 'cooking'));

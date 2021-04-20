@@ -23,7 +23,7 @@ class RandomActivityGenerator {
         completed: false,
         timeAssigned: ""),
     Activity(
-        activity: "Color a picture or coloring book",
+        activity: "Color a  coloring book",
         interest: "fun",
         icon: 0xe5b1,
         completed: false,
@@ -47,7 +47,7 @@ class RandomActivityGenerator {
         completed: false,
         timeAssigned: ""),
     Activity(
-        activity: "Put together a care package",
+        activity: "Make a care package",
         interest: "fun",
         icon: 0xe5b1,
         completed: false,
@@ -59,7 +59,7 @@ class RandomActivityGenerator {
         completed: false,
         timeAssigned: ""),
     Activity(
-        activity: "Draw, sketch, or tr ace a picture",
+        activity: "Draw a picture",
         interest: "fun",
         icon: 0xe5b1,
         completed: false,
@@ -131,7 +131,7 @@ class RandomActivityGenerator {
         completed: false,
         timeAssigned: ""),
     Activity(
-        activity: "Sculpt something out of clay",
+        activity: "Sculpt with clay",
         interest: "fun",
         icon: 0xe5b1,
         completed: false,
@@ -179,7 +179,7 @@ class RandomActivityGenerator {
         completed: false,
         timeAssigned: ""),
     Activity(
-        activity: "Read a book before sleeping",
+        activity: "Read a book",
         interest: "health",
         icon: 0xe3de,
         completed: false,
@@ -245,19 +245,19 @@ class RandomActivityGenerator {
         completed: false,
         timeAssigned: ""),
     Activity(
-        activity: "Dance on your favorite song",
+        activity: "Dance to a song",
         interest: "indoor",
         icon: 0xe5e0,
         completed: false,
         timeAssigned: ""),
     Activity(
-        activity: "Learn your favorite language",
+        activity: "Learn a language",
         interest: "indoor",
         icon: 0xe5e0,
         completed: false,
         timeAssigned: ""),
     Activity(
-        activity: "Bake your favorite cake or bread",
+        activity: "Bake a cake or bread",
         interest: "indoor",
         icon: 0xe5e0,
         completed: false,
@@ -305,7 +305,7 @@ class RandomActivityGenerator {
         completed: false,
         timeAssigned: ""),
     Activity(
-        activity: "Round up old items to donate",
+        activity: "Donate items",
         interest: "indoor",
         icon: 0xe5e0,
         completed: false,
@@ -317,19 +317,19 @@ class RandomActivityGenerator {
         completed: false,
         timeAssigned: ""),
     Activity(
-        activity: "Learn some keyboard shortcuts",
+        activity: "Learn keyboard shortcuts",
         interest: "indoor",
         icon: 0xe5e0,
         completed: false,
         timeAssigned: ""),
     Activity(
-        activity: "Change up your home décor",
+        activity: "Redecorate",
         interest: "indoor",
         icon: 0xe5e0,
         completed: false,
         timeAssigned: ""),
     Activity(
-        activity: "Create and fly a paper airplane",
+        activity: "Make a paper airplane",
         interest: "indoor",
         icon: 0xe5e0,
         completed: false,
@@ -371,7 +371,7 @@ class RandomActivityGenerator {
         completed: false,
         timeAssigned: ""),
     Activity(
-        activity: "Listen to a podcast or the Radio",
+        activity: "Listen to a podcast",
         interest: "mind",
         icon: 0xe568,
         completed: false,
@@ -389,7 +389,7 @@ class RandomActivityGenerator {
         completed: false,
         timeAssigned: ""),
     Activity(
-        activity: "Make a budget or financial goal",
+        activity: "Make a budget",
         interest: "mind",
         icon: 0xe568,
         completed: false,
@@ -425,7 +425,7 @@ class RandomActivityGenerator {
         completed: false,
         timeAssigned: ""),
     Activity(
-        activity: "Work on your Amazon wishlist",
+        activity: "Work on a wishlist",
         interest: "personal development",
         icon: 0xe499,
         completed: false,
@@ -455,7 +455,7 @@ class RandomActivityGenerator {
         completed: false,
         timeAssigned: ""),
     Activity(
-        activity: "Express Gratitude to someone",
+        activity: "Express gratitude",
         interest: "personal development",
         icon: 0xe499,
         completed: false,
@@ -479,7 +479,7 @@ class RandomActivityGenerator {
         completed: false,
         timeAssigned: ""),
     Activity(
-        activity: "Organize the apps on your phone",
+        activity: "Delete old apps",
         interest: "personal development",
         icon: 0xe499,
         completed: false,
@@ -533,7 +533,7 @@ class RandomActivityGenerator {
         completed: false,
         timeAssigned: ""),
     Activity(
-        activity: "Attend a Stand-up comedy show",
+        activity: "Watch a comedy show",
         interest: "social",
         icon: 0xe3e1,
         completed: false,
@@ -545,19 +545,19 @@ class RandomActivityGenerator {
         completed: false,
         timeAssigned: ""),
     Activity(
-        activity: "Call someone you care about",
+        activity: "Call a friend",
         interest: "social",
         icon: 0xe3e1,
         completed: false,
         timeAssigned: ""),
     Activity(
-        activity: "Message someone you admire",
+        activity: "Message a role model",
         interest: "social",
         icon: 0xe3e1,
         completed: false,
         timeAssigned: ""),
     Activity(
-        activity: "Browse your social media feeds",
+        activity: "Browse social media",
         interest: "social",
         icon: 0xe3e1,
         completed: false,
@@ -593,7 +593,7 @@ class RandomActivityGenerator {
         completed: false,
         timeAssigned: ""),
     Activity(
-        activity: "Secure your online accounts",
+        activity: "Update your passwords",
         interest: "social",
         icon: 0xe3e1,
         completed: false,
@@ -611,13 +611,13 @@ class RandomActivityGenerator {
         completed: false,
         timeAssigned: ""),
     Activity(
-        activity: "look at photos on your phone",
+        activity: "look at photos",
         interest: "social",
         icon: 0xe3e1,
         completed: false,
         timeAssigned: ""),
     Activity(
-        activity: "Organize the apps on your phone",
+        activity: "Have coffee with someone",
         interest: "social",
         icon: 0xe3e1,
         completed: false,
