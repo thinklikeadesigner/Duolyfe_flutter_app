@@ -60,6 +60,7 @@ class _TaskPageState extends State<TaskPage> {
             itemBuilder: (context, index) {
               final displayedTask = state.tasks[index];
               final newTime = DateTime.parse(displayedTask.timeAssigned);
+              // final newTime = DateTime.now();
               Icon check;
               String completed;
               if (displayedTask.completed == true) {

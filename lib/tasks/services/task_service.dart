@@ -11,7 +11,7 @@ class RandomTaskGenerator {
         completed: false,
         timeAssigned: ""),
     Task(
-        activity: "Cook a favorite meal or Try a new Recipe",
+        activity: "Try a new Recipe",
         interest: "cooking",
         icon: 0xe477,
         completed: false,
@@ -23,20 +23,19 @@ class RandomTaskGenerator {
         completed: false,
         timeAssigned: ""),
     Task(
-        activity:
-            "Color a picture or coloring book (children or adult version)",
+        activity: "Color a picture or coloring book",
         interest: "fun",
         icon: 0xe5b1,
         completed: false,
         timeAssigned: ""),
     Task(
-        activity: "Create a movie or fun motion picture",
+        activity: "Record a video with friends",
         interest: "fun",
         icon: 0xe5b1,
         completed: false,
         timeAssigned: ""),
     Task(
-        activity: "Create a scrapbook or photo book",
+        activity: "Create a scrapbook",
         interest: "fun",
         icon: 0xe5b1,
         completed: false,
@@ -66,7 +65,7 @@ class RandomTaskGenerator {
         completed: false,
         timeAssigned: ""),
     Task(
-        activity: "Decorate cookies or a cake that you’ve baked",
+        activity: "Decorate cookies",
         interest: "fun",
         icon: 0xe5b1,
         completed: false,
@@ -78,13 +77,13 @@ class RandomTaskGenerator {
         completed: false,
         timeAssigned: ""),
     Task(
-        activity: "Edit photos for keeping or sharing with others",
+        activity: "Edit photos",
         interest: "fun",
         icon: 0xe5b1,
         completed: false,
         timeAssigned: ""),
     Task(
-        activity: "Knit something fun to stay warm in",
+        activity: "Knit something cute",
         interest: "fun",
         icon: 0xe5b1,
         completed: false,
@@ -132,7 +131,7 @@ class RandomTaskGenerator {
         completed: false,
         timeAssigned: ""),
     Task(
-        activity: "Sculpt an interesting piece out of clay",
+        activity: "Sculpt something out of clay",
         interest: "fun",
         icon: 0xe5b1,
         completed: false,
@@ -162,7 +161,7 @@ class RandomTaskGenerator {
         completed: false,
         timeAssigned: ""),
     Task(
-        activity: "Write a letter to yourself in the future",
+        activity: "Write a letter to yourself",
         interest: "fun",
         icon: 0xe5b1,
         completed: false,
@@ -198,7 +197,7 @@ class RandomTaskGenerator {
         completed: false,
         timeAssigned: ""),
     Task(
-        activity: "Drink a full glass of water or a cup of tea",
+        activity: "Drink a full glass of water",
         interest: "health",
         icon: 0xe3de,
         completed: false,
@@ -264,7 +263,7 @@ class RandomTaskGenerator {
         completed: false,
         timeAssigned: ""),
     Task(
-        activity: "Play a Solo Card Game (Like Solitaire)",
+        activity: "Play a Solo Card Game",
         interest: "indoor",
         icon: 0xe5e0,
         completed: false,
@@ -282,7 +281,7 @@ class RandomTaskGenerator {
         completed: false,
         timeAssigned: ""),
     Task(
-        activity: "Play a Classic or Retro Video Game",
+        activity: "Play retro Video Game",
         interest: "indoor",
         icon: 0xe5e0,
         completed: false,
@@ -294,8 +293,7 @@ class RandomTaskGenerator {
         completed: false,
         timeAssigned: ""),
     Task(
-        activity:
-            "Clean and sanitize your phone, laptop, or tablet (and their cases!)",
+        activity: "Sanitize your electronics",
         interest: "indoor",
         icon: 0xe5e0,
         completed: false,
@@ -319,7 +317,7 @@ class RandomTaskGenerator {
         completed: false,
         timeAssigned: ""),
     Task(
-        activity: "Learn some computer keyboard shortcuts",
+        activity: "Learn some keyboard shortcuts",
         interest: "indoor",
         icon: 0xe5e0,
         completed: false,
@@ -337,13 +335,13 @@ class RandomTaskGenerator {
         completed: false,
         timeAssigned: ""),
     Task(
-        activity: "Solve a Fun (or Challenging!) Puzzle",
+        activity: "Solve a Fun Puzzle",
         interest: "mind",
         icon: 0xe568,
         completed: false,
         timeAssigned: ""),
     Task(
-        activity: "Look at old photos & photo albums (or organize them!)",
+        activity: "Look at old photos",
         interest: "mind",
         icon: 0xe568,
         completed: false,
@@ -367,7 +365,7 @@ class RandomTaskGenerator {
         completed: false,
         timeAssigned: ""),
     Task(
-        activity: "Meditate to a video or audio course",
+        activity: "Meditate",
         interest: "mind",
         icon: 0xe568,
         completed: false,
@@ -379,13 +377,13 @@ class RandomTaskGenerator {
         completed: false,
         timeAssigned: ""),
     Task(
-        activity: "Create a list of books You want to read",
+        activity: "list books you want to read",
         interest: "mind",
         icon: 0xe568,
         completed: false,
         timeAssigned: ""),
     Task(
-        activity: "Create a vision board for the year",
+        activity: "Create a vision board",
         interest: "mind",
         icon: 0xe568,
         completed: false,
@@ -403,7 +401,7 @@ class RandomTaskGenerator {
         completed: false,
         timeAssigned: ""),
     Task(
-        activity: "Update your contacts information",
+        activity: "Update contact information",
         interest: "personal development",
         icon: 0xe499,
         completed: false,
@@ -439,7 +437,7 @@ class RandomTaskGenerator {
         completed: false,
         timeAssigned: ""),
     Task(
-        activity: "Write some online reviews for a recent purchase you made",
+        activity: "Write some online reviews",
         interest: "personal development",
         icon: 0xe499,
         completed: false,
@@ -457,19 +455,19 @@ class RandomTaskGenerator {
         completed: false,
         timeAssigned: ""),
     Task(
-        activity: "Express Gratitude towards someone you appreciate",
+        activity: "Express Gratitude to someone",
         interest: "personal development",
         icon: 0xe499,
         completed: false,
         timeAssigned: ""),
     Task(
-        activity: "set professional goals for yourself",
+        activity: "set professional goals",
         interest: "personal development",
         icon: 0xe499,
         completed: false,
         timeAssigned: ""),
     Task(
-        activity: "set Personal goals for yourself",
+        activity: "set Personal goals",
         interest: "personal development",
         icon: 0xe499,
         completed: false,
@@ -487,7 +485,7 @@ class RandomTaskGenerator {
         completed: false,
         timeAssigned: ""),
     Task(
-        activity: "Set some personal goals for yourself",
+        activity: "Set some personal goals",
         interest: "personal development",
         icon: 0xe499,
         completed: false,
@@ -505,7 +503,7 @@ class RandomTaskGenerator {
         completed: false,
         timeAssigned: ""),
     Task(
-        activity: "Do a virtual dinner with family or friends",
+        activity: "Do a virtual dinner friends",
         interest: "social",
         icon: 0xe3e1,
         completed: false,
@@ -523,7 +521,7 @@ class RandomTaskGenerator {
         completed: false,
         timeAssigned: ""),
     Task(
-        activity: "Organize a Networking Event",
+        activity: "plan a party",
         interest: "social",
         icon: 0xe3e1,
         completed: false,
@@ -541,7 +539,7 @@ class RandomTaskGenerator {
         completed: false,
         timeAssigned: ""),
     Task(
-        activity: "Host a small house party for friends or family",
+        activity: "Host a small house party",
         interest: "social",
         icon: 0xe3e1,
         completed: false,
@@ -553,7 +551,7 @@ class RandomTaskGenerator {
         completed: false,
         timeAssigned: ""),
     Task(
-        activity: "Message or Email someone you admire",
+        activity: "Message someone you admire",
         interest: "social",
         icon: 0xe3e1,
         completed: false,
@@ -565,31 +563,31 @@ class RandomTaskGenerator {
         completed: false,
         timeAssigned: ""),
     Task(
-        activity: "Browse for an online learning course",
+        activity: "take online learning course",
         interest: "social",
         icon: 0xe3e1,
         completed: false,
         timeAssigned: ""),
     Task(
-        activity: "Read up on current events & news",
+        activity: "Read up on current news",
         interest: "social",
         icon: 0xe3e1,
         completed: false,
         timeAssigned: ""),
     Task(
-        activity: "Trace down your ancestry & family hist",
+        activity: "Trace down your ancestry",
         interest: "social",
         icon: 0xe3e1,
         completed: false,
         timeAssigned: ""),
     Task(
-        activity: "Clean up your Facebook, Twitter, Instagram, etc",
+        activity: "Clean up your social media",
         interest: "social",
         icon: 0xe3e1,
         completed: false,
         timeAssigned: ""),
     Task(
-        activity: "Clean out your closet of old or unused clothes",
+        activity: "Clean out your closet",
         interest: "social",
         icon: 0xe3e1,
         completed: false,
@@ -607,13 +605,13 @@ class RandomTaskGenerator {
         completed: false,
         timeAssigned: ""),
     Task(
-        activity: "Fine-tune your LinkedIn profile",
+        activity: "Fine-tune your LinkedIn",
         interest: "social",
         icon: 0xe3e1,
         completed: false,
         timeAssigned: ""),
     Task(
-        activity: "Go through the photos on your phone",
+        activity: "look at photos on your phone",
         interest: "social",
         icon: 0xe3e1,
         completed: false,
@@ -626,9 +624,9 @@ class RandomTaskGenerator {
         timeAssigned: ""),
   ];
 
-  // static Task getRandomTask() {
-  //   return _tasks[Random().nextInt(_tasks.length)];
-  // }
+  static Task getRandomTask() {
+    return _tasks[Random().nextInt(_tasks.length)];
+  }
 
   static List<Task> getTask() {
     return _tasks;

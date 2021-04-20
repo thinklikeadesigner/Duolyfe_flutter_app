@@ -39,6 +39,24 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
       await _taskDao.insert(newTask);
       print('get random task');
       yield* _reloadTasks();
+    } else if (event is AddAllTasks) {
+      final newTask = RandomTaskGenerator.getTask();
+
+      //   String convertDateTimeToString(DateTime dateTime) {
+//     return dateTime.toString();
+//   }
+
+//   DateTime convertStringToDateTime(String stringTime) {
+//     return DateTime.parse(stringTime);
+//   }
+      // Loading indicator shouldn't be displayed while adding/updating/deleting
+      // a single Task from the database - we aren't yielding TasksLoading().
+      newTask.forEach((element) async {
+        element.timeAssigned = DateTime.now().toString();
+        await _taskDao.insert(element);
+      });
+      print('get random task');
+      yield* _reloadTasks();
     }
     // else if (event is UpdateWithRandomTask) {
     // final newTask = RandomTaskGenerator.getRandomTask();

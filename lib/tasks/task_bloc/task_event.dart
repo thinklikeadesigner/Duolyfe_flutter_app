@@ -16,6 +16,10 @@ class AddRandomTask extends TaskEvent {
   List<Object> get props => [];
 }
 
+class AddAllTasks extends TaskEvent {
+  List<Object> get props => [];
+}
+
 // class UpdateWithRandomTask extends TaskEvent {
 //   List<Object> get props => [updatedTask];
 //   final Task updatedTask;

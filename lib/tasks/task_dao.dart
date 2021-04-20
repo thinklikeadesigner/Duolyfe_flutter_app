@@ -39,7 +39,7 @@ class TaskDao {
   Future<List<Task>> getAllSortedByName() async {
     // Finder object can also sort data.
     final finder = Finder(sortOrders: [
-      SortOrder('name'),
+      SortOrder('timeAssigned'),
     ]);
 
     final recordSnapshots = await _taskStore.find(
