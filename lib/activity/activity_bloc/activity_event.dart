@@ -52,7 +52,6 @@ class ClearActivities extends ActivityEvent {
   List<Object> get props => [];
   @override
   String toString() {
-    print('clear activities');
     return super.toString();
   }
 }

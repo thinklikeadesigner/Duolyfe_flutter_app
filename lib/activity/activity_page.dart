@@ -20,6 +20,7 @@ class _ActivityPageState extends State<ActivityPage> {
     // Events can be passed into the bloc by calling dispatch.
     // We want to start loading activities right from the start.
     _activityBloc.add(LoadActivities());
+    // _activityBloc.add(AddAllActivities());
   }
 
   @override
@@ -77,7 +78,7 @@ class _ActivityPageState extends State<ActivityPage> {
                 onDismissed: (direction) {
                   // Remove the item from the data source.
                   setState(() {
-                    // _activityBloc.add(DeleteActivity(displayedActivity));
+                    _activityBloc.add(DeleteActivity(displayedActivity));
 
                     state.activities.removeAt(index);
                   });

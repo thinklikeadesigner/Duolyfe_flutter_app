@@ -48,7 +48,6 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                       splashColor: Colors.blue.withAlpha(30),
                       onTap: () {
                         _currentBuddy = "panda.png";
-                        print(_currentBuddy);
                       },
                       child: Container(
                         child: Center(
@@ -65,7 +64,6 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                     splashColor: Colors.blue.withAlpha(30),
                     onTap: () {
                       _currentBuddy = "bear.png";
-                      print(_currentBuddy);
                     },
                     child: Container(
                       child: Center(
@@ -81,7 +79,6 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                     splashColor: Colors.blue.withAlpha(30),
                     onTap: () {
                       _currentBuddy = "cat.png";
-                      print(_currentBuddy);
                     },
                     child: Container(
                       child: Center(
@@ -96,7 +93,6 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                     splashColor: Colors.blue.withAlpha(30),
                     onTap: () {
                       _currentBuddy = "chick.png";
-                      print(_currentBuddy);
                     },
                     child: Container(
                       child: Center(
@@ -112,7 +108,6 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                     splashColor: Colors.blue.withAlpha(30),
                     onTap: () {
                       _currentBuddy = "cow.png";
-                      print(_currentBuddy);
                     },
                     child: Container(
                       child: Center(
@@ -127,7 +122,6 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                     splashColor: Colors.blue.withAlpha(30),
                     onTap: () {
                       _currentBuddy = "deer.png";
-                      print(_currentBuddy);
                     },
                     child: Container(
                       child: Center(
@@ -143,7 +137,6 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                     splashColor: Colors.blue.withAlpha(30),
                     onTap: () {
                       _currentBuddy = "yellowDog.png";
-                      print(_currentBuddy);
                     },
                     child: Container(
                       child: Center(
@@ -159,7 +152,6 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                     splashColor: Colors.blue.withAlpha(30),
                     onTap: () {
                       _currentBuddy = "fox.png";
-                      print(_currentBuddy);
                     },
                     child: Container(
                       child: Center(
@@ -174,7 +166,6 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                     splashColor: Colors.blue.withAlpha(30),
                     onTap: () {
                       _currentBuddy = "giraffe.png";
-                      print(_currentBuddy);
                     },
                     child: Container(
                       child: Center(
@@ -190,7 +181,6 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                     splashColor: Colors.blue.withAlpha(30),
                     onTap: () {
                       _currentBuddy = "hamster.png";
-                      print(_currentBuddy);
                     },
                     child: Container(
                       child: Center(
@@ -206,7 +196,6 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                     splashColor: Colors.blue.withAlpha(30),
                     onTap: () {
                       _currentBuddy = "koala.png";
-                      print(_currentBuddy);
                     },
                     child: Container(
                       child: Center(
@@ -222,7 +211,6 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                     splashColor: Colors.blue.withAlpha(30),
                     onTap: () {
                       _currentBuddy = "mouse.png";
-                      print(_currentBuddy);
                     },
                     child: Container(
                       child: Center(
@@ -238,7 +226,6 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                     splashColor: Colors.blue.withAlpha(30),
                     onTap: () {
                       _currentBuddy = "pig.png";
-                      print(_currentBuddy);
                     },
                     child: Container(
                       child: Center(
@@ -253,7 +240,6 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                     splashColor: Colors.blue.withAlpha(30),
                     onTap: () {
                       _currentBuddy = "brownDog.png";
-                      print(_currentBuddy);
                     },
                     child: Container(
                       child: Center(
@@ -269,7 +255,6 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                     splashColor: Colors.blue.withAlpha(30),
                     onTap: () {
                       _currentBuddy = "racoon.png";
-                      print(_currentBuddy);
                     },
                     child: Container(
                       child: Center(
@@ -285,7 +270,6 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                     splashColor: Colors.blue.withAlpha(30),
                     onTap: () {
                       _currentBuddy = "sheep.png";
-                      print(_currentBuddy);
                     },
                     child: Container(
                       child: Center(
@@ -301,7 +285,6 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                     splashColor: Colors.blue.withAlpha(30),
                     onTap: () {
                       _currentBuddy = "tiger.png";
-                      print(_currentBuddy);
                     },
                     child: Container(
                       child: Center(

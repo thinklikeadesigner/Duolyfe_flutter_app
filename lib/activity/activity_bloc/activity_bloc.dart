@@ -23,20 +23,19 @@ class ActivityBloc extends Bloc<ActivityEvent, ActivityState> {
     if (event is LoadActivities) {
       // Indicating that activities are being loaded - display progress indicator.
       yield ActivitiesLoading();
-      print('activities loading');
+
       yield* _reloadActivities();
     } else if (event is AddRandomActivity) {
       final newActivity = RandomActivityGenerator.getRandomActivity();
       newActivity.timeAssigned = DateTime.now().toString();
       await _activityDao.insert(newActivity);
-      print('get random activity');
+
       yield* _reloadActivities();
     } else if (event is SubmitActivities) {
       // final newActivity = RandomActivityGenerator.getRandomActivity();
-      print(event.chosenActivities);
 
       // await _activityDao.insert(newActivity);
-      // print('get random activity');
+
       yield* _reloadActivities();
     }
 
@@ -53,19 +52,10 @@ class ActivityBloc extends Bloc<ActivityEvent, ActivityState> {
       await _activityDao.delete(event.activity);
       yield* _reloadActivities();
     } else if (event is AddAllActivities) {
-      yield* _preloadTasks();
-      // yield* _reloadTasks();
-    }
-    // else if (event is UpdateWithRandomTask) {
-    // final newTask = RandomTaskGenerator.getRandomTask();
-    // // Keeping the ID of the Task the same
-    // newTask.id = event.updatedTask.id;
-    // await _taskDao.update(newTask);
-    // yield* _reloadTasks();
-    // }
-
-    else if (event is ClearActivities) {
-      print('clearing activities');
+      yield* _preloadActivities();
+      yield* _matchesCooking();
+      // _reloadActivities();
+    } else if (event is ClearActivities) {
       yield* _clearActivities();
       _reloadActivities();
     }
@@ -79,26 +69,40 @@ class ActivityBloc extends Bloc<ActivityEvent, ActivityState> {
 
   Stream<ActivityState> _clearActivities() async* {
     final activities = await _activityDao.getAllSortedByName();
-    print(activities);
+
     // Yielding a state bundled with the Activities from the database.
 
     activities.forEach((element) async {
-      print('deleting');
       await _activityDao.delete(element);
     });
     yield ActivitiesDeleted();
   }
 
-  Stream<ActivityState> _preloadTasks() async* {
-    final initialTasks = RandomActivityGenerator.getActivity();
-    print(initialTasks);
-    // Yielding a state bundled with the Tasks from the database.
-    initialTasks.forEach((element) async {
-      print('hi');
+  Stream<ActivityState> _preloadActivities() async* {
+    final initialActivities = RandomActivityGenerator.getActivity();
+
+    // Yielding a state bundled with the Activities from the database.
+    initialActivities.forEach((element) async {
       element.timeAssigned = DateTime.now().toString();
       await _activityDao.insert(element);
     });
-    yield ActivitiesLoaded(initialTasks);
+    yield ActivitiesLoaded(initialActivities);
+  }
+
+  Stream<ActivityState> _matchesCooking() async* {
+    List interestList = [
+      'cooking',
+      'mind',
+      'social',
+    ];
+    // final cookingactivities = await _activityDao.getAllCooking('cooking');
+    final mindactivities = await _activityDao.getAllCooking('mind');
+
+    print(mindactivities);
+
+    List totalActivities;
+
+    yield ActivitiesLoaded(mindactivities);
   }
 }
 
