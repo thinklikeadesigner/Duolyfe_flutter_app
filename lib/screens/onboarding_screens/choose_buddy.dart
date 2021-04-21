@@ -335,7 +335,6 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                         side: BorderSide(color: Colors.black),
                       ),
                       onPressed: () {
-                        print('wat');
                         Navigator.of(context).pushNamed('/chooseworktime');
                       }),
                   TextButton(

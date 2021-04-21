@@ -22,7 +22,6 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
     if (event is LoadTasks) {
       // Indicating that tasks are being loaded - display progress indicator.
       yield TasksLoading();
-      print('tasks loading');
       yield* _reloadTasks();
     } else if (event is AddRandomTask) {
       final newTask = RandomTaskGenerator.getRandomTask();
@@ -37,7 +36,6 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
       // Loading indicator shouldn't be displayed while adding/updating/deleting
       // a single Task from the database - we aren't yielding TasksLoading().
       await _taskDao.insert(newTask);
-      print('get random task');
       yield* _reloadTasks();
     } else if (event is AddAllTasks) {
       yield* _preloadTasks();
@@ -59,7 +57,6 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
       await _taskDao.delete(event.task);
       yield* _reloadTasks();
     } else if (event is ClearTasks) {
-      print('clearing Tasks');
       yield* _clearTasks();
       _reloadTasks();
     }
@@ -73,11 +70,9 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
 
   Stream<TaskState> _clearTasks() async* {
     final tasks = await _taskDao.getAllSortedByName();
-    print(tasks);
     // Yielding a state bundled with the Tasks from the database.
 
     tasks.forEach((element) async {
-      print('deleting');
       await _taskDao.delete(element);
     });
     yield TasksDeleted();
@@ -85,10 +80,8 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
 
   Stream<TaskState> _preloadTasks() async* {
     final initialTasks = RandomTaskGenerator.getTask();
-    print(initialTasks);
     // Yielding a state bundled with the Tasks from the database.
     initialTasks.forEach((element) async {
-      print('hi');
       element.timeAssigned = DateTime.now().toString();
       await _taskDao.insert(element);
     });
