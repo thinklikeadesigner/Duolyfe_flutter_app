@@ -44,7 +44,6 @@ class ClearTasks extends TaskEvent {
   List<Object> get props => [];
   @override
   String toString() {
-    print('clear tasks');
     return super.toString();
   }
 }

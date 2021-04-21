@@ -130,7 +130,6 @@ class _ChooseActivityState extends State<ChooseActivity> {
                                 onChanged: (bool selected) {
                                   _onCategorySelected(selected,
                                       interestList['interests'][index]);
-                                  print(_currentInterests);
                                 },
                                 title: Text(
                                     interestList['interests'][index] ?? 'hi'),
@@ -163,7 +162,6 @@ class _ChooseActivityState extends State<ChooseActivity> {
                           onPressed: _currentInterests.length < 3
                               ? null
                               : () async {
-                                  print('hamster.png');
                                   Navigator.of(context).pushNamed(
                                     '/chooseworktime',
                                   );
