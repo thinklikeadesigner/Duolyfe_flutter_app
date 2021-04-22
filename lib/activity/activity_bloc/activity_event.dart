@@ -13,16 +13,31 @@ class LoadActivities extends ActivityEvent {
   List<Object> get props => [];
 }
 
+class SubmitActivities extends ActivityEvent {
+  final List chosenActivities;
+  @override
+  List<Object> get props => [chosenActivities];
+  SubmitActivities(this.chosenActivities) : super([chosenActivities]);
+}
+
 class AddRandomActivity extends ActivityEvent {
   List<Object> get props => [];
 }
 
 // class UpdateWithRandomActivity extends ActivityEvent {
-//   List<Object> get props => [updatedActivity];
+//   List<Object> get props => [chosenActivities];
 //   final Activity updatedActivity;
 
 //   UpdateWithRandomActivity(this.updatedActivity) : super([updatedActivity]);
 // }
+
+class AddAllActivities extends ActivityEvent {
+  List<Object> get props => [];
+}
+
+class AddFilteredActivities extends ActivityEvent {
+  List<Object> get props => [];
+}
 
 class UpdateActivity extends ActivityEvent {
   List<Object> get props => [updatedActivity];
@@ -35,4 +50,12 @@ class DeleteActivity extends ActivityEvent {
   final Activity activity;
   List<Object> get props => [activity];
   DeleteActivity(this.activity) : super([activity]);
+}
+
+class ClearActivities extends ActivityEvent {
+  List<Object> get props => [];
+  @override
+  String toString() {
+    return super.toString();
+  }
 }

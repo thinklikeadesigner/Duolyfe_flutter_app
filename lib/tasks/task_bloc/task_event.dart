@@ -39,3 +39,11 @@ class DeleteTask extends TaskEvent {
   List<Object> get props => [task];
   DeleteTask(this.task) : super([task]);
 }
+
+class ClearTasks extends TaskEvent {
+  List<Object> get props => [];
+  @override
+  String toString() {
+    return super.toString();
+  }
+}

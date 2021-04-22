@@ -21,7 +21,6 @@ class _HomeState extends State<Home> {
   void initState() {
     super.initState();
     initializing();
-    print('h');
   }
 
   void initializing() async {

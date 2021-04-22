@@ -18,3 +18,7 @@ class ActivitiesLoaded extends ActivityState {
 
   ActivitiesLoaded(this.activities) : super([activities]);
 }
+
+class ActivitiesDeleted extends ActivityState {
+  List<Object> get props => [];
+}

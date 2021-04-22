@@ -40,9 +40,14 @@ class _TaskPageState extends State<TaskPage> {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () {
-          _taskBloc.add(AddRandomTask());
+          _taskBloc.add(AddAllTasks());
         },
       ),
+      bottomSheet: TextButton(
+          onPressed: () {
+            _taskBloc.add(ClearTasks());
+          },
+          child: Text('clear')),
     );
   }
 

@@ -23,27 +23,22 @@ class ActivityBloc extends Bloc<ActivityEvent, ActivityState> {
     if (event is LoadActivities) {
       // Indicating that activities are being loaded - display progress indicator.
       yield ActivitiesLoading();
-      print('activities loading');
+
       yield* _reloadActivities();
     } else if (event is AddRandomActivity) {
       final newActivity = RandomActivityGenerator.getRandomActivity();
       newActivity.timeAssigned = DateTime.now().toString();
-      //   String convertDateTimeToString(DateTime dateTime) {
-//     return dateTime.toString();
-//   }
-
-//   DateTime convertStringToDateTime(String stringTime) {
-//     return DateTime.parse(stringTime);
-//   }
-      // Loading indicator shouldn't be displayed while adding/updating/deleting
-      // a single Activity from the database - we aren't yielding ActivitiesLoading().
       await _activityDao.insert(newActivity);
-      print('get random activity');
+
+      yield* _reloadActivities();
+    } else if (event is SubmitActivities) {
+      // final newActivity = RandomActivityGenerator.getRandomActivity();
+
+      // await _activityDao.insert(newActivity);
+
       yield* _reloadActivities();
     }
-    // else if (event is UpdateWithRandomActivity) {
-    // final newActivity = RandomActivityGenerator.getRandomActivity();
-    // // Keeping the ID of the Activity the same
+
     // newActivity.id = event.updatedActivity.id;
     // await _activityDao.update(newActivity);
     // yield* _reloadActivities();
@@ -56,6 +51,15 @@ class ActivityBloc extends Bloc<ActivityEvent, ActivityState> {
     } else if (event is DeleteActivity) {
       await _activityDao.delete(event.activity);
       yield* _reloadActivities();
+    } else if (event is AddAllActivities) {
+      yield* _preloadActivities();
+
+      // _reloadActivities();
+    } else if (event is AddFilteredActivities) {
+      yield* _filterActivitiesAndAdd();
+    } else if (event is ClearActivities) {
+      yield* _clearActivities();
+      _reloadActivities();
     }
   }
 
@@ -64,15 +68,37 @@ class ActivityBloc extends Bloc<ActivityEvent, ActivityState> {
     // Yielding a state bundled with the Activities from the database.
     yield ActivitiesLoaded(activities);
   }
+
+  Stream<ActivityState> _clearActivities() async* {
+    final activities = await _activityDao.getAllSortedByName();
+
+    // Yielding a state bundled with the Activities from the database.
+
+    activities.forEach((element) async {
+      await _activityDao.delete(element);
+    });
+    yield ActivitiesDeleted();
+  }
+
+  Stream<ActivityState> _preloadActivities() async* {
+    final initialActivities = RandomActivityGenerator.getActivities();
+
+    // Yielding a state bundled with the Activities from the database.
+    initialActivities.forEach((element) async {
+      element.timeAssigned = DateTime.now().toString();
+      await _activityDao.insert(element);
+    });
+    yield ActivitiesLoaded(initialActivities);
+  }
+
+  Stream<ActivityState> _filterActivitiesAndAdd() async* {
+    final initialActivities =
+        RandomActivityGenerator.getFilteredActivities('cooking');
+
+    initialActivities.forEach((element) async {
+      element.timeAssigned = DateTime.now().toString();
+      await _activityDao.insert(element);
+    });
+    yield ActivitiesLoaded(initialActivities);
+  }
 }
-
-/*
-
-
-done 
-0xe44e
-
-not done
-0xe9bf
-  
-*/

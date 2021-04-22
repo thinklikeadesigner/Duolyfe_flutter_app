@@ -17,3 +17,7 @@ class TasksLoaded extends TaskState {
 
   TasksLoaded(this.tasks) : super([tasks]);
 }
+
+class TasksDeleted extends TaskState {
+  List<Object> get props => [];
+}
