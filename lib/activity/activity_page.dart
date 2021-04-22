@@ -34,7 +34,7 @@ class _ActivityPageState extends State<ActivityPage> {
         floatingActionButton: FloatingActionButton(
           child: Icon(Icons.add),
           onPressed: () {
-            _activityBloc.add(AddAllActivities());
+            _activityBloc.add(AddRandomActivity());
           },
         ),
         bottomSheet: Row(

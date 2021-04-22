@@ -92,7 +92,8 @@ class ActivityBloc extends Bloc<ActivityEvent, ActivityState> {
   }
 
   Stream<ActivityState> _filterActivitiesAndAdd() async* {
-    final initialActivities = RandomActivityGenerator.getFilteredActivities();
+    final initialActivities =
+        RandomActivityGenerator.getFilteredActivities('cooking');
 
     initialActivities.forEach((element) async {
       element.timeAssigned = DateTime.now().toString();
@@ -101,14 +102,3 @@ class ActivityBloc extends Bloc<ActivityEvent, ActivityState> {
     yield ActivitiesLoaded(initialActivities);
   }
 }
-
-/*
-
-
-done 
-0xe44e
-
-not done
-0xe9bf
-  
-*/
