@@ -35,6 +35,10 @@ class AddAllActivities extends ActivityEvent {
   List<Object> get props => [];
 }
 
+class AddFilteredActivities extends ActivityEvent {
+  List<Object> get props => [];
+}
+
 class UpdateActivity extends ActivityEvent {
   List<Object> get props => [updatedActivity];
   final Activity updatedActivity;

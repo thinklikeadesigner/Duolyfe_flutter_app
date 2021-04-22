@@ -47,14 +47,18 @@ class ActivityBloc extends Bloc<ActivityEvent, ActivityState> {
       event.updatedActivity.completed = !event.updatedActivity.completed;
       event.updatedActivity.timeAssigned = DateTime.now().toString();
       await _activityDao.update(event.updatedActivity);
+      yield* _matchesCooking();
       yield* _reloadActivities();
     } else if (event is DeleteActivity) {
       await _activityDao.delete(event.activity);
       yield* _reloadActivities();
     } else if (event is AddAllActivities) {
       yield* _preloadActivities();
-      yield* _matchesCooking();
+
       // _reloadActivities();
+    } else if (event is AddFilteredActivities) {
+      yield* _preloadActivities();
+      yield* _matchesCooking();
     } else if (event is ClearActivities) {
       yield* _clearActivities();
       _reloadActivities();
@@ -95,14 +99,19 @@ class ActivityBloc extends Bloc<ActivityEvent, ActivityState> {
       'mind',
       'social',
     ];
-    // final cookingactivities = await _activityDao.getAllCooking('cooking');
+    final cookingactivities = await _activityDao.getAllCooking('cooking');
+    cookingactivities.forEach((element) {
+      _activityDao.insert(element);
+    });
     final mindactivities = await _activityDao.getAllCooking('mind');
-
+    mindactivities.forEach((element) {
+      _activityDao.insert(element);
+    });
     print(mindactivities);
 
     List totalActivities;
 
-    yield ActivitiesLoaded(mindactivities);
+    yield ActivitiesLoaded(mindactivities + cookingactivities);
   }
 }
 
