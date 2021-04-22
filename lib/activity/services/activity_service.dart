@@ -628,7 +628,20 @@ class RandomActivityGenerator {
     return _activities[Random().nextInt(_activities.length)];
   }
 
-  static List<Activity> getActivity() {
+  static List<Activity> getActivities() {
     return _activities;
+  }
+
+  static List<Activity> getFilteredActivities() {
+    List<Activity> _filteredactivities;
+
+    _filteredactivities = _activities
+        .where((element) =>
+            element.interest.contains('cooking') |
+            element.interest.contains('mind') |
+            element.interest.contains('fun'))
+        .toList();
+
+    return _filteredactivities;
   }
 }

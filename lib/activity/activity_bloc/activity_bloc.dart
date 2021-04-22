@@ -47,7 +47,6 @@ class ActivityBloc extends Bloc<ActivityEvent, ActivityState> {
       event.updatedActivity.completed = !event.updatedActivity.completed;
       event.updatedActivity.timeAssigned = DateTime.now().toString();
       await _activityDao.update(event.updatedActivity);
-      yield* _matchesCooking();
       yield* _reloadActivities();
     } else if (event is DeleteActivity) {
       await _activityDao.delete(event.activity);
@@ -57,8 +56,7 @@ class ActivityBloc extends Bloc<ActivityEvent, ActivityState> {
 
       // _reloadActivities();
     } else if (event is AddFilteredActivities) {
-      yield* _preloadActivities();
-      yield* _matchesCooking();
+      yield* _filterActivitiesAndAdd();
     } else if (event is ClearActivities) {
       yield* _clearActivities();
       _reloadActivities();
@@ -83,7 +81,7 @@ class ActivityBloc extends Bloc<ActivityEvent, ActivityState> {
   }
 
   Stream<ActivityState> _preloadActivities() async* {
-    final initialActivities = RandomActivityGenerator.getActivity();
+    final initialActivities = RandomActivityGenerator.getActivities();
 
     // Yielding a state bundled with the Activities from the database.
     initialActivities.forEach((element) async {
@@ -93,25 +91,14 @@ class ActivityBloc extends Bloc<ActivityEvent, ActivityState> {
     yield ActivitiesLoaded(initialActivities);
   }
 
-  Stream<ActivityState> _matchesCooking() async* {
-    List interestList = [
-      'cooking',
-      'mind',
-      'social',
-    ];
-    final cookingactivities = await _activityDao.getAllCooking('cooking');
-    cookingactivities.forEach((element) {
-      _activityDao.insert(element);
-    });
-    final mindactivities = await _activityDao.getAllCooking('mind');
-    mindactivities.forEach((element) {
-      _activityDao.insert(element);
-    });
-    print(mindactivities);
+  Stream<ActivityState> _filterActivitiesAndAdd() async* {
+    final initialActivities = RandomActivityGenerator.getFilteredActivities();
 
-    List totalActivities;
-
-    yield ActivitiesLoaded(mindactivities + cookingactivities);
+    initialActivities.forEach((element) async {
+      element.timeAssigned = DateTime.now().toString();
+      await _activityDao.insert(element);
+    });
+    yield ActivitiesLoaded(initialActivities);
   }
 }
 

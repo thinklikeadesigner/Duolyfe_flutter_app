@@ -26,23 +26,31 @@ class _ActivityPageState extends State<ActivityPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text('Do a thing!'),
-      ),
-      body: _buildBody(),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: () {
-          _activityBloc.add(AddAllActivities());
-        },
-      ),
-      bottomSheet: TextButton(
+        appBar: AppBar(
+          centerTitle: true,
+          title: Text('Do a thing!'),
+        ),
+        body: _buildBody(),
+        floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.add),
           onPressed: () {
-            _activityBloc.add(ClearActivities());
+            _activityBloc.add(AddAllActivities());
           },
-          child: Text('clear')),
-    );
+        ),
+        bottomSheet: Row(
+          children: [
+            TextButton(
+                onPressed: () {
+                  _activityBloc.add(ClearActivities());
+                },
+                child: Text('clear')),
+            TextButton(
+                onPressed: () {
+                  _activityBloc.add(AddFilteredActivities());
+                },
+                child: Text('filter')),
+          ],
+        ));
   }
 
   Widget _buildBody() {
