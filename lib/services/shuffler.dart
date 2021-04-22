@@ -15,9 +15,6 @@ List shuffle(List items) {
     items[n] = temp;
   }
 
-  // print(items);
-
-  // print(items);
   return items;
 }
 

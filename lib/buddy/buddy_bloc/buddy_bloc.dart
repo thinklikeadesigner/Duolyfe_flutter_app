@@ -43,7 +43,7 @@ class BuddyBloc extends Bloc<BuddyEvent, BuddyState> {
       // Loading indicator shouldn't be displayed while adding/updating/deleting
       // a single Task from the database - we aren't yielding TasksLoading().
       await _buddyDao.insert(newBuddy);
-      print('get random task');
+
       yield* _reloadBuddies();
     }
     // Loading indicator shouldn't be displayed while adding/updating/deleting

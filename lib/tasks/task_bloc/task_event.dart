@@ -16,6 +16,10 @@ class AddRandomTask extends TaskEvent {
   List<Object> get props => [];
 }
 
+class AddAllTasks extends TaskEvent {
+  List<Object> get props => [];
+}
+
 // class UpdateWithRandomTask extends TaskEvent {
 //   List<Object> get props => [updatedTask];
 //   final Task updatedTask;
@@ -34,4 +38,12 @@ class DeleteTask extends TaskEvent {
   final Task task;
   List<Object> get props => [task];
   DeleteTask(this.task) : super([task]);
+}
+
+class ClearTasks extends TaskEvent {
+  List<Object> get props => [];
+  @override
+  String toString() {
+    return super.toString();
+  }
 }

@@ -40,9 +40,14 @@ class _TaskPageState extends State<TaskPage> {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () {
-          _taskBloc.add(AddRandomTask());
+          _taskBloc.add(AddAllTasks());
         },
       ),
+      bottomSheet: TextButton(
+          onPressed: () {
+            _taskBloc.add(ClearTasks());
+          },
+          child: Text('clear')),
     );
   }
 
@@ -60,6 +65,7 @@ class _TaskPageState extends State<TaskPage> {
             itemBuilder: (context, index) {
               final displayedTask = state.tasks[index];
               final newTime = DateTime.parse(displayedTask.timeAssigned);
+              // final newTime = DateTime.now();
               Icon check;
               String completed;
               if (displayedTask.completed == true) {

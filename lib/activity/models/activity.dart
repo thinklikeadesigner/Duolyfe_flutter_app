@@ -14,7 +14,7 @@ and add it to the suggestions store
 */
 
   final String activity;
-  final String interest;
+  String interest;
   String timeAssigned;
   final int icon;
   bool completed;

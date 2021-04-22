@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_chat_bubble/bubble_type.dart';
 import 'package:flutter_chat_bubble/clippers/chat_bubble_clipper_2.dart';
 import 'package:navigationapp/buddy/buddy_bloc/bloc.dart';
+import 'package:navigationapp/services/files/read_tasks_file.dart';
 import 'package:navigationapp/widgets/chat_bubbles.dart';
 import 'package:uic/step_indicator.dart';
 
@@ -15,6 +16,8 @@ class ChooseActivity extends StatefulWidget {
 
 class _ChooseActivityState extends State<ChooseActivity> {
   BuddyBloc _buddyBloc;
+  ReadTasksFile _readTasksFile =
+      ReadTasksFile('assets/tasks.json', 'interests');
 
   @override
   void initState() {
@@ -24,31 +27,25 @@ class _ChooseActivityState extends State<ChooseActivity> {
     // Events can be passed into the bloc by calling dispatch.
     // We want to start loading buddies right from the start.
     _buddyBloc.add(LoadBuddies());
+
+    _readTasksFile.readJson().then((value) => print(value));
   }
 
   // String _currentBuddy;
   // bool _completedOnboarding;
   List<String> _nextWidgetArguments = List<String>(2);
   List _currentInterests = List();
-  final Map<String, dynamic> interests = {
-    "responseCode": "1",
-    "responseText": "List categories.",
-    "responseBody": [
-      {"interest_name": "Cooking"},
-      {"interest_name": "Outdoors"},
-      {"interest_name": "Mindfulness"},
-      {"interest_name": "Sports"},
-      {"interest_name": "Entertainment"},
-      {"interest_name": "Crafts"},
-      {"interest_name": "Nature"},
-      {"interest_name": "Social"},
-      {"interest_name": "Art"},
-      {"interest_name": "Pampering"},
-      {"interest_name": "Learning"},
-      {"interest": "11", "interest_name": "Writing"}
-    ],
-    "responseTotalResult":
-        12 // Total result is 3 here becasue we have 3 categories in responseBody.
+  final Map<String, dynamic> interestList = {
+    "interests": [
+      "cooking",
+      "fun",
+      "health",
+      "indoor",
+      "mind",
+      "outdoor",
+      "personal development",
+      "social"
+    ]
   };
 
   void _onCategorySelected(bool selected, interest) {
@@ -125,22 +122,17 @@ class _ChooseActivityState extends State<ChooseActivity> {
                         controller: _scrollController,
                         child: ListView.builder(
                             controller: _scrollController,
-                            itemCount: interests['responseTotalResult'],
+                            itemCount: interestList['interests'].length,
                             itemBuilder: (BuildContext context, int index) {
                               return CheckboxListTile(
-                                value: _currentInterests.contains(
-                                    interests['responseBody'][index]
-                                        ['interest_name']),
+                                value: _currentInterests
+                                    .contains(interestList['interests'][index]),
                                 onChanged: (bool selected) {
-                                  _onCategorySelected(
-                                      selected,
-                                      interests['responseBody'][index]
-                                          ['interest_name']);
-                                  // print(_currentInterests);
+                                  _onCategorySelected(selected,
+                                      interestList['interests'][index]);
                                 },
-                                title: Text(interests['responseBody'][index]
-                                        ['interest_name'] ??
-                                    'hi'),
+                                title: Text(
+                                    interestList['interests'][index] ?? 'hi'),
                               );
                             }))),
               ],
@@ -170,15 +162,6 @@ class _ChooseActivityState extends State<ChooseActivity> {
                           onPressed: _currentInterests.length < 3
                               ? null
                               : () async {
-                                  // print(_currentInterests);
-                                  print('hamster.png');
-                                  // await DatabaseService(uid: user.uid)
-                                  //     .updateOnboarding(
-                                  //         _currentInterests ??
-                                  //             userData.interests,
-                                  //         _completedOnboarding ??
-                                  //             userData.completedOnboarding,
-                                  //         _currentBuddy ?? userData.buddy);
                                   Navigator.of(context).pushNamed(
                                     '/chooseworktime',
                                   );
@@ -196,28 +179,3 @@ class _ChooseActivityState extends State<ChooseActivity> {
 }
 
 // https://mightytechno.com/flutter-disable-enable-button/
-
-// Expanded(
-//     child: Scrollbar(
-//         isAlwaysShown: true,
-//         controller: _scrollController,
-//         child: ListView.builder(
-//             controller: _scrollController,
-//             itemCount: _items.length,
-//             itemBuilder: (context, index) {
-//               return CheckboxListTile(
-//                 value: _items.contains(
-//                     _items[index]["category"]),
-//                 onChanged: (bool selected) {
-//                   _onCategorySelected(
-//                       selected,
-//                    _items[index]["category"]);
-//                   // print(_currentInterests);
-//                 },
-//                 title: Text(_items[index]["category"] ??
-//                     'hi'),
-//               );
-//             }
-//             ),
-//             ),
-//             ),

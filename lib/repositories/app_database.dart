@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:navigationapp/tasks/task_bloc/bloc.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sembast/sembast.dart';
@@ -44,3 +45,22 @@ class AppDatabase {
     _dbOpenCompleter.complete(database);
   }
 }
+
+// Future _openDatabase() async {
+//   var activities = intMapStoreFactory.store('activities');
+
+//   // Get a platform-specific directory where persistent app data can be stored
+//   final appDocumentDir = await getApplicationDocumentsDirectory();
+//   // Path with the form: /platform-specific-directory/demo.db
+//   final dbPath = join(appDocumentDir.path, 'demo.db');
+
+//   var database = await databaseFactoryIo.openDatabase(dbPath, version: 1,
+//       onVersionChanged: (database, oldVersion, newVersion) async {
+//     if (oldVersion == 0) {
+//       await activities.add(database, {'name': 'Lamp', 'price': 10});
+//       await activities.add(database, {'name': 'Chair', 'price': 15});
+//     }
+//   });
+//   // Any code awaiting the Completer's future will now start executing
+//   _dbOpenCompleter.complete(database);
+// }

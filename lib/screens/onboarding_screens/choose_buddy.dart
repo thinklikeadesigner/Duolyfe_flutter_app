@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:navigationapp/app.dart';
 import 'package:navigationapp/buddy/buddy_bloc/bloc.dart';
-import 'package:navigationapp/models/user_class.dart';
-import 'package:navigationapp/services/database.dart';
-import 'package:navigationapp/shared/loading.dart';
-import 'package:provider/provider.dart';
 
 import '../../theme.dart';
 
@@ -33,13 +28,7 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
 
   @override
   Widget build(BuildContext context) {
-    // final user = Provider.of<UserClass>(context);
     final ScrollController _scrollController = ScrollController();
-    // return StreamBuilder<UserData>(
-    //     stream: DatabaseService(uid: user.uid).userData,
-    //     builder: (context, snapshot) {
-    //       if (snapshot.hasData) {
-    //         UserData userData = snapshot.data;
     return SafeArea(
       child: Scaffold(
         body: Container(
@@ -59,7 +48,6 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                       splashColor: Colors.blue.withAlpha(30),
                       onTap: () {
                         _currentBuddy = "panda.png";
-                        print(_currentBuddy);
                       },
                       child: Container(
                         child: Center(
@@ -76,7 +64,6 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                     splashColor: Colors.blue.withAlpha(30),
                     onTap: () {
                       _currentBuddy = "bear.png";
-                      print(_currentBuddy);
                     },
                     child: Container(
                       child: Center(
@@ -92,7 +79,6 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                     splashColor: Colors.blue.withAlpha(30),
                     onTap: () {
                       _currentBuddy = "cat.png";
-                      print(_currentBuddy);
                     },
                     child: Container(
                       child: Center(
@@ -107,7 +93,6 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                     splashColor: Colors.blue.withAlpha(30),
                     onTap: () {
                       _currentBuddy = "chick.png";
-                      print(_currentBuddy);
                     },
                     child: Container(
                       child: Center(
@@ -123,7 +108,6 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                     splashColor: Colors.blue.withAlpha(30),
                     onTap: () {
                       _currentBuddy = "cow.png";
-                      print(_currentBuddy);
                     },
                     child: Container(
                       child: Center(
@@ -138,7 +122,6 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                     splashColor: Colors.blue.withAlpha(30),
                     onTap: () {
                       _currentBuddy = "deer.png";
-                      print(_currentBuddy);
                     },
                     child: Container(
                       child: Center(
@@ -154,7 +137,6 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                     splashColor: Colors.blue.withAlpha(30),
                     onTap: () {
                       _currentBuddy = "yellowDog.png";
-                      print(_currentBuddy);
                     },
                     child: Container(
                       child: Center(
@@ -170,7 +152,6 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                     splashColor: Colors.blue.withAlpha(30),
                     onTap: () {
                       _currentBuddy = "fox.png";
-                      print(_currentBuddy);
                     },
                     child: Container(
                       child: Center(
@@ -185,7 +166,6 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                     splashColor: Colors.blue.withAlpha(30),
                     onTap: () {
                       _currentBuddy = "giraffe.png";
-                      print(_currentBuddy);
                     },
                     child: Container(
                       child: Center(
@@ -201,7 +181,6 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                     splashColor: Colors.blue.withAlpha(30),
                     onTap: () {
                       _currentBuddy = "hamster.png";
-                      print(_currentBuddy);
                     },
                     child: Container(
                       child: Center(
@@ -217,7 +196,6 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                     splashColor: Colors.blue.withAlpha(30),
                     onTap: () {
                       _currentBuddy = "koala.png";
-                      print(_currentBuddy);
                     },
                     child: Container(
                       child: Center(
@@ -233,7 +211,6 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                     splashColor: Colors.blue.withAlpha(30),
                     onTap: () {
                       _currentBuddy = "mouse.png";
-                      print(_currentBuddy);
                     },
                     child: Container(
                       child: Center(
@@ -249,7 +226,6 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                     splashColor: Colors.blue.withAlpha(30),
                     onTap: () {
                       _currentBuddy = "pig.png";
-                      print(_currentBuddy);
                     },
                     child: Container(
                       child: Center(
@@ -264,7 +240,6 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                     splashColor: Colors.blue.withAlpha(30),
                     onTap: () {
                       _currentBuddy = "brownDog.png";
-                      print(_currentBuddy);
                     },
                     child: Container(
                       child: Center(
@@ -280,7 +255,6 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                     splashColor: Colors.blue.withAlpha(30),
                     onTap: () {
                       _currentBuddy = "racoon.png";
-                      print(_currentBuddy);
                     },
                     child: Container(
                       child: Center(
@@ -296,7 +270,6 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                     splashColor: Colors.blue.withAlpha(30),
                     onTap: () {
                       _currentBuddy = "sheep.png";
-                      print(_currentBuddy);
                     },
                     child: Container(
                       child: Center(
@@ -312,7 +285,6 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                     splashColor: Colors.blue.withAlpha(30),
                     onTap: () {
                       _currentBuddy = "tiger.png";
-                      print(_currentBuddy);
                     },
                     child: Container(
                       child: Center(
@@ -379,14 +351,6 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                         ),
                       ),
                       onPressed: () async {
-                        // await DatabaseService(uid: user.uid)
-                        //     .updateOnboarding(
-                        //         _currentInterests ?? userData.interests,
-                        //         _completedOnboarding ??
-                        //             userData.completedOnboarding,
-                        //         _currentBuddy ?? userData.buddy);
-                        //if user presses save but doesn't choose a buddy, arguments: _currentBuddy) will be called on null, so I added a default argument
-                        //TODO darken selected card
                         Navigator.of(context).pushNamed('/choosename');
                       }),
                 ]),
@@ -395,9 +359,5 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
         ),
       ),
     );
-    //   } else {
-    //     return Loading();
-    //   }
-    // });
   }
 }
