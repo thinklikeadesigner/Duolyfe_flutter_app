@@ -49,6 +49,7 @@ class ActivityDao {
 
     // Making a List<Activity> out of List<RecordSnapshot>
     return recordSnapshots.map((snapshot) {
+      print(snapshot);
       final activity = Activity.fromMap(snapshot.value);
       // An ID is a key of a record from the database.
       activity.id = snapshot.key;
@@ -56,7 +57,7 @@ class ActivityDao {
     }).toList();
   }
 
-  Future<List<Activity>> getAllCooking(String interestName) async {
+  Future getAllCooking(String interestName) async {
     // Finder object can also sort data.
     final finder = Finder(filter: Filter.equals('interest', interestName));
 
@@ -65,13 +66,14 @@ class ActivityDao {
       finder: finder,
     );
 
-    // Making a List<Activity> out of List<RecordSnapshot>
-    return recordSnapshots.map((snapshot) {
+    // Delete all matching List<RecordSnapshot>
+    return recordSnapshots.map((snapshot) async {
       final activity = Activity.fromMap(snapshot.value);
       // An ID is a key of a record from the database.
 
       activity.id = snapshot.key;
-      return activity;
+      print(activity);
+      return await delete(activity);
     }).toList();
   }
 }

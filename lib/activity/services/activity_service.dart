@@ -632,14 +632,11 @@ class RandomActivityGenerator {
     return _activities;
   }
 
-  static List<Activity> getFilteredActivities() {
+  static List<Activity> getFilteredActivities(String interest) {
     List<Activity> _filteredactivities;
 
     _filteredactivities = _activities
-        .where((element) =>
-            element.interest.contains('cooking') |
-            element.interest.contains('mind') |
-            element.interest.contains('fun'))
+        .where((element) => element.interest.contains(interest))
         .toList();
 
     return _filteredactivities;

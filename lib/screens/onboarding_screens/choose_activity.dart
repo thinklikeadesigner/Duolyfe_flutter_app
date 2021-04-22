@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_chat_bubble/bubble_type.dart';
 import 'package:flutter_chat_bubble/clippers/chat_bubble_clipper_2.dart';
+import 'package:navigationapp/activity/activity_bloc/bloc.dart';
 import 'package:navigationapp/buddy/buddy_bloc/bloc.dart';
 import 'package:navigationapp/services/files/read_tasks_file.dart';
 import 'package:navigationapp/widgets/chat_bubbles.dart';
@@ -16,6 +17,7 @@ class ChooseActivity extends StatefulWidget {
 
 class _ChooseActivityState extends State<ChooseActivity> {
   BuddyBloc _buddyBloc;
+  ActivityBloc _activityBloc;
   ReadTasksFile _readTasksFile =
       ReadTasksFile('assets/tasks.json', 'interests');
 
@@ -24,6 +26,7 @@ class _ChooseActivityState extends State<ChooseActivity> {
     super.initState();
     // Obtaining the BuddyBloc instance through BlocProvider which is an InheritedWidget
     _buddyBloc = BlocProvider.of<BuddyBloc>(context);
+    _activityBloc = BlocProvider.of<ActivityBloc>(context);
     // Events can be passed into the bloc by calling dispatch.
     // We want to start loading buddies right from the start.
     _buddyBloc.add(LoadBuddies());
@@ -52,10 +55,12 @@ class _ChooseActivityState extends State<ChooseActivity> {
     if (selected == true) {
       setState(() {
         _currentInterests.add(interest);
+        _activityBloc.add(AddInterest(interest));
       });
     } else {
       setState(() {
         _currentInterests.remove(interest);
+        _activityBloc.add(RemoveInterest(interest));
       });
     }
   }
@@ -117,10 +122,17 @@ class _ChooseActivityState extends State<ChooseActivity> {
                   ),
                 ),
                 Expanded(
-                    child: Scrollbar(
-                        isAlwaysShown: true,
-                        controller: _scrollController,
-                        child: ListView.builder(
+                  child: Scrollbar(
+                    isAlwaysShown: true,
+                    controller: _scrollController,
+                    child: BlocBuilder<ActivityBloc, ActivityState>(
+                        builder: (context, state) {
+                      if (state is ActivitiesLoading) {
+                        return Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      } else {
+                        return ListView.builder(
                             controller: _scrollController,
                             itemCount: interestList['interests'].length,
                             itemBuilder: (BuildContext context, int index) {
@@ -134,7 +146,11 @@ class _ChooseActivityState extends State<ChooseActivity> {
                                 title: Text(
                                     interestList['interests'][index] ?? 'hi'),
                               );
-                            }))),
+                            });
+                      }
+                    }),
+                  ),
+                ),
               ],
             ),
             bottomSheet: Card(

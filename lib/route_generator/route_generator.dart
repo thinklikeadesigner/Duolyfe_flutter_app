@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:navigationapp/activity/activity_bloc/bloc.dart';
 import 'package:navigationapp/buddy/buddy_bloc/buddy_bloc.dart';
 import 'package:navigationapp/buddy/buddy_page.dart';
 import 'package:navigationapp/screens/home/home_page.dart';
@@ -18,6 +19,7 @@ import '../screens/onboarding_screens/sky_name_picked.dart';
 class RouteGenerator {
   final BuddyBloc _buddyBloc = BuddyBloc();
   final TaskBloc _taskBloc = TaskBloc();
+  final ActivityBloc _activityBloc = ActivityBloc();
   //TODO SHOW AND TELL
   Route<dynamic> onGenerateRoute(RouteSettings settings) {
     // final arguments = settings.arguments;
@@ -53,6 +55,7 @@ class RouteGenerator {
                   providers: [
                     BlocProvider.value(value: _buddyBloc),
                     BlocProvider.value(value: _taskBloc),
+                    BlocProvider.value(value: _activityBloc),
                   ],
                   child: ChooseActivity(),
                 ));
@@ -67,12 +70,24 @@ class RouteGenerator {
 
       case '/homepage':
         return MaterialPageRoute(
-            builder: (context) =>
-                BlocProvider.value(value: _buddyBloc, child: HomePage()));
+            builder: (context) => MultiBlocProvider(
+                  providers: [
+                    BlocProvider.value(value: _buddyBloc),
+                    BlocProvider.value(value: _taskBloc),
+                    BlocProvider.value(value: _activityBloc),
+                  ],
+                  child: HomePage(),
+                ));
       case '/navbar':
         return MaterialPageRoute(
-            builder: (context) =>
-                BlocProvider.value(value: _buddyBloc, child: NavBar()));
+            builder: (context) => MultiBlocProvider(
+                  providers: [
+                    BlocProvider.value(value: _buddyBloc),
+                    BlocProvider.value(value: _taskBloc),
+                    BlocProvider.value(value: _activityBloc),
+                  ],
+                  child: NavBar(),
+                ));
 
       case '/':
         return MaterialPageRoute(
@@ -87,5 +102,7 @@ class RouteGenerator {
 
   void dispose() {
     _buddyBloc.close();
+    _taskBloc.close();
+    _activityBloc.close();
   }
 }

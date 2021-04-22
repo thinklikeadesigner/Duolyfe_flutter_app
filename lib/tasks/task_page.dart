@@ -99,7 +99,7 @@ class _TaskPageState extends State<TaskPage> {
                   onTap: () {
                     //TODO implement changing state of card from incomplete to complete
                     // print(displayedTask.completed);
-                    // displayedTask.completed = !displayedTask.completed;
+                    displayedTask.completed = !displayedTask.completed;
                     // print(displayedTask.completed);
                     _taskBloc.add(UpdateTask(displayedTask));
                   },

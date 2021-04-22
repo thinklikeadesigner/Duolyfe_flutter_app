@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:navigationapp/activity/activity_bloc/bloc.dart';
 import 'package:navigationapp/screens/nav_screens/navbar.dart';
+import 'package:navigationapp/screens/onboarding_screens/onboarding_screens.dart';
 // import 'package:navigationapp/activities/activity_bloc/bloc.dart';
 import 'package:navigationapp/theme.dart';
 
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: theme,
-        home: ActivityPage(),
+        home: ChooseActivity(),
       ),
     );
   }

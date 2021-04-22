@@ -31,14 +31,23 @@ class ActivityBloc extends Bloc<ActivityEvent, ActivityState> {
       await _activityDao.insert(newActivity);
 
       yield* _reloadActivities();
-    } else if (event is SubmitActivities) {
+    } else if (event is AddInterest) {
       // final newActivity = RandomActivityGenerator.getRandomActivity();
 
       // await _activityDao.insert(newActivity);
+      print(event.chosenInterest);
+      yield* _filterActivitiesAndAdd(event.chosenInterest);
+      // yield* _reloadActivities();
+    } else if (event is RemoveInterest) {
+      // final newActivity = RandomActivityGenerator.getRandomActivity();
 
-      yield* _reloadActivities();
+      // await _activityDao.insert(newActivity);
+      print(event.chosenInterest);
+
+      // yield* _filterActivitiesAndRemove(event.chosenInterest);
+      // yield* _reloadActivities();
+      yield* await _activityDao.getAllCooking(event.chosenInterest);
     }
-
     // newActivity.id = event.updatedActivity.id;
     // await _activityDao.update(newActivity);
     // yield* _reloadActivities();
@@ -56,7 +65,7 @@ class ActivityBloc extends Bloc<ActivityEvent, ActivityState> {
 
       // _reloadActivities();
     } else if (event is AddFilteredActivities) {
-      yield* _filterActivitiesAndAdd();
+      // yield* _filterActivitiesAndAdd();
     } else if (event is ClearActivities) {
       yield* _clearActivities();
       _reloadActivities();
@@ -91,13 +100,24 @@ class ActivityBloc extends Bloc<ActivityEvent, ActivityState> {
     yield ActivitiesLoaded(initialActivities);
   }
 
-  Stream<ActivityState> _filterActivitiesAndAdd() async* {
+  Stream<ActivityState> _filterActivitiesAndAdd(String interest) async* {
     final initialActivities =
-        RandomActivityGenerator.getFilteredActivities('cooking');
+        RandomActivityGenerator.getFilteredActivities(interest);
 
     initialActivities.forEach((element) async {
       element.timeAssigned = DateTime.now().toString();
       await _activityDao.insert(element);
+    });
+    yield ActivitiesLoaded(initialActivities);
+  }
+
+  Stream<ActivityState> _filterActivitiesAndRemove(String interest) async* {
+    final initialActivities =
+        RandomActivityGenerator.getFilteredActivities(interest);
+
+    initialActivities.forEach((element) async {
+      element.timeAssigned = DateTime.now().toString();
+      await _activityDao.delete(element);
     });
     yield ActivitiesLoaded(initialActivities);
   }

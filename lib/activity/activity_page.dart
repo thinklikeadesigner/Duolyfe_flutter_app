@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:navigationapp/activity/activity_dao.dart';
 import 'package:navigationapp/theme.dart';
 
 import 'models/activity.dart';
@@ -49,6 +50,8 @@ class _ActivityPageState extends State<ActivityPage> {
                   _activityBloc.add(AddFilteredActivities());
                 },
                 child: Text('filter')),
+            _buildUpdateDeleteButtons(),
+            _buildDeleteButtons(),
           ],
         ));
   }
@@ -147,8 +150,6 @@ class _ActivityPageState extends State<ActivityPage> {
                                 ],
                               ),
                             ),
-                            _buildUpdateDeleteButtons(
-                                ['cooking', 'outdoor', 'mind']),
                             check,
                           ],
                         ),
@@ -163,16 +164,34 @@ class _ActivityPageState extends State<ActivityPage> {
     );
   }
 
-  Row _buildUpdateDeleteButtons(List<String> chosenActivities) {
+  Row _buildUpdateDeleteButtons() {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
         IconButton(
           icon: Icon(Icons.refresh),
           onPressed: () {
-            chosenActivities = ['cooking', 'outdoor', 'mind'];
+            _activityBloc.add(AddRandomActivity());
+          },
+        ),
+        // IconButton(
+        //   icon: Icon(Icons.delete_outline),
+        //   onPressed: () {
+        //     _activityBloc.add(DeleteActivity(displayedActivity));
+        //   },
+        // ),
+      ],
+    );
+  }
 
-            _activityBloc.add(SubmitActivities(chosenActivities));
+  Row _buildDeleteButtons() {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        IconButton(
+          icon: Icon(Icons.ac_unit),
+          onPressed: () {
+            _activityBloc.add(RemoveInterest('social'));
           },
         ),
         // IconButton(
