@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:navigationapp/buddy/buddy_bloc/buddy_bloc.dart';
 import 'package:navigationapp/buddy/buddy_page.dart';
+import 'package:navigationapp/buddy/models/models.dart';
+import 'package:navigationapp/screens/home/home.dart';
+import 'package:navigationapp/screens/home/home_page.dart';
 import 'package:navigationapp/screens/onboarding_screens/choose_activity.dart';
 import 'package:navigationapp/screens/settings/settings.dart';
 import 'package:navigationapp/tasks/task_bloc/bloc.dart';
@@ -20,7 +23,7 @@ class NavBar extends StatefulWidget {
 
 class _NavBarState extends State<NavBar> {
   int _currentIndex = 0;
-  final List<Widget> _children = [ChooseActivity(), TaskPage(), SettingsPage()];
+  final List<Widget> _children = [HomePage(), BuddyPage(), SettingsPage()];
 
   void onTabTapped(int index) {
     setState(() {

@@ -277,7 +277,7 @@ class _HomePageState extends State<HomePage> {
                                   style: TextStyle(color: Colors.black),
                                 ),
                                 style: TextButton.styleFrom(
-                                  fixedSize: Size(100, 10),
+                                  fixedSize: Size(300, 10),
                                   primary: Colors.black,
                                   backgroundColor: primaryTeal,
                                   shape: RoundedRectangleBorder(
@@ -294,7 +294,7 @@ class _HomePageState extends State<HomePage> {
                                   style: TextStyle(color: Colors.black),
                                 ),
                                 style: TextButton.styleFrom(
-                                  fixedSize: Size(100, 10),
+                                  fixedSize: Size(300, 10),
                                   primary: Colors.black,
                                   backgroundColor: primaryTeal,
                                   shape: RoundedRectangleBorder(
@@ -308,7 +308,7 @@ class _HomePageState extends State<HomePage> {
                                   style: TextStyle(color: Colors.black),
                                 ),
                                 style: TextButton.styleFrom(
-                                  fixedSize: Size(100, 10),
+                                  fixedSize: Size(300, 10),
                                   primary: Colors.black,
                                   backgroundColor: primaryTeal,
                                   shape: RoundedRectangleBorder(
