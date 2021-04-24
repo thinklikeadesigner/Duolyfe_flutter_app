@@ -4,8 +4,9 @@ class Activity {
   // Id will be gotten from the database.
   // It's automatically generated & unique for every stored Activity.
   int id;
+
 /*
-TODO some how, if each activity has an interest and an icon,
+COMPLETED some how, if each activity has an interest and an icon,
 then i don't need to have a nested list
 so i can just use the button for selecting the interest to
 filter all the activities that contain that interest, 

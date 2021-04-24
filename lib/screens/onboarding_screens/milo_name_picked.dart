@@ -71,6 +71,7 @@ class _MiloNamePickedState extends State<MiloNamePicked> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
+                      //PENDING flatbutton to textbutton
                       FlatButton(
                           child: Text(
                             'Save Buddy',

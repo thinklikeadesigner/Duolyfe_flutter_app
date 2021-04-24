@@ -12,6 +12,8 @@ class BuddiesLoading extends BuddyState {
   List<Object> get props => [];
 }
 
+//FIXME this is not needed, only one buddy can be chosen
+//IDEA I need to figure out how to only pick one buddy at a time. maybe order by latest timestamp? idkkk
 class BuddiesLoaded extends BuddyState {
   List<Object> get props => [buddies];
   final List<Buddy> buddies;

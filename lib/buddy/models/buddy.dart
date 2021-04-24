@@ -10,6 +10,7 @@ class Buddy {
 
   Buddy({@required this.buddy, @required this.selected});
 
+//MAKEME add treats and points and health to buddy
   Map<String, dynamic> toMap() {
     return {
       'buddy': buddy,

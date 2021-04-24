@@ -4,6 +4,8 @@ import 'package:navigationapp/app.dart';
 
 import '../theme.dart';
 
+//REFACTOR make fewer chat bubbles
+
 // ONBOARDING START SCREEN
 firstChatBubble(CustomClipper clipper, BuildContext context) => ChatBubble(
       clipper: clipper,

@@ -123,7 +123,7 @@ class _ChooseWorkTimeState extends State<ChooseWorkTime> {
                   Container(
                     margin: const EdgeInsets.fromLTRB(20, 60, 20, 20),
                     child: Image(
-                        //TODO SHOW AND TELL
+                        //PENDING SHOW AND TELL
                         image: AssetImage(displayBuddy.buddy),
                         height: 150),
                   ),
@@ -149,6 +149,7 @@ class _ChooseWorkTimeState extends State<ChooseWorkTime> {
                       padding: EdgeInsets.fromLTRB(16, 10, 16, 28),
                       child: Column(
                         children: [
+                          //PENDING flatbutton to textbutton
                           FlatButton(
                               child: Text(
                                 'Pick Time',
@@ -179,6 +180,7 @@ class _ChooseWorkTimeState extends State<ChooseWorkTime> {
 
                                 // Navigator.of(context).pushNamed('/');
                               }),
+                          //PENDING flatbutton to textbutton
                           FlatButton(
                               child: Text(
                                 'Save',
@@ -214,10 +216,3 @@ class _ChooseWorkTimeState extends State<ChooseWorkTime> {
     });
   }
 }
-// IconButton(
-//         icon: Icon(Icons.alarm),
-//         onPressed: () {
-//           selectTime(context);
-//           print(_time);
-//         },
-//       ),

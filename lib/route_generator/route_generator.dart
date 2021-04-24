@@ -20,14 +20,8 @@ class RouteGenerator {
   final BuddyBloc _buddyBloc = BuddyBloc();
   final TaskBloc _taskBloc = TaskBloc();
   final ActivityBloc _activityBloc = ActivityBloc();
-  //TODO SHOW AND TELL
-  Route<dynamic> onGenerateRoute(RouteSettings settings) {
-    // final arguments = settings.arguments;
-    //settings.arguments is if you need to send data to a page
-    //https://flutter.dev/docs/cookbook/navigation/navigate-with-arguments
-    //https://flutter.dev/docs/cookbook/navigation/returning-data
-    //https://flutter.dev/docs/cookbook/navigation/passing-data
 
+  Route<dynamic> onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
       case '/onboardingstart':
         return MaterialPageRoute(
@@ -51,43 +45,48 @@ class RouteGenerator {
                 BlocProvider.value(value: _buddyBloc, child: SkyNamePicked()));
       case '/chooseactivity':
         return MaterialPageRoute(
-            builder: (context) => MultiBlocProvider(
-                  providers: [
-                    BlocProvider.value(value: _buddyBloc),
-                    BlocProvider.value(value: _taskBloc),
-                    BlocProvider.value(value: _activityBloc),
-                  ],
-                  child: ChooseActivity(),
-                ));
+          builder: (context) => MultiBlocProvider(
+            providers: [
+              BlocProvider.value(value: _buddyBloc),
+              BlocProvider.value(value: _taskBloc),
+              BlocProvider.value(value: _activityBloc),
+            ],
+            child: ChooseActivity(),
+          ),
+        );
       case '/chooseworktime':
         return MaterialPageRoute(
-            builder: (context) =>
-                BlocProvider.value(value: _buddyBloc, child: ChooseWorkTime()));
+          builder: (context) =>
+              BlocProvider.value(value: _buddyBloc, child: ChooseWorkTime()),
+        );
       case '/buddy':
         return MaterialPageRoute(
-            builder: (context) =>
-                BlocProvider.value(value: _buddyBloc, child: BuddyPage()));
+          builder: (context) =>
+              BlocProvider.value(value: _buddyBloc, child: BuddyPage()),
+        );
 
       case '/homepage':
         return MaterialPageRoute(
-            builder: (context) => MultiBlocProvider(
-                  providers: [
-                    BlocProvider.value(value: _buddyBloc),
-                    BlocProvider.value(value: _taskBloc),
-                    BlocProvider.value(value: _activityBloc),
-                  ],
-                  child: HomePage(),
-                ));
+          builder: (context) => MultiBlocProvider(
+            providers: [
+              BlocProvider.value(value: _buddyBloc),
+              BlocProvider.value(value: _taskBloc),
+              BlocProvider.value(value: _activityBloc),
+            ],
+            child: HomePage(),
+          ),
+        );
       case '/navbar':
         return MaterialPageRoute(
-            builder: (context) => MultiBlocProvider(
-                  providers: [
-                    BlocProvider.value(value: _buddyBloc),
-                    BlocProvider.value(value: _taskBloc),
-                    BlocProvider.value(value: _activityBloc),
-                  ],
-                  child: NavBar(),
-                ));
+          builder: (context) => MultiBlocProvider(
+            providers: [
+              BlocProvider.value(value: _buddyBloc),
+              BlocProvider.value(value: _taskBloc),
+              BlocProvider.value(value: _activityBloc),
+            ],
+            child: NavBar(),
+          ),
+        );
 
       case '/':
         return MaterialPageRoute(

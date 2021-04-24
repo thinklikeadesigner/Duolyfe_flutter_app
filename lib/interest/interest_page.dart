@@ -74,12 +74,16 @@ class _InterestPageState extends State<InterestPage> {
 
                     state.interests.removeAt(index);
                   });
-//TODO find out how to only select one interest
-//TODO also prepulate the list with all the interests
+//PENDING find out how to only select one interest
+//PENDING also prepulate the list with all the interests
 //
 /*for now, the working solution is to just
  keep cycling through the interests,
   since you will only have one in the list*/
+
+//   REFACTOR i can make this simpler, if i have time
+// NOTES something i have learned, that i will need for the next time i code
+// - COMPLETE so i can remember what i did that day
 
                   // Then show a snackbar.
                   ScaffoldMessenger.of(context).showSnackBar(

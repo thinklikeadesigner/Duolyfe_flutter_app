@@ -74,8 +74,8 @@ class _BuddyPageState extends State<BuddyPage> {
 
                     state.buddies.removeAt(index);
                   });
-//TODO find out how to only select one buddy
-//TODO also prepulate the list with all the buddies
+//PENDING find out how to only select one buddy
+//PENDING also prepulate the list with all the buddies
 //
 /*for now, the working solution is to just
  keep cycling through the buddies,

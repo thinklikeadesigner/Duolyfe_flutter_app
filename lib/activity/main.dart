@@ -5,6 +5,8 @@ import 'package:navigationapp/theme.dart';
 
 import 'activity_page.dart';
 
+//NOTE this is a test entry point
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {

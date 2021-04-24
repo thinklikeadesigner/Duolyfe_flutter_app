@@ -12,10 +12,6 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // Wrapping the whole app with BlocProvider to get access to TaskBloc everywhere
-    // BlocProvider extends InheritedWidget.
-    //  @override
-
     return BlocProvider(
       create: (_) => TaskBloc(),
       child: MaterialApp(

@@ -9,12 +9,12 @@ class TaskPage extends StatefulWidget {
   _TaskPageState createState() => _TaskPageState();
 }
 
-/*TODO 
+/*PENDING
 find out how to move the button to the homepage
 so we can just have the tasks on the taskpage
-TODO
+PENDING
 only complete a task once, disable completed tasks
-TODO
+PENDING
 need a readonly store for interest, activities, and buddies
 
 
@@ -97,7 +97,7 @@ class _TaskPageState extends State<TaskPage> {
                 background: Container(color: primaryTeal),
                 child: GestureDetector(
                   onTap: () {
-                    //TODO implement changing state of card from incomplete to complete
+                    //PENDING implement changing state of card from incomplete to complete
                     // print(displayedTask.completed);
                     displayedTask.completed = !displayedTask.completed;
                     // print(displayedTask.completed);

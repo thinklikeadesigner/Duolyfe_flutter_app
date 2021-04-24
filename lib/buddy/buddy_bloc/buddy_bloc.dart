@@ -1,21 +1,16 @@
 import 'dart:async';
-import 'dart:math';
 import 'package:bloc/bloc.dart';
-import 'package:flutter/material.dart';
-// import 'package:navigationapp/buddies/models/models.dart';
-// import 'package:navigationapp/buddies/services/buddy_service.dart';
 import 'package:navigationapp/buddy/services/services.dart';
 import '../buddy_dao.dart';
 import 'bloc.dart';
+
+//UNPLUGGED this needs to be added to or replace the choosebuddy page
 
 class BuddyBloc extends Bloc<BuddyEvent, BuddyState> {
   BuddyDao _buddyDao = BuddyDao();
 
   BuddyBloc() : super(BuddiesLoading());
 
-  // Display a loading indicator right from the start of the app
-
-  // This is where we place the logic.
   @override
   Stream<BuddyState> mapEventToState(
     BuddyEvent event,
@@ -31,6 +26,9 @@ class BuddyBloc extends Bloc<BuddyEvent, BuddyState> {
       print('buddies loading');
       yield* _loadBuddy();
     } else if (event is AddRandomBuddy) {
+      //QUESTION does the buddy need a time???
+      //IDEA, this can be where we can store the notification time
+      //MAKEME we also need to store points and treats in here somewhere
       final newBuddy = RandomBuddyGenerator.getRandomBuddy();
       // newBuddy.timeAssigned = DateTime.now().toString();
       //   String convertDateTimeToString(DateTime dateTime) {
@@ -46,6 +44,9 @@ class BuddyBloc extends Bloc<BuddyEvent, BuddyState> {
 
       yield* _reloadBuddies();
     }
+
+//REFACTOR please remove extra comments
+
     // Loading indicator shouldn't be displayed while adding/updating/deleting
     // a single Buddy from the database - we aren't yielding BuddiesLoading().
     // await _buddyDao.insert(newBuddy);
@@ -80,20 +81,10 @@ class BuddyBloc extends Bloc<BuddyEvent, BuddyState> {
     yield BuddiesLoaded(buddies);
   }
 
+//QUESTION is this one just for testing? what is this?
   Stream<BuddyState> _loadBuddy() async* {
     final buddies = await _buddyDao.getAllSortedByName();
     // Yielding a state bundled with the Buddies from the database.
     yield BuddyLoaded(buddies[0]);
   }
 }
-
-/*
-
-
-done 
-0xe44e
-
-not done
-0xe9bf
-  
-*/

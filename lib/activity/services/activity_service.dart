@@ -2,6 +2,8 @@ import 'dart:math';
 
 import '../models/activity.dart';
 
+//REFACTOR, does this list of activities need to be in this class?
+
 class RandomActivityGenerator {
   static final _activities = [
     Activity(

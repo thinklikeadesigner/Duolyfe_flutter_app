@@ -35,7 +35,7 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
           child: Scrollbar(
             isAlwaysShown: true,
             controller: _scrollController,
-            //TODO make card grid get data from array
+            //PENDING make card grid get data from array
             child: GridView(
               controller: _scrollController,
               padding: EdgeInsets.fromLTRB(10, 10, 10, 70),
