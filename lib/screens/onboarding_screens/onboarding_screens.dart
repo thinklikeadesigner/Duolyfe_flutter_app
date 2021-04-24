@@ -1,4 +1,4 @@
-export './choose_activity.dart';
+export 'choose_interests.dart';
 export './choose_buddy.dart';
 export './choose_name.dart';
 export './choose_work_time.dart';

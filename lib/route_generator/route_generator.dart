@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:navigationapp/activity/activity_bloc/bloc.dart';
+import 'package:navigationapp/activity/activity_page.dart';
 import 'package:navigationapp/buddy/buddy_bloc/buddy_bloc.dart';
 import 'package:navigationapp/buddy/buddy_page.dart';
 import 'package:navigationapp/screens/home/home_page.dart';
@@ -8,7 +9,7 @@ import 'package:navigationapp/screens/nav_screens/navbar.dart';
 import 'package:navigationapp/splash/splash.dart';
 import 'package:navigationapp/tasks/task_bloc/bloc.dart';
 import 'error_route_page.dart';
-import '../screens/onboarding_screens/choose_activity.dart';
+import '../screens/onboarding_screens/choose_interests.dart';
 import '../screens/onboarding_screens/choose_buddy.dart';
 import '../screens/onboarding_screens/choose_name.dart';
 import '../screens/onboarding_screens/choose_work_time.dart';
@@ -51,7 +52,7 @@ class RouteGenerator {
               BlocProvider.value(value: _taskBloc),
               BlocProvider.value(value: _activityBloc),
             ],
-            child: ChooseActivity(),
+            child: ChooseInterests(),
           ),
         );
       case '/chooseworktime':
@@ -63,6 +64,11 @@ class RouteGenerator {
         return MaterialPageRoute(
           builder: (context) =>
               BlocProvider.value(value: _buddyBloc, child: BuddyPage()),
+        );
+      case '/activitypage':
+        return MaterialPageRoute(
+          builder: (context) =>
+              BlocProvider.value(value: _buddyBloc, child: ActivityPage()),
         );
 
       case '/homepage':

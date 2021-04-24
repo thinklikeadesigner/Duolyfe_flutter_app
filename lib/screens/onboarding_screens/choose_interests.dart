@@ -10,14 +10,14 @@ import 'package:uic/step_indicator.dart';
 
 import '../../theme.dart';
 
-class ChooseActivity extends StatefulWidget {
+class ChooseInterests extends StatefulWidget {
   @override
-  _ChooseActivityState createState() => _ChooseActivityState();
+  _ChooseInterestsState createState() => _ChooseInterestsState();
 }
 
 //NEED tasks bloc to add chosen event
 
-class _ChooseActivityState extends State<ChooseActivity> {
+class _ChooseInterestsState extends State<ChooseInterests> {
   BuddyBloc _buddyBloc;
   ActivityBloc _activityBloc;
   ReadTasksFile _readTasksFile =
@@ -32,14 +32,17 @@ class _ChooseActivityState extends State<ChooseActivity> {
     // Events can be passed into the bloc by calling dispatch.
     // We want to start loading buddies right from the start.
     _buddyBloc.add(LoadBuddies());
+    _activityBloc.add(LoadActivities());
 
     _readTasksFile.readJson().then((value) => print(value));
   }
 
   // String _currentBuddy;
   // bool _completedOnboarding;
-  List<String> _nextWidgetArguments = List<String>(2);
-  List _currentInterests = List();
+  //DEAD not adding activity to chat bubble anymore
+  //REFACTOR we can add activity to chat bubble later, not important
+  // List<String> _nextWidgetArguments = List<String>(2);
+  List _currentInterests = [];
   final Map<String, dynamic> interestList = {
     "interests": [
       "cooking",
@@ -53,16 +56,20 @@ class _ChooseActivityState extends State<ChooseActivity> {
     ]
   };
 
-  void _onCategorySelected(bool selected, interest) {
+  void _onInterestSelected(bool selected, interest) {
     if (selected == true) {
       setState(() {
-        //TEST test if added to activity store
+        //test check if added to activity store
+        //COMPLETE yes it adds
+        //QUESTION do we need this?
         _currentInterests.add(interest);
         _activityBloc.add(AddInterest(interest));
       });
     } else {
       setState(() {
-        //TEST test if removed from activity store
+        //test check if removed from activity store
+        //COMPLETE yes it does
+        ////QUESTION do we need this?
         _currentInterests.remove(interest);
         _activityBloc.add(RemoveInterest(interest));
       });
@@ -125,34 +132,33 @@ class _ChooseActivityState extends State<ChooseActivity> {
                   ),
                 ),
                 Expanded(
-                  child: Scrollbar(
-                    isAlwaysShown: true,
-                    controller: _scrollController,
-                    child: BlocBuilder<ActivityBloc, ActivityState>(
-                        builder: (context, state) {
-                      if (state is ActivitiesLoading) {
-                        return Center(
-                          child: CircularProgressIndicator(),
-                        );
-                      } else {
-                        return ListView.builder(
+                  child: BlocBuilder<ActivityBloc, ActivityState>(
+                      builder: (context, state) {
+                    if (state is ActivitiesLoading) {
+                      return Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    } else {
+                      return Scrollbar(
+                        child: ListView.builder(
                             controller: _scrollController,
                             itemCount: interestList['interests'].length,
                             itemBuilder: (BuildContext context, int index) {
                               return CheckboxListTile(
                                 value: _currentInterests
                                     .contains(interestList['interests'][index]),
+                                //NOTE this is interesting bc we are actually addin the interest with _onInterestSelected
                                 onChanged: (bool selected) {
-                                  _onCategorySelected(selected,
+                                  _onInterestSelected(selected,
                                       interestList['interests'][index]);
                                 },
-                                title: Text(
-                                    interestList['interests'][index] ?? 'hi'),
+                                title: Text(interestList['interests'][index] ??
+                                    'where is the interest'),
                               );
-                            });
-                      }
-                    }),
-                  ),
+                            }),
+                      );
+                    }
+                  }),
                 ),
               ],
             ),
@@ -180,11 +186,12 @@ class _ChooseActivityState extends State<ChooseActivity> {
                           ),
                           //GOOGLE disable save button
                           //FIXME save button not greyed out
+                          //BUG " Unhandled Exception: Could not find a generator for route RouteSettings("/activitypage", null) in the _WidgetsAppState."
                           onPressed: _currentInterests.length < 3
                               ? null
                               : () async {
                                   Navigator.of(context).pushNamed(
-                                    '/chooseworktime',
+                                    '/activitypage',
                                   );
                                 }),
                     ]),

@@ -171,6 +171,9 @@ class _ActivityPageState extends State<ActivityPage> {
         IconButton(
           icon: Icon(Icons.ac_unit),
           onPressed: () {
+            //BUG this is adding social activities
+            //BUG clicking on card removes all the activities
+            //IDEA maybe getallactivitiessorted adds the activities
             _activityBloc.add(RemoveInterest('social'));
           },
         ),

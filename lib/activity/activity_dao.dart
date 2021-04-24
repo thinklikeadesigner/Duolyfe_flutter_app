@@ -10,6 +10,7 @@ class ActivityDao {
   Future<Database> get _db async => await AppDatabase.instance.database;
 
   Future insert(Activity activity) async {
+    print('added to activity store');
     await _activityStore.add(await _db, activity.toMap());
   }
 
@@ -26,6 +27,7 @@ class ActivityDao {
 
   Future delete(Activity activity) async {
     final finder = Finder(filter: Filter.byKey(activity.id));
+    print('deleted to activity store');
     await _activityStore.delete(
       await _db,
       finder: finder,
@@ -50,21 +52,23 @@ class ActivityDao {
     }).toList();
   }
 
-//TEST do i need this?
-  Future getAllCooking(String interestName) async {
-    final finder = Finder(filter: Filter.equals('interest', interestName));
+//test do i need this?
+//COMPLETE tested
+//DEAD we don't need this
+  // Future getAllCooking(String interestName) async {
+  //   final finder = Finder(filter: Filter.equals('interest', interestName));
 
-    final recordSnapshots = await _activityStore.find(
-      await _db,
-      finder: finder,
-    );
+  //   final recordSnapshots = await _activityStore.find(
+  //     await _db,
+  //     finder: finder,
+  //   );
 
-    // Delete all matching List<RecordSnapshot>
-    return recordSnapshots.map((snapshot) async {
-      final activity = Activity.fromMap(snapshot.value);
-      activity.id = snapshot.key;
-      print(activity);
-      return await delete(activity);
-    }).toList();
-  }
+  //   // Delete all matching List<RecordSnapshot>
+  //   return recordSnapshots.map((snapshot) async {
+  //     final activity = Activity.fromMap(snapshot.value);
+  //     activity.id = snapshot.key;
+  //     print(activity);
+  //     return await delete(activity);
+  //   }).toList();
+  // }
 }

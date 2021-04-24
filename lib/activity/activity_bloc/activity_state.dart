@@ -13,10 +13,11 @@ class ActivitiesLoading extends ActivityState {
 }
 
 class ActivitiesLoaded extends ActivityState {
-  List<Object> get props => [activities];
+  //BUG this runs twice
   final List<Activity> activities;
 
   ActivitiesLoaded(this.activities) : super([activities]);
+  List<Object> get props => [activities];
 }
 
 //NOTE do i need an activities deleted?
