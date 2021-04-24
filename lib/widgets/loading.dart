@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:navigationapp/app.dart';
-
 import '../theme.dart';
 
 class Loading extends StatelessWidget {

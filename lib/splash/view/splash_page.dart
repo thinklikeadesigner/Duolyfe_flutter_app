@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+//IDEA duolyfe splash screen here for phones that don't go immediately to home or login screen fast enough?
 class SplashPage extends StatelessWidget {
   static Route route() {
     return MaterialPageRoute<void>(builder: (_) => SplashPage());

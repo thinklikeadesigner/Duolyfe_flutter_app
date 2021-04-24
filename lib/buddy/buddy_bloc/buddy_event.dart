@@ -1,7 +1,8 @@
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
-// import 'package:navigationapp/buddies/models/models.dart';
 import 'package:navigationapp/buddy/models/models.dart';
+
+//REFACTOR please review these events and delete the ones that arent needed
 
 @immutable
 abstract class BuddyEvent extends Equatable {

@@ -5,7 +5,7 @@ in appview: user data can be null, or it can exist
 if user is null, user is not logged in and user is directed to the sign in screen
 
 need to add a state and event to check for completed onboarding
-TODO decide what the default data for user should be.
+NOTE decide what the default data for user should be.
 
 
 the first check checks if the user has data.
@@ -124,11 +124,54 @@ possible events
 - decide which data should be persisted locally versus cached in the cloud
 
 
-TODO need a better way to check if onboarding is completed, bc the value can be null in between sign in and the first onboarding screen
-TODO i think i need a user store for local data and not auth
-TODO need to make the name a data object to persist along with the buddy image and save both in database
-TODO make stateful widgets stateless
-TODO activity bloc
-TODO buddy bloc
-TODO name bloc
-TODO refine models for data
+/NEED need a better way to check if onboarding is completed, bc the value can be null in between sign in and the first onboarding screen
+/IDEA i think i need a user store for local data and not auth
+/NOTES need to make the name a data object to persist along with the buddy image and save both in database
+/REFACTOR make stateful widgets stateless
+/CREATED activity bloc
+/CREATED buddy bloc
+/MAKEME name bloc
+/NOTES refine models for data///
+
+/PENDING
+/FIXME
+/COMPLETE
+/BUG
+/DUE
+/CREATED
+/DEAD
+/REFACTOR
+/URGENT
+/NOTES
+/NEED
+/UNPLUGGED
+/MAKEME
+/IDEA
+
+/1. [ ]
+/2. [x]
+/3. [ ]
+/4. [ ]
+/5. [x]
+/6. [ ]
+/7. [x]
+
+
+/PENDING will mark miscellaneous,not urgent or important, or would-be-nice's
+/FIXME issues that need to be fixed, code can't be released as is
+/BUG Something is broken here, and i don't know what
+/REFACTOR i can make this simpler, if i have time
+/NOTE something i have learned, that i will need for the next time i code
+/COMPLETE so i can remember what i did that day
+/DUE i don't know, i guess if i have tasks on asana i can use this
+/DEAD so i can remember what i can safely delete, and what isnt a work in progress or being used for testing
+/URGENT this absolutely needs to be fixed right away
+/UNPLUGGED a part of the code that ive been working on on the side, that still needs to be integrated into the app
+/MAKEME a screen or some other feature i need to make still
+/IDEA in case i get an idea about how to do solve something, but i can't do it right now
+/[ ] this is what i will mark the days goals with
+/[x] this is to mark a completed task that i set out to accomplish that day
+/CREATED
+
+/1. [ ]
+/2. [x]

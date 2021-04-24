@@ -4,6 +4,8 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:timezone/timezone.dart' as tz;
 import '../../theme.dart';
 
+//NOTE this is a test page
+//NOTE this is the notification page fo
 class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
@@ -40,6 +42,7 @@ class _HomeState extends State<Home> {
     await notificationAfterSec();
   }
 
+//MAKEME decide the text for the notification.
   Future<void> notification() async {
     AndroidNotificationDetails androidNotificationDetails =
         AndroidNotificationDetails(
@@ -87,6 +90,8 @@ class _HomeState extends State<Home> {
   //       timeOfDay.hour, timeOfDay.minute);
   // }
 
+//MAKEME connect to timepicker
+//IDEA use buddy store for time
   tz.TZDateTime _nextInstanceOfTenAM() {
     final tz.TZDateTime now = tz.TZDateTime.now(tz.local);
     tz.TZDateTime scheduledDate =
@@ -118,7 +123,7 @@ class _HomeState extends State<Home> {
 
   Future onSelectNotification(String payLoad) {
     if (payLoad != null) {
-      //TODO set the navigator to navigate a different screen
+      //PENDING set the navigator to navigate a different screen
     }
   }
 
@@ -145,6 +150,7 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+    //DEAD old auth service
     // final AuthService _auth = AuthService();
     // final GmailAuthService _authGmail = GmailAuthService();
 
@@ -153,6 +159,7 @@ class _HomeState extends State<Home> {
           child: Column(
         children: [
           _widgetOptions.elementAt(_selectedIndex),
+          //PENDING flatbutton to textbutton
           FlatButton(
               child: Text(
                 'Milo!',
@@ -168,6 +175,7 @@ class _HomeState extends State<Home> {
                 // _authGmail.signOutGoogle();
                 // Navigator.of(context).pushNamed('/signin');
               }),
+          //PENDING flatbutton to textbutton
           FlatButton(
               child: Text(
                 'notify!',
@@ -186,6 +194,7 @@ class _HomeState extends State<Home> {
 
                 // Navigator.of(context).pushNamed('/signin');
               }),
+          //PENDING flatbutton to textbutton
           FlatButton(
               child: Text(
                 'notiffy!',
@@ -204,6 +213,7 @@ class _HomeState extends State<Home> {
 
                 // Navigator.of(context).pushNamed('/signin');
               }),
+          //PENDING flatbutton to textbutton
           FlatButton(
               child: Text(
                 'cooking!',

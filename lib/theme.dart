@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+//IDEA add darkmode theme
+
 const primaryTeal = const Color((0xff30D4D4));
 const purpleMessage = const Color(0xff79227B);
 

@@ -6,7 +6,6 @@ import 'package:flutter_chat_bubble/bubble_type.dart';
 import 'package:flutter_chat_bubble/clippers/chat_bubble_clipper_2.dart';
 import 'package:intervalprogressbar/intervalprogressbar.dart';
 import 'package:navigationapp/buddy/buddy_bloc/bloc.dart';
-import '../onboarding_screens/onboarding_screens.dart';
 import 'package:navigationapp/services/shuffler.dart';
 import 'package:navigationapp/widgets/chat_bubbles.dart';
 import '../../theme.dart';
@@ -33,13 +32,16 @@ class _HomePageState extends State<HomePage> {
     _buddyBloc.add(LoadBuddies());
   }
 
+//PENDING need to find out how to enter text, and make suggestions using activity bloc
   String textHolder1 = '';
   String textHolder2 = '';
   String textHolder3 = '';
   bool suggested = false;
 
+//DEAD not using auth service, it's in authenticate block. not using firestore
   // final AuthService _auth = AuthService();
   // final GmailAuthService _authGmail = GmailAuthService();
+//DEAD this is in navbar
   // int _selectedIndex = 0;
   // static const TextStyle optionStyle =
   //     TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
@@ -57,12 +59,13 @@ class _HomePageState extends State<HomePage> {
   // List _items = [];
 
   // Fetch content from the json file
-  Future readJson() async {
-    final String response = await rootBundle.loadString('assets/tasks.json');
-    final map = await json.decode(response);
+//PENDING not reading from file
+  // Future readJson() async {
+  //   final String response = await rootBundle.loadString('assets/tasks.json');
+  //   final map = await json.decode(response);
 
-    return map["suggestions"];
-  }
+  //   return map["suggestions"];
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +74,6 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  @override
   Widget _buildBody() {
     var items = [
       'rock climb',
@@ -91,6 +93,7 @@ class _HomePageState extends State<HomePage> {
 
     var shuffledItems = shuffle(items);
 
+//DEAD not using firestore here
     // final user = Provider.of<UserClass>(context);
     // return StreamBuilder<UserData>(
     //     stream: DatabaseService(uid: user.uid).userData,
@@ -119,6 +122,7 @@ class _HomePageState extends State<HomePage> {
                     height: 60,
                   ),
                   Image(image: AssetImage(displayBuddy.buddy), height: 130),
+                  //MAKEME should get name from buddybloc
                   Text(
                     'Milo',
                     style: TextStyle(fontWeight: FontWeight.bold),
@@ -211,7 +215,9 @@ class _HomePageState extends State<HomePage> {
                                     borderRadius: BorderRadius.circular(20)),
                                 child: InkWell(
                                   splashColor: Colors.blue.withAlpha(30),
-                                  onTap: () {},
+                                  onTap: () {
+//NOTE health logic bloc goes here
+                                  },
                                   child: Container(
                                     margin:
                                         EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0),
@@ -236,7 +242,9 @@ class _HomePageState extends State<HomePage> {
                                     borderRadius: BorderRadius.circular(20)),
                                 child: InkWell(
                                   splashColor: Colors.blue.withAlpha(30),
-                                  onTap: () {},
+                                  onTap: () {
+                                    //MAKEME redirects to buddy page
+                                  },
                                   child: Container(
                                     margin:
                                         EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0),
@@ -277,7 +285,7 @@ class _HomePageState extends State<HomePage> {
                                   style: TextStyle(color: Colors.black),
                                 ),
                                 style: TextButton.styleFrom(
-                                  fixedSize: Size(100, 10),
+                                  fixedSize: Size(300, 10),
                                   primary: Colors.black,
                                   backgroundColor: primaryTeal,
                                   shape: RoundedRectangleBorder(
@@ -285,8 +293,7 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                 ),
                                 onPressed: () {
-                                  Navigator.of(context)
-                                      .pushNamed('/chooseworktime');
+                                  //MAKEME suggestion 1
                                 }),
                             TextButton(
                                 child: Text(
@@ -294,28 +301,32 @@ class _HomePageState extends State<HomePage> {
                                   style: TextStyle(color: Colors.black),
                                 ),
                                 style: TextButton.styleFrom(
-                                  fixedSize: Size(100, 10),
+                                  fixedSize: Size(300, 10),
                                   primary: Colors.black,
                                   backgroundColor: primaryTeal,
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(18.0),
                                   ),
                                 ),
-                                onPressed: () {}),
+                                onPressed: () {
+                                  //MAKEME suggestion 2
+                                }),
                             TextButton(
                                 child: Text(
                                   textHolder3,
                                   style: TextStyle(color: Colors.black),
                                 ),
                                 style: TextButton.styleFrom(
-                                  fixedSize: Size(100, 10),
+                                  fixedSize: Size(300, 10),
                                   primary: Colors.black,
                                   backgroundColor: primaryTeal,
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(18.0),
                                   ),
                                 ),
-                                onPressed: () {}),
+                                onPressed: () {
+                                  //MAKEME suggestion 3
+                                }),
                             SizedBox(
                               height: 30,
                             ),

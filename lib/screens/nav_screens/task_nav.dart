@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_chat_bubble/bubble_type.dart';
-import 'package:flutter_chat_bubble/clippers/chat_bubble_clipper_2.dart';
 import 'package:navigationapp/buddy/buddy_bloc/bloc.dart';
 import 'package:navigationapp/tasks/task_page.dart';
-import 'package:navigationapp/widgets/chat_bubbles.dart';
 import 'package:uic/widgets.dart';
-import '../../theme.dart';
 
+//QUESTION what is this for?
 class TaskNav extends StatefulWidget {
   @override
   _TaskNavState createState() => _TaskNavState();

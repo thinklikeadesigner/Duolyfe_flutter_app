@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:navigationapp/theme.dart';
 import 'buddy_bloc/bloc.dart';
 
+//NOTE this is a test page
 class BuddyPage extends StatefulWidget {
   _BuddyPageState createState() => _BuddyPageState();
 }
@@ -74,10 +75,9 @@ class _BuddyPageState extends State<BuddyPage> {
 
                     state.buddies.removeAt(index);
                   });
-//TODO find out how to only select one buddy
-//TODO also prepulate the list with all the buddies
-//
-/*for now, the working solution is to just
+//GOOGLE find out how to only select one buddy
+//FUTURE also prepulate the list with all the buddies
+/*NOTE for now, the working solution is to just
  keep cycling through the buddies,
   since you will only have one in the list*/
 

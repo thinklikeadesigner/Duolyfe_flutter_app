@@ -5,10 +5,9 @@ import 'package:flutter_chat_bubble/clippers/chat_bubble_clipper_2.dart';
 import 'package:navigationapp/buddy/buddy_bloc/bloc.dart';
 import 'package:navigationapp/widgets/chat_bubbles.dart';
 import 'package:uic/widgets.dart';
-import 'package:navigationapp/app.dart';
-
 import '../../theme.dart';
 
+//MAKEME single screen for name and use buddybloc to add name
 class SkyNamePicked extends StatefulWidget {
   @override
   _SkyNamePickedState createState() => _SkyNamePickedState();
@@ -19,10 +18,7 @@ class _SkyNamePickedState extends State<SkyNamePicked> {
   @override
   void initState() {
     super.initState();
-    // Obtaining the BuddyBloc instance through BlocProvider which is an InheritedWidget
     _buddyBloc = BlocProvider.of<BuddyBloc>(context);
-    // Events can be passed into the bloc by calling dispatch.
-    // We want to start loading buddies right from the start.
     _buddyBloc.add(LoadBuddies());
   }
 
@@ -76,6 +72,7 @@ class _SkyNamePickedState extends State<SkyNamePicked> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
+                      //REFACTOR flatbutton to textbutton
                       FlatButton(
                           child: Text(
                             'Save Buddy',

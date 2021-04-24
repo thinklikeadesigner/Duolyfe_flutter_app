@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:navigationapp/theme.dart';
-
-import 'models/activity.dart';
 import 'activity_bloc/bloc.dart';
+
+//NOTE this is a test page, so i can see visually if the tasks have been added or removed
 
 class ActivityPage extends StatefulWidget {
   _ActivityPageState createState() => _ActivityPageState();
@@ -15,9 +15,7 @@ class _ActivityPageState extends State<ActivityPage> {
   @override
   void initState() {
     super.initState();
-    // Obtaining the ActivityBloc instance through BlocProvider which is an InheritedWidget
     _activityBloc = BlocProvider.of<ActivityBloc>(context);
-    // Events can be passed into the bloc by calling dispatch.
     // We want to start loading activities right from the start.
     _activityBloc.add(LoadActivities());
     // _activityBloc.add(AddAllActivities());
@@ -49,6 +47,8 @@ class _ActivityPageState extends State<ActivityPage> {
                   _activityBloc.add(AddFilteredActivities());
                 },
                 child: Text('filter')),
+            _buildUpdateDeleteButtons(),
+            _buildDeleteButtons(),
           ],
         ));
   }
@@ -66,8 +66,6 @@ class _ActivityPageState extends State<ActivityPage> {
             itemCount: state.activities.length,
             itemBuilder: (context, index) {
               final displayedActivity = state.activities[index];
-              // final newTime = DateTime.now();
-              // final newTime = DateTime.parse(displayedActivity.timeAssigned);
               Icon check;
               String completed;
               if (displayedActivity.completed == true) {
@@ -79,26 +77,21 @@ class _ActivityPageState extends State<ActivityPage> {
               }
 
               return Dismissible(
-                // uniquely identify widgets.
                 key: Key(displayedActivity.id.toString()),
-                // Provide a function that tells the app
-                // what to do after an item has been swiped away.
                 onDismissed: (direction) {
-                  // Remove the item from the data source.
                   setState(() {
                     _activityBloc.add(DeleteActivity(displayedActivity));
 
                     state.activities.removeAt(index);
                   });
 
-                  // Then show a snackbar.
                   ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(content: Text("activity deleted")));
                 },
-                // Show a red background as the item is swiped away.
                 background: Container(color: primaryTeal),
                 child: GestureDetector(
                   onTap: () {
+                    //TEST do i need this?
                     // print(displayedActivity.completed);
                     // displayedActivity.completed = !displayedActivity.completed;
                     // print(displayedActivity.completed);
@@ -107,7 +100,6 @@ class _ActivityPageState extends State<ActivityPage> {
                   child: Card(
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15)),
-                      // margin: EdgeInsets.all(10),
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Row(
@@ -121,7 +113,6 @@ class _ActivityPageState extends State<ActivityPage> {
                                       IconData(displayedActivity.icon,
                                           fontFamily: 'MaterialIcons'),
                                       size: 40),
-                                  // Icon(Icons.spa),
                                   SizedBox(
                                     width: 30,
                                   ),
@@ -137,18 +128,12 @@ class _ActivityPageState extends State<ActivityPage> {
                                       SizedBox(height: 10),
                                       Text(completed),
                                       SizedBox(height: 10),
-                                      // Text(
-                                      //   '${newTime.month}/${newTime.day}/${newTime.year} at ${newTime.hour}:${newTime.minute} and ${newTime.second} seconds',
-                                      //   style: TextStyle(fontSize: 10),
-                                      // ),
                                       SizedBox(height: 10),
                                     ],
                                   ),
                                 ],
                               ),
                             ),
-                            _buildUpdateDeleteButtons(
-                                ['cooking', 'outdoor', 'mind']),
                             check,
                           ],
                         ),
@@ -163,24 +148,35 @@ class _ActivityPageState extends State<ActivityPage> {
     );
   }
 
-  Row _buildUpdateDeleteButtons(List<String> chosenActivities) {
+//TEST check these functions and tell me what happens
+  Row _buildUpdateDeleteButtons() {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
         IconButton(
           icon: Icon(Icons.refresh),
           onPressed: () {
-            chosenActivities = ['cooking', 'outdoor', 'mind'];
-
-            _activityBloc.add(SubmitActivities(chosenActivities));
+            _activityBloc.add(AddRandomActivity());
           },
         ),
-        // IconButton(
-        //   icon: Icon(Icons.delete_outline),
-        //   onPressed: () {
-        //     _activityBloc.add(DeleteActivity(displayedActivity));
-        //   },
-        // ),
+      ],
+    );
+  }
+
+//TEST check these functions and tell me what happens
+  Row _buildDeleteButtons() {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        IconButton(
+          icon: Icon(Icons.ac_unit),
+          onPressed: () {
+            //BUG this is adding social activities
+            //BUG clicking on card removes all the activities
+            //IDEA maybe getallactivitiessorted adds the activities
+            _activityBloc.add(RemoveInterest('social'));
+          },
+        ),
       ],
     );
   }

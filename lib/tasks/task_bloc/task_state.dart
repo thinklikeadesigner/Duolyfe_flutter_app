@@ -18,6 +18,7 @@ class TasksLoaded extends TaskState {
   TasksLoaded(this.tasks) : super([tasks]);
 }
 
+//IDEA add a task completed state for disabling task card?
 class TasksDeleted extends TaskState {
   List<Object> get props => [];
 }

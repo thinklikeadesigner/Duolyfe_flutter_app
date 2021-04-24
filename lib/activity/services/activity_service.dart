@@ -2,6 +2,8 @@ import 'dart:math';
 
 import '../models/activity.dart';
 
+//REFACTOR, does this list of activities need to be in this class?
+
 class RandomActivityGenerator {
   static final _activities = [
     Activity(
@@ -168,6 +170,12 @@ class RandomActivityGenerator {
         timeAssigned: ""),
     Activity(
         activity: "Make lemonade",
+        interest: "health",
+        icon: 0xe3de,
+        completed: false,
+        timeAssigned: ""),
+    Activity(
+        activity: "Treat yourself",
         interest: "health",
         icon: 0xe3de,
         completed: false,
@@ -622,6 +630,144 @@ class RandomActivityGenerator {
         icon: 0xe3e1,
         completed: false,
         timeAssigned: ""),
+    Activity(
+        activity: "Do body stretching",
+        interest: "outdoor",
+        icon: 0xe3d6,
+        completed: false,
+        timeAssigned: ""),
+    Activity(
+        activity: "Go for a walk",
+        interest: "outdoor",
+        icon: 0xe3d6,
+        completed: false,
+        timeAssigned: ""),
+    Activity(
+        activity: "Practice Yoga",
+        interest: "outdoor",
+        icon: 0xe3d6,
+        completed: false,
+        timeAssigned: ""),
+    Activity(
+        activity: "Go for cycling",
+        interest: "outdoor",
+        icon: 0xe3d6,
+        completed: false,
+        timeAssigned: ""),
+    Activity(
+        activity: "Go out for camping",
+        interest: "outdoor",
+        icon: 0xe3d6,
+        completed: false,
+        timeAssigned: ""),
+    Activity(
+        activity: "Gardening",
+        interest: "outdoor",
+        icon: 0xe3d6,
+        completed: false,
+        timeAssigned: ""),
+    Activity(
+        activity: "Play with your Pet",
+        interest: "outdoor",
+        icon: 0xe3d6,
+        completed: false,
+        timeAssigned: ""),
+    Activity(
+        activity: "Teach your pet a new trick",
+        interest: "outdoor",
+        icon: 0xe3d6,
+        completed: false,
+        timeAssigned: ""),
+    Activity(
+        activity: "Spoil your pet with a new treat",
+        interest: "outdoor",
+        icon: 0xe3d6,
+        completed: false,
+        timeAssigned: ""),
+    Activity(
+        activity: "Plan a travel or road trip",
+        interest: "outdoor",
+        icon: 0xe3d6,
+        completed: false,
+        timeAssigned: ""),
+    Activity(
+        activity: "Sign up for a local class",
+        interest: "outdoor",
+        icon: 0xe3d6,
+        completed: false,
+        timeAssigned: ""),
+    Activity(
+        activity: "Photography",
+        interest: "outdoor",
+        icon: 0xe3d6,
+        completed: false,
+        timeAssigned: ""),
+    Activity(
+        activity: "Go Fishing",
+        interest: "outdoor",
+        icon: 0xe3d6,
+        completed: false,
+        timeAssigned: ""),
+    Activity(
+        activity: "Go Noodling",
+        interest: "outdoor",
+        icon: 0xe3d6,
+        completed: false,
+        timeAssigned: ""),
+    Activity(
+        activity: "Go Mountain Biking",
+        interest: "outdoor",
+        icon: 0xe3d6,
+        completed: false,
+        timeAssigned: ""),
+    Activity(
+        activity: "Go Boating",
+        interest: "outdoor",
+        icon: 0xe3d6,
+        completed: false,
+        timeAssigned: ""),
+    Activity(
+        activity: "Go Scuba diving and snorkeling",
+        interest: "outdoor",
+        icon: 0xe3d6,
+        completed: false,
+        timeAssigned: ""),
+    Activity(
+        activity: "Go Hot air ballooning",
+        interest: "outdoor",
+        icon: 0xe3d6,
+        completed: false,
+        timeAssigned: ""),
+    Activity(
+        activity: "Play Baseball or softball",
+        interest: "outdoor",
+        icon: 0xe3d6,
+        completed: false,
+        timeAssigned: ""),
+    Activity(
+        activity: "Play Volleyball",
+        interest: "outdoor",
+        icon: 0xe3d6,
+        completed: false,
+        timeAssigned: ""),
+    Activity(
+        activity: "Play Tennis",
+        interest: "outdoor",
+        icon: 0xe3d6,
+        completed: false,
+        timeAssigned: ""),
+    Activity(
+        activity: "Play Golf",
+        interest: "outdoor",
+        icon: 0xe3d6,
+        completed: false,
+        timeAssigned: ""),
+    Activity(
+        activity: "Run a marathon",
+        interest: "outdoor",
+        icon: 0xe3d6,
+        completed: false,
+        timeAssigned: ""),
   ];
 
   static Activity getRandomActivity() {
@@ -632,14 +778,11 @@ class RandomActivityGenerator {
     return _activities;
   }
 
-  static List<Activity> getFilteredActivities() {
+  static List<Activity> getFilteredActivities(String interest) {
     List<Activity> _filteredactivities;
 
     _filteredactivities = _activities
-        .where((element) =>
-            element.interest.contains('cooking') |
-            element.interest.contains('mind') |
-            element.interest.contains('fun'))
+        .where((element) => element.interest.contains(interest))
         .toList();
 
     return _filteredactivities;

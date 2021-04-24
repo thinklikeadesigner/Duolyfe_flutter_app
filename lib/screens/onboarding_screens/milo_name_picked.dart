@@ -7,6 +7,7 @@ import 'package:navigationapp/widgets/chat_bubbles.dart';
 import 'package:uic/widgets.dart';
 import '../../theme.dart';
 
+//MAKEME single screen for name and use buddybloc to add name
 class MiloNamePicked extends StatefulWidget {
   @override
   _MiloNamePickedState createState() => _MiloNamePickedState();
@@ -71,6 +72,7 @@ class _MiloNamePickedState extends State<MiloNamePicked> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
+                      //PENDING flatbutton to textbutton
                       FlatButton(
                           child: Text(
                             'Save Buddy',

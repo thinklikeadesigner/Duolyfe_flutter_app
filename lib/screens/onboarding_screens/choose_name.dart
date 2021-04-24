@@ -7,9 +7,9 @@ import 'package:navigationapp/widgets/chat_bubbles.dart';
 
 import 'package:uic/widgets.dart';
 
-import '../../app.dart';
 import '../../theme.dart';
 
+//MAKEME add name to buddybloc, state goes here
 class ChooseName extends StatefulWidget {
   @override
   _ChooseNameState createState() => _ChooseNameState();

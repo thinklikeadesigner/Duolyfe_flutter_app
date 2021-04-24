@@ -1,11 +1,15 @@
 import 'dart:async';
-import 'dart:math';
 import 'package:bloc/bloc.dart';
-import 'package:flutter/material.dart';
-import 'package:navigationapp/tasks/models/models.dart';
 import 'package:navigationapp/tasks/services/task_service.dart';
 import '../task_dao.dart';
 import 'bloc.dart';
+
+//SPECS this should load tasks from activity store
+//IDEA should the above spec be in dao
+//SPECS this should display tasks
+//SPECS this should save completion status and time
+//IDEA this should tell buddy that it needs to increment points
+//SPECS this should grab activity decision from home page
 
 class TaskBloc extends Bloc<TaskEvent, TaskState> {
   TaskDao _taskDao = TaskDao();

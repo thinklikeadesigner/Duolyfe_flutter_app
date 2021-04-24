@@ -2,6 +2,7 @@ import 'dart:math';
 
 import '../models/buddy.dart';
 
+//MAKEME add treats and points and health to buddy here too
 class RandomBuddyGenerator {
   static final _buddies = [
     Buddy(

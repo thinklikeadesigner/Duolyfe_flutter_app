@@ -9,16 +9,10 @@ class TaskPage extends StatefulWidget {
   _TaskPageState createState() => _TaskPageState();
 }
 
-/*TODO 
-find out how to move the button to the homepage
-so we can just have the tasks on the taskpage
-TODO
-only complete a task once, disable completed tasks
-TODO
-need a readonly store for interest, activities, and buddies
-
-
+/* GOOGLE find out how to move the button to the homepage so we can just have the tasks on the taskpage only complete a task once, disable completed tasks need a readonly store for interest, activities, and buddies
 */
+//SPECS this is where points are added to buddy, tasks are completed, and time is assigned
+
 class _TaskPageState extends State<TaskPage> {
   TaskBloc _taskBloc;
 
@@ -97,16 +91,14 @@ class _TaskPageState extends State<TaskPage> {
                 background: Container(color: primaryTeal),
                 child: GestureDetector(
                   onTap: () {
-                    //TODO implement changing state of card from incomplete to complete
                     // print(displayedTask.completed);
-                    // displayedTask.completed = !displayedTask.completed;
+                    displayedTask.completed = !displayedTask.completed;
                     // print(displayedTask.completed);
                     _taskBloc.add(UpdateTask(displayedTask));
                   },
                   child: Card(
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15)),
-                      // margin: EdgeInsets.all(10),
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Row(

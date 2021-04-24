@@ -4,7 +4,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:navigationapp/login/login.dart';
 import 'package:navigationapp/route_generator/route_generator.dart';
-import 'package:navigationapp/screens/nav_screens/navbar.dart';
 import 'package:navigationapp/screens/onboarding_screens/onboarding_screens.dart';
 import 'package:navigationapp/theme.dart';
 import 'authentication/authentication.dart';
@@ -53,6 +52,9 @@ class _AppViewState extends State<AppView> {
       builder: (context, child) {
         return BlocListener<AuthenticationBloc, AuthenticationState>(
           listener: (context, state) {
+            //FIXME there needs to be a clause to check if user completed onboarding
+            //IDEA we can check to see if activity store is empty or make a new store just for onboarding
+            //NOTE this is complex, bc this check happens during authentication kind of
             switch (state.status) {
               case AuthenticationStatus.authenticated:
                 _navigator.pushAndRemoveUntil<void>(

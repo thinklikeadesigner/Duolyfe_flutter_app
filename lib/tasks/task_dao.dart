@@ -3,6 +3,10 @@ import 'package:sembast/sembast.dart';
 import '../repositories/app_database.dart';
 import 'models/task.dart';
 
+//SPECS this should load tasks from activity store
+//SPECS this should add tasks to task store
+//SPECS this should load tasks from task store
+//NOTE activity store is a dependency of taskdao. taskdao needs activity store, activity store does not need to know about taskdao
 class TaskDao {
   static const String TASK_STORE_NAME = 'tasks';
   // A Store with int keys and Map<String, dynamic> values.
