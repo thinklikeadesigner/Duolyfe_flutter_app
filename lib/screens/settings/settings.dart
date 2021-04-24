@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:navigationapp/authentication/authentication.dart';
 
+//IDEA ADD THEME TO SETTINGS?
+//IDEA REDIRECT TO CHANGE TIME HERE?
+//IDEA REDIRECT TO CHANGE INTEREST HERE?
+//QUESTION SHOULDN'T PICK BUDDY BE HERE TOO?
+//
 class SettingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

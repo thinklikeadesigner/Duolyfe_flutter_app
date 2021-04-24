@@ -7,6 +7,7 @@ import 'package:navigationapp/widgets/chat_bubbles.dart';
 import 'package:uic/widgets.dart';
 import '../../theme.dart';
 
+//MAKEME single screen for name and use buddybloc to add name
 class MiloNamePicked extends StatefulWidget {
   @override
   _MiloNamePickedState createState() => _MiloNamePickedState();

@@ -5,14 +5,11 @@ class Activity {
   // It's automatically generated & unique for every stored Activity.
   int id;
 
-/*
-COMPLETED some how, if each activity has an interest and an icon,
-then i don't need to have a nested list
-so i can just use the button for selecting the interest to
-filter all the activities that contain that interest, 
-and add it to the suggestions store
-
-*/
+//COMPLETE some how, if each activity has an interest and an icon,
+//then i don't need to have a nested list
+//so i can just use the button for selecting the interest to
+//filter all the activities that contain that interest,
+//and add it to the suggestions store
 
   final String activity;
   String interest;

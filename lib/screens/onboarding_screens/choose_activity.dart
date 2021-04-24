@@ -4,7 +4,7 @@ import 'package:flutter_chat_bubble/bubble_type.dart';
 import 'package:flutter_chat_bubble/clippers/chat_bubble_clipper_2.dart';
 import 'package:navigationapp/activity/activity_bloc/bloc.dart';
 import 'package:navigationapp/buddy/buddy_bloc/bloc.dart';
-import 'package:navigationapp/services/files/read_tasks_file.dart';
+import 'package:navigationapp/services/read_tasks_file.dart';
 import 'package:navigationapp/widgets/chat_bubbles.dart';
 import 'package:uic/step_indicator.dart';
 
@@ -14,6 +14,8 @@ class ChooseActivity extends StatefulWidget {
   @override
   _ChooseActivityState createState() => _ChooseActivityState();
 }
+
+//NEED tasks bloc to add chosen event
 
 class _ChooseActivityState extends State<ChooseActivity> {
   BuddyBloc _buddyBloc;
@@ -54,11 +56,13 @@ class _ChooseActivityState extends State<ChooseActivity> {
   void _onCategorySelected(bool selected, interest) {
     if (selected == true) {
       setState(() {
+        //TEST test if added to activity store
         _currentInterests.add(interest);
         _activityBloc.add(AddInterest(interest));
       });
     } else {
       setState(() {
+        //TEST test if removed from activity store
         _currentInterests.remove(interest);
         _activityBloc.add(RemoveInterest(interest));
       });
@@ -72,7 +76,6 @@ class _ChooseActivityState extends State<ChooseActivity> {
     );
   }
 
-  @override
   Widget _buildBody() {
     final ScrollController _scrollController = ScrollController();
     return BlocBuilder<BuddyBloc, BuddyState>(builder: (context, state) {
@@ -175,6 +178,8 @@ class _ChooseActivityState extends State<ChooseActivity> {
                               borderRadius: BorderRadius.circular(18.0),
                             ),
                           ),
+                          //GOOGLE disable save button
+                          //FIXME save button not greyed out
                           onPressed: _currentInterests.length < 3
                               ? null
                               : () async {

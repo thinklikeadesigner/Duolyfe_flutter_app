@@ -2,6 +2,8 @@ import 'dart:math';
 
 import '../models/task.dart';
 
+//QUESTION do we even need this since we are getting tasks from activity store
+
 class RandomTaskGenerator {
   static final _tasks = [
     Task(

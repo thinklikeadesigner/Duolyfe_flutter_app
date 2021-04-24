@@ -9,6 +9,7 @@ import 'package:timezone/timezone.dart' as tz;
 
 import '../../theme.dart';
 
+//MAKEME add time to buddy bloc, time goes here
 class ChooseWorkTime extends StatefulWidget {
   List<String> arguments;
   // ChooseWorkTime(this.arguments) {
@@ -34,6 +35,7 @@ class _ChooseWorkTimeState extends State<ChooseWorkTime> {
 
   String _currentBuddy;
   dynamic _currentInterests;
+  //QUESTION DOES COMPLETED ONBOARDING GET ADDED TO BUDDY HERE?
   bool _completedOnboarding;
   TimeOfDay _time;
   TimeOfDay picked;
@@ -104,7 +106,6 @@ class _ChooseWorkTimeState extends State<ChooseWorkTime> {
     );
   }
 
-  @override
   Widget _buildBody() {
     return BlocBuilder<BuddyBloc, BuddyState>(builder: (context, state) {
       if (state is BuddiesLoading) {
@@ -123,9 +124,7 @@ class _ChooseWorkTimeState extends State<ChooseWorkTime> {
                   Container(
                     margin: const EdgeInsets.fromLTRB(20, 60, 20, 20),
                     child: Image(
-                        //PENDING SHOW AND TELL
-                        image: AssetImage(displayBuddy.buddy),
-                        height: 150),
+                        image: AssetImage(displayBuddy.buddy), height: 150),
                   ),
                   StepIndicator(
                     selectedStepIndex: 5,

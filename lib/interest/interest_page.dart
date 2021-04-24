@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:navigationapp/interest/bloc/interest_bloc.dart';
 import 'package:navigationapp/theme.dart';
 
+//QUESTION do i even need an interest page/bloc/whatever?
+
 class InterestPage extends StatefulWidget {
   _InterestPageState createState() => _InterestPageState();
 }
@@ -74,22 +76,14 @@ class _InterestPageState extends State<InterestPage> {
 
                     state.interests.removeAt(index);
                   });
-//PENDING find out how to only select one interest
-//PENDING also prepulate the list with all the interests
-//
-/*for now, the working solution is to just
+
+/* NOTE for now, the working solution is to just
  keep cycling through the interests,
   since you will only have one in the list*/
 
-//   REFACTOR i can make this simpler, if i have time
-// NOTES something i have learned, that i will need for the next time i code
-// - COMPLETE so i can remember what i did that day
-
-                  // Then show a snackbar.
                   ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(content: Text("interest deleted")));
                 },
-                // Show a red background as the item is swiped away.
                 background: Container(color: primaryTeal),
                 child: GestureDetector(
                   onTap: () {

@@ -1,5 +1,6 @@
-class Interest {
-  final List<dynamic> interest;
+// DEAD not using firestore
+// class Interest {
+//   final List<dynamic> interest;
 
-  Interest({this.interest});
-}
+//   Interest({this.interest});
+// }
