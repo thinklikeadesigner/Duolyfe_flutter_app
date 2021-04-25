@@ -16,18 +16,21 @@ class ActivityBloc extends Bloc<ActivityEvent, ActivityState> {
     if (event is LoadActivities) {
       yield ActivitiesLoading();
       yield* _reloadActivities();
-    } else if (event is AddRandomActivity) {
-      // gets activity from List<Activity>
-      final newActivity = RandomActivityGenerator.getRandomActivity();
-      //IDEA should probably not modify the array directly, should get a copy and modify that
-      // assigns a new time to timeAssigned
-      newActivity.timeAssigned = DateTime.now().toString();
-      //NOTE inserts into activity store
-      await _activityDao.insert(newActivity);
-      //gets all sorted by name from activity store
-      yield* _reloadActivities();
-      print(_reloadActivities());
-    } else if (event is AddInterest) {
+    }
+    //DEAD this isn't needed to add or remove initial activities.
+    // else if (event is AddRandomActivity) {
+    //   // gets activity from List<Activity>
+    //   final newActivity = RandomActivityGenerator.getRandomActivity();
+    //   //IDEA should probably not modify the array directly, should get a copy and modify that
+    //   // assigns a new time to timeAssigned
+    //   newActivity.timeAssigned = DateTime.now().toString();
+    //   //NOTE inserts into activity store
+    //   await _activityDao.insert(newActivity);
+    //   //gets all sorted by name from activity store
+    //   yield* _reloadActivities();
+    //   print(_reloadActivities());
+    // }
+    else if (event is AddInterest) {
       //bug doesn't add outdoor
       ////COMPLETE added outdoor, it wasn't in the list
 //test check if adds interest to activity store
@@ -44,7 +47,9 @@ class ActivityBloc extends Bloc<ActivityEvent, ActivityState> {
       //COMPLETE only removes checked interest
       print(event.chosenInterest);
       // this should theoretically remove from the store, based on interest
-      // BUG if you uncheck one, it removes all activities
+      //bug if you uncheck one, it removes all activities
+      // // COMPLETE now it only removes the ones you unchecked
+
       yield* _filterActivitiesAndRemove(event.chosenInterest);
     } else if (event is UpdateActivity) {
       event.updatedActivity.completed = !event.updatedActivity.completed;
@@ -69,7 +74,6 @@ class ActivityBloc extends Bloc<ActivityEvent, ActivityState> {
     }
   }
 
-//BUG THIS RUNS TWICE
   Stream<ActivityState> _reloadActivities() async* {
     final activities = await _activityDao.getAllSortedByName();
     //NOTE this prints [instance of Activity]
@@ -115,7 +119,7 @@ class ActivityBloc extends Bloc<ActivityEvent, ActivityState> {
   }
 
   Stream<ActivityState> _filterActivitiesAndRemove(String interest) async* {
-// FIXME this doesn't need to delete from the activity_service list, but from the activity store
+//fixme this doesn't need to delete from the activity_service list, but from the activity store
 // COMPLETE deletes from activity store
     List _activitiesToDelete;
     final initialActivities = await _activityDao.getAllSortedByName();

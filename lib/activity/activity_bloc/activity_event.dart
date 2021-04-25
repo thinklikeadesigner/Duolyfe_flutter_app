@@ -25,12 +25,16 @@ class RemoveInterest extends ActivityEvent {
   RemoveInterest(this.chosenInterest) : super([chosenInterest]);
 }
 
-// FIXME i don't need to add a single activity, i just need to add the initial activities
-class AddRandomActivity extends ActivityEvent {
-  List<Object> get props => [];
-}
+//fixme i don't need to add a single activity, i just need to add the initial activities
+// COMPLETE this isn't needed here
+// DEAD not needed
+// class AddRandomActivity extends ActivityEvent {
+//   List<Object> get props => [];
+// }
 
-// FIXME i don't need to add all activities, i just need to add the initial activities
+//fixme i don't need to add all activities, i just need to add the initial activities
+// // COMPLETE this isn't needed here
+// DEAD not needed
 class AddAllActivities extends ActivityEvent {
   List<Object> get props => [];
 }
@@ -39,7 +43,9 @@ class AddFilteredActivities extends ActivityEvent {
   List<Object> get props => [];
 }
 
-// FIXME i don't need to update a single activity, i just need to add the initial activities
+//fixme i don't need to update a single activity, i just need to add the initial activities
+// COMPLETE this isn't needed here
+// DEAD not needed
 class UpdateActivity extends ActivityEvent {
   List<Object> get props => [updatedActivity];
   final Activity updatedActivity;
@@ -47,7 +53,9 @@ class UpdateActivity extends ActivityEvent {
   UpdateActivity(this.updatedActivity) : super([updatedActivity]);
 }
 
-// FIXME i don't need to delete a single activity, i just need to add the initial activities
+//fixme i don't need to delete a single activity, i just need to add the initial activities
+// COMPLETE this isn't needed here
+// DEAD not needed
 class DeleteActivity extends ActivityEvent {
   final Activity activity;
   List<Object> get props => [activity];

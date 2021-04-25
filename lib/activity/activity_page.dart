@@ -32,7 +32,7 @@ class _ActivityPageState extends State<ActivityPage> {
         floatingActionButton: FloatingActionButton(
           child: Icon(Icons.add),
           onPressed: () {
-            _activityBloc.add(AddRandomActivity());
+            _activityBloc.add(AddAllActivities());
           },
         ),
         bottomSheet: Row(
@@ -148,7 +148,9 @@ class _ActivityPageState extends State<ActivityPage> {
     );
   }
 
-//TEST check these functions and tell me what happens
+//test check these functions and tell me what happens
+//// COMPLETE this isn't needed here
+// DEAD not needed
   Row _buildUpdateDeleteButtons() {
     return Row(
       mainAxisSize: MainAxisSize.min,
@@ -156,14 +158,16 @@ class _ActivityPageState extends State<ActivityPage> {
         IconButton(
           icon: Icon(Icons.refresh),
           onPressed: () {
-            _activityBloc.add(AddRandomActivity());
+            _activityBloc.add(AddAllActivities());
           },
         ),
       ],
     );
   }
 
-//TEST check these functions and tell me what happens
+//testcheck these functions and tell me what happens
+//// COMPLETE this isn't needed here
+// DEAD not needed
   Row _buildDeleteButtons() {
     return Row(
       mainAxisSize: MainAxisSize.min,

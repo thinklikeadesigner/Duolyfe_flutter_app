@@ -3,6 +3,7 @@ import 'dart:math';
 import '../models/activity.dart';
 
 //REFACTOR, does this list of activities need to be in this class?
+//FIXME check icons,
 
 class RandomActivityGenerator {
   static final _activities = [
@@ -171,43 +172,43 @@ class RandomActivityGenerator {
     Activity(
         activity: "Make lemonade",
         interest: "health",
-        icon: 0xe3de,
+        icon: 0xe4f8,
         completed: false,
         timeAssigned: ""),
     Activity(
         activity: "Treat yourself",
         interest: "health",
-        icon: 0xe3de,
+        icon: 0xe4f8,
         completed: false,
         timeAssigned: ""),
     Activity(
         activity: "Have a fruit salad",
         interest: "health",
-        icon: 0xe3de,
+        icon: 0xe4f8,
         completed: false,
         timeAssigned: ""),
     Activity(
         activity: "Read a book",
         interest: "health",
-        icon: 0xe3de,
+        icon: 0xe4f8,
         completed: false,
         timeAssigned: ""),
     Activity(
         activity: "Take vitamins",
         interest: "health",
-        icon: 0xe3de,
+        icon: 0xe4f8,
         completed: false,
         timeAssigned: ""),
     Activity(
         activity: "Stretch or Do Yoga",
         interest: "health",
-        icon: 0xe3de,
+        icon: 0xe4f8,
         completed: false,
         timeAssigned: ""),
     Activity(
         activity: "Drink a full glass of water",
         interest: "health",
-        icon: 0xe3de,
+        icon: 0xe4f8,
         completed: false,
         timeAssigned: ""),
     Activity(

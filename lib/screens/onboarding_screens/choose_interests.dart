@@ -186,7 +186,8 @@ class _ChooseInterestsState extends State<ChooseInterests> {
                           ),
                           //GOOGLE disable save button
                           //FIXME save button not greyed out
-                          //BUG " Unhandled Exception: Could not find a generator for route RouteSettings("/activitypage", null) in the _WidgetsAppState."
+                          //bug " Unhandled Exception: Could not find a generator for route RouteSettings("/activitypage", null) in the _WidgetsAppState."
+                          //COMPLETE i forgot to add route generator
                           onPressed: _currentInterests.length < 3
                               ? null
                               : () async {

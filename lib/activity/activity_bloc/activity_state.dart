@@ -13,7 +13,6 @@ class ActivitiesLoading extends ActivityState {
 }
 
 class ActivitiesLoaded extends ActivityState {
-  //BUG this runs twice
   final List<Activity> activities;
 
   ActivitiesLoaded(this.activities) : super([activities]);
