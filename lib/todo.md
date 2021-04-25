@@ -3,20 +3,28 @@ TODOTREE CODE OF HONOR after logging todos, pick a couple of things to work on e
 
 
 - [x] create todo system
-- [x] I worked my way down to the buddy folder
 - [x] please check the other folders and files for missing pieces
-- [x] TEST check if adds interest to activity store
-- [x] TEST check if removes interest to activity store
-- [x] TEST these functions and tell me what happens
-- [x] TEST if added to activity store
-- [x] TEST if removed from activity store
-- [x] FIXME I dont need to add all activities, just initial activities
-- [x] FIXME I don't need to add a single activity, just the initial activities
-- [x] FIXME I don't need to delete a single activity, just the initial activities
-- [ ] URGENT need to figure out how to read activities, and then put them into a different store
-- [ ] PENDING need to find out how to enter text, make suggestions using activity bloc
-- [ ]
-- [ ]
+TEST  
+    - [x] TEST check if adds interest to activity store
+TEST 
+    - [x]  check if removes interest to activity store
+TEST 
+    - [x]  these functions and tell me what happens
+TEST 
+    - [x]  if added to activity store
+TEST 
+    - [x]  if removed from activity store
+FIXME 
+    - [x]  I dont need to add all activities, just initial activities
+FIXME 
+    - [x]  I don't need to add a single activity, just the initial activities
+FIXME 
+    - [x]  I don't need to delete a single activity, just the initial activities
+URGENT 
+    - [ ]  need to figure out how to read Activity<List> from ACTIVITY_STORE, randomize those Activity<List>, cast it into Task type and then put Task into TASK_STORE
+PENDING 
+    - [ ]  need to find out how to enter text, make suggestions using activity bloc
+
 
 
 
