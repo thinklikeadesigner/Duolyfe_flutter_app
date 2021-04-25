@@ -91,7 +91,8 @@ class _ActivityPageState extends State<ActivityPage> {
                 background: Container(color: primaryTeal),
                 child: GestureDetector(
                   onTap: () {
-                    //TEST do i need this?
+                    //test do i need this?
+                    //DEAD no i dont need this, we don't need to change the time when adding initial activities
                     // print(displayedActivity.completed);
                     // displayedActivity.completed = !displayedActivity.completed;
                     // print(displayedActivity.completed);

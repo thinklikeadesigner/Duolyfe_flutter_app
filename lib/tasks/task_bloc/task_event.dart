@@ -47,7 +47,7 @@ class DeleteTask extends TaskEvent {
   DeleteTask(this.task) : super([task]);
 }
 
-//TEST this is for testing purposes
+//NOTE this is for testing purposes
 class ClearTasks extends TaskEvent {
   List<Object> get props => [];
   @override
