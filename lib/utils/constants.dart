@@ -39,6 +39,8 @@ String lemonade = 'Make lemonade';
 String treatYourself = 'Treat yourself';
 String salad = 'Have a fruit salad';
 
+String stringActivities = 'activities';
+
 String vitamins = 'Take vitamins';
 String stretch = 'Stretch or Do Yoga';
 String drinkWater = 'Drink a full glass of water';
