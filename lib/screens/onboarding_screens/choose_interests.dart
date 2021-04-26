@@ -42,19 +42,6 @@ class _ChooseInterestsState extends State<ChooseInterests> {
   //DEAD not adding activity to chat bubble anymore
   //REFACTOR we can add activity to chat bubble later, not important
   // List<String> _nextWidgetArguments = List<String>(2);
-  List _currentInterests = [];
-  final Map<String, dynamic> interestList = {
-    "interests": [
-      "cooking",
-      "fun",
-      "health",
-      "indoor",
-      "mind",
-      "outdoor",
-      "personal development",
-      "social"
-    ]
-  };
 
   void _onInterestSelected(bool selected, interest) {
     if (selected == true) {
@@ -208,3 +195,17 @@ class _ChooseInterestsState extends State<ChooseInterests> {
 }
 
 // https://mightytechno.com/flutter-disable-enable-button/
+
+List _currentInterests = [];
+final Map<String, dynamic> interestList = {
+  "interests": [
+    "cooking",
+    "fun",
+    "health",
+    "indoor",
+    "mind",
+    "outdoor",
+    "personal development",
+    "social"
+  ]
+};
