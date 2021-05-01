@@ -123,7 +123,7 @@ class _HomeState extends State<Home> {
 
   Future onSelectNotification(String payLoad) {
     if (payLoad != null) {
-      //PENDING set the navigator to navigate a different screen
+      //MAKEME set the navigator to navigate a different screen
     }
   }
 
@@ -150,16 +150,14 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    //DEAD old auth service
-    // final AuthService _auth = AuthService();
-    // final GmailAuthService _authGmail = GmailAuthService();
+
 
     return Scaffold(
       body: Center(
           child: Column(
         children: [
           _widgetOptions.elementAt(_selectedIndex),
-          //PENDING flatbutton to textbutton
+          //REFACTOR flatbutton to textbutton
           FlatButton(
               child: Text(
                 'Milo!',
@@ -175,7 +173,7 @@ class _HomeState extends State<Home> {
                 // _authGmail.signOutGoogle();
                 // Navigator.of(context).pushNamed('/signin');
               }),
-          //PENDING flatbutton to textbutton
+          //REFACTOR flatbutton to textbutton
           FlatButton(
               child: Text(
                 'notify!',
@@ -194,7 +192,7 @@ class _HomeState extends State<Home> {
 
                 // Navigator.of(context).pushNamed('/signin');
               }),
-          //PENDING flatbutton to textbutton
+          //REFACTOR flatbutton to textbutton
           FlatButton(
               child: Text(
                 'notiffy!',
@@ -213,7 +211,7 @@ class _HomeState extends State<Home> {
 
                 // Navigator.of(context).pushNamed('/signin');
               }),
-          //PENDING flatbutton to textbutton
+          //REFACTOR flatbutton to textbutton
           FlatButton(
               child: Text(
                 'cooking!',

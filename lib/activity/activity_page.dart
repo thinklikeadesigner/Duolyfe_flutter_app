@@ -47,8 +47,6 @@ class _ActivityPageState extends State<ActivityPage> {
                   _activityBloc.add(AddFilteredActivities());
                 },
                 child: Text('filter')),
-            _buildUpdateDeleteButtons(),
-            _buildDeleteButtons(),
           ],
         ));
   }
@@ -91,11 +89,6 @@ class _ActivityPageState extends State<ActivityPage> {
                 background: Container(color: primaryTeal),
                 child: GestureDetector(
                   onTap: () {
-                    //test do i need this?
-                    //DEAD no i dont need this, we don't need to change the time when adding initial activities
-                    // print(displayedActivity.completed);
-                    // displayedActivity.completed = !displayedActivity.completed;
-                    // print(displayedActivity.completed);
                     _activityBloc.add(UpdateActivity(displayedActivity));
                   },
                   child: Card(
@@ -146,43 +139,6 @@ class _ActivityPageState extends State<ActivityPage> {
         }
         return Center();
       },
-    );
-  }
-
-//test check these functions and tell me what happens
-//// COMPLETE this isn't needed here
-// DEAD not needed
-  Row _buildUpdateDeleteButtons() {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        IconButton(
-          icon: Icon(Icons.refresh),
-          onPressed: () {
-            _activityBloc.add(AddAllActivities());
-          },
-        ),
-      ],
-    );
-  }
-
-//testcheck these functions and tell me what happens
-//// COMPLETE this isn't needed here
-// DEAD not needed
-  Row _buildDeleteButtons() {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        IconButton(
-          icon: Icon(Icons.ac_unit),
-          onPressed: () {
-            //BUG this is adding social activities
-            //BUG clicking on card removes all the activities
-            //IDEA maybe getallactivitiessorted adds the activities
-            _activityBloc.add(RemoveInterest('social'));
-          },
-        ),
-      ],
     );
   }
 }

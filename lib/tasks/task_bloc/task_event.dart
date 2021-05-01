@@ -12,8 +12,7 @@ class LoadTasks extends TaskEvent {
   List<Object> get props => [];
 }
 
-//DEAD do not grab anything from task service
-//NEED change to add task from activity store event
+//NEED change to add task from activity store event AND RANDOMIZE
 class AddRandomTask extends TaskEvent {
   List<Object> get props => [];
 }
@@ -23,13 +22,13 @@ class AddAllTasks extends TaskEvent {
   List<Object> get props => [];
 }
 
-//DEAD do not grab anything from task service
-// class UpdateWithRandomTask extends TaskEvent {
-//   List<Object> get props => [updatedTask];
-//   final Task updatedTask;
+//TEST USE RANDOM EVENT TO TEST SELECTING ACTIVITY ON HOMEPAGE
+class UpdateWithRandomTask extends TaskEvent {
+  List<Object> get props => [updatedTask];
+  final Task updatedTask;
 
-//   UpdateWithRandomTask(this.updatedTask) : super([updatedTask]);
-// }
+  UpdateWithRandomTask(this.updatedTask) : super([updatedTask]);
+}
 
 //SPECS this will update completion status
 //IDEA should there be an event that updates point status?
@@ -40,7 +39,7 @@ class UpdateTask extends TaskEvent {
   UpdateTask(this.updatedTask) : super([updatedTask]);
 }
 
-//SPEC option for user to delete task if they don't like it or change their mind
+//SPECS option for user to delete task if they don't like it or change their mind
 class DeleteTask extends TaskEvent {
   final Task task;
   List<Object> get props => [task];

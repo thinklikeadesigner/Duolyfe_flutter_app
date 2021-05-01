@@ -49,7 +49,7 @@ class OnboardingStart extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  //PENDING flatbutton to textbutton
+                  //REFACTOR flatbutton to textbutton
                   FlatButton(
                       child: Text('Skip'),
                       splashColor: primaryTeal,
@@ -59,7 +59,7 @@ class OnboardingStart extends StatelessWidget {
                       onPressed: () {
                         Navigator.of(context).pushNamed('/navbar');
                       }),
-                  //PENDING flatbutton to textbutton
+                  //REFACTOR flatbutton to textbutton
                   FlatButton(
                     child: Text(
                       'Let\'s do it!',

@@ -32,34 +32,14 @@ class _HomePageState extends State<HomePage> {
     _buddyBloc.add(LoadBuddies());
   }
 
-//PENDING need to find out how to enter text, and make suggestions using activity bloc
   String textHolder1 = '';
   String textHolder2 = '';
   String textHolder3 = '';
   bool suggested = false;
 
-//DEAD not using auth service, it's in authenticate block. not using firestore
-  // final AuthService _auth = AuthService();
-  // final GmailAuthService _authGmail = GmailAuthService();
-//DEAD this is in navbar
-  // int _selectedIndex = 0;
-  // static const TextStyle optionStyle =
-  //     TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  // final List<Widget> _widgetOptions = <Widget>[
-  //   HomePage(),
-  //   OnboardingStart(),
-  //   ChooseBuddy(),
-  // ];
-  // void _onItemTapped(int index) {
-  //   setState(() {
-  //     _selectedIndex = index;
-  //   });
-  // }
 
-  // List _items = [];
 
-  // Fetch content from the json file
-//PENDING not reading from file
+//FUTURE not reading from file
   // Future readJson() async {
   //   final String response = await rootBundle.loadString('assets/tasks.json');
   //   final map = await json.decode(response);
@@ -93,19 +73,6 @@ class _HomePageState extends State<HomePage> {
 
     var shuffledItems = shuffle(items);
 
-//DEAD not using firestore here
-    // final user = Provider.of<UserClass>(context);
-    // return StreamBuilder<UserData>(
-    //     stream: DatabaseService(uid: user.uid).userData,
-    //     builder: (context, snapshot) {
-    //       if (snapshot.hasData) {
-    //         UserData userData = snapshot.data;
-    //         print(userData.interests[0]);
-    //         print(readJson().then((value) => print(value)));
-    //         print(_items.runtimeType);
-    //         _items.forEach((element) {
-    //           print(element);
-    //         });
     return BlocBuilder<BuddyBloc, BuddyState>(builder: (context, state) {
       if (state is BuddiesLoading) {
         return Center(
@@ -293,7 +260,7 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                 ),
                                 onPressed: () {
-                                  //MAKEME suggestion 1
+
                                 }),
                             TextButton(
                                 child: Text(
@@ -309,7 +276,7 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                 ),
                                 onPressed: () {
-                                  //MAKEME suggestion 2
+                                  
                                 }),
                             TextButton(
                                 child: Text(
@@ -325,7 +292,7 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                 ),
                                 onPressed: () {
-                                  //MAKEME suggestion 3
+                                  
                                 }),
                             SizedBox(
                               height: 30,
