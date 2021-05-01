@@ -123,7 +123,7 @@ class _HomeState extends State<Home> {
 
   Future onSelectNotification(String payLoad) {
     if (payLoad != null) {
-      //MAKEME set the navigator to navigate a different screen
+      //MAKEME set onSelectNotification to navigate a different screen
     }
   }
 

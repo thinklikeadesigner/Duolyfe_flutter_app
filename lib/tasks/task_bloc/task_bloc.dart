@@ -28,8 +28,8 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
       yield TasksLoading();
       yield* _reloadTasks();
     } else if (event is AddRandomTask) {
-      final newTask = RandomTaskGenerator.getRandomTask();
-      newTask.timeAssigned = DateTime.now().toString();
+      // final newTask = RandomTaskGenerator.getRandomTask();
+      // newTask.timeAssigned = DateTime.now().toString();
       //   String convertDateTimeToString(DateTime dateTime) {
 //     return dateTime.toString();
 //   }
@@ -39,8 +39,8 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
 //   }
       // Loading indicator shouldn't be displayed while adding/updating/deleting
       // a single Task from the database - we aren't yielding TasksLoading().
-      await _taskDao.insert(newTask);
-      yield* _reloadTasks();
+      // await _taskDao.insert(newTask);
+      yield* _showSuggestedTasks();
     } else if (event is AddAllTasks) {
       yield* _preloadTasks();
       // yield* _reloadTasks();
@@ -70,6 +70,19 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
     final tasks = await _taskDao.getAllSortedByName();
     // Yielding a state bundled with the Tasks from the database.
     yield TasksLoaded(tasks);
+  }
+
+  Stream<TaskState> _showSuggestedTasks() async* {
+    final newTask = RandomTaskGenerator.getRandomTask();
+    // final anotherTask = RandomTaskGenerator.getRandomTask();
+    // final finalTask = RandomTaskGenerator.getRandomTask();
+
+    // List tasks = [];
+    // tasks.add(newTask);
+    // tasks.add(anotherTask);
+    // tasks.add(finalTask);
+
+    yield TaskDisplayed(newTask);
   }
 
   Stream<TaskState> _clearTasks() async* {

@@ -21,6 +21,13 @@ class AddRandomTask extends TaskEvent {
 class AddAllTasks extends TaskEvent {
   List<Object> get props => [];
 }
+class AddChosenTask extends TaskEvent {
+    final Task task;
+  List<Object> get props => [task];
+  AddChosenTask(this.task) : super([task]);
+}
+
+
 
 //TEST USE RANDOM EVENT TO TEST SELECTING ACTIVITY ON HOMEPAGE
 class UpdateWithRandomTask extends TaskEvent {
