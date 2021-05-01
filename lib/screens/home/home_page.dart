@@ -402,7 +402,7 @@ class _HomePageState extends State<HomePage> {
                   child: GestureDetector(
                     onTap: () {
                       // print(displayedTask.completed);
-                      displayedTask.completed = !displayedTask.completed;
+                      // displayedTask.completed = !displayedTask.completed;
                       // print(displayedTask.completed);
                       _taskBloc.add(UpdateTask(displayedTask));
                     },
