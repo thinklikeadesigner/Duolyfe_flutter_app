@@ -25,8 +25,8 @@ class TasksDeleted extends TaskState {
   List<Object> get props => [];
 }
 class TaskDisplayed extends TaskState {
-    List<Object> get props => [task];
-  final Task task;
+  List<Object> get props => [tasks];
+  final List<Task> tasks;
 
-  TaskDisplayed(this.task) : super([task]);
+  TaskDisplayed(this.tasks) : super([tasks]);
 }

@@ -3,7 +3,7 @@ TODOTREE CODE OF HONOR after logging todos, pick a couple of things to work on e
 
 
 
-    - [ ]  need to figure out how to read Activity<List> from ACTIVITY_STORE, and put text on the buttons. 
+    - [x]  need to figure out how to read Activity<List> from ACTIVITY_STORE, and put text on the buttons. 
     
 
     - [x]  need to find out how to enter text onto buttons on HomePage from the output of TaskBloc's random tasks, for at least one button.
@@ -13,16 +13,17 @@ TODOTREE CODE OF HONOR after logging todos, pick a couple of things to work on e
 
         - [x] suggestion 1
 
-        - [ ] suggestion 2
+        - [x] suggestion 2
 
-        - [ ] suggestion 3
+        - [x] suggestion 3
 
             - [x] need tasks bloc to add chosen event
 
     - [x] suggest something fun should randomize an activity and show suggestions
     - [ ] picking suggested activity should redirect to taskpage
 
-    - [ ] need to figure out how to read activities, and then put them into a different store
+    - [x] need to figure out how to read activities, and then put them into a different store
+    - [x] The argument type 'Activity' can't be assigned to the parameter type 'Task'.dartargument_type_not_assignable
 
 
 
