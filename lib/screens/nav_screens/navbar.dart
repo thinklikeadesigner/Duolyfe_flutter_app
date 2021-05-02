@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:navigationapp/activity/activity_page.dart';
 import 'package:navigationapp/buddy/buddy_bloc/buddy_bloc.dart';
 import 'package:navigationapp/buddy/buddy_page.dart';
 import 'package:navigationapp/screens/home/home_page.dart';

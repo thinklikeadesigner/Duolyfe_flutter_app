@@ -79,16 +79,23 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
   }
 
   Stream<TaskState> _showSuggestedTasks() async* {
+    
     final newTask = RandomTaskGenerator.getRandomTask();
-    // final anotherTask = RandomTaskGenerator.getRandomTask();
-    // final finalTask = RandomTaskGenerator.getRandomTask();
 
-    // List tasks = [];
-    // tasks.add(newTask);
-    // tasks.add(anotherTask);
-    // tasks.add(finalTask);
-    //  newTask.timeAssigned = '';
 
+
+
+//FIXME The argument type 'Activity' can't be assigned to the parameter type 'Task'.dartargument_type_not_assignable
+//IDEA if i can typecast the activities into tasks, it might work
+//REFACTOR I need to change all activity 'types' into task 'types'
+//   final suggestedTask = await _activityDao
+        // .getAllSortedByName()
+        // .then((value) => value[Random().nextInt(value.length)]);
+    // yield TaskDisplayed(suggestedTask);
+
+
+
+//MAKEME add two more suggestions
     yield TaskDisplayed(newTask);
   }
 

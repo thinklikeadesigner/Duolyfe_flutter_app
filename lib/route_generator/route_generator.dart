@@ -79,8 +79,14 @@ class RouteGenerator {
         );
       case '/activitypage':
         return MaterialPageRoute(
-          builder: (context) =>
-              BlocProvider.value(value: _buddyBloc, child: ActivityPage()),
+          builder: (context) => MultiBlocProvider(
+            providers: [
+              BlocProvider.value(value: _buddyBloc),
+              BlocProvider.value(value: _taskBloc),
+              BlocProvider.value(value: _activityBloc),
+            ],
+            child: ActivityPage(),
+          ),
         );
 
       case '/homepage':
