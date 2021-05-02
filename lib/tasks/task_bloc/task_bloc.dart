@@ -31,8 +31,12 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
       yield TasksLoading();
       yield* _reloadTasks();
     } else if (event is AddRandomTask) {
-      // final newTask = RandomTaskGenerator.getRandomTask();
-      // newTask.timeAssigned = DateTime.now().toString();
+
+
+
+
+//       // newTask.timeAssigned = DateTime.now().toString();
+// 
       //   String convertDateTimeToString(DateTime dateTime) {
 //     return dateTime.toString();
 //   }
@@ -40,6 +44,7 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
 //   DateTime convertStringToDateTime(String stringTime) {
 //     return DateTime.parse(stringTime);
 //   }
+// 
       // Loading indicator shouldn't be displayed while adding/updating/deleting
       // a single Task from the database - we aren't yielding TasksLoading().
       // await _taskDao.insert(newTask);
@@ -86,15 +91,22 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
 //FIXME The argument type 'Activity' can't be assigned to the parameter type 'Task'.dartargument_type_not_assignable
 //IDEA if i can typecast the activities into tasks, it might work
 //REFACTOR I need to change all activity 'types' into task 'types'
-    final suggestedTask = await _activityDao
+    final firstSuggestion = await _activityDao
+        .getAllSortedByName()
+        .then((value) => value[Random().nextInt(value.length)]);
+    final secondSuggestion = await _activityDao
+        .getAllSortedByName()
+        .then((value) => value[Random().nextInt(value.length)]);
+            final thirdSuggestion = await _activityDao
         .getAllSortedByName()
         .then((value) => value[Random().nextInt(value.length)]);
 
+    
+
     // yield TaskDisplayed(suggestedTask);
-    print(suggestedTask);
 
 //MAKEME add two more suggestions
-    yield TaskDisplayed(suggestedTask);
+    yield TaskDisplayed([firstSuggestion, secondSuggestion, thirdSuggestion]);
   }
 
   Stream<TaskState> _clearTasks() async* {

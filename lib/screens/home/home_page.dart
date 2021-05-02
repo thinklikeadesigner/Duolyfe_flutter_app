@@ -364,9 +364,9 @@ class _HomePageState extends State<HomePage> {
             return ListView.builder(
               scrollDirection: Axis.vertical,
               shrinkWrap: true,
-              itemCount: 1,
+              itemCount: state.tasks.length,
               itemBuilder: (context, index) {
-                final displayedTask = state.task;
+                final displayedTask = state.tasks[index];
                 print(displayedTask);
                 // final newTime = DateTime.parse(displayedTask.timeAssigned);
                 // final newTime = DateTime.now();
