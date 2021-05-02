@@ -8,6 +8,7 @@ import 'package:navigationapp/screens/home/home_page.dart';
 import 'package:navigationapp/screens/nav_screens/navbar.dart';
 import 'package:navigationapp/splash/splash.dart';
 import 'package:navigationapp/tasks/task_bloc/bloc.dart';
+import 'package:navigationapp/tasks/task_page.dart';
 import 'error_route_page.dart';
 import '../screens/onboarding_screens/choose_interests.dart';
 import '../screens/onboarding_screens/choose_buddy.dart';
@@ -55,6 +56,17 @@ class RouteGenerator {
             child: ChooseInterests(),
           ),
         );
+      case '/taskpage':
+        return MaterialPageRoute(
+          builder: (context) => MultiBlocProvider(
+            providers: [
+              BlocProvider.value(value: _buddyBloc),
+              BlocProvider.value(value: _taskBloc),
+              BlocProvider.value(value: _activityBloc),
+            ],
+            child: TaskPage(),
+          ),
+        );
       case '/chooseworktime':
         return MaterialPageRoute(
           builder: (context) =>
@@ -67,8 +79,14 @@ class RouteGenerator {
         );
       case '/activitypage':
         return MaterialPageRoute(
-          builder: (context) =>
-              BlocProvider.value(value: _buddyBloc, child: ActivityPage()),
+          builder: (context) => MultiBlocProvider(
+            providers: [
+              BlocProvider.value(value: _buddyBloc),
+              BlocProvider.value(value: _taskBloc),
+              BlocProvider.value(value: _activityBloc),
+            ],
+            child: ActivityPage(),
+          ),
         );
 
       case '/homepage':

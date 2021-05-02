@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 import 'package:navigationapp/activity/models/models.dart';
+import 'package:navigationapp/tasks/models/models.dart';
 
 @immutable
 abstract class ActivityEvent extends Equatable {
@@ -25,12 +26,8 @@ class RemoveInterest extends ActivityEvent {
   RemoveInterest(this.chosenInterest) : super([chosenInterest]);
 }
 
-// FIXME i don't need to add a single activity, i just need to add the initial activities
-class AddRandomActivity extends ActivityEvent {
-  List<Object> get props => [];
-}
 
-// FIXME i don't need to add all activities, i just need to add the initial activities
+
 class AddAllActivities extends ActivityEvent {
   List<Object> get props => [];
 }
@@ -39,17 +36,16 @@ class AddFilteredActivities extends ActivityEvent {
   List<Object> get props => [];
 }
 
-// FIXME i don't need to update a single activity, i just need to add the initial activities
+
 class UpdateActivity extends ActivityEvent {
   List<Object> get props => [updatedActivity];
-  final Activity updatedActivity;
+  final Task updatedActivity;
 
   UpdateActivity(this.updatedActivity) : super([updatedActivity]);
 }
 
-// FIXME i don't need to delete a single activity, i just need to add the initial activities
 class DeleteActivity extends ActivityEvent {
-  final Activity activity;
+  final Task activity;
   List<Object> get props => [activity];
   DeleteActivity(this.activity) : super([activity]);
 }

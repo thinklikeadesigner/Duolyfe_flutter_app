@@ -148,7 +148,7 @@ class _ChooseWorkTimeState extends State<ChooseWorkTime> {
                       padding: EdgeInsets.fromLTRB(16, 10, 16, 28),
                       child: Column(
                         children: [
-                          //PENDING flatbutton to textbutton
+                          //REFACTOR flatbutton to textbutton
                           FlatButton(
                               child: Text(
                                 'Pick Time',
@@ -179,7 +179,7 @@ class _ChooseWorkTimeState extends State<ChooseWorkTime> {
 
                                 // Navigator.of(context).pushNamed('/');
                               }),
-                          //PENDING flatbutton to textbutton
+                          //REFACTOR flatbutton to textbutton
                           FlatButton(
                               child: Text(
                                 'Save',

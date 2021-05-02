@@ -6,18 +6,18 @@ import 'package:navigationapp/screens/home/home_page.dart';
 import 'package:navigationapp/screens/settings/settings.dart';
 import 'package:navigationapp/tasks/task_bloc/bloc.dart';
 
-class NavBar extends StatefulWidget {
+class TestNavBar extends StatefulWidget {
   static Route route() {
-    return MaterialPageRoute<void>(builder: (_) => NavBar());
+    return MaterialPageRoute<void>(builder: (_) => TestNavBar());
   }
 
   @override
   State<StatefulWidget> createState() {
-    return _NavBarState();
+    return _TestNavBarState();
   }
 }
 
-class _NavBarState extends State<NavBar> {
+class _TestNavBarState extends State<TestNavBar> {
   int _currentIndex = 0;
   final List<Widget> _children = [HomePage(), BuddyPage(), SettingsPage()];
 

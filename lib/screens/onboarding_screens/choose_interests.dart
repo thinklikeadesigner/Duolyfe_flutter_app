@@ -15,7 +15,7 @@ class ChooseInterests extends StatefulWidget {
   _ChooseInterestsState createState() => _ChooseInterestsState();
 }
 
-//NEED tasks bloc to add chosen event
+
 
 class _ChooseInterestsState extends State<ChooseInterests> {
   BuddyBloc _buddyBloc;
@@ -37,39 +37,18 @@ class _ChooseInterestsState extends State<ChooseInterests> {
     _readTasksFile.readJson().then((value) => print(value));
   }
 
-  // String _currentBuddy;
-  // bool _completedOnboarding;
-  //DEAD not adding activity to chat bubble anymore
-  //REFACTOR we can add activity to chat bubble later, not important
-  // List<String> _nextWidgetArguments = List<String>(2);
-  List _currentInterests = [];
-  final Map<String, dynamic> interestList = {
-    "interests": [
-      "cooking",
-      "fun",
-      "health",
-      "indoor",
-      "mind",
-      "outdoor",
-      "personal development",
-      "social"
-    ]
-  };
+
 
   void _onInterestSelected(bool selected, interest) {
     if (selected == true) {
       setState(() {
-        //test check if added to activity store
-        //COMPLETE yes it adds
-        //QUESTION do we need this?
+
         _currentInterests.add(interest);
         _activityBloc.add(AddInterest(interest));
       });
     } else {
       setState(() {
-        //test check if removed from activity store
-        //COMPLETE yes it does
-        ////QUESTION do we need this?
+
         _currentInterests.remove(interest);
         _activityBloc.add(RemoveInterest(interest));
       });
@@ -186,7 +165,7 @@ class _ChooseInterestsState extends State<ChooseInterests> {
                           ),
                           //GOOGLE disable save button
                           //FIXME save button not greyed out
-                          //BUG " Unhandled Exception: Could not find a generator for route RouteSettings("/activitypage", null) in the _WidgetsAppState."
+
                           onPressed: _currentInterests.length < 3
                               ? null
                               : () async {
@@ -207,3 +186,17 @@ class _ChooseInterestsState extends State<ChooseInterests> {
 }
 
 // https://mightytechno.com/flutter-disable-enable-button/
+
+List _currentInterests = [];
+final Map<String, dynamic> interestList = {
+  "interests": [
+    "cooking",
+    "fun",
+    "health",
+    "indoor",
+    "mind",
+    "outdoor",
+    "personal development",
+    "social"
+  ]
+};
