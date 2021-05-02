@@ -12,8 +12,7 @@ class LoadTasks extends TaskEvent {
   List<Object> get props => [];
 }
 
-//NEED change to add task from activity store event AND RANDOMIZE
-class AddRandomTask extends TaskEvent {
+class SuggestTasks extends TaskEvent {
   List<Object> get props => [];
 }
 

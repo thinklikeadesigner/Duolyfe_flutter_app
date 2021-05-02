@@ -126,7 +126,7 @@ class _HomePageState extends State<HomePage> {
                                   splashColor: Colors.blue.withAlpha(30),
                                   onTap: () {
                                     setState(() {
-                                      _taskBloc.add(AddRandomTask());
+                                      _taskBloc.add(SuggestTasks());
                                       suggested = true;
                                     });
                                   },

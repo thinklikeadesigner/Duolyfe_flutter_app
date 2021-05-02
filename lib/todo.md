@@ -24,6 +24,9 @@ TODOTREE CODE OF HONOR after logging todos, pick a couple of things to work on e
 
     - [x] need to figure out how to read activities, and then put them into a different store
     - [x] The argument type 'Activity' can't be assigned to the parameter type 'Task'.dartargument_type_not_assignable
+    - [x] I need to change all activity 'types' into task 'types'
+    - [x] add two more suggestions
+    - [x] change to add task from activity store event AND RANDOMIZE
 
 
 
