@@ -32,7 +32,7 @@ class _ActivityPageState extends State<ActivityPage> {
         floatingActionButton: FloatingActionButton(
           child: Icon(Icons.add),
           onPressed: () {
-            _activityBloc.add(AddRandomActivity());
+            _activityBloc.add(AddAllActivities());
           },
         ),
         bottomSheet: Row(
@@ -47,8 +47,6 @@ class _ActivityPageState extends State<ActivityPage> {
                   _activityBloc.add(AddFilteredActivities());
                 },
                 child: Text('filter')),
-            _buildUpdateDeleteButtons(),
-            _buildDeleteButtons(),
           ],
         ));
   }
@@ -91,10 +89,6 @@ class _ActivityPageState extends State<ActivityPage> {
                 background: Container(color: primaryTeal),
                 child: GestureDetector(
                   onTap: () {
-                    //TEST do i need this?
-                    // print(displayedActivity.completed);
-                    // displayedActivity.completed = !displayedActivity.completed;
-                    // print(displayedActivity.completed);
                     _activityBloc.add(UpdateActivity(displayedActivity));
                   },
                   child: Card(
@@ -145,39 +139,6 @@ class _ActivityPageState extends State<ActivityPage> {
         }
         return Center();
       },
-    );
-  }
-
-//TEST check these functions and tell me what happens
-  Row _buildUpdateDeleteButtons() {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        IconButton(
-          icon: Icon(Icons.refresh),
-          onPressed: () {
-            _activityBloc.add(AddRandomActivity());
-          },
-        ),
-      ],
-    );
-  }
-
-//TEST check these functions and tell me what happens
-  Row _buildDeleteButtons() {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        IconButton(
-          icon: Icon(Icons.ac_unit),
-          onPressed: () {
-            //BUG this is adding social activities
-            //BUG clicking on card removes all the activities
-            //IDEA maybe getallactivitiessorted adds the activities
-            _activityBloc.add(RemoveInterest('social'));
-          },
-        ),
-      ],
     );
   }
 }

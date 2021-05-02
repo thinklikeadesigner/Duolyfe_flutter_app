@@ -60,6 +60,7 @@ class LoginForm extends StatelessWidget {
               SizedBox(height: 10.0),
               SizedBox(height: 10.0),
               SizedBox(height: 10.0),
+              //FIXME SIZE OF LOGO TOO SMALL
               Image(
                 image: AssetImage("panda.png"),
                 height: MediaQuery.of(context).size.height * 0.3,

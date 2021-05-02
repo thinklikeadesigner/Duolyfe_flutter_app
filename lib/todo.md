@@ -2,22 +2,53 @@ TODOTREE CODE OF HONOR after logging todos, pick a couple of things to work on e
 
 
 
-- [x] create todo system
-- [x] I worked my way down to the buddy folder
-- [ ] please check the other folders and files for missing pieces
-- [ ] URGENT need to figure out how to read activities, and then put them into a different store
-- [x] TEST check if adds interest to activity store
-- [x] TEST check if removes interest to activity store
-- [ ] TEST these functions and tell me what happens
-- [x] TEST if added to activity store
-- [x] TEST if removed from activity store
-- [ ] FIXME I dont need to add all activities, just initial activities
-- [ ] FIXME I don't need to add a single activity, just the initial activities
-- [ ] FIXME I don't need to delete a single activity, just the initial activities
-- [ ] PENDING need to find out how to enter text, make suggestions using activity bloc
-- [ ]
-- [ ]
+
+    - [ ]  need to figure out how to read Activity<List> from ACTIVITY_STORE, and put text on the buttons. 
+    
+
+    - [x]  need to find out how to enter text onto buttons on HomePage from the output of TaskBloc's random tasks, for at least one button.
+
+    - [x] suggestion should appear on button
+    - [x] need to find out how to enter text, and make suggestions using activity bloc
+
+        - [x] suggestion 1
+
+        - [ ] suggestion 2
+
+        - [ ] suggestion 3
+
+            - [x] need tasks bloc to add chosen event
+
+    - [x] suggest something fun should randomize an activity and show suggestions
+    - [ ] picking suggested activity should redirect to taskpage
+
+    - [ ] need to figure out how to read activities, and then put them into a different store
 
 
 
 
+
+
+
+    "PENDING",
+    "WTF",
+    "GOOGLE",
+    "NEED",
+    "SPECS",
+    "FUTURE",
+    "QUESTION",
+    "CREATED",
+    "TEST",
+    "MAKEME",
+    "REFACTOR",
+    "IDEA",
+    "UNPLUGGED",
+    "NOTE",
+    "URGENT",
+    "FIXME",
+    "DEAD",
+    "COMPLETE",
+    "BUG",
+    "DUE",
+    "[ ]",
+    "[x]"

@@ -9,8 +9,8 @@ class TaskPage extends StatefulWidget {
   _TaskPageState createState() => _TaskPageState();
 }
 
-/* GOOGLE find out how to move the button to the homepage so we can just have the tasks on the taskpage only complete a task once, disable completed tasks need a readonly store for interest, activities, and buddies
-*/
+
+
 //SPECS this is where points are added to buddy, tasks are completed, and time is assigned
 
 class _TaskPageState extends State<TaskPage> {
@@ -58,7 +58,8 @@ class _TaskPageState extends State<TaskPage> {
             itemCount: state.tasks.length,
             itemBuilder: (context, index) {
               final displayedTask = state.tasks[index];
-              final newTime = DateTime.parse(displayedTask.timeAssigned);
+              //BUG wont display time properly
+              // final newTime = DateTime.parse(displayedTask.timeAssigned);
               // final newTime = DateTime.now();
               Icon check;
               String completed;
@@ -91,9 +92,6 @@ class _TaskPageState extends State<TaskPage> {
                 background: Container(color: primaryTeal),
                 child: GestureDetector(
                   onTap: () {
-                    // print(displayedTask.completed);
-                    displayedTask.completed = !displayedTask.completed;
-                    // print(displayedTask.completed);
                     _taskBloc.add(UpdateTask(displayedTask));
                   },
                   child: Card(
@@ -128,10 +126,11 @@ class _TaskPageState extends State<TaskPage> {
                                       SizedBox(height: 10),
                                       Text(completed),
                                       SizedBox(height: 10),
-                                      Text(
-                                        '${newTime.month}/${newTime.day}/${newTime.year} at ${newTime.hour}:${newTime.minute} and ${newTime.second} seconds',
-                                        style: TextStyle(fontSize: 10),
-                                      ),
+                                      //BUG wont display time properly
+                                      // Text(
+                                      //   '${newTime.month}/${newTime.day}/${newTime.year} at ${newTime.hour}:${newTime.minute} and ${newTime.second} seconds',
+                                      //   style: TextStyle(fontSize: 10),
+                                      // ),
                                       SizedBox(height: 10),
                                     ],
                                   ),

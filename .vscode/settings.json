@@ -1,5 +1,6 @@
 {
     "todo-tree.tree.showCountsInTree": true,
     "todo-tree.tree.disableCompactFolders": true,
-    "todo-tree.tree.showBadges": false
+    "todo-tree.tree.showBadges": false,
+    "clockify.tracking.workspaceId": "5f27347255cce44b6e2241b5"
 }
