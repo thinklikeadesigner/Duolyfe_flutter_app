@@ -30,3 +30,31 @@ it isn't semantically correct to make a user store/collection/table
 
 The solution:
 While there isn't a user, there is a buddy. If you think about it, it is the buddy that sends you the notification, the buddy that alerts you that the onboarding is complete, the buddy that has health, and treats, etc. Therefore I modified the buddy model to include the standard "user" information
+
+
+May 1 2021
+
+What I did:
+Suggestion is displayed on a button
+
+The problem:
+I was having trouble figuring out how to display the task without adding it to the user's task list. In the past, I could add a task to the page but it was also added to the db. The use case here, was to only display the activity, as a possibility, but not save it to the users task unless they picked it.
+
+The solution:
+When the task is displayed, I don't need to 'add' it to the db. I can take it, and just display it by essentially holding it in memory until the user decides to do something with it. If the user navigates away from the screen or asks for another suggestion, that task disappears.
+
+What I did:
+Added task to the next page
+
+The problem:
+As a continuation of the first problem, how do I add this activity to the next page if it isn't saved anywhere? 
+
+The solution:
+As long as the activity is displayed on the page, you can still add it to the db. So i just added an extra step between adding an activity to the page and saving it. instead of adding it to the page and saving it to the db at the same time, I added an extra step. This eliminated the need for a third store.
+
+what i did: used the bloc pattern to save the state
+
+the problem: 
+how do I add the text to the button from the db?
+
+the solution: I can use the same method to display a task on the task page, minus the part that adds it to the db. Also, since I can display only what I need, I don't have to grab a specific part of the data. i can get the whole object and only display the text.

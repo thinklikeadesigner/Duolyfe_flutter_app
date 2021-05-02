@@ -404,7 +404,7 @@ class _HomePageState extends State<HomePage> {
                       // print(displayedTask.completed);
                       // displayedTask.completed = !displayedTask.completed;
                       // print(displayedTask.completed);
-                      _taskBloc.add(UpdateTask(displayedTask));
+                      _taskBloc.add(AddChosenTask(displayedTask));
                     },
                     child: Card(
                         shape: RoundedRectangleBorder(

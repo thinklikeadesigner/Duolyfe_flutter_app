@@ -58,7 +58,8 @@ class _TaskPageState extends State<TaskPage> {
             itemCount: state.tasks.length,
             itemBuilder: (context, index) {
               final displayedTask = state.tasks[index];
-              final newTime = DateTime.parse(displayedTask.timeAssigned);
+              //BUG wont display time properly
+              // final newTime = DateTime.parse(displayedTask.timeAssigned);
               // final newTime = DateTime.now();
               Icon check;
               String completed;
@@ -128,10 +129,11 @@ class _TaskPageState extends State<TaskPage> {
                                       SizedBox(height: 10),
                                       Text(completed),
                                       SizedBox(height: 10),
-                                      Text(
-                                        '${newTime.month}/${newTime.day}/${newTime.year} at ${newTime.hour}:${newTime.minute} and ${newTime.second} seconds',
-                                        style: TextStyle(fontSize: 10),
-                                      ),
+                                      //BUG wont display time properly
+                                      // Text(
+                                      //   '${newTime.month}/${newTime.day}/${newTime.year} at ${newTime.hour}:${newTime.minute} and ${newTime.second} seconds',
+                                      //   style: TextStyle(fontSize: 10),
+                                      // ),
                                       SizedBox(height: 10),
                                     ],
                                   ),

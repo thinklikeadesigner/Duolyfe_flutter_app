@@ -40,6 +40,7 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
       // Loading indicator shouldn't be displayed while adding/updating/deleting
       // a single Task from the database - we aren't yielding TasksLoading().
       // await _taskDao.insert(newTask);
+      // 
       yield* _showSuggestedTasks();
     } else if (event is AddAllTasks) {
       yield* _preloadTasks();
@@ -59,6 +60,11 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
       yield* _reloadTasks();
     } else if (event is DeleteTask) {
       await _taskDao.delete(event.task);
+      yield* _reloadTasks();
+    } 
+     else if (event is AddChosenTask) {
+       //QUESTION do we need to add the time
+      await _taskDao.insert(event.task);
       yield* _reloadTasks();
     } else if (event is ClearTasks) {
       yield* _clearTasks();
@@ -81,6 +87,7 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
     // tasks.add(newTask);
     // tasks.add(anotherTask);
     // tasks.add(finalTask);
+    //  newTask.timeAssigned = '';
 
     yield TaskDisplayed(newTask);
   }
