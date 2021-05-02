@@ -1,3 +1,4 @@
+import 'package:navigationapp/tasks/models/models.dart';
 import 'package:sembast/sembast.dart';
 
 import '../repositories/app_database.dart';
@@ -9,14 +10,14 @@ class ActivityDao {
 
   Future<Database> get _db async => await AppDatabase.instance.database;
 
-  Future insert(Activity activity) async {
+  Future insert(Task activity) async {
     print('added to activity store');
     await _activityStore.add(await _db, activity.toMap());
   }
 
 //NOTE i don't need to update, bc activites are added and removed in bulk, and they aren't changed here
 
-  Future update(Activity activity) async {
+  Future update(Task activity) async {
     final finder = Finder(filter: Filter.byKey(activity.id));
     await _activityStore.update(
       await _db,
@@ -25,7 +26,7 @@ class ActivityDao {
     );
   }
 
-  Future delete(Activity activity) async {
+  Future delete(Task activity) async {
     final finder = Finder(filter: Filter.byKey(activity.id));
     print('deleted to activity store');
     await _activityStore.delete(
@@ -34,7 +35,7 @@ class ActivityDao {
     );
   }
 
-  Future<List<Activity>> getAllSortedByName() async {
+  Future<List<Task>> getAllSortedByName() async {
     final finder = Finder(sortOrders: [
       SortOrder('name'),
     ]);
@@ -46,7 +47,7 @@ class ActivityDao {
 
     return recordSnapshots.map((snapshot) {
       print(snapshot);
-      final activity = Activity.fromMap(snapshot.value);
+      final activity = Task.fromMap(snapshot.value);
       activity.id = snapshot.key;
       return activity;
     }).toList();

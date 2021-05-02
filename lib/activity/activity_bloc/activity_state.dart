@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 import 'package:navigationapp/activity/models/models.dart';
+import 'package:navigationapp/tasks/models/models.dart';
 
 @immutable
 abstract class ActivityState extends Equatable {
@@ -13,7 +14,7 @@ class ActivitiesLoading extends ActivityState {
 }
 
 class ActivitiesLoaded extends ActivityState {
-  final List<Activity> activities;
+  final List<Task> activities;
 
   ActivitiesLoaded(this.activities) : super([activities]);
   List<Object> get props => [activities];

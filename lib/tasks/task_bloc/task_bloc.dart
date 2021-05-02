@@ -1,5 +1,7 @@
 import 'dart:async';
+import 'dart:math';
 import 'package:bloc/bloc.dart';
+import 'package:navigationapp/activity/activity_dao.dart';
 import 'package:navigationapp/tasks/services/task_service.dart';
 import '../task_dao.dart';
 import 'bloc.dart';
@@ -13,6 +15,7 @@ import 'bloc.dart';
 
 class TaskBloc extends Bloc<TaskEvent, TaskState> {
   TaskDao _taskDao = TaskDao();
+  ActivityDao _activityDao = ActivityDao();
 
   TaskBloc() : super(TasksLoading());
 
@@ -40,7 +43,7 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
       // Loading indicator shouldn't be displayed while adding/updating/deleting
       // a single Task from the database - we aren't yielding TasksLoading().
       // await _taskDao.insert(newTask);
-      // 
+      //
       yield* _showSuggestedTasks();
     } else if (event is AddAllTasks) {
       yield* _preloadTasks();
@@ -61,9 +64,8 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
     } else if (event is DeleteTask) {
       await _taskDao.delete(event.task);
       yield* _reloadTasks();
-    } 
-     else if (event is AddChosenTask) {
-       //QUESTION do we need to add the time
+    } else if (event is AddChosenTask) {
+      //QUESTION do we need to add the time
       await _taskDao.insert(event.task);
       yield* _reloadTasks();
     } else if (event is ClearTasks) {
@@ -79,24 +81,20 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
   }
 
   Stream<TaskState> _showSuggestedTasks() async* {
-    
-    final newTask = RandomTaskGenerator.getRandomTask();
-
-
-
+    // final newTask = RandomTaskGenerator.getRandomTask();
 
 //FIXME The argument type 'Activity' can't be assigned to the parameter type 'Task'.dartargument_type_not_assignable
 //IDEA if i can typecast the activities into tasks, it might work
 //REFACTOR I need to change all activity 'types' into task 'types'
-//   final suggestedTask = await _activityDao
-        // .getAllSortedByName()
-        // .then((value) => value[Random().nextInt(value.length)]);
+    final suggestedTask = await _activityDao
+        .getAllSortedByName()
+        .then((value) => value[Random().nextInt(value.length)]);
+
     // yield TaskDisplayed(suggestedTask);
-
-
+    print(suggestedTask);
 
 //MAKEME add two more suggestions
-    yield TaskDisplayed(newTask);
+    yield TaskDisplayed(suggestedTask);
   }
 
   Stream<TaskState> _clearTasks() async* {

@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 import 'package:navigationapp/activity/models/models.dart';
+import 'package:navigationapp/tasks/models/models.dart';
 
 @immutable
 abstract class ActivityEvent extends Equatable {
@@ -38,13 +39,13 @@ class AddFilteredActivities extends ActivityEvent {
 
 class UpdateActivity extends ActivityEvent {
   List<Object> get props => [updatedActivity];
-  final Activity updatedActivity;
+  final Task updatedActivity;
 
   UpdateActivity(this.updatedActivity) : super([updatedActivity]);
 }
 
 class DeleteActivity extends ActivityEvent {
-  final Activity activity;
+  final Task activity;
   List<Object> get props => [activity];
   DeleteActivity(this.activity) : super([activity]);
 }
