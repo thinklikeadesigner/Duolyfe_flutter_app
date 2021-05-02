@@ -29,7 +29,6 @@ class AddChosenTask extends TaskEvent {
 
 
 
-//TEST USE RANDOM EVENT TO TEST SELECTING ACTIVITY ON HOMEPAGE
 class UpdateWithRandomTask extends TaskEvent {
   List<Object> get props => [updatedTask];
   final Task updatedTask;
@@ -37,7 +36,6 @@ class UpdateWithRandomTask extends TaskEvent {
   UpdateWithRandomTask(this.updatedTask) : super([updatedTask]);
 }
 
-//SPECS this will update completion status
 //IDEA should there be an event that updates point status?
 class UpdateTask extends TaskEvent {
   List<Object> get props => [updatedTask];

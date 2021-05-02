@@ -37,10 +37,7 @@ class _HomePageState extends State<HomePage> {
     _taskBloc.add(LoadTasks());
   }
 
-
   bool suggested = false;
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -50,9 +47,6 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _buildBody() {
- 
-
-
     return BlocBuilder<BuddyBloc, BuddyState>(builder: (context, state) {
       if (state is BuddiesLoading) {
         return Center(
@@ -223,63 +217,7 @@ class _HomePageState extends State<HomePage> {
                       ? SizedBox(height: 0.0)
                       : Container(
                           child: _buildList(),
-                        )
-                  // : Column(
-                  //     mainAxisAlignment: MainAxisAlignment.start,
-                  //     children: [
-                  //       TextButton(
-                  //           child: Text(
-                  //             textHolder1,
-                  //             style: TextStyle(color: Colors.black),
-                  //           ),
-                  //           style: TextButton.styleFrom(
-                  //             fixedSize: Size(300, 10),
-                  //             primary: Colors.black,
-                  //             backgroundColor: primaryTeal,
-                  //             shape: RoundedRectangleBorder(
-                  //               borderRadius: BorderRadius.circular(18.0),
-                  //             ),
-                  //           ),
-                  //           onPressed: () {
-                  //             //MAKEME suggestion 1
-                  //           }),
-                  //       TextButton(
-                  //           child: Text(
-                  //             textHolder2,
-                  //             style: TextStyle(color: Colors.black),
-                  //           ),
-                  //           style: TextButton.styleFrom(
-                  //             fixedSize: Size(300, 10),
-                  //             primary: Colors.black,
-                  //             backgroundColor: primaryTeal,
-                  //             shape: RoundedRectangleBorder(
-                  //               borderRadius: BorderRadius.circular(18.0),
-                  //             ),
-                  //           ),
-                  //           onPressed: () {
-                  //             //MAKEME suggestion 2
-                  //           }),
-                  //       TextButton(
-                  //           child: Text(
-                  //             textHolder3,
-                  //             style: TextStyle(color: Colors.black),
-                  //           ),
-                  //           style: TextButton.styleFrom(
-                  //             fixedSize: Size(300, 10),
-                  //             primary: Colors.black,
-                  //             backgroundColor: primaryTeal,
-                  //             shape: RoundedRectangleBorder(
-                  //               borderRadius: BorderRadius.circular(18.0),
-                  //             ),
-                  //           ),
-                  //           onPressed: () {
-                  //             //MAKEME suggestion 3
-                  //           }),
-                  //       SizedBox(
-                  //         height: 30,
-                  //       ),
-                  //     ],
-                  //   ),
+                        ),
                 ],
               ),
             ),
@@ -301,101 +239,31 @@ class _HomePageState extends State<HomePage> {
             );
           } else if (state is TaskDisplayed) {
             return ListView.builder(
-              scrollDirection: Axis.vertical,
-              shrinkWrap: true,
-              itemCount: state.tasks.length,
-              itemBuilder: (context, index) {
-                final displayedTask = state.tasks[index];
-                print(displayedTask);
-                // final newTime = DateTime.parse(displayedTask.timeAssigned);
-                // final newTime = DateTime.now();
-                // Icon check;
-                // String completed;
-                // if (displayedTask.completed == true) {
-                //   check = Icon(Icons.radio_button_checked);
-                //   completed = "Completed!";
-                // } else {
-                //   check = Icon(Icons.radio_button_off);
-                //   completed = "Tap to mark complete!";
-                // }
+                scrollDirection: Axis.vertical,
+                shrinkWrap: true,
+                itemCount: state.tasks.length,
+                itemBuilder: (context, index) {
+                  final displayedTask = state.tasks[index];
 
-                return Dismissible(
-                  // uniquely identify widgets.
-                  key: Key(displayedTask.id.toString()),
-                  // Provide a function that tells the app
-                  // what to do after an item has been swiped away.
-                  onDismissed: (direction) {
-                    // Remove the item from the data source.
-                    setState(() {
-                      _taskBloc.add(DeleteTask(displayedTask));
 
-                      // state.tasks.removeAt(index);
-                    });
-
-                    // Then show a snackbar.
-                    ScaffoldMessenger.of(context)
-                        .showSnackBar(SnackBar(content: Text("task deleted")));
-                  },
-                  // Show a red background as the item is swiped away.
-                  background: Container(color: primaryTeal),
-                  child: GestureDetector(
-                    onTap: () {
-                      // print(displayedTask.completed);
-                      // displayedTask.completed = !displayedTask.completed;
-                      // print(displayedTask.completed);
-                      _taskBloc.add(AddChosenTask(displayedTask));
-                    },
-                    child: Card(
+                  return TextButton(
+                      child: Text(
+                        displayedTask.activity,
+                        style: TextStyle(color: Colors.black),
+                      ),
+                      style: TextButton.styleFrom(
+                        fixedSize: Size(300, 10),
+                        primary: Colors.black,
+                        backgroundColor: primaryTeal,
                         shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15)),
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Container(
-                                child: Row(
-                                  children: [
-                                    // Icon(
-                                    //     IconData(displayedTask.icon,
-                                    //         fontFamily: 'MaterialIcons'),
-                                    //     size: 40),
-                                    // // Icon(Icons.spa),
-                                    // SizedBox(
-                                    //   width: 30,
-                                    // ),
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        // SizedBox(height: 10),
-                                        Text(
-                                          displayedTask.activity,
-                                          style: TextStyle(fontSize: 20),
-                                        ),
-                                        // SizedBox(height: 10),
-                                        // // Text(completed),
-                                        // SizedBox(height: 10),
-                                        // Text(
-                                        //   '${newTime.month}/${newTime.day}/${newTime.year} at ${newTime.hour}:${newTime.minute} and ${newTime.second} seconds',
-                                        //   style: TextStyle(fontSize: 10),
-                                        // ),
-                                        // SizedBox(height: 10),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              // _buildUpdateDeleteButtons(displayedTask),
-                              // check,
-                            ],
-                          ),
-                        )),
-                  ),
+                          borderRadius: BorderRadius.circular(18.0),
+                        ),
+                      ),
+                      onPressed: () {
+                        _taskBloc.add(AddChosenTask(displayedTask));
+                      });
+                }
                 );
-              },
-            );
           }
           return Center();
         },
@@ -403,23 +271,4 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Row _buildUpdateDeleteButtons(Task displayedTask) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        IconButton(
-          icon: Icon(Icons.refresh),
-          onPressed: () {
-            _taskBloc.add(UpdateTask(displayedTask));
-          },
-        ),
-        // IconButton(
-        //   icon: Icon(Icons.delete_outline),
-        //   onPressed: () {
-        //     _taskBloc.add(DeleteTask(displayedTask));
-        //   },
-        // ),
-      ],
-    );
-  }
 }
