@@ -16,7 +16,6 @@ class SuggestTasks extends TaskEvent {
   List<Object> get props => [];
 }
 
-//NOTE adds all tasks from activity store, different root
 class AddAllTasks extends TaskEvent {
   List<Object> get props => [];
 }

@@ -5,7 +5,7 @@ import 'package:navigationapp/activity/activity_page.dart';
 import 'package:navigationapp/buddy/buddy_bloc/buddy_bloc.dart';
 import 'package:navigationapp/buddy/buddy_page.dart';
 import 'package:navigationapp/screens/home/home_page.dart';
-import 'package:navigationapp/screens/nav_screens/navbar.dart';
+import 'package:navigationapp/screens/navbar/navbar_page.dart';
 import 'package:navigationapp/splash/splash.dart';
 import 'package:navigationapp/tasks/task_bloc/bloc.dart';
 import 'package:navigationapp/tasks/task_page.dart';

@@ -58,9 +58,7 @@ class ActivityBloc extends Bloc<ActivityEvent, ActivityState> {
 
   Stream<ActivityState> _reloadActivities() async* {
     final activities = await _activityDao.getAllSortedByName();
-    //NOTE this prints [instance of Activity]
     print(activities);
-    // Yielding a state bundled with the Activities from the database.
     yield ActivitiesLoaded(activities);
   }
 

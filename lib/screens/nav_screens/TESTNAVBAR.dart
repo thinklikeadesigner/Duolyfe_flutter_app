@@ -1,65 +1,67 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:navigationapp/buddy/buddy_bloc/buddy_bloc.dart';
-import 'package:navigationapp/buddy/buddy_page.dart';
-import 'package:navigationapp/screens/home/home_page.dart';
-import 'package:navigationapp/screens/settings/settings.dart';
-import 'package:navigationapp/tasks/task_bloc/bloc.dart';
 
-class TestNavBar extends StatefulWidget {
-  static Route route() {
-    return MaterialPageRoute<void>(builder: (_) => TestNavBar());
-  }
+//QUESTION do i need this
+// import 'package:flutter/material.dart';
+// import 'package:flutter_bloc/flutter_bloc.dart';
+// import 'package:navigationapp/buddy/buddy_bloc/buddy_bloc.dart';
+// import 'package:navigationapp/buddy/buddy_page.dart';
+// import 'package:navigationapp/screens/home/home_page.dart';
+// import 'package:navigationapp/screens/settings/settings.dart';
+// import 'package:navigationapp/tasks/task_bloc/bloc.dart';
 
-  @override
-  State<StatefulWidget> createState() {
-    return _TestNavBarState();
-  }
-}
+// class TestNavBar extends StatefulWidget {
+//   static Route route() {
+//     return MaterialPageRoute<void>(builder: (_) => TestNavBar());
+//   }
 
-class _TestNavBarState extends State<TestNavBar> {
-  int _currentIndex = 0;
-  final List<Widget> _children = [HomePage(), BuddyPage(), SettingsPage()];
+//   @override
+//   State<StatefulWidget> createState() {
+//     return _TestNavBarState();
+//   }
+// }
 
-  void onTabTapped(int index) {
-    setState(() {
-      _currentIndex = index;
-    });
-  }
+// class _TestNavBarState extends State<TestNavBar> {
+//   int _currentIndex = 0;
+//   final List<Widget> _children = [HomePage(), BuddyPage(), SettingsPage()];
 
-  @override
-  Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider<BuddyBloc>(
-          create: (BuildContext context) => BuddyBloc(),
-        ),
-        BlocProvider<TaskBloc>(
-          create: (BuildContext context) => TaskBloc(),
-        ),
-      ],
-      child: Scaffold(
-        body: _children[_currentIndex], // new
-        bottomNavigationBar: BottomNavigationBar(
-          onTap: onTabTapped, // new
-          currentIndex: _currentIndex,
-          selectedItemColor: Colors.black, // new
-          items: [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.pets),
-              label: 'Buddy',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.favorite),
-              label: 'Self-Care',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.settings),
-              label: 'Settings',
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
+//   void onTabTapped(int index) {
+//     setState(() {
+//       _currentIndex = index;
+//     });
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return MultiBlocProvider(
+//       providers: [
+//         BlocProvider<BuddyBloc>(
+//           create: (BuildContext context) => BuddyBloc(),
+//         ),
+//         BlocProvider<TaskBloc>(
+//           create: (BuildContext context) => TaskBloc(),
+//         ),
+//       ],
+//       child: Scaffold(
+//         body: _children[_currentIndex], // new
+//         bottomNavigationBar: BottomNavigationBar(
+//           onTap: onTabTapped, // new
+//           currentIndex: _currentIndex,
+//           selectedItemColor: Colors.black, // new
+//           items: [
+//             BottomNavigationBarItem(
+//               icon: Icon(Icons.pets),
+//               label: 'Buddy',
+//             ),
+//             BottomNavigationBarItem(
+//               icon: Icon(Icons.favorite),
+//               label: 'Self-Care',
+//             ),
+//             BottomNavigationBarItem(
+//               icon: Icon(Icons.settings),
+//               label: 'Settings',
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }

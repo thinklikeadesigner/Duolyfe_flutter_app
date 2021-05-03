@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:navigationapp/activity/activity_page.dart';
 import 'package:navigationapp/buddy/buddy_bloc/buddy_bloc.dart';
-import 'package:navigationapp/buddy/buddy_page.dart';
 import 'package:navigationapp/screens/home/home_page.dart';
-import 'package:navigationapp/screens/onboarding_screens/onboarding_screens.dart';
 import 'package:navigationapp/screens/settings/settings.dart';
 import 'package:navigationapp/activity/activity_bloc/bloc.dart';
 import 'package:navigationapp/tasks/task_bloc/bloc.dart';
@@ -70,3 +67,5 @@ class _NavBarState extends State<NavBar> {
     );
   }
 }
+
+
