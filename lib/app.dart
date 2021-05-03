@@ -60,7 +60,7 @@ class _AppViewState extends State<AppView> {
               case AuthenticationStatus.authenticated:
                 _navigator.pushAndRemoveUntil<void>(
                   //NOTE MUST REROUTE TO NAVBAR NOT HOME
-                 NavBar.route(),
+                 OnboardingStart.route(),
                   (route) => false,
                 );
                 break;

@@ -170,7 +170,7 @@ class _ChooseInterestsState extends State<ChooseInterests> {
                               ? null
                               : () async {
                                   Navigator.of(context).pushNamed(
-                                    '/activitypage',
+                                    '/navbar',
                                   );
                                 }),
                     ]),

@@ -21,6 +21,7 @@ TODOTREE CODE OF HONOR after logging todos, pick a couple of things to work on e
 
     - [x] suggest something fun should randomize an activity and show suggestions
     - [ ] picking suggested activity should redirect to taskpage
+     -[ ] use bloc to manage navbar state so you can access the navbar index outside of the navbar widget
 
     - [x] need to figure out how to read activities, and then put them into a different store
     - [x] The argument type 'Activity' can't be assigned to the parameter type 'Task'.dartargument_type_not_assignable
@@ -31,7 +32,7 @@ TODOTREE CODE OF HONOR after logging todos, pick a couple of things to work on e
 
 
 
-
+https://specstimate.com/
 
 
     "PENDING",

@@ -230,6 +230,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget _buildList() {
     return Container(
+      width: 282,
       child: BlocBuilder<TaskBloc, TaskState>(
         // Whenever there is a new state emitted from the bloc, builder runs.
         builder: (BuildContext context, TaskState state) {
@@ -252,7 +253,7 @@ class _HomePageState extends State<HomePage> {
                         style: TextStyle(color: Colors.black),
                       ),
                       style: TextButton.styleFrom(
-                        fixedSize: Size(300, 10),
+                        fixedSize: Size(100, 10),
                         primary: Colors.black,
                         backgroundColor: primaryTeal,
                         shape: RoundedRectangleBorder(
