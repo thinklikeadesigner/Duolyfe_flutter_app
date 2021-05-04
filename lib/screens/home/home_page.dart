@@ -239,6 +239,7 @@ class _HomePageState extends State<HomePage> {
               child: CircularProgressIndicator(),
             );
           } else if (state is TaskDisplayed) {
+            //BUG random task shows multiple at once
             return ListView.builder(
                 scrollDirection: Axis.vertical,
                 shrinkWrap: true,

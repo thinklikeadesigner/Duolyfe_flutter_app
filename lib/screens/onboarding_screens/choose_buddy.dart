@@ -9,6 +9,15 @@ class ChooseBuddy extends StatefulWidget {
   _ChooseBuddyState createState() => _ChooseBuddyState();
 }
 
+
+//SPECS completed activity activity 5 points added to buddy health
+//SPECS buddy health bar goes up
+//SPECS  ACTIVITY UNCHECKED, BUDDY HEALTH DECREASES BY 5
+//SPECS  FOR EVERY TASK OVER 100 POINTS, ONE TREAT
+
+
+
+
 class _ChooseBuddyState extends State<ChooseBuddy> {
   String _currentBuddy;
   dynamic _currentInterests;
