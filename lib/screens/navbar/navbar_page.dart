@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:navigationapp/buddy/buddy_bloc/buddy_bloc.dart';
 import 'package:navigationapp/screens/home/home_page.dart';
+import 'package:navigationapp/screens/navbar/bloc/navbar_bloc.dart';
 import 'package:navigationapp/screens/settings/settings.dart';
 import 'package:navigationapp/activity/activity_bloc/bloc.dart';
 import 'package:navigationapp/tasks/task_bloc/bloc.dart';
@@ -19,13 +20,13 @@ class NavBar extends StatefulWidget {
 }
 
 class _NavBarState extends State<NavBar> {
-  int _currentIndex = 0;
-  final List<Widget> _children = [HomePage(), TaskPage(), SettingsPage()];
+  NavBarBloc _navBarBloc = NavBarBloc();
 
-  void onTabTapped(int index) {
-    setState(() {
-      _currentIndex = index;
-    });
+  @override
+  void initState() {
+    super.initState();
+    // _navBarBloc = BlocProvider.of<NavBarBloc>(context);
+    // _navBarBloc.add(HomePageLoaded());
   }
 
   @override
@@ -41,31 +42,53 @@ class _NavBarState extends State<NavBar> {
         BlocProvider<ActivityBloc>(
           create: (BuildContext context) => ActivityBloc(),
         ),
+        BlocProvider<NavBarBloc>(
+          create: (BuildContext context) => NavBarBloc(),
+        ),
       ],
       child: Scaffold(
-        body: _children[_currentIndex], // new
-        bottomNavigationBar: BottomNavigationBar(
-          onTap: onTabTapped, // new
-          currentIndex: _currentIndex,
-          selectedItemColor: Colors.black, // new
-          items: [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.pets),
-              label: 'Buddy',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.favorite),
-              label: 'Self-Care',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.settings),
-              label: 'Settings',
-            ),
-          ],
+        body: BlocBuilder<NavBarBloc, NavBarState>(
+          builder: (context, state) {
+            if (state is PageLoading) {
+              return Center(child: CircularProgressIndicator());
+            }
+            if (state is HomePageLoaded) {
+              return HomePage();
+            }
+            if (state is TaskPageLoaded) {
+              return TaskPage();
+            }
+            if (state is SettingsPageLoaded) {
+              return SettingsPage();
+            }
+            return Container();
+          },
+        ),
+        bottomNavigationBar: BlocBuilder<NavBarBloc, NavBarState>(
+          builder: (context, state) {
+            return BottomNavigationBar(
+              onTap: (index) => _navBarBloc.add(PageTapped(index: index)),
+
+              currentIndex: _navBarBloc.currentIndex,
+              selectedItemColor: Colors.black, // new
+              items: [
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.pets),
+                  label: 'Buddy',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.favorite),
+                  label: 'Self-Care',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.settings),
+                  label: 'Settings',
+                ),
+              ],
+            );
+          },
         ),
       ),
     );
   }
 }
-
-

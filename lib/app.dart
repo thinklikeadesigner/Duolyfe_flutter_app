@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:navigationapp/login/login.dart';
 import 'package:navigationapp/route_generator/route_generator.dart';
+import 'package:navigationapp/screens/home/home_page.dart';
 import 'package:navigationapp/screens/navbar/navbar_page.dart';
 import 'package:navigationapp/screens/onboarding_screens/onboarding_screens.dart';
 import 'package:navigationapp/theme.dart';
@@ -60,7 +61,7 @@ class _AppViewState extends State<AppView> {
               case AuthenticationStatus.authenticated:
                 _navigator.pushAndRemoveUntil<void>(
                   //NOTE MUST REROUTE TO NAVBAR NOT HOME
-                 OnboardingStart.route(),
+                NavBar.route(),
                   (route) => false,
                 );
                 break;
