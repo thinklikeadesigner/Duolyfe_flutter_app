@@ -9,19 +9,15 @@ class ChooseBuddy extends StatefulWidget {
   _ChooseBuddyState createState() => _ChooseBuddyState();
 }
 
-
 //SPECS completed activity activity 5 points added to buddy health
 //SPECS buddy health bar goes up
 //SPECS  ACTIVITY UNCHECKED, BUDDY HEALTH DECREASES BY 5
 //SPECS  FOR EVERY TASK OVER 100 POINTS, ONE TREAT
 
-
-
-
 class _ChooseBuddyState extends State<ChooseBuddy> {
-  String _currentBuddy;
-  dynamic _currentInterests;
-  int _completedOnboarding;
+  // String _currentBuddy;
+  // dynamic _currentInterests;
+  // int _completedOnboarding;
 
   BuddyBloc _buddyBloc;
 
@@ -37,290 +33,82 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
 
   @override
   Widget build(BuildContext context) {
-    final ScrollController _scrollController = ScrollController();
+    // final ScrollController _scrollController = ScrollController();
+    //  final ScrollController   _scrollController = ScrollController(initialScrollOffset: 50.0);
     return SafeArea(
       child: Scaffold(
         body: Container(
           child: Scrollbar(
             isAlwaysShown: true,
-            controller: _scrollController,
+            radius: Radius.circular(50),
+            thickness: 5,
+            // controller: _scrollController,
             //REFACTOR make card grid get data from array
-            child: GridView(
-              controller: _scrollController,
-              padding: EdgeInsets.fromLTRB(10, 10, 10, 70),
-              gridDelegate:
-                  SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
-              children: [
-                GestureDetector(
-                  child: Card(
+            child: GridView.builder(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 3,
+                ),
+                itemCount: buddyList['buddies'].length,
+                itemBuilder: (BuildContext context, int index) {
+                  return Card(
                     child: InkWell(
                       splashColor: Colors.blue.withAlpha(30),
                       onTap: () {
-                        _currentBuddy = "panda.png";
+                        // _currentBuddy = buddyList['buddies'][index];
+                        // print(_currentBuddy);
+                        _buddyBloc
+                            .add(UpdateBuddy(buddyList['buddies'][index]));
                       },
                       child: Container(
+                        height: 20,
                         child: Center(
                           child: Image(
-                              image: AssetImage("panda.png"), height: 150),
+                              image: AssetImage(buddyList['buddies'][index]),
+                              height: 150),
                         ),
                       ),
                     ),
                     color: Colors.white,
-                  ),
-                ),
-                Card(
-                  child: InkWell(
-                    splashColor: Colors.blue.withAlpha(30),
-                    onTap: () {
-                      _currentBuddy = "bear.png";
-                    },
-                    child: Container(
-                      child: Center(
-                        child:
-                            Image(image: AssetImage("bear.png"), height: 150),
-                      ),
-                    ),
-                  ),
-                  color: Colors.white,
-                ),
-                Card(
-                  child: InkWell(
-                    splashColor: Colors.blue.withAlpha(30),
-                    onTap: () {
-                      _currentBuddy = "cat.png";
-                    },
-                    child: Container(
-                      child: Center(
-                        child: Image(image: AssetImage("cat.png"), height: 150),
-                      ),
-                    ),
-                  ),
-                  color: Colors.white,
-                ),
-                Card(
-                  child: InkWell(
-                    splashColor: Colors.blue.withAlpha(30),
-                    onTap: () {
-                      _currentBuddy = "chick.png";
-                    },
-                    child: Container(
-                      child: Center(
-                        child:
-                            Image(image: AssetImage("chick.png"), height: 150),
-                      ),
-                    ),
-                  ),
-                  color: Colors.white,
-                ),
-                Card(
-                  child: InkWell(
-                    splashColor: Colors.blue.withAlpha(30),
-                    onTap: () {
-                      _currentBuddy = "cow.png";
-                    },
-                    child: Container(
-                      child: Center(
-                        child: Image(image: AssetImage("cow.png"), height: 150),
-                      ),
-                    ),
-                  ),
-                  color: Colors.white,
-                ),
-                Card(
-                  child: InkWell(
-                    splashColor: Colors.blue.withAlpha(30),
-                    onTap: () {
-                      _currentBuddy = "deer.png";
-                    },
-                    child: Container(
-                      child: Center(
-                        child:
-                            Image(image: AssetImage("deer.png"), height: 150),
-                      ),
-                    ),
-                  ),
-                  color: Colors.white,
-                ),
-                Card(
-                  child: InkWell(
-                    splashColor: Colors.blue.withAlpha(30),
-                    onTap: () {
-                      _currentBuddy = "yellowDog.png";
-                    },
-                    child: Container(
-                      child: Center(
-                        child: Image(
-                            image: AssetImage("yellowDog.png"), height: 150),
-                      ),
-                    ),
-                  ),
-                  color: Colors.white,
-                ),
-                Card(
-                  child: InkWell(
-                    splashColor: Colors.blue.withAlpha(30),
-                    onTap: () {
-                      _currentBuddy = "fox.png";
-                    },
-                    child: Container(
-                      child: Center(
-                        child: Image(image: AssetImage("fox.png"), height: 150),
-                      ),
-                    ),
-                  ),
-                  color: Colors.white,
-                ),
-                Card(
-                  child: InkWell(
-                    splashColor: Colors.blue.withAlpha(30),
-                    onTap: () {
-                      _currentBuddy = "giraffe.png";
-                    },
-                    child: Container(
-                      child: Center(
-                        child: Image(
-                            image: AssetImage("giraffe.png"), height: 150),
-                      ),
-                    ),
-                  ),
-                  color: Colors.white,
-                ),
-                Card(
-                  child: InkWell(
-                    splashColor: Colors.blue.withAlpha(30),
-                    onTap: () {
-                      _currentBuddy = "hamster.png";
-                    },
-                    child: Container(
-                      child: Center(
-                        child: Image(
-                            image: AssetImage("hamster.png"), height: 150),
-                      ),
-                    ),
-                  ),
-                  color: Colors.white,
-                ),
-                Card(
-                  child: InkWell(
-                    splashColor: Colors.blue.withAlpha(30),
-                    onTap: () {
-                      _currentBuddy = "koala.png";
-                    },
-                    child: Container(
-                      child: Center(
-                        child:
-                            Image(image: AssetImage("koala.png"), height: 150),
-                      ),
-                    ),
-                  ),
-                  color: Colors.white,
-                ),
-                Card(
-                  child: InkWell(
-                    splashColor: Colors.blue.withAlpha(30),
-                    onTap: () {
-                      _currentBuddy = "mouse.png";
-                    },
-                    child: Container(
-                      child: Center(
-                        child:
-                            Image(image: AssetImage("mouse.png"), height: 150),
-                      ),
-                    ),
-                  ),
-                  color: Colors.white,
-                ),
-                Card(
-                  child: InkWell(
-                    splashColor: Colors.blue.withAlpha(30),
-                    onTap: () {
-                      _currentBuddy = "pig.png";
-                    },
-                    child: Container(
-                      child: Center(
-                        child: Image(image: AssetImage("pig.png"), height: 150),
-                      ),
-                    ),
-                  ),
-                  color: Colors.white,
-                ),
-                Card(
-                  child: InkWell(
-                    splashColor: Colors.blue.withAlpha(30),
-                    onTap: () {
-                      _currentBuddy = "brownDog.png";
-                    },
-                    child: Container(
-                      child: Center(
-                        child: Image(
-                            image: AssetImage("brownDog.png"), height: 150),
-                      ),
-                    ),
-                  ),
-                  color: Colors.white,
-                ),
-                Card(
-                  child: InkWell(
-                    splashColor: Colors.blue.withAlpha(30),
-                    onTap: () {
-                      _currentBuddy = "racoon.png";
-                    },
-                    child: Container(
-                      child: Center(
-                        child:
-                            Image(image: AssetImage("racoon.png"), height: 150),
-                      ),
-                    ),
-                  ),
-                  color: Colors.white,
-                ),
-                Card(
-                  child: InkWell(
-                    splashColor: Colors.blue.withAlpha(30),
-                    onTap: () {
-                      _currentBuddy = "sheep.png";
-                    },
-                    child: Container(
-                      child: Center(
-                        child:
-                            Image(image: AssetImage("sheep.png"), height: 150),
-                      ),
-                    ),
-                  ),
-                  color: Colors.white,
-                ),
-                Card(
-                  child: InkWell(
-                    splashColor: Colors.blue.withAlpha(30),
-                    onTap: () {
-                      _currentBuddy = "tiger.png";
-                    },
-                    child: Container(
-                      child: Center(
-                        child:
-                            Image(image: AssetImage("tiger.png"), height: 150),
-                      ),
-                    ),
-                  ),
-                  color: Colors.white,
-                ),
-                Card(
-                  child: InkWell(
-                    splashColor: Colors.blue.withAlpha(30),
-                    onTap: () {
-                      _currentBuddy = "wolf.png";
-                    },
-                    child: Container(
-                      child: Center(
-                        child:
-                            Image(image: AssetImage("wolf.png"), height: 150),
-                      ),
-                    ),
-                  ),
-                  color: Colors.white,
-                ),
-              ],
-            ),
+                  );
+                }),
+            // GridView(
+            //   controller: _scrollController,
+            //   // padding: EdgeInsets.fromLTRB(10, 10, 10, 70),
+            //   gridDelegate:
+            //       SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 1,
+            //       ),
+            //   children: [
+            //     GestureDetector(
+            //       child: Scrollbar(
+            //         child: ListView.builder(
+            //             controller: _scrollController,
+            //             itemCount: buddyList['buddies'].length,
+            //             itemBuilder: (BuildContext context, int index) {
+            //               // print(buddyList['buddies'][index]);
+            //               return Card(
+
+            //                 child: InkWell(
+            //                   splashColor: Colors.blue.withAlpha(30),
+            //                   onTap: () {
+            //                     _currentBuddy = buddyList['buddies'][index];
+            //                   },
+            //                   child: Container(
+            //                     height: 20,
+            //                     child: Center(
+            //                       child: Image(
+            //                           image: AssetImage(
+            //                               buddyList['buddies'][index]),
+            //                           height: 150),
+            //                     ),
+            //                   ),
+            //                 ),
+            //                 color: Colors.white,
+            //               );
+            //             }),
+            //       ),
+            //     ),
+            //   ],
+            // ),
           ),
         ),
         bottomSheet: Container(
@@ -370,3 +158,27 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
     );
   }
 }
+
+String _currentBuddy;
+final Map<String, dynamic> buddyList = {
+  "buddies": [
+    "bear.png",
+    "brownDog.png",
+    "cat.png",
+    "chick.png",
+    "cow.png",
+    "deer.png",
+    "yellowDog.png",
+    "fox.png",
+    "giraffe.png",
+    "hamster.png",
+    "koala.png",
+    "mouse.png",
+    "panda.png",
+    "pig.png",
+    "racoon.png",
+    "sheep.png",
+    "tiger.png",
+    "wolf.png"
+  ]
+};
