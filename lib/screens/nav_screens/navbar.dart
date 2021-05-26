@@ -7,6 +7,7 @@ import 'package:navigationapp/screens/home/home_page.dart';
 import 'package:navigationapp/screens/onboarding_screens/onboarding_screens.dart';
 import 'package:navigationapp/screens/settings/settings.dart';
 import 'package:navigationapp/activity/activity_bloc/bloc.dart';
+import 'package:navigationapp/splash/splash.dart';
 import 'package:navigationapp/tasks/task_bloc/bloc.dart';
 import 'package:navigationapp/tasks/task_page.dart';
 //REFACTOR I would like navbar to be refactored into BloC. it's in feature/navbar branch
@@ -23,7 +24,7 @@ class NavBar extends StatefulWidget {
 
 class _NavBarState extends State<NavBar> {
   int _currentIndex = 0;
-  final List<Widget> _children = [HomePage(), TaskPage(), SettingsPage()];
+  final List<Widget> _children = [SplashPage(), TaskPage(), SettingsPage()];
 
   void onTabTapped(int index) {
     setState(() {

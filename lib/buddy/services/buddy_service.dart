@@ -82,4 +82,15 @@ class RandomBuddyGenerator {
   static Buddy getRandomBuddy() {
     return _buddies[Random().nextInt(_buddies.length)];
   }
+
+
+    static Buddy getChosenBuddy(String buddy) {
+    List<Buddy> _chosenBuddy;
+
+    _chosenBuddy = _buddies
+        .where((element) => element.buddy.contains(buddy))
+        .toList();
+
+    return _chosenBuddy[0];
+  }
 }
