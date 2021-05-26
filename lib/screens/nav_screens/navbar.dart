@@ -24,7 +24,7 @@ class NavBar extends StatefulWidget {
 
 class _NavBarState extends State<NavBar> {
   int _currentIndex = 0;
-  final List<Widget> _children = [SplashPage(), TaskPage(), SettingsPage()];
+  final List<Widget> _children = [HomePage(), TaskPage(), SettingsPage()];
 
   void onTabTapped(int index) {
     setState(() {
