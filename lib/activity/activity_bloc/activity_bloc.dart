@@ -76,7 +76,7 @@ class ActivityBloc extends Bloc<ActivityEvent, ActivityState> {
   }
 
   Stream<ActivityState> _preloadActivities() async* {
-    final initialActivities = RandomActivityGenerator.getActivities();
+    final initialActivities = ActivityPopulator.getActivities();
 
     initialActivities.forEach((element) async {
       element.timeAssigned = DateTime.now().toString();
@@ -89,7 +89,7 @@ class ActivityBloc extends Bloc<ActivityEvent, ActivityState> {
   Stream<ActivityState> _filterActivitiesByInterestAndAdd(
       String interest) async* {
     final initialActivities =
-        RandomActivityGenerator.getFilteredActivities(interest);
+        ActivityPopulator.getFilteredActivities(interest);
     print(initialActivities);
 //REFACTOR can i use yield* here?
     initialActivities.forEach((element) async {
