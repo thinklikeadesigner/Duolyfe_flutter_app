@@ -247,7 +247,6 @@ class _HomePageState extends State<HomePage> {
                 itemBuilder: (context, index) {
                   final displayedTask = state.tasks[index];
 
-
                   return TextButton(
                       child: Text(
                         displayedTask.activity,
@@ -264,13 +263,11 @@ class _HomePageState extends State<HomePage> {
                       onPressed: () {
                         _taskBloc.add(AddChosenTask(displayedTask));
                       });
-                }
-                );
+                });
           }
           return Center();
         },
       ),
     );
   }
-
 }

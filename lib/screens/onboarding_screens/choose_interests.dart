@@ -151,14 +151,14 @@ class _ChooseInterestsState extends State<ChooseInterests> {
                       SizedBox(width: 20),
                       TextButton(
                           child: Text(
-                            'Save Interests',
+                            _currentInterests.length < 3 ? 'pick 3 or more' : 'Save',
                             style: TextStyle(color: Colors.white),
                           ),
                           style: TextButton.styleFrom(
                             onSurface: primaryTeal,
-                            fixedSize: Size(100, 10),
+                            fixedSize: Size(_currentInterests.length < 3 ? 150 : 100, 10),
                             primary: Colors.black,
-                            backgroundColor: primaryTeal,
+                            backgroundColor: _currentInterests.length < 3 ? Colors.grey : primaryTeal,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(18.0),
                             ),
