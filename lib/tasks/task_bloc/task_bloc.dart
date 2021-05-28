@@ -53,6 +53,7 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
       yield* _reloadTasks();
     } else if (event is AddChosenTask) {
       //QUESTION do we need to add the time
+       event.task.timeAssigned = DateTime.now().toString();
       await _taskDao.insert(event.task);
       yield* _reloadTasks();
     } else if (event is ClearTasks) {
