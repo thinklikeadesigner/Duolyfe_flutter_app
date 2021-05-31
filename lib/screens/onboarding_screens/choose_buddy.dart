@@ -15,7 +15,7 @@ class ChooseBuddy extends StatefulWidget {
 //SPECS  FOR EVERY TASK OVER 100 POINTS, ONE TREAT
 
 class _ChooseBuddyState extends State<ChooseBuddy> {
-  // String _currentBuddy;
+  String _currentBuddy;
   // dynamic _currentInterests;
   // int _completedOnboarding;
 
@@ -54,10 +54,8 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                     child: InkWell(
                       splashColor: Colors.blue.withAlpha(30),
                       onTap: () {
-                        // _currentBuddy = buddyList['buddies'][index];
-                        // print(_currentBuddy);
-                        _buddyBloc
-                            .add(UpdateBuddy(buddyList['buddies'][index]));
+                        _currentBuddy = buddyList['buddies'][index];
+                        print('current buddy $_currentBuddy');
                       },
                       child: Container(
                         height: 20,
@@ -71,44 +69,6 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                     color: Colors.white,
                   );
                 }),
-            // GridView(
-            //   controller: _scrollController,
-            //   // padding: EdgeInsets.fromLTRB(10, 10, 10, 70),
-            //   gridDelegate:
-            //       SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 1,
-            //       ),
-            //   children: [
-            //     GestureDetector(
-            //       child: Scrollbar(
-            //         child: ListView.builder(
-            //             controller: _scrollController,
-            //             itemCount: buddyList['buddies'].length,
-            //             itemBuilder: (BuildContext context, int index) {
-            //               // print(buddyList['buddies'][index]);
-            //               return Card(
-
-            //                 child: InkWell(
-            //                   splashColor: Colors.blue.withAlpha(30),
-            //                   onTap: () {
-            //                     _currentBuddy = buddyList['buddies'][index];
-            //                   },
-            //                   child: Container(
-            //                     height: 20,
-            //                     child: Center(
-            //                       child: Image(
-            //                           image: AssetImage(
-            //                               buddyList['buddies'][index]),
-            //                           height: 150),
-            //                     ),
-            //                   ),
-            //                 ),
-            //                 color: Colors.white,
-            //               );
-            //             }),
-            //       ),
-            //     ),
-            //   ],
-            // ),
           ),
         ),
         bottomSheet: Container(
@@ -148,6 +108,8 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                         ),
                       ),
                       onPressed: () async {
+                        print(_currentBuddy);
+                        _buddyBloc.add(AddBuddy(_currentBuddy));
                         Navigator.of(context).pushNamed('/choosename');
                       }),
                 ]),
@@ -159,7 +121,6 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
   }
 }
 
-String _currentBuddy;
 final Map<String, dynamic> buddyList = {
   "buddies": [
     "bear.png",

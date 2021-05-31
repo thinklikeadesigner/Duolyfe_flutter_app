@@ -24,7 +24,9 @@ class AddRandomBuddy extends BuddyEvent {
 }
 
 class AddBuddy extends BuddyEvent {
-  List<Object> get props => [];
+  final String chosenBuddy;
+  List<Object> get props => [chosenBuddy];
+  AddBuddy(this.chosenBuddy) : super([chosenBuddy]);
 }
 
 class UpdateWithRandomBuddy extends BuddyEvent {

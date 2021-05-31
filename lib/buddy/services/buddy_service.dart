@@ -3,7 +3,7 @@ import 'dart:math';
 import '../models/buddy.dart';
 
 //MAKEME add treats and points and health to buddy here too
-class RandomBuddyGenerator {
+class BuddyPopulator {
   static final _buddies = [
     Buddy(
       buddy: 'chick.png',
@@ -78,6 +78,16 @@ class RandomBuddyGenerator {
       selected: false,
     )
   ];
+
+  static List<Buddy> getFilteredBuddies(String buddy) {
+    List<Buddy> _filteredbuddies;
+
+    _filteredbuddies = _buddies
+        .where((element) => element.buddy.contains(buddy))
+        .toList();
+
+    return _filteredbuddies;
+  }
 
   static Buddy getRandomBuddy() {
     return _buddies[Random().nextInt(_buddies.length)];
