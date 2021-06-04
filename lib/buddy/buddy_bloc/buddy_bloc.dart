@@ -25,11 +25,17 @@ class BuddyBloc extends Bloc<BuddyEvent, BuddyState> {
       yield BuddiesLoading();
       print('buddies loading');
       yield* _loadBuddy();
+    } else if (event is AddBuddy) {
+      // add interest event carries the interest from the checkbox
+      print(event.chosenBuddy);
+      // filter activities and add is supposed to add the activities related to that interest
+
+      yield* _filterActivitiesByBuddyAndAdd(event.chosenBuddy);
     } else if (event is AddRandomBuddy) {
       //QUESTION does the buddy need a time???
       //IDEA, this can be where we can store the notification time
       //MAKEME we also need to store points and treats in here somewhere
-      final newBuddy = RandomBuddyGenerator.getRandomBuddy();
+      final newBuddy = BuddyPopulator.getRandomBuddy();
       // newBuddy.timeAssigned = DateTime.now().toString();
       //   String convertDateTimeToString(DateTime dateTime) {
 //     return dateTime.toString();
@@ -54,7 +60,7 @@ class BuddyBloc extends Bloc<BuddyEvent, BuddyState> {
     // yield* _reloadBuddies();
     // }
     else if (event is UpdateWithRandomBuddy) {
-      final newBuddy = RandomBuddyGenerator.getRandomBuddy();
+      final newBuddy = BuddyPopulator.getRandomBuddy();
       // Keeping the ID of the Buddy the same
       newBuddy.id = event.updatedBuddy.id;
       await _buddyDao.update(newBuddy);
@@ -79,6 +85,17 @@ class BuddyBloc extends Bloc<BuddyEvent, BuddyState> {
     final buddies = await _buddyDao.getAllSortedByName();
     // Yielding a state bundled with the Buddies from the database.
     yield BuddiesLoaded(buddies);
+  }
+
+  // this takes from activty_service and adds fresh to the activity store
+  Stream<BuddyState> _filterActivitiesByBuddyAndAdd(String buddy) async* {
+    final initialBuddies = BuddyPopulator.getFilteredBuddies(buddy);
+    print(initialBuddies);
+//REFACTOR can i use yield* here?
+    initialBuddies.forEach((element) async {
+      await _buddyDao.insert(element);
+    });
+    yield BuddiesLoaded(initialBuddies);
   }
 
 //QUESTION is this one just for testing? what is this?

@@ -53,14 +53,14 @@ class _AppViewState extends State<AppView> {
       builder: (context, child) {
         return BlocListener<AuthenticationBloc, AuthenticationState>(
           listener: (context, state) {
-            //MAKEME there needs to be a clause to check if user completed onboarding
+            //MAKEME there needs to be a clause to check if user completed onboarding. this logic was removed during refactoring
             //IDEA we can check to see if activity store is empty or make a new store just for onboarding
             //NOTE this is complex, bc this check happens during authentication kind of
             switch (state.status) {
               case AuthenticationStatus.authenticated:
                 _navigator.pushAndRemoveUntil<void>(
                   //NOTE MUST REROUTE TO NAVBAR NOT HOME
-                 NavBar.route(),
+                 OnboardingStart.route(),
                   (route) => false,
                 );
                 break;

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:navigationapp/screens/nav_screens/navbar.dart';
 import 'package:navigationapp/tasks/task_bloc/bloc.dart';
 import 'package:navigationapp/theme.dart';
 

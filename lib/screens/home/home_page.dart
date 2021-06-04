@@ -126,7 +126,7 @@ class _HomePageState extends State<HomePage> {
                                   splashColor: Colors.blue.withAlpha(30),
                                   onTap: () {
                                     setState(() {
-                                      _taskBloc.add(AddRandomTask());
+                                      _taskBloc.add(SuggestTasks());
                                       suggested = true;
                                     });
                                   },
@@ -230,6 +230,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget _buildList() {
     return Container(
+      width: 282,
       child: BlocBuilder<TaskBloc, TaskState>(
         // Whenever there is a new state emitted from the bloc, builder runs.
         builder: (BuildContext context, TaskState state) {
@@ -238,6 +239,7 @@ class _HomePageState extends State<HomePage> {
               child: CircularProgressIndicator(),
             );
           } else if (state is TaskDisplayed) {
+            //BUG random task shows multiple at once
             return ListView.builder(
                 scrollDirection: Axis.vertical,
                 shrinkWrap: true,
@@ -245,14 +247,13 @@ class _HomePageState extends State<HomePage> {
                 itemBuilder: (context, index) {
                   final displayedTask = state.tasks[index];
 
-
                   return TextButton(
                       child: Text(
                         displayedTask.activity,
                         style: TextStyle(color: Colors.black),
                       ),
                       style: TextButton.styleFrom(
-                        fixedSize: Size(300, 10),
+                        fixedSize: Size(100, 10),
                         primary: Colors.black,
                         backgroundColor: primaryTeal,
                         shape: RoundedRectangleBorder(
@@ -262,13 +263,11 @@ class _HomePageState extends State<HomePage> {
                       onPressed: () {
                         _taskBloc.add(AddChosenTask(displayedTask));
                       });
-                }
-                );
+                });
           }
           return Center();
         },
       ),
     );
   }
-
 }

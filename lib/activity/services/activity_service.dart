@@ -6,7 +6,7 @@ import 'package:navigationapp/tasks/models/models.dart';
 //REFACTOR, does this list of activities need to be in this class?
 //FIXME check icons,
 
-class RandomActivityGenerator {
+class ActivityPopulator {
   static final _activities = [
     Task(
         activity: "Bake Something Sweet!",
