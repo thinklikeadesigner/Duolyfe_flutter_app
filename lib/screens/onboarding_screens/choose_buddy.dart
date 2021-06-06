@@ -83,7 +83,6 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                         style: TextStyle(color: Colors.black),
                       ),
                       style: TextButton.styleFrom(
-                        fixedSize: Size(120, 10),
                         primary: Colors.black,
                         backgroundColor: Colors.white,
                         shape: RoundedRectangleBorder(
@@ -100,7 +99,6 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                         style: TextStyle(color: Colors.white),
                       ),
                       style: TextButton.styleFrom(
-                        fixedSize: Size(120, 10),
                         primary: Colors.black,
                         backgroundColor: primaryTeal,
                         shape: RoundedRectangleBorder(

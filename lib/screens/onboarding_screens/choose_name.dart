@@ -80,7 +80,6 @@ class _ChooseNameState extends State<ChooseName> {
                             style: TextStyle(color: Colors.white),
                           ),
                           style: TextButton.styleFrom(
-                            fixedSize: Size(120, 10),
                             primary: Colors.black,
                             backgroundColor: primaryTeal,
                             shape: RoundedRectangleBorder(
@@ -96,7 +95,6 @@ class _ChooseNameState extends State<ChooseName> {
                             style: TextStyle(color: Colors.white),
                           ),
                           style: TextButton.styleFrom(
-                            fixedSize: Size(120, 10),
                             primary: Colors.black,
                             backgroundColor: primaryTeal,
                             shape: RoundedRectangleBorder(
@@ -123,7 +121,6 @@ class _ChooseNameState extends State<ChooseName> {
                           style: TextStyle(color: Colors.black),
                         ),
                         style: TextButton.styleFrom(
-                          fixedSize: Size(120, 10),
                           primary: Colors.black,
                           backgroundColor: Colors.white,
                           shape: RoundedRectangleBorder(

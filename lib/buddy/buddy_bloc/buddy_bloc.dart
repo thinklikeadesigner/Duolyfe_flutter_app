@@ -4,6 +4,9 @@ import 'package:navigationapp/buddy/services/services.dart';
 import '../buddy_dao.dart';
 import 'bloc.dart';
 
+//QUESTION does the buddy need a time???
+//IDEA, this can be where we can store the notification time
+//MAKEME we also need to store points and treats in here somewhere
 //UNPLUGGED this needs to be added to or replace the choosebuddy page
 
 class BuddyBloc extends Bloc<BuddyEvent, BuddyState> {
@@ -16,50 +19,24 @@ class BuddyBloc extends Bloc<BuddyEvent, BuddyState> {
     BuddyEvent event,
   ) async* {
     if (event is LoadBuddies) {
-      // Indicating that buddies are being loaded - display progress indicator.
+
       yield BuddiesLoading();
       print('buddies loading');
       yield* _reloadBuddies();
     } else if (event is ShowBuddy) {
-      // Indicating that buddies are being loaded - display progress indicator.
+
       yield BuddiesLoading();
       print('buddies loading');
       yield* _loadBuddy();
     } else if (event is AddBuddy) {
-      // add interest event carries the interest from the checkbox
+
       print(event.chosenBuddy);
-      // filter activities and add is supposed to add the activities related to that interest
 
-      yield* _filterActivitiesByBuddyAndAdd(event.chosenBuddy);
-    } else if (event is AddRandomBuddy) {
-      //QUESTION does the buddy need a time???
-      //IDEA, this can be where we can store the notification time
-      //MAKEME we also need to store points and treats in here somewhere
-      final newBuddy = BuddyPopulator.getRandomBuddy();
-      // newBuddy.timeAssigned = DateTime.now().toString();
-      //   String convertDateTimeToString(DateTime dateTime) {
-//     return dateTime.toString();
-//   }
 
-//   DateTime convertStringToDateTime(String stringTime) {
-//     return DateTime.parse(stringTime);
-//   }
-      // Loading indicator shouldn't be displayed while adding/updating/deleting
-      // a single Task from the database - we aren't yielding TasksLoading().
-      await _buddyDao.insert(newBuddy);
+      yield* _filterBuddiesByBuddyAndAdd(event.chosenBuddy);
 
-      yield* _reloadBuddies();
-    }
 
-//REFACTOR please remove extra comments
-
-    // Loading indicator shouldn't be displayed while adding/updating/deleting
-    // a single Buddy from the database - we aren't yielding BuddiesLoading().
-    // await _buddyDao.insert(newBuddy);
-    // print('get random buddy');
-    // yield* _reloadBuddies();
-    // }
-    else if (event is UpdateWithRandomBuddy) {
+    } else if (event is UpdateWithRandomBuddy) {
       final newBuddy = BuddyPopulator.getRandomBuddy();
       // Keeping the ID of the Buddy the same
       newBuddy.id = event.updatedBuddy.id;
@@ -68,6 +45,29 @@ class BuddyBloc extends Bloc<BuddyEvent, BuddyState> {
     }
     //
     else if (event is UpdateBuddy) {
+
+
+/*
+psuedocode
+
+if (buddy) {
+filter buddies by buddy and update that buddy with the filtered buddy
+} else {
+    yield* _filterBuddiesByBuddyAndAdd(event.chosenBuddy);
+}
+
+
+
+
+
+*/
+
+
+
+
+
+
+
       event.updatedBuddy.selected = !event.updatedBuddy.selected;
       // event.updatedBuddy.timeAssigned = DateTime.now().toString();
       await _buddyDao.update(event.updatedBuddy);
@@ -88,7 +88,7 @@ class BuddyBloc extends Bloc<BuddyEvent, BuddyState> {
   }
 
   // this takes from activty_service and adds fresh to the activity store
-  Stream<BuddyState> _filterActivitiesByBuddyAndAdd(String buddy) async* {
+  Stream<BuddyState> _filterBuddiesByBuddyAndAdd(String buddy) async* {
     final initialBuddies = BuddyPopulator.getFilteredBuddies(buddy);
     print(initialBuddies);
 //REFACTOR can i use yield* here?
