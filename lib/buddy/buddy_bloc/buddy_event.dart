@@ -24,9 +24,9 @@ class AddRandomBuddy extends BuddyEvent {
 }
 
 class AddBuddy extends BuddyEvent {
-  final String chosenBuddy;
-  List<Object> get props => [chosenBuddy];
-  AddBuddy(this.chosenBuddy) : super([chosenBuddy]);
+  final String selectedBuddy;
+  List<Object> get props => [selectedBuddy];
+  AddBuddy(this.selectedBuddy) : super([selectedBuddy]);
 }
 
 class UpdateWithRandomBuddy extends BuddyEvent {
@@ -36,15 +36,22 @@ class UpdateWithRandomBuddy extends BuddyEvent {
   UpdateWithRandomBuddy(this.updatedBuddy) : super([updatedBuddy]);
 }
 
-class UpdateBuddy extends BuddyEvent {
-  List<Object> get props => [updatedBuddy];
-  final Buddy updatedBuddy;
+class SetBuddy extends BuddyEvent {
+  final String chosenBuddy;
+  List<Object> get props => [chosenBuddy];
+  SetBuddy(this.chosenBuddy) : super([chosenBuddy]);
+}
 
-  UpdateBuddy(this.updatedBuddy) : super([updatedBuddy]);
+class RemoveBuddy extends BuddyEvent {
+  final String deselectedBuddy;
+  List<Object> get props => [deselectedBuddy];
+  RemoveBuddy(this.deselectedBuddy) : super([deselectedBuddy]);
 }
 
 class DeleteBuddy extends BuddyEvent {
-  final Buddy buddy;
-  List<Object> get props => [buddy];
-  DeleteBuddy(this.buddy) : super([buddy]);
+  final Buddy unSelectedBuddy;
+  List<Object> get props => [unSelectedBuddy];
+  DeleteBuddy(this.unSelectedBuddy) : super([unSelectedBuddy]);
 }
+
+

@@ -141,6 +141,11 @@ class _ChooseInterestsState extends State<ChooseInterests> {
                 ),
               ],
             ),
+            
+
+
+
+
             bottomSheet: Card(
               elevation: 10.0,
               child: Padding(

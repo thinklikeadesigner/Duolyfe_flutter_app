@@ -27,3 +27,7 @@ class BuddyLoaded extends BuddyState {
 
   BuddyLoaded(this.buddy) : super([buddy]);
 }
+
+class BuddiesDeleted extends BuddyState {
+  List<Object> get props => [];
+}

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:navigationapp/buddy/buddy_bloc/bloc.dart';
+import 'package:navigationapp/widgets/CustomBuddyCard.dart';
 
 import '../../theme.dart';
 
@@ -14,8 +15,24 @@ class ChooseBuddy extends StatefulWidget {
 //SPECS  ACTIVITY UNCHECKED, BUDDY HEALTH DECREASES BY 5
 //SPECS  FOR EVERY TASK OVER 100 POINTS, ONE TREAT
 
+// void _onInterestSelected(bool selected, interest) {
+//   if (selected == true) {
+//     setState(() {
+//       _currentInterests.add(interest);
+//       _activityBloc.add(AddInterest(interest));
+//     });
+//   } else {
+//     setState(() {
+//       _currentInterests.remove(interest);
+//       _activityBloc.add(RemoveInterest(interest));
+//     });
+//   }
+// }
+
 class _ChooseBuddyState extends State<ChooseBuddy> {
   String _currentBuddy;
+
+  int checkedIndex;
   // dynamic _currentInterests;
   // int _completedOnboarding;
 
@@ -31,10 +48,28 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
     _buddyBloc.add(LoadBuddies());
   }
 
+  void _onBuddySelected(bool checked, buddy) {
+    if (checked == true) {
+      setState(() {
+        //this is for first time answer
+        _currentBuddy = buddy;
+        // _buddyBloc.add(AddBuddy(buddy));
+      });
+    } else if (checked == false) {
+      setState(() {
+        _buddyBloc.add(RemoveBuddy(buddy));
+      });
+    } else {
+      return;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+             int currentSelectedIndex;
     // final ScrollController _scrollController = ScrollController();
     //  final ScrollController   _scrollController = ScrollController(initialScrollOffset: 50.0);
+
     return SafeArea(
       child: Scaffold(
         body: Container(
@@ -49,12 +84,21 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                   crossAxisCount: 3,
                 ),
                 itemCount: buddyList['buddies'].length,
+                // buddyList['buddies'].length,
                 itemBuilder: (BuildContext context, int index) {
+                  bool checked = index == checkedIndex;
+
                   return Card(
                     child: InkWell(
                       splashColor: Colors.blue.withAlpha(30),
                       onTap: () {
-                        _currentBuddy = buddyList['buddies'][index];
+                        setState(() {
+                          checkedIndex = index;
+                          checked = !checked;
+                        });
+
+                        _onBuddySelected(checked, buddyList['buddies'][index]);
+
                         print('current buddy $_currentBuddy');
                       },
                       child: Container(
@@ -66,8 +110,10 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                         ),
                       ),
                     ),
-                    color: Colors.white,
+                    color: checked ? Colors.grey : Colors.white,
                   );
+
+
                 }),
           ),
         ),
@@ -100,16 +146,18 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                       ),
                       style: TextButton.styleFrom(
                         primary: Colors.black,
-                        backgroundColor: primaryTeal,
+                        backgroundColor:
+                            _currentBuddy == null ? Colors.grey : primaryTeal,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(18.0),
                         ),
                       ),
-                      onPressed: () async {
-                        print(_currentBuddy);
-                        _buddyBloc.add(AddBuddy(_currentBuddy));
-                        Navigator.of(context).pushNamed('/choosename');
-                      }),
+                      onPressed: _currentBuddy == null
+                          ? null
+                          : () {
+                                    _buddyBloc.add(AddBuddy(_currentBuddy));
+                              Navigator.of(context).pushNamed('/choosename');
+                            }),
                 ]),
           ),
           color: Colors.white,
@@ -121,6 +169,7 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
 
 final Map<String, dynamic> buddyList = {
   "buddies": [
+    "pig.png",
     "bear.png",
     "brownDog.png",
     "cat.png",
@@ -134,7 +183,6 @@ final Map<String, dynamic> buddyList = {
     "koala.png",
     "mouse.png",
     "panda.png",
-    "pig.png",
     "racoon.png",
     "sheep.png",
     "tiger.png",
