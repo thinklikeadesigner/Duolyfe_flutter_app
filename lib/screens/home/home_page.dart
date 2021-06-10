@@ -261,6 +261,9 @@ class _HomePageState extends State<HomePage> {
                       ),
                       onPressed: () {
                         _taskBloc.add(AddChosenTask(displayedTask));
+                                          ScaffoldMessenger.of(context)
+                      .showSnackBar(SnackBar(content: Text("You added a new task!"),
+                      duration: Duration(milliseconds: 1000)));
                       });
                 });
           }

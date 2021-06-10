@@ -54,4 +54,10 @@ class DeleteBuddy extends BuddyEvent {
   DeleteBuddy(this.unSelectedBuddy) : super([unSelectedBuddy]);
 }
 
-
+class ClearBuddies extends BuddyEvent {
+  List<Object> get props => [];
+  @override
+  String toString() {
+    return super.toString();
+  }
+}

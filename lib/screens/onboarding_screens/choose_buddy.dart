@@ -21,13 +21,13 @@ class ChooseBuddy extends StatefulWidget {
 //       _currentInterests.add(interest);
 //       _activityBloc.add(AddInterest(interest));
 //     });
-//   } else {
+//   } else { 
 //     setState(() {
 //       _currentInterests.remove(interest);
 //       _activityBloc.add(RemoveInterest(interest));
 //     });
 //   }
-// }
+// } 
 
 class _ChooseBuddyState extends State<ChooseBuddy> {
   String _currentBuddy;
@@ -45,6 +45,8 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
     _buddyBloc = BlocProvider.of<BuddyBloc>(context);
     // Events can be passed into the bloc by calling dispatch.
     // We want to start loading buddies right from the start.
+    // _buddyBloc.add(ClearBuddies());
+    // _currentBuddy = null;
     _buddyBloc.add(LoadBuddies());
   }
 
@@ -66,7 +68,7 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
 
   @override
   Widget build(BuildContext context) {
-             int currentSelectedIndex;
+    int currentSelectedIndex;
     // final ScrollController _scrollController = ScrollController();
     //  final ScrollController   _scrollController = ScrollController(initialScrollOffset: 50.0);
 
@@ -112,8 +114,6 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                     ),
                     color: checked ? Colors.grey : Colors.white,
                   );
-
-
                 }),
           ),
         ),
@@ -155,8 +155,9 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                       onPressed: _currentBuddy == null
                           ? null
                           : () {
-                                    _buddyBloc.add(AddBuddy(_currentBuddy));
+                              _buddyBloc.add(AddBuddy(_currentBuddy));
                               Navigator.of(context).pushNamed('/choosename');
+                              // Navigator.of(context).pushNamed('/buddy');
                             }),
                 ]),
           ),

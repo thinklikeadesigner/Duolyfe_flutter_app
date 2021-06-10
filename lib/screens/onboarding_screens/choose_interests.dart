@@ -122,12 +122,14 @@ class _ChooseInterestsState extends State<ChooseInterests> {
                         child: ListView.builder(
                             controller: _scrollController,
                             itemCount: interestList['interests'].length,
-                            itemBuilder: (BuildContext context, int index) {
+                            itemBuilder: (
+                              BuildContext context, int index) {
                               return CheckboxListTile(
                                 value: _currentInterests
                                     .contains(interestList['interests'][index]),
                                 //NOTE this is interesting bc we are actually addin the interest with _onInterestSelected
                                 onChanged: (bool selected) {
+
                                   _onInterestSelected(selected,
                                       interestList['interests'][index]);
                                 },

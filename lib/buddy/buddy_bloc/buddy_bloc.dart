@@ -30,11 +30,14 @@ class BuddyBloc extends Bloc<BuddyEvent, BuddyState> {
       yield* _filterBuddiesByBuddyAndAdd(event.selectedBuddy);
 
     } 
+    else if (event is ClearBuddies) {
+
+   yield* _clearBuddies();
+      _reloadBuddies();
+    } 
     else if (event is RemoveBuddy) {
 
-    
       print(event.deselectedBuddy);
-
 
       yield* _filterActivitiesAndRemove(event.deselectedBuddy);
     } 
@@ -70,6 +73,17 @@ class BuddyBloc extends Bloc<BuddyEvent, BuddyState> {
     yield BuddyLoaded(buddies[0]);
   }
 
+
+  Stream<BuddyState> _clearBuddies() async* {
+    final activities = await _buddyDao.getAllSortedByName();
+    print('should show activities currently in activity store: $activities');
+    activities.forEach((element) async {
+      await _buddyDao.delete(element);
+    });
+    final activitiesDeleted = await _buddyDao.getAllSortedByName();
+    print('activities deleted should be null: $activitiesDeleted');
+    yield BuddiesDeleted();
+  }
 
 
   Stream<BuddyState> _filterActivitiesAndRemove(String buddy) async* {
