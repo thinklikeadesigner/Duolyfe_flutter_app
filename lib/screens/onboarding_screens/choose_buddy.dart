@@ -100,7 +100,7 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                         });
 
                         _onBuddySelected(checked, buddyList['buddies'][index]);
-
+      _buddyBloc.add(AddBuddy(_currentBuddy));
                         print('current buddy $_currentBuddy');
                       },
                       child: Container(
@@ -156,7 +156,7 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                       onPressed: _currentBuddy == null
                           ? null
                           : () {
-                              _buddyBloc.add(AddBuddy(_currentBuddy));
+                        
                               Navigator.of(context).pushNamed('/choosename');
                               // Navigator.of(context).pushNamed('/buddy');
                             }),
