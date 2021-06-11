@@ -23,6 +23,10 @@ class BuddyDao {
     );
   }
 
+// Future updateOrInsert(Buddy buddy) async {
+//   await _buddyStore.record(buddy.id).put(await _db, buddy.toMap());
+// }
+
   Future delete(Buddy buddy) async {
     final finder = Finder(filter: Filter.byKey(buddy.id));
     await _buddyStore.delete(

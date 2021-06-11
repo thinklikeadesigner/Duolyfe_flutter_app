@@ -107,7 +107,8 @@ class _ChooseBuddyState extends State<ChooseBuddy> {
                         height: 20,
                         child: Center(
                           child: Image(
-                              image: AssetImage(buddyList['buddies'][index]),
+  
+                              image: AssetImage(buddyList['buddies'][index] ?? "panda.png"),
                               height: 150),
                         ),
                       ),

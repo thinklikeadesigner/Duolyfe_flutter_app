@@ -107,7 +107,7 @@ class _BuddyPageState extends State<BuddyPage> {
                             Container(
                               child: Row(
                                 children: [
-                                  Image.asset(displayedBuddy.buddy),
+                                  Image.asset(displayedBuddy.buddy ?? "panda.png"),
                                   // Icon(Icons.spa),
                                   SizedBox(
                                     width: 30,

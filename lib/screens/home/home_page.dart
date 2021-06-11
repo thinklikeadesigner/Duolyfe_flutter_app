@@ -62,7 +62,7 @@ class _HomePageState extends State<HomePage> {
                   SizedBox(
                     height: 60,
                   ),
-                  Image(image: AssetImage(displayBuddy.buddy), height: 130),
+                  Image(image: AssetImage(displayBuddy.buddy ?? "panda.png"), height: 130),
                   //MAKEME should get name from buddybloc
                   Text(
                     'Milo',
