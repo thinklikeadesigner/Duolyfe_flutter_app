@@ -31,17 +31,8 @@ class _TaskPageState extends State<TaskPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _buildBody(),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: () {
-          _taskBloc.add(AddAllTasks());
-        },
-      ),
-      bottomSheet: TextButton(
-          onPressed: () {
-            _taskBloc.add(ClearTasks());
-          },
-          child: Text('clear')),
+
+
     );
   }
 
