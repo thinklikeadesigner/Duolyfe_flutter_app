@@ -3,6 +3,7 @@ import 'package:navigationapp/theme.dart';
 
 //IDEA duolyfe splash screen here for phones that don't go immediately to home or login screen fast enough?
 class SplashPage extends StatelessWidget {
+  
   static Route route() {
     return MaterialPageRoute<void>(builder: (_) => SplashPage());
   }
@@ -10,6 +11,7 @@ class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: const Key('splash_bloc_image'),
       backgroundColor: primaryTeal,
       body: Center(
         
