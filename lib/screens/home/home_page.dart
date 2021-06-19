@@ -62,7 +62,7 @@ class _HomePageState extends State<HomePage> {
                   SizedBox(
                     height: 60,
                   ),
-                  Image(image: AssetImage(displayBuddy.buddy), height: 130),
+                  Image(image: AssetImage(displayBuddy.buddy ?? "panda.png"), height: 130),
                   //MAKEME should get name from buddybloc
                   Text(
                     'Milo',
@@ -253,7 +253,7 @@ class _HomePageState extends State<HomePage> {
                         style: TextStyle(color: Colors.black),
                       ),
                       style: TextButton.styleFrom(
-                        // fixedSize: Size(100, 10),
+
                         primary: Colors.black,
                         backgroundColor: primaryTeal,
                         shape: RoundedRectangleBorder(
@@ -262,6 +262,9 @@ class _HomePageState extends State<HomePage> {
                       ),
                       onPressed: () {
                         _taskBloc.add(AddChosenTask(displayedTask));
+                                          ScaffoldMessenger.of(context)
+                      .showSnackBar(SnackBar(content: Text("You added a new task!"),
+                      duration: Duration(milliseconds: 1000)));
                       });
                 });
           }

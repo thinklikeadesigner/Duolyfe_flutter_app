@@ -122,12 +122,14 @@ class _ChooseInterestsState extends State<ChooseInterests> {
                         child: ListView.builder(
                             controller: _scrollController,
                             itemCount: interestList['interests'].length,
-                            itemBuilder: (BuildContext context, int index) {
+                            itemBuilder: (
+                              BuildContext context, int index) {
                               return CheckboxListTile(
                                 value: _currentInterests
                                     .contains(interestList['interests'][index]),
                                 //NOTE this is interesting bc we are actually addin the interest with _onInterestSelected
                                 onChanged: (bool selected) {
+
                                   _onInterestSelected(selected,
                                       interestList['interests'][index]);
                                 },
@@ -141,6 +143,11 @@ class _ChooseInterestsState extends State<ChooseInterests> {
                 ),
               ],
             ),
+            
+
+
+
+
             bottomSheet: Card(
               elevation: 10.0,
               child: Padding(
@@ -156,7 +163,7 @@ class _ChooseInterestsState extends State<ChooseInterests> {
                           ),
                           style: TextButton.styleFrom(
                             onSurface: primaryTeal,
-                            // fixedSize: Size(_currentInterests.length < 3 ? 150 : 100, 10),
+
                             primary: Colors.black,
                             backgroundColor: _currentInterests.length < 3 ? Colors.grey : primaryTeal,
                             shape: RoundedRectangleBorder(

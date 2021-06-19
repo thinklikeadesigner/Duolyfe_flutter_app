@@ -45,7 +45,7 @@ class _TaskNavState extends State<TaskNav> {
               Container(
                 margin: const EdgeInsets.fromLTRB(20, 60, 20, 20),
                 child:
-                    Image(image: AssetImage(displayBuddy.buddy), height: 150),
+                    Image(image: AssetImage(displayBuddy.buddy ?? "panda.png"), height: 150),
               ),
               StepIndicator(
                 selectedStepIndex: 3,

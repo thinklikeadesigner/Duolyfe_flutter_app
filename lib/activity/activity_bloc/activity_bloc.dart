@@ -20,7 +20,6 @@ class ActivityBloc extends Bloc<ActivityEvent, ActivityState> {
 
     else if (event is AddInterest) {
 
-
       // add interest event carries the interest from the checkbox
       print(event.chosenInterest);
       // filter activities and add is supposed to add the activities related to that interest
