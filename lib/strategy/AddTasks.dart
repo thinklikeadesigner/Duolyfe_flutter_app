@@ -2,52 +2,43 @@ import 'package:navigationapp/strategy/Points.dart';
 
 enum PointsFrom { treat, task, penalty }
 
-
-class AddTreats extends Points {
-  AddTreats(int health, int treatCount) : super(health, treatCount);
+class AddTasks extends Points {
+  AddTasks(int health, int treatCount) : super(health, treatCount);
 
   newHealth() {
-    if (currentTreatCount > 0) {
-
-      // we have treats, so now we check health
-      if (currentHealth >= 20) {
-        //current health full, health stays the same
-          return currentHealth;
+    if (currentHealth > 0) {
+      if (currentHealth <= 18) {
+        return currentHealth + 2;
+      } else if (currentHealth == 19) {
+        return currentHealth = 20;
       } else {
-        // health not full, increase health
-      return currentHealth + 1;
+        return currentHealth = 20;
       }
     } else {
-// no treats, health stays the same
-    return currentHealth;
+      return currentHealth + 2;
     }
   }
 
   newTreat() {
-    if (currentTreatCount > 0) {
-      // we have treats, so check if health full
-      if (currentHealth >= 20) {
-         // health full, treatCount doesnt change
+    if (currentHealth > 0) {
+      if (currentHealth <= 18) {
         return currentTreatCount;
+      } else if (currentHealth == 19) {
+        return currentTreatCount + 1;
       } else {
-// health not full, treatCount goes down
-        currentTreatCount -= 1;
+        return currentTreatCount + 1;
       }
-    
+    } else {
+      return currentTreatCount;
     }
-    // we don't have treats, so treatCount doesn't change
-    return currentTreatCount;
-  
-
   }
 }
 
-class AddTasks extends Points {
-  AddTasks(int health, int treatCount) : super(health, treatCount);
-}
 
 
-  
+
+
+
   
   //  set pointsAndHealth(int points) {
 //   _health = _checkHealth(points);
@@ -67,10 +58,24 @@ class AddTasks extends Points {
 //   return -1;
 // }
 
+
+
 //   // CONSTRAINTS
 //   // health cant be < 0
 //   // health cant be > 20
 //   // treatCount can't be < 0
+
+//   // VALUES that we are keeping track of
+//   // health
+//   // treatCount
+
+// ACTIONS
+// user can complete a task | health goes up by 2hp
+// user has daily penalty | health goes down by 1hp
+// user can use a treat (consumeable) | health goes up by 1hp
+
+// extra info, if user is at full health (20hp), 
+// each additional task adds 1 to treatcount
 
 //   // CASES
 
@@ -100,10 +105,26 @@ class AddTasks extends Points {
 
 //   // addTask
 //   // health == 0 && treatcount == 0
-//   // health == 1 - 9 && treatcount == 0
-//   // health == 20 && treatcount == 0
+// expect health == 2 && treatcount == treatcount
+
+//   // addTask
+//   // health == 1 - 19 && treatcount == 0 
+// expect health == 20 && treatcount == 1
+
+//   // addTask
+//   // health == 20 && treatcount == 0 then health == 20 && treacount == 2
+// expect health == 20 && treatcount == 2
+
+
+//   // addTask
 //   // health == 0 && treatcount > 0
+// expect health == 2 && treatcount == treatcount
+
+//   // addTask
 //   // health == 1 - 9 && treatcount > 0
+// expe
+
+//   // addTask
 //   // health == 20 && treatcount > 0
 
 //     // addPenalty

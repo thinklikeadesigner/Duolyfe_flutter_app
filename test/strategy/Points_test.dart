@@ -1,4 +1,4 @@
-import 'package:navigationapp/strategy/Strategy.dart';
+import 'package:navigationapp/strategy/Points.dart';
 import 'package:test/test.dart';
 
 void main() {
