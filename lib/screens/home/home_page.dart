@@ -253,6 +253,7 @@ class _HomePageState extends State<HomePage> {
                         style: TextStyle(color: Colors.black),
                       ),
                       style: TextButton.styleFrom(
+
                         primary: Colors.black,
                         backgroundColor: primaryTeal,
                         shape: RoundedRectangleBorder(

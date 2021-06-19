@@ -163,6 +163,7 @@ class _ChooseInterestsState extends State<ChooseInterests> {
                           ),
                           style: TextButton.styleFrom(
                             onSurface: primaryTeal,
+
                             primary: Colors.black,
                             backgroundColor: _currentInterests.length < 3 ? Colors.grey : primaryTeal,
                             shape: RoundedRectangleBorder(
