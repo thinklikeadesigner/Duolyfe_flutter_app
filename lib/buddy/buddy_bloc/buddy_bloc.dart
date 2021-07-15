@@ -28,7 +28,7 @@ class BuddyBloc extends Bloc<BuddyEvent, BuddyState> {
       yield* _loadBuddy();
     } else if (event is AddBuddy) {
       yield* _filterBuddiesByBuddyAndAdd(event.selectedBuddy);
-
+// BUG zero index error on first load of next page
     } 
     else if (event is ClearBuddies) {
 
